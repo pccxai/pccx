@@ -112,6 +112,7 @@ exclude_patterns = [
     "Makefile",
     # planning / audit markdown at the repo root — not part of the docs site
     "USER_ACTIONS.md",
+    "KOREAN_PUBLICATION_EDIT_REPORT.md",
     "pccx_master_roadmap_final.md",
     "pccx_v002_extended_20toks_plan.md",
     "tinynpu_v003_gemma4_e4b_plan*.md",  # the (1) variant uses a paren

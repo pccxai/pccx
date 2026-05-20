@@ -82,6 +82,14 @@ def _has_sphinx_tag(name: str) -> bool:
         return False
 
 
+if not _has_sphinx_tag("v002_book"):
+    exclude_patterns = [
+        *exclude_patterns,
+        "book",
+        "book/**",
+    ]
+
+
 if _has_sphinx_tag("v002_book"):
     root_doc = "book/v002/index"
 

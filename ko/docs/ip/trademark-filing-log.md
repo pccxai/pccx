@@ -59,6 +59,6 @@ Class 09는 open/상용 트랙 문서 및 제품군과의 연계에 대응한다
 
 ## Linked
 
-- 핵심 상표 정책: [`TRADEMARKS.md`](../../TRADEMARKS.md)
+- 핵심 상표 정책: `TRADEMARKS.md`
 - IP 전략: [`docs/ip/`](README.md)
 - 상업 트랙: [`docs/commercial/`](../commercial/README.md)
