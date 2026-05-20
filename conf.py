@@ -97,6 +97,7 @@ if _has_sphinx_tag("v002_book"):
     ]
     latex_additional_files = [
         "_static/cover.tex",
+        "_static/cover/cover-art.jpg",
         "_static/colophon.tex",
     ]
     latex_show_urls = "footnote"
@@ -127,6 +128,20 @@ if _has_sphinx_tag("v002_book"):
 \usepackage{bookmark}
 \usepackage{makeidx}
 \usepackage{newunicodechar}
+\usepackage{tikz}
+\IfFontExistsTF{Pretendard}{\newfontfamily\pccxcoverfont{Pretendard}}{%
+  \IfFontExistsTF{Noto Sans CJK KR}{\newfontfamily\pccxcoverfont{Noto Sans CJK KR}}{%
+    \IfFontExistsTF{NanumGothic}{\newfontfamily\pccxcoverfont{NanumGothic}}{\newfontfamily\pccxcoverfont{Latin Modern Sans}}%
+  }%
+}
+\IfFontExistsTF{Courier New}{\newfontfamily\pccxcovermono{Courier New}}{%
+  \IfFontExistsTF{Noto Sans Mono}{\newfontfamily\pccxcovermono{Noto Sans Mono}}{\newfontfamily\pccxcovermono{Latin Modern Mono}}%
+}
+\titleformat{\chapter}[display]
+  {\normalfont\pccxcovermono\bfseries\huge}
+  {\chaptertitlename\ \thechapter}
+  {12pt}
+  {\Huge}
 \makeindex
 \newunicodechar{→}{\ensuremath{\rightarrow}}
 \newunicodechar{←}{\ensuremath{\leftarrow}}

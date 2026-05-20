@@ -12,6 +12,7 @@ on:
       - "book/v002/**"
       - "docs/v002/**"
       - "_static/cover.tex"
+      - "_static/cover/**"
       - "_static/colophon.tex"
       - "conf.py"
       - "conf_common.py"
