@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+echo "[pccx] running pre-commit strict Sphinx build..."
+
+if ! make strict; then
+    echo
+    echo "Sphinx strict build failed. Run 'make strict' locally to see warnings."
+    exit 1
+fi
+
+echo "[pccx] strict Sphinx build passed."
