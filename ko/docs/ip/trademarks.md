@@ -12,7 +12,7 @@ orphan: true
 공식 등록은 아직 확정되지 않았으므로, 현재 목록은 "사용 주장"임을 의미한다.
 
 공식 진입점 및 최신 filing은
-[`TRADEMARKS.md`](../../TRADEMARKS.md)와
+`TRADEMARKS.md`와
 [`trademark-filing-log.md`](trademark-filing-log.md)를 함께 확인한다.
 공개 문서에서 첫 언급에는 `PCCX™`를 사용하고,
 해당 관할권 등록이 완료되기 전에는 `PCCX®`를 쓰지 않는다.

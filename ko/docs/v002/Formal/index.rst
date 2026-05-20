@@ -12,7 +12,7 @@ pccx v002 는 `Sail <https://sail-lang.org/>`_ 로 작성된 **기계 검증
 - `CHERI / Morello <https://www.cl.cam.ac.uk/research/security/ctsrd/cheri/>`_
   (형식 검증된 capability 기반 보안 아키텍처)
 
-Sail 모델은 opcode 폭, 필드 배치, 인코딩 invariant 의 **단일 진실원**입니다..
+Sail 모델은 opcode 폭, 필드 배치, 인코딩 invariant 의 **단일 진실원** 입니다.
 ``hw/rtl/NPU_Controller/NPU_Control_Unit/ISA_PACKAGE/isa_pkg.sv`` 의
 SystemVerilog RTL 이 이를 refine 한다 — Sail 타입이 바뀌면 실리콘
 테이프아웃보다 먼저 Sail 타입체커가 오류를 잡는다.

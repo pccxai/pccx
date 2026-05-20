@@ -38,7 +38,7 @@ orphan: true
 - `pccx-v002/Vision/` 흡수 여부는 호환성 리뷰 후 결정.
 - Voice 도메인 아직 placeholder 상태.
 - ASIC/MPW 탐색은 장기 항목으로 현재는 범위 밖.
-- 상용/스폰서/투자 약관은 모두 [commercial](../commercial/)에서 DRAFT 상태.
+- 상용/스폰서/투자 약관은 모두 [commercial](../commercial/README.md)에서 DRAFT 상태.
 
 ## 이 페이지의 범위
 
