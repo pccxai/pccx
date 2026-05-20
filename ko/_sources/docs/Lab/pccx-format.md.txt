@@ -19,7 +19,7 @@ _최근 개정: 2026-04-29._
 
 ## 파일 헤더
 
-모든 멀티바이트 정수는 **리틀-엔디언**이다.
+모든 멀티바이트 정수는 **리틀-엔디언**입니다..
 
 | 오프셋 | 크기 | 필드 | 설명 |
 |--------|------|------|------|
@@ -175,8 +175,8 @@ pub fn fnv1a_64(data: &[u8]) -> u64 {
   title        = {.pccx Binary Format Specification: container format for NPU profiling traces},
   author       = {Kim, Hyunwoo},
   year         = {2026},
-  howpublished = {\url{https://pccx.pages.dev/ko/docs/Lab/pccx-format.html}},
-  note         = {Part of pccx: \url{https://pccx.pages.dev/}}
+  howpublished = {\url{https://pccx.ai/ko/docs/Lab/pccx-format.html}},
+  note         = {Part of pccx: \url{https://pccx.ai/}}
 }
 ```
 

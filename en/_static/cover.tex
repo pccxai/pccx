@@ -1,0 +1,41 @@
+\begin{titlepage}
+\thispagestyle{empty}
+\begingroup
+\setlength{\parindent}{0pt}
+\begin{tikzpicture}[remember picture,overlay]
+\node[inner sep=0pt] at (current page.center)
+  {\includegraphics[height=\paperheight]{_static/cover/cover-art.jpg}};
+
+\node[
+  anchor=north west,
+  align=left,
+  inner sep=0pt,
+  text=black,
+  text width=0.76\paperwidth
+] at ([xshift=14mm,yshift=-14mm]current page.north west) {%
+  {\pccxcovermono\bfseries\fontsize{20}{24}\selectfont [[TITLE\_PLACEHOLDER]]\par}
+  \vspace{3mm}
+  {\pccxcoverfont\bfseries\fontsize{12}{16}\selectfont [[SUBTITLE\_PLACEHOLDER]]\par}
+  \vspace{4mm}
+  {\pccxcoverfont\fontsize{9}{12}\selectfont Private Sphinx LaTeX preprint for ISBN review\par}
+};
+
+\node[
+  anchor=south west,
+  align=left,
+  inner sep=0pt,
+  text=black,
+  text width=0.76\paperwidth
+] at ([xshift=14mm,yshift=16mm]current page.south west) {%
+  {\pccxcoverfont\fontsize{10}{13}\selectfont [[AUTHOR\_PLACEHOLDER]]\par}
+  \vspace{1mm}
+  {\pccxcoverfont\fontsize{10}{13}\selectfont Altifigence\texttrademark{}\quad 2026\par}
+  \vspace{1mm}
+  {\pccxcovermono\fontsize{8}{11}\selectfont ISBN [[ISBN\_PLACEHOLDER]]\par}
+};
+\end{tikzpicture}
+
+\null
+\endgroup
+
+\end{titlepage}

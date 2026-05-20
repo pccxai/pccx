@@ -18,7 +18,7 @@ myst:
 
 ## 설치
 
-pccx-lab 은 Rust 워크스페이스(`crates/`) + React/Vite 프론트엔드(`ui/`) 로
+pccx-lab은 Rust 워크스페이스(`crates/`) + React/Vite 프론트엔드(`ui/`) 로
 구성된 Tauri v2 데스크톱 앱이다. Rust 워크스페이스는 9개 크레이트로 구성된다:
 `core`, `reports`, `verification`, `authoring`, `evolve`, `lsp`, `remote`,
 `uvm_bridge`, `workflow_facade`. 모든 크레이트는 `pccx-core` 를 의존 그래프의
@@ -155,7 +155,7 @@ Timeline 주요 단축키: `Ctrl+Scroll` 로 사이클 축 줌, 드래그로 팬
   title        = {pccx-lab Quickstart: installing the profiler and loading the first trace},
   author       = {Kim, Hyunwoo},
   year         = {2026},
-  howpublished = {\url{https://pccx.pages.dev/ko/docs/Lab/quickstart.html}},
-  note         = {Part of pccx: \url{https://pccx.pages.dev/}}
+  howpublished = {\url{https://pccx.ai/ko/docs/Lab/quickstart.html}},
+  note         = {Part of pccx: \url{https://pccx.ai/}}
 }
 ```

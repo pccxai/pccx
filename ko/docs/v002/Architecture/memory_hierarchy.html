@@ -3,23 +3,23 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Memory Hierarchy" />
+<meta property="og:title" content="메모리 계층" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://pccx.pages.dev/docs/v002/Architecture/memory_hierarchy.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="The pccx v002 memory subsystem is a four-level hierarchy: host DDR4 → Weight Buffer / L2 Cache → L1 / Constant Cache → registers inside each PE. Each level is sized to match the bandwidth of the ne..." />
+<meta property="og:description" content="pccx v002 메모리 서브시스템은 4단계 계층 구조다: host DDR4 → Weight Buffer / L2 캐시 → L1 / Constant Cache → 각 PE 내부 레지스터. 각 레벨은 다음 레벨의 대역폭에 맞춰 크기가 정해져 있어 연산 코어의 데이터 기아를 막는다. pccx v002 메모리 계층 및 인터커넥트 구조. 가중치와 활성값은 h..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://pccx.pages.dev/_images/social_previews/summary_docs_v002_Architecture_memory_hierarchy_46f5d9a3.png" />
-<meta property="og:image:alt" content="The pccx v002 memory subsystem is a four-level hierarchy: host DDR4 → Weight Buffer / L2 Cache → L1 / Constant Cache → registers inside each PE. Each level is sized to match the bandwidth of the ne..." />
-<meta name="description" content="The pccx v002 memory subsystem is a four-level hierarchy: host DDR4 → Weight Buffer / L2 Cache → L1 / Constant Cache → registers inside each PE. Each level is sized to match the bandwidth of the ne..." />
+<meta property="og:image" content="https://pccx.pages.dev/_images/social_previews/summary_docs_v002_Architecture_memory_hierarchy_6c378131.png" />
+<meta property="og:image:alt" content="pccx v002 메모리 서브시스템은 4단계 계층 구조다: host DDR4 → Weight Buffer / L2 캐시 → L1 / Constant Cache → 각 PE 내부 레지스터. 각 레벨은 다음 레벨의 대역폭에 맞춰 크기가 정해져 있어 연산 코어의 데이터 기아를 막는다. pccx v002 메모리 계층 및 인터커넥트 구조. 가중치와 활성값은 h..." />
+<meta name="description" content="pccx v002 메모리 서브시스템은 4단계 계층 구조다: host DDR4 → Weight Buffer / L2 캐시 → L1 / Constant Cache → 각 PE 내부 레지스터. 각 레벨은 다음 레벨의 대역폭에 맞춰 크기가 정해져 있어 연산 코어의 데이터 기아를 막는다. pccx v002 메모리 계층 및 인터커넥트 구조. 가중치와 활성값은 h..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"Memory Hierarchy","name":"Memory Hierarchy","url":"https://pccx.pages.dev/ko/docs/v002/Architecture/memory_hierarchy.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/v002/Architecture/memory_hierarchy.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-05-14","dateModified":"2026-05-14","description":"pccx documentation page: Memory Hierarchy. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../genindex.html"><link rel="search" title="검색" href="../../../search.html"><link rel="next" title="KV 캐시 최적화 전략" href="kv_cache.html"><link rel="prev" title="물리 플로어플랜" href="floorplan.html">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"메모리 계층","name":"메모리 계층","url":"https://pccx.pages.dev/ko/docs/v002/Architecture/memory_hierarchy.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/v002/Architecture/memory_hierarchy.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-05-20","dateModified":"2026-05-20","description":"pccx documentation page: 메모리 계층. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../genindex.html"><link rel="search" title="검색" href="../../../search.html"><link rel="next" title="KV 캐시 최적화 전략" href="kv_cache.html"><link rel="prev" title="물리 플로어플랜" href="floorplan.html">
         <link rel="canonical" href="https://docs.pccx.ai/docs/v002/Architecture/memory_hierarchy.html">
 
     <link rel="shortcut icon" href="../../../_static/pccx_wordmark_favicon.ico"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
-        <title>Memory Hierarchy - pccx 문서</title>
+        <title>메모리 계층 - pccx 문서</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
@@ -349,7 +349,7 @@ SPDX-License-Identifier: Apache-2.0
 <li class="toctree-l3"><a class="reference internal" href="rationale.html">v001 → v002 설계 근거</a></li>
 <li class="toctree-l3"><a class="reference internal" href="top_level.html">탑레벨 아키텍처</a></li>
 <li class="toctree-l3"><a class="reference internal" href="floorplan.html">물리 플로어플랜</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Memory Hierarchy</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">메모리 계층</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kv_cache.html">KV 캐시 최적화 전략</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gemm_core.html">GEMM 코어 (시스톨릭 어레이)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gemv_core.html">GEMV 코어</a></li>
@@ -361,7 +361,7 @@ SPDX-License-Identifier: Apache-2.0
 <li class="toctree-l2 has-children"><a class="reference internal" href="../ISA/index.html">명령어 세트 아키텍처 (ISA)</a><input aria-label="Toggle navigation of 명령어 세트 아키텍처 (ISA)" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ISA/encoding.html">명령어 인코딩</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ISA/instructions.html">명령어 상세 인코딩</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ISA/dataflow.html">Per-Instruction Dataflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ISA/dataflow.html">지시어별 데이터 흐름</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Formal/index.html">형식 모델 — Sail</a><input aria-label="Toggle navigation of 형식 모델 — Sail" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
@@ -409,15 +409,34 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">pccx-lab 핸드북</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lab/index.html">pccx-lab 핸드북</a><input aria-label="Toggle navigation of pccx-lab 핸드북" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/architecture.html">아키텍처 개요</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/cli.html">CLI 레퍼런스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/analyzer_api.html">분석기 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/workflow_facade.html">Workflow Facade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/research.html">pccx-lab 연구 계보</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/panels.html">UI 패널 카탈로그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/ipc.html">Tauri IPC 계약</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/verification-workflow.html">검증 워크플로</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/pccx-format.html">.pccx 바이너리 포맷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/uvm-bridge.html">UVM 브리지</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/self-evolution.html">사이클 루프</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/quickstart.html">pccx-lab 퀵스타트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lab/core-modules.html">pccx-core 모듈 레퍼런스</a></li>
+</ul>
+</li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">아카이브</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../archive/index.html">아카이브</a><input aria-label="Toggle navigation of 아카이브" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../archive/experimental_v001/index.html">아카이브: v001 실험적 아키텍처</a><input aria-label="Toggle navigation of 아카이브: v001 실험적 아키텍처" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../archive/index.html">아카이브</a><input aria-label="Toggle navigation of 아카이브" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../archive/experimental_v001/index.html">아카이브: v001 실험적 아키텍처</a><input aria-label="Toggle navigation of 아카이브: v001 실험적 아키텍처" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Architecture/v001_architecture.html">pccx: Parallel Compute Core eXecutor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/ISA.html">pccx ISA 사양</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/ISA_Spreadsheet.html">pccx ISA 스프레드시트 뷰</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/v001_API.html">pccx v001 호스트 API 개발자 레퍼런스</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../archive/experimental_v001/RTL/index.html">RTL 소스 레퍼런스 (v001)</a><input aria-label="Toggle navigation of RTL 소스 레퍼런스 (v001)" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../archive/experimental_v001/RTL/index.html">RTL 소스 레퍼런스 (v001)</a><input aria-label="Toggle navigation of RTL 소스 레퍼런스 (v001)" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/top.html">최상위</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/packages.html">패키지와 상수</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/controller.html">NPU 컨트롤러</a></li>
@@ -437,12 +456,12 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 <p class="caption" role="heading"><span class="caption-text">툴체인 데모</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../samples/index.html">툴체인 데모</a><input aria-label="Toggle navigation of 툴체인 데모" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../samples/index.html">툴체인 데모</a><input aria-label="Toggle navigation of 툴체인 데모" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/mermaid_blockdiagram.html">Mermaid — NPU 블록 다이어그램</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/wavedrom_axi_read.html">WaveDrom — AXI4 read 트랜잭션</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/svg_themed_demo.html">SVG — 테마 대응 4×4 PE 어레이</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/plot_bandwidth.html">scienceplots — batch size 대비 대역폭</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_plots/index.html">Plot gallery</a><input aria-label="Toggle navigation of Plot gallery" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_plots/index.html">Plot gallery</a><input aria-label="Toggle navigation of Plot gallery" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_plots/plot_bandwidth.html">Batch size vs achieved HP-AXI bandwidth</a></li>
 </ul>
 </li>
@@ -451,9 +470,7 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 <p class="caption" role="heading"><span class="caption-text">도구</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://labs.pccx.ai/">pccx-lab — 시뮬레이터 &amp; AI 프로파일러</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://launcher.pccx.ai/">PCCX Launcher</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://ide.pccx.ai/">SystemVerilog IDE</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pccx.ai/ko/lab/">pccx-lab — 시뮬레이터 &amp; AI 프로파일러</a></li>
 </ul>
 
   <div class="pccx-version-switcher"
@@ -504,23 +521,22 @@ SPDX-License-Identifier: Apache-2.0
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="memory-hierarchy">
-<h1>Memory Hierarchy<a class="headerlink" href="#memory-hierarchy" title="Link to this heading">¶</a></h1>
-<p>The pccx v002 memory subsystem is a four-level hierarchy:
-<strong>host DDR4 → Weight Buffer / L2 Cache → L1 / Constant Cache →
-registers inside each PE</strong>. Each level is sized to match the bandwidth
-of the next and to prevent data starvation in the compute cores.</p>
+          <section id="id1">
+<h1>메모리 계층<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p>pccx v002 메모리 서브시스템은 4단계 계층 구조다:
+<strong>host DDR4 → Weight Buffer / L2 캐시 → L1 / Constant Cache → 각 PE 내부 레지스터</strong>.
+각 레벨은 다음 레벨의 대역폭에 맞춰 크기가 정해져 있어 연산 코어의 데이터
+기아를 막는다.</p>
 <figure class="align-center" id="fig-memory-hierarchy">
 <span id="v002-memory-hierarchy-fig"></span><a class="reference internal image-reference" href="../../../_images/v002_memory_hierarchy.svg"><img alt="../../../_images/v002_memory_hierarchy.svg" src="../../../_images/v002_memory_hierarchy.svg" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">그림 6 </span><span class="caption-text">pccx v002 Memory Hierarchy &amp; Interconnect Architecture. Weights and
-activations are staged from host DDR4 through URAM-based L2 and
-Weight Buffers to the compute-local BRAM caches.</span><a class="headerlink" href="#fig-memory-hierarchy" title="Link to this image">¶</a></p>
+<p><span class="caption-number">그림 6 </span><span class="caption-text">pccx v002 메모리 계층 및 인터커넥트 구조. 가중치와 활성값은 host DDR4에서
+URAM 기반 L2와 Weight Buffer를 거쳐 연산 전용 BRAM 캐시로 전달된다.</span><a class="headerlink" href="#fig-memory-hierarchy" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<section id="hierarchy">
-<h2>1. Hierarchy<a class="headerlink" href="#hierarchy" title="Link to this heading">¶</a></h2>
+<section id="id2">
+<h2>1. 계층<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -531,11 +547,11 @@ Weight Buffers to the compute-local BRAM caches.</span><a class="headerlink" hre
 <col style="width: 30.0%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Level</p></th>
-<th class="head"><p>Media</p></th>
-<th class="head"><p>Capacity (KV260)</p></th>
-<th class="head"><p>Peak Bandwidth</p></th>
-<th class="head"><p>Purpose</p></th>
+<tr class="row-odd"><th class="head"><p>레벨</p></th>
+<th class="head"><p>저장체계</p></th>
+<th class="head"><p>용량 (KV260)</p></th>
+<th class="head"><p>최대 대역폭</p></th>
+<th class="head"><p>목적</p></th>
 </tr>
 </thead>
 <tbody>
@@ -543,97 +559,95 @@ Weight Buffers to the compute-local BRAM caches.</span><a class="headerlink" hre
 <td><p>FF</p></td>
 <td><p>Inside DSP48E2</p></td>
 <td><p>48 bit / clk / DSP</p></td>
-<td><p>Accumulator</p></td>
+<td><p>누산기</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>L1 Cache</strong></p></td>
 <td><p>BRAM</p></td>
 <td><p>A few KB per core</p></td>
 <td><p>32 element / clk</p></td>
-<td><p>GEMV activation / result staging</p></td>
+<td><p>GEMV 활성값 / 결과 임시저장</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Constant Cache</strong></p></td>
 <td><p>BRAM</p></td>
 <td><p>A few KB per core</p></td>
 <td><p>16 bit × N / clk</p></td>
-<td><p>ISA shape/size pointers, scale factors</p></td>
+<td><p>ISA shape/size 포인터, 스케일 팩터</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>L2 Cache</strong></p></td>
 <td><p>URAM</p></td>
 <td><p><strong>1.75 MB</strong> (114,688 × 128-bit; ~50 of 64 URAM)</p></td>
 <td><p>256 bit × 2 / clk (both slices)</p></td>
-<td><p>Activations, KV cache, intermediate results</p></td>
+<td><p>활성값, KV-cache, 중간 결과</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Weight Buffer</strong></p></td>
 <td><p>URAM (FIFO)</p></td>
 <td><p>4 × 64 KB (4 HP ports, 4096 deep each)</p></td>
 <td><p>128 bit/clk per HP port &#64; 250 MHz</p></td>
-<td><p>INT4 weight stream</p></td>
+<td><p>INT4 가중치 스트림</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Host DDR4</strong></p></td>
 <td><p>External DRAM</p></td>
 <td><p>4 × 512 Mb × 16-bit</p></td>
 <td><p><strong>19.2 GB/s</strong></p></td>
-<td><p>Model weights, inputs, token outputs</p></td>
+<td><p>모델 가중치, 입력, 토큰 출력</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="bandwidth-matching">
-<h2>2. Bandwidth Matching<a class="headerlink" href="#bandwidth-matching" title="Link to this heading">¶</a></h2>
-<section id="weight-path">
-<h3>2.1 Weight Path<a class="headerlink" href="#weight-path" title="Link to this heading">¶</a></h3>
-<p><strong>Goal</strong>: the HP ports must deliver enough weight bandwidth to feed the
-GEMM systolic array each cycle.</p>
+<section id="id3">
+<h2>2. 대역폭 정합<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<section id="id4">
+<h3>2.1 가중치 경로<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p><strong>목표</strong>: HP 포트가 매 사이클마다 GEMM systolic array에 필요한 가중치 대역폭을
+충분히 제공해야 한다.</p>
 <ul class="simple">
-<li><p>Systolic array: <strong>32 × 32 = 1,024 DSP</strong> at 400 MHz (one grid, cascade
-split at row 16 into two 32 × 16 sub-chains).</p></li>
-<li><p>With W4A8 dual-channel packing, <strong>1 DSP = 2 MAC</strong>, so 2,048 MAC/clk.</p></li>
-<li><p>Weight demand: 2,048 × 4 bit = <strong>8,192 bit/clk &#64; 400 MHz</strong>.</p></li>
-<li><p>Supply: HP0 + HP1 deliver <strong>2 × 128 bit/clk &#64; 250 MHz</strong> (64 Gbit/s
-total raw), which normalizes to <strong>~160 bit/clk &#64; 400 MHz</strong> downstream
-of the CDC FIFO.</p></li>
+<li><p>Systolic array: 32 × 32 = 1,024 DSP(400 MHz, 1개의 그리드,
+16행에서 두 개의 32 × 16 서브체인으로 분기).</p></li>
+<li><p>W4A8 듀얼 채널 패킹에서는 1 DSP = 2 MAC이므로, 2,048 MAC/clk이 된다.</p></li>
+<li><p>가중치 요구량: 2,048 × 4 bit = <strong>8,192 bit/clk &#64; 400 MHz</strong>.</p></li>
+<li><p>공급량: HP0 + HP1은 2 × 128 bit/clk &#64; 250 MHz(총 64 Gbit/s raw)를 제공하며,
+CDC FIFO 하류에서 ~160 bit/clk &#64; 400 MHz로 정규화된다.</p></li>
 </ul>
-<p>The gap is closed by <strong>weight reuse (Weight Stationary)</strong>: the GEMM
-systolic array preloads weights once and reuses them for hundreds to
-thousands of cycles; the Weight Buffer only prefetches. See
-<a class="reference internal" href="gemm_core.html"><span class="doc">GEMM 코어 (시스톨릭 어레이)</span></a> for the exact reuse pattern.</p>
+<p>격차는 가중치 재사용(Weight Stationary)으로 해소한다. GEMM systolic array는
+가중치를 한 번 로드한 뒤 수백~수천 사이클 동안 재사용하고, Weight Buffer는
+미리 패치(prefetch)만 수행한다. 정확한 재사용 패턴은
+<a class="reference internal" href="gemm_core.html"><span class="doc">GEMM 코어 (시스톨릭 어레이)</span></a> 를 참고한다.</p>
 </section>
-<section id="activation-path">
-<h3>2.2 Activation Path<a class="headerlink" href="#activation-path" title="Link to this heading">¶</a></h3>
-<p><strong>Goal</strong>: L2 cache must satisfy concurrent activation reads from GEMM,
-GEMV, and SFU.</p>
+<section id="id5">
+<h3>2.2 활성값 경로<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p><strong>목표</strong>: L2 캐시가 GEMM, GEMV, SFU에서 동시성으로 발생하는 활성값
+읽기 요청을 만족해야 한다.</p>
 <ul class="simple">
-<li><p>L2 cache ports: <strong>dual-port URAM</strong> — ACP DMA on Port A, NPU compute
-on Port B, both 128-bit wide per cycle.</p></li>
-<li><p>Peak per-slice activation demand from the GEMV cores: 4 cores ×
-32 INT8 elements per clock = 128 INT8 elements per clock total.
-A single 128-bit URAM read supplies 16 INT8 elements per cycle,
-so the GEMV broadcast path (the same activation is reused across
-all four cores) fits within a single port.</p></li>
+<li><p>L2 캐시 포트: <strong>듀얼 포트 URAM</strong> — Port A는 ACP DMA, Port B는 NPU 연산이며,
+두 포트 모두 1클럭당 128-bit 폭을 가진다.</p></li>
+<li><p>GEMV 코어의 피크 활성값 요구량: 4개 코어 × 클럭당 32 INT8 요소 =
+총 128 INT8 요소/클럭이다. 하나의 128-bit URAM 읽기는 한 번에 16개 INT8
+요소를 공급하므로 GEMV 브로드캐스트 경로(동일 활성값이 네 코어에 공유)는
+한 포트 안에 수용된다.</p></li>
 </ul>
 </section>
-<section id="host-device-path">
-<h3>2.3 Host ↔ Device Path<a class="headerlink" href="#host-device-path" title="Link to this heading">¶</a></h3>
-<p><strong>Goal</strong>: load model weights during prefill, and support KV cache updates
-plus token output during decoding.</p>
+<section id="host-device">
+<h3>2.3 Host ↔ Device 경로<a class="headerlink" href="#host-device" title="Link to this heading">¶</a></h3>
+<p><strong>목표</strong>: 사전 채움(prefill) 시 모델 가중치를 로드하고 디코딩 시 KV-cache
+업데이트와 토큰 출력을 처리한다.</p>
 <ul class="simple">
-<li><p>DMA via AXI ACP port. Capped by host DDR4’s 19.2 GB/s.</p></li>
-<li><p>v002.1 처리량 목표 (~20 tokens/s; <a class="reference internal" href="../../roadmap.html"><span class="doc">로드맵</span></a> 참고) 에서
-host ↔ device 트래픽은 KV 캐시 업데이트와 새 토큰 쓰기가 지배 —
-예산 내에 충분히 들어옵니다.</p></li>
+<li><p>AXI ACP 포트를 통해 DMA를 수행한다. 상한은 host DDR4의 19.2 GB/s이다.</p></li>
+<li><p>v002.1 처리량 목표(<a class="reference internal" href="../../roadmap.html"><span class="doc">로드맵</span></a> 기준 약 20 tokens/s)에서는
+host ↔ device 트래픽의 대부분이 KV-cache 업데이트와 새 토큰 쓰기로
+구성되므로 예산 내에서 수용 가능하다.</p></li>
 </ul>
 </section>
 </section>
-<section id="cache-operating-policy">
-<h2>3. Cache Operating Policy<a class="headerlink" href="#cache-operating-policy" title="Link to this heading">¶</a></h2>
-<section id="l2-cache-central-shared-buffer">
-<h3>3.1 L2 Cache: Central Shared Buffer<a class="headerlink" href="#l2-cache-central-shared-buffer" title="Link to this heading">¶</a></h3>
-<p>L2 cache runs as a <strong>software-managed scratchpad</strong> — there is no
-hardware replacement policy. Addresses are named directly in the
-instruction stream (<code class="docutils literal notranslate"><span class="pre">MEMCPY</span> <span class="pre">dest_addr</span></code>, <code class="docutils literal notranslate"><span class="pre">GEMM</span> <span class="pre">src_addr</span></code>).</p>
-<p>The 1.75 MB L2 capacity is partitioned into 8 banks of dual-port URAM to
-support concurrent access from multiple cores.</p>
+<section id="id6">
+<h2>3. 캐시 운용 정책<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<section id="l2">
+<h3>3.1 L2 캐시: 중앙 공유 스크래치패드<a class="headerlink" href="#l2" title="Link to this heading">¶</a></h3>
+<p>L2 캐시는 소프트웨어 관리 스크래치패드로 동작한다. 전용 하드웨어 교체
+정책은 없다. 주소는 명령어 스트림에서 직접 지정한다
+(<code class="docutils literal notranslate"><span class="pre">MEMCPY</span> <span class="pre">dest_addr</span></code>, <code class="docutils literal notranslate"><span class="pre">GEMM</span> <span class="pre">src_addr</span></code>).</p>
+<p>1.75 MB인 L2는 8개 듀얼 포트 URAM bank로 분할되어 다중 코어 동시 접근을
+지원한다.</p>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 220" class="pccx-diagram">
   <rect x="0" y="0" width="620" height="220" fill="#ffffff"/>
   <style>
@@ -687,40 +701,36 @@ support concurrent access from multiple cores.</p>
   <rect class="block-mem" x="505" y="90" width="60" height="30"/>
   <rect class="block-mem" x="505" y="125" width="60" height="30"/>
   <rect class="block-mem" x="505" y="160" width="60" height="30"/>
-</svg><p>Benefits:</p>
+</svg><p>장점:</p>
 <ul class="simple">
-<li><p>Predictable latency (no tag matching, no miss handling).</p></li>
-<li><p>The compiler can lay out data statically and route around interconnect
-contention.</p></li>
+<li><p>지연시간이 예측 가능하다(태그 매칭이나 miss 핸들링 없음).</p></li>
+<li><p>컴파일러가 데이터를 정적 레이아웃으로 배치해 인터커넥트 경합을 회피할 수 있다.</p></li>
 </ul>
 </section>
-<section id="constant-cache-isa-pointer-backing-store">
-<h3>3.2 Constant Cache: ISA Pointer Backing Store<a class="headerlink" href="#constant-cache-isa-pointer-backing-store" title="Link to this heading">¶</a></h3>
-<p>The ISA references shape / size metadata through 6-bit
-<code class="docutils literal notranslate"><span class="pre">shape_ptr_addr</span></code> and <code class="docutils literal notranslate"><span class="pre">size_ptr_addr</span></code> fields. These pointers index
-into the Constant Cache’s 64 entries, which are preloaded by MEMSET. See
-<a class="reference internal" href="../ISA/instructions.html"><span class="doc">명령어 상세 인코딩</span></a> for the encoding.</p>
+<section id="constant-cache-isa">
+<h3>3.2 Constant Cache: ISA 포인터 백엔딩 스토어<a class="headerlink" href="#constant-cache-isa" title="Link to this heading">¶</a></h3>
+<p>ISA는 6비트 <code class="docutils literal notranslate"><span class="pre">shape_ptr_addr</span></code> 와 <code class="docutils literal notranslate"><span class="pre">size_ptr_addr</span></code> 필드를 통해
+shape/size 메타데이터를 참조한다. 이 포인터는 Constant Cache의 64개
+엔트리를 가리키며 MEMSET으로 사전 로드된다. 인코딩 규칙은
+<a class="reference internal" href="../ISA/instructions.html"><span class="doc">명령어 상세 인코딩</span></a> 를 참고한다.</p>
 </section>
-<section id="weight-buffer-streaming-fifo">
-<h3>3.3 Weight Buffer: Streaming FIFO<a class="headerlink" href="#weight-buffer-streaming-fifo" title="Link to this heading">¶</a></h3>
-<p>The Weight Buffer is implemented as a circular FIFO that absorbs the
-timing difference between HP port prefetch and core consumption. It
-supports both GEMM’s Weight Stationary reuse and GEMV’s Weight Streaming
-pattern via bank-level interleaving.</p>
+<section id="weight-buffer-fifo">
+<h3>3.3 Weight Buffer: 스트리밍 FIFO<a class="headerlink" href="#weight-buffer-fifo" title="Link to this heading">¶</a></h3>
+<p>Weight Buffer는 HP 포트 프리패치와 코어 소비 사이 타이밍 오차를 흡수하는
+원형 FIFO로 구현된다. bank-level interleaving을 통해 GEMM의 Weight Stationary
+재사용과 GEMV의 Weight Streaming 패턴을 모두 처리한다.</p>
 </section>
 </section>
-<section id="preventing-data-starvation">
-<h2>4. Preventing Data Starvation<a class="headerlink" href="#preventing-data-starvation" title="Link to this heading">¶</a></h2>
-<p>Pipeline stalls are avoided with <strong>double-buffering</strong> throughout:</p>
+<section id="id7">
+<h2>4. 데이터 병목 완화<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<p>파이프라인 정지를 피하려면 전체 경로에서 더블 버퍼링을 사용한다.</p>
 <ul class="simple">
-<li><p><strong>GEMM activations</strong>: ping-pong buffers between L2 and the PEs.</p></li>
-<li><p><strong>GEMV activations</strong>: L1 cache partitioned across banks so that
-reads and writes proceed in parallel.</p></li>
-<li><p><strong>Weights</strong>: ping-pong FIFO inside the Weight Buffer.</p></li>
+<li><p><strong>GEMM 활성값</strong>: L2와 PE 사이에서 ping-pong 버퍼.</p></li>
+<li><p><strong>GEMV 활성값</strong>: L1 캐시를 bank별로 분할해 읽기와 쓰기를 병렬 진행.</p></li>
+<li><p><strong>가중치</strong>: Weight Buffer 내부의 ping-pong FIFO.</p></li>
 </ul>
-<p>The design targets 100% utilization on every compute core under ideal
-conditions. Measured utilization will be reported in the Implementation
-section once synthesis results are in.</p>
+<p>이 설계는 이상적인 조건에서 각 연산 코어의 100% 이용률을 목표로 한다.
+실측 이용률은 합성 결과가 확보되면 구현 섹션 문서에 보고한다.</p>
 </section>
 </section>
 
@@ -764,7 +774,7 @@ section once synthesis results are in.</p>
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-05-14</div>
+              Last updated on 2026-05-20</div>
           </div>
           <div class="right-details">
             <div class="icons">
@@ -797,21 +807,21 @@ section once synthesis results are in.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Memory Hierarchy</a><ul>
-<li><a class="reference internal" href="#hierarchy">1. Hierarchy</a></li>
-<li><a class="reference internal" href="#bandwidth-matching">2. Bandwidth Matching</a><ul>
-<li><a class="reference internal" href="#weight-path">2.1 Weight Path</a></li>
-<li><a class="reference internal" href="#activation-path">2.2 Activation Path</a></li>
-<li><a class="reference internal" href="#host-device-path">2.3 Host ↔ Device Path</a></li>
+<li><a class="reference internal" href="#">메모리 계층</a><ul>
+<li><a class="reference internal" href="#id2">1. 계층</a></li>
+<li><a class="reference internal" href="#id3">2. 대역폭 정합</a><ul>
+<li><a class="reference internal" href="#id4">2.1 가중치 경로</a></li>
+<li><a class="reference internal" href="#id5">2.2 활성값 경로</a></li>
+<li><a class="reference internal" href="#host-device">2.3 Host ↔ Device 경로</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cache-operating-policy">3. Cache Operating Policy</a><ul>
-<li><a class="reference internal" href="#l2-cache-central-shared-buffer">3.1 L2 Cache: Central Shared Buffer</a></li>
-<li><a class="reference internal" href="#constant-cache-isa-pointer-backing-store">3.2 Constant Cache: ISA Pointer Backing Store</a></li>
-<li><a class="reference internal" href="#weight-buffer-streaming-fifo">3.3 Weight Buffer: Streaming FIFO</a></li>
+<li><a class="reference internal" href="#id6">3. 캐시 운용 정책</a><ul>
+<li><a class="reference internal" href="#l2">3.1 L2 캐시: 중앙 공유 스크래치패드</a></li>
+<li><a class="reference internal" href="#constant-cache-isa">3.2 Constant Cache: ISA 포인터 백엔딩 스토어</a></li>
+<li><a class="reference internal" href="#weight-buffer-fifo">3.3 Weight Buffer: 스트리밍 FIFO</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#preventing-data-starvation">4. Preventing Data Starvation</a></li>
+<li><a class="reference internal" href="#id7">4. 데이터 병목 완화</a></li>
 </ul>
 </li>
 </ul>
