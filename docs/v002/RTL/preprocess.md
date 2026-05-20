@@ -31,7 +31,7 @@ are driven to MAT_CORE.
 ```
 
 Accepts a 256-bit AXI-Stream slave (16 × BF16) and produces a 432-bit
-master (16 × 27-bit fixed-point). The conversion spans **3 registered
+master (16 × 27-bit fixed-point). The conversion spans **3 clocked
 pipeline stages**.
 
 - **Stage 1** (`phase / buffer_low / block_valid`): On the even beat,

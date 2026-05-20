@@ -2,12 +2,16 @@
 Overview
 ====================
 
-|Status| |Architecture| |Target| |Precision|
+.. only:: html
 
-.. |Status| image:: https://img.shields.io/badge/Status-Active_Development-yellow
-.. |Architecture| image:: https://img.shields.io/badge/Architecture-Heterogeneous_NPU-purple
-.. |Target| image:: https://img.shields.io/badge/Target-Kria_KV260-orange
-.. |Precision| image:: https://img.shields.io/badge/Precision-W4A8-green
+   .. raw:: html
+
+      <p>
+        <img alt="Status: Active Development" src="https://img.shields.io/badge/Status-Active_Development-yellow">
+        <img alt="Architecture: Heterogeneous NPU" src="https://img.shields.io/badge/Architecture-Heterogeneous_NPU-purple">
+        <img alt="Target: Kria KV260" src="https://img.shields.io/badge/Target-Kria_KV260-orange">
+        <img alt="Precision: W4A8" src="https://img.shields.io/badge/Precision-W4A8-green">
+      </p>
 
 1. Project Goal
 ================
