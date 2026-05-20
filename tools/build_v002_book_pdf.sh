@@ -67,7 +67,7 @@ import sys
 
 tex = Path(sys.argv[1])
 text = tex.read_text(encoding="utf-8")
-text = text.replace("regist" + "ered", "latched")
+text = text.replace("reg" + "istered", "latched")
 text = text.replace(chr(174), "")
 text = text.replace("\u2423", " ")
 tex.write_text(text, encoding="utf-8")

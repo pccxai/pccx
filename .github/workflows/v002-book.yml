@@ -80,7 +80,7 @@ jobs:
 
           pdf = sys.argv[1]
           text = subprocess.check_output(["pdftotext", pdf, "-"], text=True, errors="ignore")
-          blocked = ["NVI" + "DIA", "In" + "tel", "in" + "tel", "regist" + "ered", chr(174)]
+          blocked = ["NVI" + "DIA", "In" + "tel", "in" + "tel", "reg" + "istered", chr(174)]
           hits = [term for term in blocked if term in text]
           if hits:
               print("Blocked term found in extracted PDF text.", file=sys.stderr)
