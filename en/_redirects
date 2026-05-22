@@ -1,0 +1,9 @@
+/en/docs/v002/* https://docs.altifigence.com/products/v002/:splat 301
+/ko/docs/v002/* https://docs.altifigence.com/kr-ko/products/v002/:splat 301
+/docs/v002/* https://docs.altifigence.com/products/v002/:splat 301
+/en/* https://docs.altifigence.com/v002/sphinx-mirror/:splat 301
+/ko/* https://docs.altifigence.com/v002/sphinx-mirror/ko/:splat 301
+/robots.txt https://docs.altifigence.com/robots.txt 301
+/sitemap.xml https://docs.altifigence.com/sitemap.xml 301
+/ https://docs.altifigence.com/v002/sphinx-mirror/ 301
+/* https://docs.altifigence.com/v002/sphinx-mirror/:splat 301
