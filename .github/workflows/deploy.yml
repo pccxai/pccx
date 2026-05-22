@@ -74,6 +74,9 @@ jobs:
           if [ -f _extra/robots.txt ]; then
             cp _extra/robots.txt _build/html/robots.txt
           fi
+          if [ -f _extra/_redirects ]; then
+            cp _extra/_redirects _build/html/_redirects
+          fi
           cat > _build/html/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
