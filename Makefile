@@ -83,6 +83,9 @@ site-root-files:
 	@if [ -f "$(ROOT_ROBOTS)" ]; then \
 	    cp "$(ROOT_ROBOTS)" "$(BUILD_ROOT)/robots.txt"; \
 	fi
+	@if [ -f "_extra/_redirects" ]; then \
+	    cp "_extra/_redirects" "$(BUILD_ROOT)/_redirects"; \
+	fi
 	@{ \
 	    printf '%s\n' '<?xml version="1.0" encoding="UTF-8"?>'; \
 	    printf '%s\n' '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'; \

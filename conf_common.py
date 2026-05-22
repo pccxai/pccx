@@ -429,6 +429,10 @@ def _write_cloudflare_root_discovery_files(app, exception) -> None:
     if robots_src.exists():
         shutil.copyfile(robots_src, build_root / "robots.txt")
 
+    redirects_src = Path(_CONF_COMMON_DIR) / "_extra" / "_redirects"
+    if redirects_src.exists():
+        shutil.copyfile(redirects_src, build_root / "_redirects")
+
     sitemap_entries = [
         ("en", "sitemap-en.xml"),
         ("ko", "sitemap-ko.xml"),
