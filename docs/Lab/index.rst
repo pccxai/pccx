@@ -53,6 +53,13 @@ For the user-facing desktop app itself, see the separate
       ``generate_uvm_sequence``, ``list_uvm_strategies``) and the
       Phase 2 ``pccx-lsp`` provider traits + ``LspMultiplexer``.
 
+   .. grid-item-card:: :octicon:`shield-check;1em;sd-mr-1` FPGA synthesis guardrails
+      :link: fpga-synthesis-automation-guardrails
+      :link-type: doc
+
+      Artifact-first synthesis automation boundaries, preflight rules,
+      evidence states, queue fields, and Trace/Evolve review packet shape.
+
    .. grid-item-card:: :octicon:`milestone;1em;sd-mr-1` Research lineage
       :link: research
       :link-type: doc
@@ -70,6 +77,7 @@ For the user-facing desktop app itself, see the separate
    cli
    analyzer_api
    workflow_facade
+   fpga-synthesis-automation-guardrails
    research
    panels
    ipc
