@@ -63,7 +63,7 @@ Tracking issue: [pccxai/pccx#28 — v0.2.0 umbrella][v020].
 - v003.0 — Gemma 4 E4B foundation + first architectural novelty (planning);
   throughput TBD
 - v003.1 — second novelty + KV / decoding co-design; throughput TBD
-- placeholder track index: {doc}`v003/index`
+- placeholder track index: [docs.altifigence.com — v003](https://docs.altifigence.com/v003/)
 
 ## Parallel — vision-v001: CNN inference track on KV260
 
@@ -82,7 +82,7 @@ dedicated repository.
 - evidence posture — the same release evidence checklist gates
   timing / throughput / bring-up before any FPS or mAP figure lands
   on this docs site
-- placeholder track index: {doc}`vision-v001/index`
+- placeholder track index: vision is being absorbed into v003 at docs.altifigence.com
 
 ## Family overview
 
