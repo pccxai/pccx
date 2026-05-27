@@ -137,12 +137,6 @@ v003 산출물을 사용합니다.
 
 .. toctree::
    :maxdepth: 1
-   :caption: pccx-lab 핸드북
-
-   docs/Lab/index
-
-.. toctree::
-   :maxdepth: 1
    :caption: 아카이브
 
    docs/archive/index
