@@ -109,7 +109,7 @@ cd ~/pccx-ws/pccx-FPGA-NPU-LLM-kv260/scripts/board
 
 ## 6. 다음 단계
 
-- 프로파일러 API surface 는 [pccx-lab 핸드북](Lab/index).
+- 프로파일러 API surface 는 [pccx-lab 핸드북 (docs.altifigence.com)](https://docs.altifigence.com/).
 - Sail 스캐폴드는 [형식 모델(Formal Model) 페이지](v002/Formal/index).
 - 실측 tok/s + 지연 수치는 [Evidence 페이지](Evidence/index) (보드
   실행 및 측정 진행 중).

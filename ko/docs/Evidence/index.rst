@@ -60,7 +60,7 @@ Evidence
    * - KV260 자원 사용량 (LUT / DSP / URAM / BRAM)
      - Vivado impl 대기
      - ``pccx_analyze --run-synth <rtl_repo>`` 랜딩
-       (:doc:`../Lab/cli`)
+       (Lab CLI 는 docs.altifigence.com 에서 추적)
    * - Post-route timing status @ 400 MHz core / 250 MHz AXI
      - Vivado impl 대기
      - 위와 동일

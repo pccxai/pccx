@@ -61,7 +61,7 @@ KV260 bring-up `[HW]` → 런타임 `[HW]` → 릴리스 증거 체크리스트
   같은 방식
 - v003.0 — Gemma 4 E4B 파운데이션 + 첫 아키텍처 novelty (planning); 처리량 TBD
 - v003.1 — 두 번째 novelty + KV / 디코딩 co-design; 처리량 TBD
-- 트랙 placeholder 인덱스: {doc}`v003/index`
+- 트랙 placeholder 인덱스: [docs.altifigence.com — v003](https://docs.altifigence.com/v003/)
 
 ## Parallel — vision-v001: KV260 위 CNN 추론 트랙
 
@@ -79,7 +79,7 @@ LLM 라인과는 별개로, **vision** 워크로드 전용 두 번째 제품 라
 - 증거 자세 — 동일한 릴리스 증거 체크리스트가 타이밍 / 처리량 /
   bring-up 게이트 역할. FPS / mAP 수치는 게이트 통과 시점에만 이
   문서 사이트에 등장
-- 트랙 placeholder 인덱스: {doc}`vision-v001/index`
+- 트랙 placeholder 인덱스: vision 트랙은 docs.altifigence.com 의 v003 안으로 흡수 중
 
 ## Family overview
 

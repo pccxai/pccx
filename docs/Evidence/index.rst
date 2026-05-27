@@ -60,7 +60,7 @@ Pending (board / synth)
    * - KV260 resource usage (LUT / DSP / URAM / BRAM)
      - pending Vivado impl
      - ``pccx_analyze --run-synth <rtl_repo>`` landing
-       (:doc:`../Lab/cli`)
+       (Lab CLI is tracked at docs.altifigence.com)
    * - Post-route timing status @ 400 MHz core / 250 MHz AXI
      - pending Vivado impl
      - Gate as above
