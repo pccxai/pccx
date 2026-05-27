@@ -15,7 +15,7 @@
 <meta name="description" content="uca_hal_* 함수 집합은 공개 C API ( uca_*, :doc: api)와 NPU 하드웨어 사이의 AXI-Lite MMIO 계층이다. 이 계층 위의 코드는 물리 주소나 레지스터 오프셋에 직접 접근하지 않는다. 구현은 codes/v002/sw/driver/uCA_v1_hal.c/ uCA_v1_hal.h 에 위치한다. HAL 위치: 드라이버 스택..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"HAL — AXI-Lite MMIO 계층","name":"HAL — AXI-Lite MMIO 계층","url":"https://pccx.pages.dev/ko/docs/v002/Drivers/hal.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/v002/Drivers/hal.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-05-22","dateModified":"2026-05-22","description":"pccx documentation page: HAL — AXI-Lite MMIO 계층. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../genindex.html"><link rel="search" title="검색" href="../../../search.html"><link rel="next" title="타깃 모델" href="../Models/index.html"><link rel="prev" title="C API 개요" href="api.html">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"HAL — AXI-Lite MMIO 계층","name":"HAL — AXI-Lite MMIO 계층","url":"https://pccx.pages.dev/ko/docs/v002/Drivers/hal.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/v002/Drivers/hal.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-05-27","dateModified":"2026-05-27","description":"pccx documentation page: HAL — AXI-Lite MMIO 계층. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../genindex.html"><link rel="search" title="검색" href="../../../search.html"><link rel="next" title="타깃 모델" href="../Models/index.html"><link rel="prev" title="C API 개요" href="api.html">
         <link rel="canonical" href="https://docs.pccx.ai/docs/v002/Drivers/hal.html">
 
     <link rel="shortcut icon" href="../../../_static/pccx_wordmark_favicon.ico"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
@@ -330,9 +330,7 @@ SPDX-License-Identifier: Apache-2.0
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">소개</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">pccx: 병렬 컴퓨트 코어 익스큐터</a><input aria-label="Toggle navigation of pccx: 병렬 컴퓨트 코어 익스큐터" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../v003/index.html">pccx v003 — LLM 라인 후속, 별도 RTL 저장소</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../vision-v001/index.html">pccx vision-v001 — KV260 위 CNN 추론 트랙</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">pccx: 병렬 컴퓨트 코어 익스큐터</a><input aria-label="Toggle navigation of pccx: 병렬 컴퓨트 코어 익스큐터" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">퀵스타트</a></li>
@@ -409,34 +407,15 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">pccx-lab 핸드북</span></p>
-<ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lab/index.html">pccx-lab 핸드북</a><input aria-label="Toggle navigation of pccx-lab 핸드북" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/architecture.html">아키텍처 개요</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/cli.html">CLI 레퍼런스</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/analyzer_api.html">분석기 API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/workflow_facade.html">Workflow Facade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/research.html">pccx-lab 연구 계보</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/panels.html">UI 패널 카탈로그</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/ipc.html">Tauri IPC 계약</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/verification-workflow.html">검증 워크플로</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/pccx-format.html">.pccx 바이너리 포맷</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/uvm-bridge.html">UVM 브리지</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/self-evolution.html">사이클 루프</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/quickstart.html">pccx-lab 퀵스타트</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lab/core-modules.html">pccx-core 모듈 레퍼런스</a></li>
-</ul>
-</li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">아카이브</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../archive/index.html">아카이브</a><input aria-label="Toggle navigation of 아카이브" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../archive/experimental_v001/index.html">아카이브: v001 실험적 아키텍처</a><input aria-label="Toggle navigation of 아카이브: v001 실험적 아키텍처" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../archive/index.html">아카이브</a><input aria-label="Toggle navigation of 아카이브" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../archive/experimental_v001/index.html">아카이브: v001 실험적 아키텍처</a><input aria-label="Toggle navigation of 아카이브: v001 실험적 아키텍처" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Architecture/v001_architecture.html">pccx: Parallel Compute Core eXecutor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/ISA.html">pccx ISA 사양</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/ISA_Spreadsheet.html">pccx ISA 스프레드시트 뷰</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/v001_API.html">pccx v001 호스트 API 개발자 레퍼런스</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../archive/experimental_v001/RTL/index.html">RTL 소스 레퍼런스 (v001)</a><input aria-label="Toggle navigation of RTL 소스 레퍼런스 (v001)" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../archive/experimental_v001/RTL/index.html">RTL 소스 레퍼런스 (v001)</a><input aria-label="Toggle navigation of RTL 소스 레퍼런스 (v001)" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/top.html">최상위</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/packages.html">패키지와 상수</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/controller.html">NPU 컨트롤러</a></li>
@@ -456,12 +435,12 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 <p class="caption" role="heading"><span class="caption-text">툴체인 데모</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../samples/index.html">툴체인 데모</a><input aria-label="Toggle navigation of 툴체인 데모" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../samples/index.html">툴체인 데모</a><input aria-label="Toggle navigation of 툴체인 데모" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/mermaid_blockdiagram.html">Mermaid — NPU 블록 다이어그램</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/wavedrom_axi_read.html">WaveDrom — AXI4 read 트랜잭션</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/svg_themed_demo.html">SVG — 테마 대응 4×4 PE 어레이</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../samples/plot_bandwidth.html">scienceplots — batch size 대비 대역폭</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_plots/index.html">Plot gallery</a><input aria-label="Toggle navigation of Plot gallery" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_plots/index.html">Plot gallery</a><input aria-label="Toggle navigation of Plot gallery" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../auto_plots/plot_bandwidth.html">Batch size vs achieved HP-AXI bandwidth</a></li>
 </ul>
 </li>
@@ -533,7 +512,7 @@ SPDX-License-Identifier: Apache-2.0
 <p>드라이버 스택은 두 계층으로 나뉜다.</p>
 <div class="table-wrapper docutils container" id="tbl-driver-layers">
 <table class="docutils align-default" id="tbl-driver-layers">
-<caption><span class="caption-number">표 5 </span><span class="caption-text">드라이버 계층 구조</span><a class="headerlink" href="#tbl-driver-layers" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">표 2 </span><span class="caption-text">드라이버 계층 구조</span><a class="headerlink" href="#tbl-driver-layers" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>계층</p></th>
 <th class="head"><p>심볼 접두사</p></th>
@@ -571,7 +550,7 @@ Vivado 블록 디자인의 AXI-Lite 슬레이브 주소 할당과 일치해야 �
 <p>(소스 코드는 위의 KV260 보드 통합 저장소에서 확인하세요)</p>
 <div class="table-wrapper docutils container" id="tbl-hal-regmap">
 <table class="docutils align-default" id="tbl-hal-regmap">
-<caption><span class="caption-number">표 6 </span><span class="caption-text">레지스터 맵</span><a class="headerlink" href="#tbl-hal-regmap" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">표 3 </span><span class="caption-text">레지스터 맵</span><a class="headerlink" href="#tbl-hal-regmap" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>이름</p></th>
 <th class="head"><p>오프셋</p></th>
@@ -690,7 +669,7 @@ KV260 베어메탈 환경에서는 물리 주소가 직접 접근 가능하다.<
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-05-22</div>
+              Last updated on 2026-05-27</div>
           </div>
           <div class="right-details">
             <div class="icons">

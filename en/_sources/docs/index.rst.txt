@@ -92,16 +92,11 @@ under :doc:`v002/index`:
    floorplan.
 4. :doc:`v002/Drivers/index` — driver and SDK documentation.
 
-Working tracks for the next release lines:
+v003 and the Vision track no longer live on this Sphinx site. They are
+maintained at `docs.altifigence.com <https://docs.altifigence.com/>`__,
+which is now the canonical hub for every PCCX™ track beyond v002.
 
-- :doc:`v003/index` — future LLM IP-core line in ``pccx-v003``
-  (Gemma 4 E4B is tracked only as a non-binding first-application note).
-- :doc:`vision-v001/index` — parallel CNN inference track on the same
-  KV260 substrate (working name ``pccx-vision-v001``; first model
-  candidates ResNet18 / YOLOv8n / MobileNetV3).
-
-The :doc:`roadmap` summarises how the three tracks relate, and the
-``pccx`` family-tree figure on that page links them visually.
+The :doc:`roadmap` retains the historical relationship between tracks.
 
 Evidence-gated v002.1 pointers:
 
@@ -167,28 +162,17 @@ Altifigence.
       Every v002 RTL reference page on this site links back to the exact
       ``.sv`` file in that repository.
 
-   .. grid-item-card:: :octicon:`zap;1em;sd-mr-1` pccx-v003 (future)
+   .. grid-item-card:: :octicon:`globe;1em;sd-mr-1` docs.altifigence.com
       :columns: 12 12 4 4
-      :link: v003/index
-      :link-type: doc
-      :link-alt: Read the pccx v003 placeholder
-
-      **pccx-v003**
-
-      Future LLM IP-core package. Gemma 4 E4B is tracked only as a
-      non-binding first-application note. See :doc:`v003/index`.
-
-   .. grid-item-card:: :octicon:`zap;1em;sd-mr-1` pccx-vision-v001 (working)
-      :columns: 12 12 4 4
-      :link: https://github.com/pccxai/pccx-vision-v001
+      :link: https://docs.altifigence.com/
       :link-type: url
-      :link-alt: Open the pccx-vision-v001 repository on GitHub
+      :link-alt: Open the Altifigence documentation hub
 
-      **github.com/pccxai/pccx-vision-v001**
+      **docs.altifigence.com**
 
-      Parallel CNN inference track on the same KV260 substrate. First
-      model candidates ResNet18 / YOLOv8n / MobileNetV3. See
-      :doc:`vision-v001/index`.
+      Canonical hub for every PCCX™ track beyond v002 (v003, Vision,
+      Lab, IDE, Launcher, Evolve). This Sphinx site keeps v002 in a
+      legacy-archive shape.
 
    .. grid-item::
       :columns: 12 12 4 4
@@ -229,5 +213,3 @@ Altifigence.
    :hidden:
 
    quickstart
-   v003/index
-   vision-v001/index

@@ -46,7 +46,7 @@ Use this checklist while reading:
 | Question | Where to check |
 |---|---|
 | Is the value measured, pending, or a target? | {doc}`Evidence/index` and {doc}`roadmap` |
-| Which testbench or tool produced it? | {doc}`v002/Verification/index` and {doc}`Lab/verification-workflow` |
+| Which testbench or tool produced it? | {doc}`v002/Verification/index` (Lab workflow now at docs.altifigence.com) |
 | Does it depend on Vivado synth, implementation, or board bring-up? | {doc}`v002/Build/index` |
 | Is it a model-mapping claim rather than hardware evidence? | {doc}`v002/Models/gemma3n_execution` |
 
@@ -69,13 +69,9 @@ as errors. `make lint` runs the lightweight prose and Sphinx lint pass.
 For longer-lived branches, run `make linkcheck` before release or when
 adding external URLs.
 
-For trace and lab workflow reproduction, use the existing pccx-lab
-handbook instead of this page:
-
-- {doc}`Lab/quickstart` for opening sample `.pccx` traces.
-- {doc}`Lab/verification-workflow` for the xsim-to-trace verification
-  path.
-- {doc}`Lab/cli` for headless trace inspection and golden-diff gates.
+For trace and lab workflow reproduction, see the PCCX Lab handbook at
+`docs.altifigence.com <https://docs.altifigence.com/>`__ — the Sphinx
+mirror of the Lab pages no longer lives on this site.
 
 ## 4. Read the deploy runbook
 
@@ -118,9 +114,9 @@ the RTL `isa_pkg.sv` package wins over prose.
 
 ### Should a reader start with the lab app?
 
-Start with this page if you are reviewing claims. Start with
-{doc}`Lab/quickstart` if you want to open traces or inspect the pccx-lab
-UI.
+Start with this page if you are reviewing claims. For trace/UI work,
+see the Lab handbook at
+[docs.altifigence.com](https://docs.altifigence.com/).
 
 ### Do English and Korean docs both need manual edits?
 
