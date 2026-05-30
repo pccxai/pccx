@@ -2,7 +2,7 @@
 # pccx — documentation build targets
 #
 # Convenience wrapper around sphinx-build / sphinx-autobuild for the dual
-# English-Korean dual-source site. See CLAUDE.md §7 for the full command list.
+# English-Korean dual-source site. Run "make help" for the full command list.
 # =============================================================================
 
 PY             ?= python
@@ -39,6 +39,7 @@ help:
 	@echo "  make ko          Build Korean  HTML  → $(KO_OUT)/"
 	@echo "  make all         Build both languages"
 	@echo "  make strict      Build both with -W (CI mode)"
+	@echo "                   (use REQUIRE_RTL=0 for docs-only work without RTL)"
 	@echo "  make dev-en      Autobuild + serve EN on :$(DEV_PORT_EN)"
 	@echo "  make dev-ko      Autobuild + serve KO on :$(DEV_PORT_KO)"
 	@echo "  make linkcheck   Run Sphinx linkcheck builder (EN + KO)"
@@ -51,26 +52,45 @@ help:
 
 # -- Preflight --------------------------------------------------------------
 #
-# v002 RTL sources live in an external repo and must be cloned into
-# codes/v002/ before RTL literalinclude pages can build.
+# v002 RTL sources live in an external repo (public mirror by default).
+#
+# For pure documentation work in *this repo only*:
+#   make lint
+#   make strict REQUIRE_RTL=0
+#
+# For full verification with real RTL literalincludes:
+#   git clone --depth 1 https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260 codes/v002
+#   make strict
+#
+# REQUIRE_RTL=1 (default) enforces the check for targets that need RTL.
+# This policy applies only to the documentation repo.
+
+REQUIRE_RTL ?= 1
 
 check-codes:
+ifeq ($(REQUIRE_RTL),1)
 	@if [ ! -d "codes/v002/.git" ]; then \
 	    echo "\033[33m[pccx] codes/v002 is missing.\033[0m"; \
-	    echo "    Clone it with:"; \
-	    echo "        git clone --depth 1 \\"; \
-	    echo "            https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260 \\"; \
-	    echo "            codes/v002"; \
+	    echo "    For docs-only work:  make lint    or    make strict REQUIRE_RTL=0"; \
+	    echo "    For full RTL verification:"; \
+	    echo "        git clone --depth 1 https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260 codes/v002"; \
 	    exit 1; \
 	fi
+endif
 
 
 # -- Build targets ----------------------------------------------------------
 
-en: check-codes
+en:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXBUILD) -b html $(SPHINXOPTS) $(EN_SRC) $(EN_OUT)
 
-ko: check-codes
+ko:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXBUILD) -b html $(SPHINXOPTS) $(KO_SRC) $(KO_OUT)
 
 all: en ko
@@ -81,16 +101,25 @@ strict: all
 
 # -- Dev servers ------------------------------------------------------------
 
-dev-en: check-codes
+dev-en:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXAUTOBLD) $(AUTOBLD_FLAGS) --port $(DEV_PORT_EN) $(EN_SRC) $(EN_OUT)
 
-dev-ko: check-codes
+dev-ko:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXAUTOBLD) $(AUTOBLD_FLAGS) --port $(DEV_PORT_KO) $(KO_SRC) $(KO_OUT)
 
 
 # -- Quality gates ----------------------------------------------------------
 
-linkcheck: check-codes
+linkcheck:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXBUILD) -b linkcheck $(EN_SRC) _build/linkcheck/en
 	$(SPHINXBUILD) -b linkcheck $(KO_SRC) _build/linkcheck/ko
 

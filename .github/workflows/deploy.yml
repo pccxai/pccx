@@ -12,6 +12,8 @@ on:
 # part of the vN → vN+1 transition.
 env:
   ACTIVE_VERSION: v002
+  # This documentation repo uses a public mirror.
+  # Doc-only changes do not require RTL (clone step below is non-blocking).
   RTL_REPO_URL: https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260
   RTL_REPO_REF: main
 
@@ -40,7 +42,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends graphviz
 
-      - name: Clone active ${{ env.ACTIVE_VERSION }} RTL
+      - name: Clone active ${{ env.ACTIVE_VERSION }} RTL (optional for docs)
+        # Non-blocking for documentation-only changes in this repo.
         continue-on-error: true
         run: |
           git clone --depth 1 --branch "${RTL_REPO_REF}" \

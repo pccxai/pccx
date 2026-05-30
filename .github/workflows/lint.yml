@@ -33,6 +33,9 @@ on:
 
 env:
   ACTIVE_VERSION: v002
+  # This documentation repo uses a public mirror.
+  # Doc-only changes do not require RTL (the clone step below has continue-on-error).
+  # For full literalinclude verification, clone the mirror locally and run `make strict`.
   RTL_REPO_URL: https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260
   RTL_REPO_REF: main
 
@@ -59,7 +62,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends graphviz
 
-      - name: Clone active ${{ env.ACTIVE_VERSION }} RTL
+      - name: Clone active ${{ env.ACTIVE_VERSION }} RTL (optional for docs)
+        # This repo treats RTL as optional for documentation work.
+        # continue-on-error prevents doc-only PRs from being blocked by clone issues.
         continue-on-error: true
         run: |
           git clone --depth 1 --branch "${RTL_REPO_REF}" \
