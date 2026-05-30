@@ -2,7 +2,7 @@
 # pccx — documentation build targets
 #
 # Convenience wrapper around sphinx-build / sphinx-autobuild for the dual
-# English-Korean dual-source site.
+# English-Korean dual-source site. Run "make help" for the full command list.
 # =============================================================================
 
 PY             ?= python
@@ -18,9 +18,6 @@ KO_SRC         := ko
 BUILD_ROOT     := _build/html
 EN_OUT         := $(BUILD_ROOT)/en
 KO_OUT         := $(BUILD_ROOT)/ko
-ROOT_ROBOTS    := _extra/robots.txt
-ROOT_SITEMAP   := $(BUILD_ROOT)/sitemap.xml
-PUBLIC_BASE_URL := https://docs.pccx.ai
 
 # Dev server ports.
 DEV_PORT_EN    := 8000
@@ -33,7 +30,7 @@ AUTOBLD_FLAGS  := --re-ignore '_build' --re-ignore 'auto_plots' --open-browser
 
 # -- Phony ------------------------------------------------------------------
 
-.PHONY: help en ko all site-root-files strict dev-en dev-ko linkcheck lint clean distclean \
+.PHONY: help en ko all strict dev-en dev-ko linkcheck lint clean distclean \
         check-codes install install-dev
 
 help:
@@ -42,6 +39,7 @@ help:
 	@echo "  make ko          Build Korean  HTML  → $(KO_OUT)/"
 	@echo "  make all         Build both languages"
 	@echo "  make strict      Build both with -W (CI mode)"
+	@echo "                   (use REQUIRE_RTL=0 for docs-only work without RTL)"
 	@echo "  make dev-en      Autobuild + serve EN on :$(DEV_PORT_EN)"
 	@echo "  make dev-ko      Autobuild + serve KO on :$(DEV_PORT_KO)"
 	@echo "  make linkcheck   Run Sphinx linkcheck builder (EN + KO)"
@@ -54,49 +52,48 @@ help:
 
 # -- Preflight --------------------------------------------------------------
 #
-# v002 RTL sources live in an external repo and must be cloned into
-# codes/v002/ before RTL literalinclude pages can build.
+# v002 RTL sources live in an external repo (public mirror by default).
+#
+# For pure documentation work in *this repo only*:
+#   make lint
+#   make strict REQUIRE_RTL=0
+#
+# For full verification with real RTL literalincludes:
+#   git clone --depth 1 https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260 codes/v002
+#   make strict
+#
+# REQUIRE_RTL=1 (default) enforces the check for targets that need RTL.
+# This policy applies only to the documentation repo.
+
+REQUIRE_RTL ?= 1
 
 check-codes:
+ifeq ($(REQUIRE_RTL),1)
 	@if [ ! -d "codes/v002/.git" ]; then \
 	    echo "\033[33m[pccx] codes/v002 is missing.\033[0m"; \
-	    echo "    Clone it with:"; \
-	    echo "        git clone --depth 1 \\"; \
-	    echo "            https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260 \\"; \
-	    echo "            codes/v002"; \
+	    echo "    For docs-only work:  make lint    or    make strict REQUIRE_RTL=0"; \
+	    echo "    For full RTL verification:"; \
+	    echo "        git clone --depth 1 https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260 codes/v002"; \
 	    exit 1; \
 	fi
+endif
 
 
 # -- Build targets ----------------------------------------------------------
 
-en: check-codes
+en:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXBUILD) -b html $(SPHINXOPTS) $(EN_SRC) $(EN_OUT)
 
-ko: check-codes
+ko:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXBUILD) -b html $(SPHINXOPTS) $(KO_SRC) $(KO_OUT)
 
-all: en ko site-root-files
-
-site-root-files:
-	mkdir -p $(BUILD_ROOT)
-	@if [ -f "$(ROOT_ROBOTS)" ]; then \
-	    cp "$(ROOT_ROBOTS)" "$(BUILD_ROOT)/robots.txt"; \
-	fi
-	@if [ -f "_extra/_redirects" ]; then \
-	    cp "_extra/_redirects" "$(BUILD_ROOT)/_redirects"; \
-	fi
-	@{ \
-	    printf '%s\n' '<?xml version="1.0" encoding="UTF-8"?>'; \
-	    printf '%s\n' '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'; \
-	    if [ -f "$(EN_OUT)/sitemap-en.xml" ]; then \
-	        printf '%s\n' '  <sitemap><loc>$(PUBLIC_BASE_URL)/en/sitemap-en.xml</loc></sitemap>'; \
-	    fi; \
-	    if [ -f "$(KO_OUT)/sitemap-ko.xml" ]; then \
-	        printf '%s\n' '  <sitemap><loc>$(PUBLIC_BASE_URL)/ko/sitemap-ko.xml</loc></sitemap>'; \
-	    fi; \
-	    printf '%s\n' '</sitemapindex>'; \
-	} > "$(ROOT_SITEMAP)"
+all: en ko
 
 strict: SPHINXOPTS += $(STRICT)
 strict: all
@@ -104,16 +101,25 @@ strict: all
 
 # -- Dev servers ------------------------------------------------------------
 
-dev-en: check-codes
+dev-en:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXAUTOBLD) $(AUTOBLD_FLAGS) --port $(DEV_PORT_EN) $(EN_SRC) $(EN_OUT)
 
-dev-ko: check-codes
+dev-ko:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXAUTOBLD) $(AUTOBLD_FLAGS) --port $(DEV_PORT_KO) $(KO_SRC) $(KO_OUT)
 
 
 # -- Quality gates ----------------------------------------------------------
 
-linkcheck: check-codes
+linkcheck:
+ifeq ($(REQUIRE_RTL),1)
+	$(MAKE) check-codes
+endif
 	$(SPHINXBUILD) -b linkcheck $(EN_SRC) _build/linkcheck/en
 	$(SPHINXBUILD) -b linkcheck $(KO_SRC) _build/linkcheck/ko
 
@@ -121,7 +127,7 @@ lint:
 	@command -v sphinx-lint >/dev/null || (echo "sphinx-lint missing; pip install -r requirements-dev.txt"; exit 1)
 	sphinx-lint --enable all --disable line-too-long docs ko/docs
 	@command -v codespell >/dev/null || (echo "codespell missing"; exit 1)
-	codespell --skip="*.svg,*.png,*.jpg,*.jpeg,*.pdf,*.js,*.css,*.html,_build,auto_plots,.venv,codes,.git,todo.md" \
+	codespell --skip="*.svg,*.png,*.jpg,*.jpeg,*.js,*.css,*.html,_build,auto_plots,.venv,codes,.git" \
 	          --ignore-words-list="nd,ot,te,ans,hist,ue,som,sow,lod"
 
 
