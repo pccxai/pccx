@@ -21,6 +21,11 @@ them requires explicit written agreement under applicable law.
 | [Commercial](commercial-track.md) | Customers needing supported deliverables: ProCore, Enterprise SDK, ASICKit, model porting, integration support, certification | Commercial offerings under separate terms. Pricing TBD. |
 | [Capital](capital-track.md) | Sponsors, strategic customers, external investors | Distinct funding mechanisms with distinct legal forms. |
 
+The BYOL synthesis policy lives in
+[byol-synthesis-license-model.md](byol-synthesis-license-model.md). It
+defines the customer-owned Vivado / Quartus license boundary for local,
+isolated VM, and hybrid synthesis flows.
+
 ## Separation matrix
 
 The full role separation lives in
