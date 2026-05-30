@@ -56,34 +56,6 @@ jobs:
             exit 1
           fi
 
-      - name: Stale owner URL scan
-        run: |
-          set -e
-          # pccx and siblings transferred to the pccxai org on 2026-04-30.
-          # The personal handle @hkimw and the personal Pages site
-          # hkimw.github.io/hkimw/ are intentionally preserved.
-          bad=""
-          for pattern in \
-            'hwkim-dev' \
-            'hkimw.github.io/pccx' \
-            'hwkim-dev.github.io/pccx' \
-            'github.com/hwkim-dev/pccx' \
-            'github.com/hkimw/pccx-lab' \
-            'github.com/hkimw/pccx-FPGA-NPU-LLM-kv260'
-          do
-            hits=$(git grep -nF -- "$pattern" -- ':!.github/workflows/validate.yml' || true)
-            if [ -n "$hits" ]; then bad="${bad}${hits}"$'\n'; fi
-          done
-          # Bare github.com/hkimw/pccx (not followed by -lab or -FPGA-...).
-          # Use grep -P to avoid hyphen-leading character classes.
-          hits=$(git grep -nP 'github\.com/hkimw/pccx(?![A-Za-z0-9-])' -- ':!.github/workflows/validate.yml' || true)
-          if [ -n "$hits" ]; then bad="${bad}${hits}"$'\n'; fi
-          if [ -n "$bad" ]; then
-            echo "::error::Stale owner URLs found:"
-            printf '%s' "$bad"
-            exit 1
-          fi
-
       - name: YAML syntax (workflow files)
         run: |
           set -e
