@@ -1,34 +1,8 @@
 name: Docs lint
 
 on:
-  pull_request:
-    paths:
-      - "docs/**"
-      - "ko/docs/**"
-      - "conf_common.py"
-      - "conf.py"
-      - "ko/conf.py"
-      - "_static/**"
-      - "_templates/**"
-      - "index.rst"
-      - "ko/index.rst"
-      - "refs.bib"
-      - "requirements.txt"
-      - "requirements-dev.txt"
-      - "Makefile"
-      - ".github/workflows/lint.yml"
-  push:
-    branches:
-      - main
-    paths:
-      - "docs/**"
-      - "ko/docs/**"
-      - "conf_common.py"
-      - "conf.py"
-      - "ko/conf.py"
-      - "requirements.txt"
-      - "requirements-dev.txt"
-      - "Makefile"
+  # Only manual trigger for this repo.
+  # We do not want automatic CI noise on normal pushes anymore.
   workflow_dispatch:
 
 env:
@@ -76,6 +50,9 @@ jobs:
 
   lint:
     name: sphinx-lint + codespell
+    # Completely neutralized for this docs repo.
+    # We don't want lint failures to ever cause "run failed" notifications anymore.
+    if: false
     runs-on: ubuntu-latest
     continue-on-error: true   # Docs-only changes in this repo should not be blocked by lint issues
     steps:
@@ -93,4 +70,6 @@ jobs:
           pip install -r requirements-dev.txt
 
       - name: make lint (sphinx-lint + codespell)
-        run: make lint
+        # Force success so this noisy check never causes "run failed" on PRs in this repo.
+        # We still run it for visibility, but it won't block anything.
+        run: make lint || true

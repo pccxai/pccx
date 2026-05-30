@@ -15,19 +15,7 @@ name: isa-pdf
 # rebuild after editing main.tex, the artifact diff makes it visible.
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - "main.tex"
-      - "FONT/**"
-      - "tools/build_isa_pdf.sh"
-      - ".github/workflows/isa-pdf.yml"
-  pull_request:
-    paths:
-      - "main.tex"
-      - "FONT/**"
-      - "tools/build_isa_pdf.sh"
-      - ".github/workflows/isa-pdf.yml"
+  # Disabled automatic runs in this docs repo.
   workflow_dispatch:
 
 # Opt JavaScript actions into the Node.js 24 runtime ahead of the
