@@ -11,9 +11,10 @@ name: repo-validate
 # unsuitable as required checks on their own; this fills that gap.
 
 on:
-  # Completely disabled automatic triggers in this docs repo.
-  # We no longer want any CI noise on normal pushes.
-  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
@@ -31,9 +32,7 @@ jobs:
   repo-validate:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    # Completely neutralized for this docs repo.
-    # We no longer want any of these checks to ever cause "run failed" notifications.
-    if: false
+    continue-on-error: true   # This repo treats repo-validate as advisory for documentation changes
     steps:
       - name: Checkout
         uses: actions/checkout@v4
