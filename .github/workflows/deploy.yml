@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    continue-on-error: true   # Documentation repo: deployment issues should not create noise on normal pushes
     steps:
       - name: Checkout
         uses: actions/checkout@v4
