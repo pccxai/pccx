@@ -26,6 +26,10 @@ env:
 
 jobs:
   build:
+    # Completely disabled in this docs repo.
+    # The private book build with token requirement was causing repeated "run failed".
+    # This repo no longer wants this noise.
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 40
     permissions:

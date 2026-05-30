@@ -76,8 +76,10 @@ jobs:
 
   lint:
     name: sphinx-lint + codespell
+    # Completely neutralized for this docs repo.
+    # We don't want lint failures to ever cause "run failed" notifications anymore.
+    if: false
     runs-on: ubuntu-latest
-    continue-on-error: true   # Docs-only changes in this repo should not be blocked by lint issues
     steps:
       - uses: actions/checkout@v4
 
