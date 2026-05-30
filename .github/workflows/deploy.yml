@@ -41,6 +41,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends graphviz
 
       - name: Clone active ${{ env.ACTIVE_VERSION }} RTL
+        continue-on-error: true
         run: |
           git clone --depth 1 --branch "${RTL_REPO_REF}" \
               "${RTL_REPO_URL}" "codes/${ACTIVE_VERSION}"
