@@ -1,5 +1,6 @@
 ---
-:orphan:
+orphan: true
+---
 
 # Toolchain Demos
 

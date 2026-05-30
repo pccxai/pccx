@@ -74,6 +74,11 @@
     if (clickable) {
       node.href = url;
       node.dataset.pccxVersionUrl = url;
+      // External links (v003 etc.) should open in a new tab
+      if (url.startsWith("http://") || url.startsWith("https://")) {
+        node.target = "_blank";
+        node.rel = "noopener noreferrer";
+      }
     } else {
       node.classList.add("is-disabled");
       node.setAttribute("aria-disabled", "true");
@@ -100,6 +105,20 @@
       tree.insertBefore(wrapper, tree.firstChild);
     }
     switcher.hidden = false;
+
+    // Upgrade any external links in the sidebar (Tools section etc.) to open in new tab
+    upgradeExternalSidebarLinks();
+  }
+
+  function upgradeExternalSidebarLinks() {
+    const sidebar = document.querySelector(".sidebar-tree");
+    if (!sidebar) return;
+    sidebar.querySelectorAll('a[href^="http"]').forEach((a) => {
+      if (!a.target) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+    });
   }
 
   function render(entries) {
@@ -134,8 +153,12 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main, { once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      upgradeExternalSidebarLinks();
+      main();
+    }, { once: true });
   } else {
+    upgradeExternalSidebarLinks();
     main();
   }
 })();

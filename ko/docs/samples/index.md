@@ -1,5 +1,6 @@
 ---
-:orphan:
+orphan: true
+---
 
 # 툴체인 데모
 
