@@ -11,10 +11,9 @@ name: repo-validate
 # unsuitable as required checks on their own; this fills that gap.
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  # Completely disabled automatic triggers in this docs repo.
+  # We no longer want any CI noise on normal pushes.
+  workflow_dispatch:
 
 permissions:
   contents: read

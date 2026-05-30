@@ -5,20 +5,8 @@
 name: v002-book
 
 on:
+  # Disabled automatic runs in this docs repo.
   workflow_dispatch:
-  push:
-    branches: [ main ]
-    paths:
-      - "book/v002/**"
-      - "docs/v002/**"
-      - "_static/cover.tex"
-      - "_static/cover/**"
-      - "_static/colophon.tex"
-      - "conf.py"
-      - "conf_common.py"
-      - "requirements.txt"
-      - "tools/build_v002_book_pdf.sh"
-      - ".github/workflows/v002-book.yml"
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
