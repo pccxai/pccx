@@ -12,10 +12,10 @@
   {
     "label": "v003",
     "slug": "v003",
-    "url": "/en/docs/v003/",
+    "url": "https://docs.altifigence.com/v003/",
     "urls": {
-      "en": "/en/docs/v003/",
-      "ko": "/ko/docs/v003/"
+      "en": "https://docs.altifigence.com/v003/",
+      "ko": "https://docs.altifigence.com/v003/"
     },
     "status": "available"
   },

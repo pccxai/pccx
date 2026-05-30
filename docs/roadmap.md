@@ -49,22 +49,6 @@ Tracking issue: [pccxai/pccx#28 — v0.2.0 umbrella][v020].
 - compute budget for EAGLE head training: $70–100 ($40 if a TRC TPU
   grant lands)
 
-## Later — v003.x: separate RTL repository (LLM line continued)
-
-- v003+ active RTL development lives in
-  [`pccx-v003`](https://github.com/pccxai/pccx-v003), the canonical
-  v003 IP-core planning package; no v003 release branch has stabilised
-  yet (the earlier feeder
-  [`pccx-LLM-v003`](https://github.com/pccxai/pccx-LLM-v003) is
-  superseded / retired)
-- this docs repo will cross-link the v003 IP-core package and CI-clone
-  it into `codes/v003/` at build time, the same way it currently
-  CI-clones `pccx-FPGA-NPU-LLM-kv260` into `codes/v002/`
-- v003.0 — Gemma 4 E4B foundation + first architectural novelty (planning);
-  throughput TBD
-- v003.1 — second novelty + KV / decoding co-design; throughput TBD
-- placeholder track index: [docs.altifigence.com — v003](https://docs.altifigence.com/v003/)
-
 ## Parallel — vision-v001: CNN inference track on KV260
 
 A second product line scoped to **vision** workloads shares the same
@@ -90,11 +74,10 @@ dedicated repository.
 :name: fig-pccx-family-tree-en
 :alt: pccx product family tree across versions and tracks
 
-v001 (archived) → v002 (active KV260 LLM line: v002.0 → v002.1) →
-v003.x (LLM line continued, separate RTL repository). The
-**vision-v001** track branches at the v002 KV260 substrate and runs
-in parallel on its own repository. Hover any node for status and
-scope.
+v001 (archived) → v002 (active KV260 LLM line: v002.0 → v002.1).
+The **vision-v001** track branches at the v002 KV260 substrate and runs
+in parallel on its own repository. v003+ and other tracks live at
+docs.altifigence.com. Hover any node for status and scope.
 ```
 
 ## Links
