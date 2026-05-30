@@ -70,7 +70,7 @@ Tooling & Lab
    :class-container: pccx-toolchain-grid
 
    .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` pccx-lab
-      :link: https://labs.pccx.ai/
+      :link: https://docs.altifigence.com/lab/
       :link-type: url
       :link-alt: Open the pccx-lab verification lab
       :class-card: pccx-lab-card
@@ -84,7 +84,7 @@ Tooling & Lab
       Source: github.com/pccxai/pccx-lab
 
    .. grid-item-card:: :octicon:`rocket;1.2em;sd-mr-1` PCCX Launcher
-      :link: https://launcher.pccx.ai/
+      :link: https://docs.altifigence.com/launcher/
       :link-type: url
       :link-alt: Open the PCCX Launcher documentation
 
@@ -94,7 +94,7 @@ Tooling & Lab
       :bdg-warning:`Private source`
 
    .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` SystemVerilog IDE
-      :link: https://ide.pccx.ai/
+      :link: https://docs.altifigence.com/ide/
       :link-type: url
       :link-alt: Open the SystemVerilog IDE documentation
 
@@ -145,14 +145,8 @@ Tooling & Lab
 
 .. toctree::
    :maxdepth: 1
-   :caption: Toolchain Demos
-
-   docs/samples/index
-
-.. toctree::
-   :maxdepth: 1
    :caption: Tools
 
-   pccx-lab — Verification Lab <https://labs.pccx.ai/>
-   PCCX Launcher <https://launcher.pccx.ai/>
-   SystemVerilog IDE <https://ide.pccx.ai/>
+   pccx-lab — Verification Lab <https://docs.altifigence.com/lab/>
+   PCCX Launcher <https://docs.altifigence.com/launcher/>
+   SystemVerilog IDE <https://docs.altifigence.com/ide/>

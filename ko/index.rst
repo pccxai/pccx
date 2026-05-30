@@ -47,14 +47,14 @@ pccx는 엣지 디바이스에서 Transformer 기반 LLM을 가속하기 위한
             **github.com/pccxai/pccx** — 이 사이트를 빌드하는 Sphinx 프로젝트.
 
          .. grid-item-card:: :octicon:`telescope;1em;sd-mr-1` pccx-lab (검증 / 프로파일)
-            :link: https://pccx.ai/ko/lab/
+            :link: https://docs.altifigence.com/lab/
             :link-type: url
             :link-alt: pccx-lab 검증·프로파일링 허브 열기
 
             **pccx-lab** — Tauri 2 IDE. ``.pccx`` 트레이스 로딩,
             ``run_verification`` 러너, Roofline / Bottleneck 카드,
             Vivado synth 리포트 뷰.
-            `검증 워크플로우 가이드 <https://pccx.ai/ko/lab/verification-workflow.html>`_
+            `검증 워크플로우 가이드 <https://docs.altifigence.com/lab/>`_
 
          .. grid-item-card:: :octicon:`person;1em;sd-mr-1` 저자 포트폴리오
             :link: https://hkimw.github.io/hkimw/
@@ -80,7 +80,7 @@ v003 산출물을 사용합니다.
    :class-container: pccx-toolchain-grid
 
    .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` pccx-lab
-      :link: https://pccx.ai/ko/lab/
+      :link: https://docs.altifigence.com/lab/
       :link-type: url
       :link-alt: pccx-lab 시뮬레이터 & 프로파일러 열기
       :class-card: pccx-lab-card
@@ -94,7 +94,7 @@ v003 산출물을 사용합니다.
       소스: github.com/pccxai/pccx-lab
 
    .. grid-item-card:: :octicon:`project-roadmap;1.2em;sd-mr-1` 설계 근거
-      :link: https://pccx.ai/ko/lab/design/rationale.html
+      :link: https://docs.altifigence.com/lab/
       :link-type: url
       :link-alt: pccx-lab 설계 근거 읽기
 
@@ -143,12 +143,8 @@ v003 산출물을 사용합니다.
 
 .. toctree::
    :maxdepth: 1
-   :caption: 툴체인 데모
-
-   docs/samples/index
-
-.. toctree::
-   :maxdepth: 1
    :caption: 도구
 
-   pccx-lab — 시뮬레이터 & AI 프로파일러 <https://pccx.ai/ko/lab/>
+   pccx-lab — Verification Lab <https://docs.altifigence.com/lab/>
+   PCCX Launcher <https://docs.altifigence.com/launcher/>
+   SystemVerilog IDE <https://docs.altifigence.com/ide/>

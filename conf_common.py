@@ -296,7 +296,7 @@ def build_footer_icons(lang_prefix: str = "en") -> list:
         },
         {
             "name":  "pccx-lab — simulator & verification lab",
-            "url":   "https://labs.pccx.ai/",
+            "url":   "https://docs.altifigence.com/lab/",
             "class": "pccx-footer-icon",
             "html": (
                 _ICON_BEAKER
@@ -305,7 +305,7 @@ def build_footer_icons(lang_prefix: str = "en") -> list:
         },
         {
             "name":  "PCCX Launcher — launcher contracts and readiness",
-            "url":   "https://launcher.pccx.ai/",
+            "url":   "https://docs.altifigence.com/launcher/",
             "class": "pccx-footer-icon",
             "html": (
                 _ICON_CHIP
@@ -314,7 +314,7 @@ def build_footer_icons(lang_prefix: str = "en") -> list:
         },
         {
             "name":  "SystemVerilog IDE — diagnostics and validation",
-            "url":   "https://ide.pccx.ai/",
+            "url":   "https://docs.altifigence.com/ide/",
             "class": "pccx-footer-icon",
             "html": (
                 _ICON_PERSON
