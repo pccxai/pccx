@@ -9,7 +9,7 @@
 :alt: 4×4 PE 격자. 활성은 좌→우로, 부분합은 상→하로 흐른다.
 :width: 80%
 
-{numref}`fig-sample-pe-array`: 장난감 4×4 PE 어레이의 weight-stationary
+장난감 4×4 PE 어레이의 weight-stationary
 데이터플로. 활성(brand-primary 화살표)은 행을 따라 흐르고, 가중치(범례의
 점선 accent 화살표)는 각 PE 내부에 상주하며, 부분합(foreground)은
 열 방향으로 누적됩니다.
