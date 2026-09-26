@@ -143,8 +143,8 @@ v003 산출물을 사용합니다.
 
 .. toctree::
    :maxdepth: 1
-   :caption: 도구
+   :caption: 외부 링크
 
-   pccx-lab — Verification Lab <https://docs.altifigence.com/lab/>
-   PCCX Launcher <https://docs.altifigence.com/launcher/>
    SystemVerilog IDE <https://docs.altifigence.com/ide/>
+   Altifigence.com <https://altifigence.com/>
+   PCCX Transparency <https://pccx.ai/ko-kr/Transparency/>

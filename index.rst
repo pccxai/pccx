@@ -145,8 +145,8 @@ Tooling & Lab
 
 .. toctree::
    :maxdepth: 1
-   :caption: Tools
+   :caption: External links
 
-   pccx-lab — Verification Lab <https://docs.altifigence.com/lab/>
-   PCCX Launcher <https://docs.altifigence.com/launcher/>
    SystemVerilog IDE <https://docs.altifigence.com/ide/>
+   Altifigence.com <https://altifigence.com/>
+   PCCX Transparency <https://pccx.ai/en/Transparency/>
