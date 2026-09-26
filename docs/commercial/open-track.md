@@ -2,63 +2,38 @@
 orphan: true
 ---
 
-> Draft operational policy; not legal advice; not a contract
-> template; not an offer of securities; not investment advice.
-> Subject to legal review before any binding use.
+# Open project and commercial boundaries
 
-# Open track
+Updated September 27, 2026. This summary does not replace licenses or agreements.
 
-The open track is the published version of PCCX: the open standard,
-the open core RTL, and the public documentation. Anyone can use it,
-including for commercial purposes, under the repository's existing
-open licence.
+PCCX is an Altifigence-operated open-source semiconductor project. Public
+repositories include architecture material, reusable RTL, board integration,
+examples and documentation. Their rights are asset-specific.
 
-## Scope
+## Applicable rights
 
-- The PCCX architecture spec, ISA reference, and public documentation
-  on `pccx`.
-- The open core IP-core packages (`pccx-v00N`).
-- The reference application integration repos (e.g.
-  `pccx-FPGA-NPU-LLM-kv260` for KV260).
-- All publicly tagged releases of the above.
+Code in the `pccx` documentation repository is Apache-2.0 unless a file says
+otherwise. Its documentation, prose, diagrams and brand assets are not licensed
+under that code notice. Separate RTL and integration repositories have their
+own notices. Public access alone does not authorize copying or relicensing
+all materials.
 
-## Licence design goal
+For open-source code, the applicable license governs use, modification,
+redistribution and commercial integration, including by competitors.
+Preserve the required license and attribution notices. Contributions are not
+presumed to assign ownership to Altifigence.
 
-The open licence used by the project is intended to align with the
-Open Source Initiative (OSI) definition: no field-of-endeavor
-restriction, no discrimination against persons or groups, no
-restriction on commercial use. Specific licence text is the
-authoritative version; this page is a description, not the licence.
+## Participation and commercial tools
 
-## What "open" includes
+PCCX should be useful without purchasing Altifigence products. Basic workflows
+should remain documented; optional tools may simplify setup, simulation,
+analysis and repeated development tasks when integrations are ready.
 
-- Free to read, study, run, modify, redistribute, and integrate into
-  commercial products under the licence terms.
-- Free to file derivative work in any other repository, public or
-  private, subject to the licence's attribution and licence-notice
-  requirements.
-- Free to evaluate, benchmark, and publish results without contacting
-  the project first.
+Separate commercial software remains governed by its own terms and must
+respect licenses of incorporated public code. Public participation does not
+promise support, credits, equity, compensation or future product access.
 
-## What "open" does not include (still inside this track)
-
-- A guarantee that the open code is fit for any particular purpose.
-  The licence's warranty disclaimer applies.
-- A guarantee of long-term support, bug-fix turnaround, or backport.
-  Open-track issues are best-effort.
-- Access to the commercial track's deliverables (ProCore, Enterprise
-  SDK, ASICKit, certification). Those live under
-  [commercial-track.md](commercial-track.md).
-
-## Coexistence with the commercial track
-
-A commercial customer can also use the open track without separate
-permission; the open licence binds equally. The commercial track
-adds supported deliverables on top — it does not gate the open
-track behind paid access.
-
-## Status
-
-The open licence text in each repository is the live authoritative
-form. This page exists to describe the design goal of the track, not
-to override licence terms.
+The [Transparency statement](https://pccx.ai/en/Transparency/) describes
+operating decisions, commercial interests, funding, planned developer support
+and the possible future foundation. [Commercial planning](commercial-track.md)
+contains legacy concepts, not current availability commitments.

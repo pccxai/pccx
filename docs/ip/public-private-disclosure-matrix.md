@@ -11,7 +11,9 @@ orphan: true
 
 # Public / private disclosure matrix
 
-Where each artefact lives.
+Planned disclosure boundaries. Legacy commercial package names below do
+not establish that those deliverables exist or are available. Current
+operations are described in [Transparency](https://pccx.ai/en/Transparency/).
 
 | Layer | Public | Private (separate confidentiality controls) |
 | --- | --- | --- |
@@ -25,6 +27,7 @@ Where each artefact lives.
 | Trademark filing customer numbers / receipts / contact details | n/a | yes |
 | Detailed patent claims for not-yet-public candidates | n/a | yes |
 
-Public code artefacts are licensed under the Apache-2.0 code licence.
+Code in this repository is Apache-2.0 unless a file states otherwise;
+separate repositories and third-party material retain their own notices.
 Public documentation and brand assets remain protected company assets
 of Altifigence. Private artefacts are not licensed by this repository.

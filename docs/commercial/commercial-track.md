@@ -8,6 +8,12 @@ orphan: true
 
 # Commercial track
 
+> Historical planning concepts. Current operations and commercial interests
+> are described in [Transparency](https://pccx.ai/en/Transparency/).
+> Altifigence provides separate development tools and services. The legacy
+> offerings below do not announce available products, certification or support
+> commitments. This update does not confirm the status of individual contracts.
+
 The commercial track holds the supported, contractual offerings that
 sit on top of the open core. Customers on this track receive
 deliverables and obligations that the open licence does not by
@@ -48,6 +54,6 @@ and requires its own separate written agreement.
 
 ## Status
 
-No commercial-track contracts are in force as of this page. The
-templates that will govern commercial engagements are pending legal
-review and are not part of this repository.
+This draft does not establish or report the current status of commercial
+contracts. Actual services and obligations require the applicable separately
+executed terms with Altifigence.
