@@ -59,7 +59,7 @@ help:
 #   make strict REQUIRE_RTL=0
 #
 # For full verification with real RTL literalincludes:
-#   git clone --depth 1 https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260 codes/v002
+#   git clone --depth 1 https://github.com/pccxai/pccx-v002 codes/v002
 #   make strict
 #
 # REQUIRE_RTL=1 (default) enforces the check for targets that need RTL.
@@ -73,7 +73,7 @@ ifeq ($(REQUIRE_RTL),1)
 	    echo "\033[33m[pccx] codes/v002 is missing.\033[0m"; \
 	    echo "    For docs-only work:  make lint    or    make strict REQUIRE_RTL=0"; \
 	    echo "    For full RTL verification:"; \
-	    echo "        git clone --depth 1 https://github.com/hwkim-dev/pccx-FPGA-NPU-LLM-kv260 codes/v002"; \
+	    echo "        git clone --depth 1 https://github.com/pccxai/pccx-v002 codes/v002"; \
 	    exit 1; \
 	fi
 endif
