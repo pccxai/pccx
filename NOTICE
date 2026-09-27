@@ -1,11 +1,14 @@
 PCCX™ — reusable AI accelerator project.
-Copyright (c) 2026 Altifigence.
+Copyright (c) 2026 Altifigence and the respective contributors.
+File-level notices identify the relevant rights holders.
 
 This repository uses a mixed rights model. Source code is licensed under
 the Apache License, Version 2.0 (see LICENSE-CODE). PCCX™ documentation,
-site copy, diagrams, logos, trademarks, and brand assets are protected
-company assets of Altifigence and are not licensed under Apache-2.0 by
-the repository-level notice.
+site copy, diagrams, logos, trademarks, and brand assets retain their
+respective owners' rights and are not licensed under Apache-2.0 by the
+repository-level notice. Existing grants and third-party licenses are
+preserved. Altifigence may grant permission only for assets it owns or
+is authorized to license.
 
 PCCX™ is a pending trademark. Korean trademark applications are
 pending in Classes 09 and 42 (`40-2026-0091497`, `40-2026-0091498`).
