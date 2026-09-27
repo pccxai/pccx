@@ -14,7 +14,7 @@ This repository is the specification and documentation hub.
 - Design and reproduction questions: [PCCX Discussions](https://github.com/pccxai/pccx/discussions).
 - Security reports: follow [SECURITY.md](https://github.com/pccxai/pccx/blob/main/SECURITY.md).
 - Operating, rights and sponsorship enquiries: <contact@altifigence.com>.
-- Decisions, funding and asset rights: [Transparency](https://pccx.ai/en/Transparency/).
+- Decisions, funding and asset rights: [Transparency](https://pccx.ai/en/legal/transparency/).
 - Altifigence products and services: [Altifigence](https://altifigence.com/).
 
 ## Developer support

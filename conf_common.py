@@ -274,10 +274,10 @@ def build_footer_icons(lang_prefix: str = "en") -> list:
     pccx_locale = "ko-kr" if lang_prefix == "ko" else "en"
     company_locale = "kr-ko" if lang_prefix == "ko" else "en"
     legal_base = f"https://altifigence.com/{company_locale}/legal"
-    transparency = f"https://pccx.ai/{pccx_locale}/Transparency/"
+    transparency = f"https://pccx.ai/{pccx_locale}/legal/transparency/"
     entries = [
         ("RTL", "RTL implementation", "https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260", _ICON_CHIP),
-        ("IDE", "SystemVerilog IDE documentation", "https://docs.altifigence.com/ide/", _ICON_PERSON),
+        ("Digital Design Studio", "Digital Design Studio documentation", "https://docs.altifigence.com/ide/", _ICON_PERSON),
         ("Docs", "PCCX documentation repository", "https://github.com/pccxai/pccx", _ICON_GITHUB),
         ("Altifigence", "Altifigence — PCCX project operator", "https://altifigence.com/", ""),
         ("Transparency", "PCCX operating principles", transparency, ""),

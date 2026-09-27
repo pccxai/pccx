@@ -11,7 +11,7 @@ unadopted procedures remain drafts subject to legal review.
 
 PCCX is initiated and operated by Altifigence as a company-led open-source
 project and community. It is not currently a separate nonprofit foundation.
-See [Transparency](https://pccx.ai/en/Transparency/) for governance, commercial
+See [Transparency](https://pccx.ai/en/legal/transparency/) for governance, commercial
 interests, funding and the planned developer support program.
 
 This page does not grant or remove rights. [LICENSE](LICENSE),

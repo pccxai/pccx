@@ -24,7 +24,7 @@ nonprofit foundation. Participation does not require buying Altifigence tools.
 Code, documentation and brand assets have distinct rights; see [LICENSE](LICENSE).
 
 - [PCCX website](https://pccx.ai/)
-- [Transparency and operating principles](https://pccx.ai/en/Transparency/)
+- [Transparency and operating principles](https://pccx.ai/en/legal/transparency/)
 - [Repository operating record](TRANSPARENCY.md)
 - [Altifigence](https://altifigence.com/)
 
