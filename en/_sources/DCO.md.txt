@@ -49,7 +49,7 @@ Until then, this file is informational only.
 
 ## Current operating context
 
-PCCX is operated by Altifigence. See [Transparency](https://pccx.ai/en/Transparency/).
+PCCX is operated by Altifigence. See [Transparency](https://pccx.ai/en/legal/transparency/).
 This operating update does not adopt the DCO or CLA, transfer contributor
 ownership, or add retroactive requirements. Applicable asset licenses and
 separately executed agreements remain controlling.

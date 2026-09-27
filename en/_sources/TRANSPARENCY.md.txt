@@ -6,8 +6,8 @@ orphan: true
 
 Operating principles · Updated September 27, 2026
 
-Public versions: [English](https://pccx.ai/en/Transparency/) ·
-[한국어](https://pccx.ai/ko-kr/Transparency/).
+Public versions: [English](https://pccx.ai/en/legal/transparency/) ·
+[한국어](https://pccx.ai/ko-kr/legal/transparency/).
 
 ## Operator and current structure
 

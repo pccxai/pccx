@@ -145,6 +145,6 @@ v003 산출물을 사용합니다.
    :maxdepth: 1
    :caption: 외부 링크
 
-   SystemVerilog IDE <https://docs.altifigence.com/ide/>
+   Digital Design Studio <https://docs.altifigence.com/ide/>
    Altifigence.com <https://altifigence.com/>
-   PCCX Transparency <https://pccx.ai/ko-kr/Transparency/>
+   PCCX Transparency <https://pccx.ai/ko-kr/legal/transparency/>
