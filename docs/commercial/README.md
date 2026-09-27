@@ -8,18 +8,19 @@ orphan: true
 
 # Commercialization tracks
 
-PCCX runs on three parallel tracks. Each track has different
-audiences, different deliverables, and different terms. The tracks
-do not implicitly cross-fund each other; capital movement between
-them requires explicit written agreement under applicable law.
+These documents record draft commercial planning. Current operations are
+company-led by Altifigence; see [Transparency](https://pccx.ai/en/Transparency/).
+They do not establish a separate foundation, live product offerings or
+contracts. Altifigence intends to reinvest product revenue and feedback into
+PCCX and product development without promising a fixed allocation.
 
-## Tracks
+## Boundaries
 
-| Track | Audience | Primary deliverable |
-| --- | --- | --- |
-| [Open](open-track.md) | Researchers, students, hobbyists, evaluators, downstream OSS users | The published RTL, spec, docs, and reference flows under the existing open licence. |
-| [Commercial](commercial-track.md) | Customers needing supported deliverables: ProCore, Enterprise SDK, ASICKit, model porting, integration support, certification | Commercial offerings under separate terms. Pricing TBD. |
-| [Capital](capital-track.md) | Sponsors, strategic customers, external investors | Distinct funding mechanisms with distinct legal forms. |
+| Area | Current interpretation |
+| --- | --- |
+| [Open project](open-track.md) | Public code under its applicable license; documentation and brand rights remain separately scoped. |
+| [Commercial tools and services](commercial-track.md) | Altifigence products and services under separate terms. Legacy offering names are planning concepts, not availability claims. |
+| [External funding](capital-track.md) | Sponsorship, service fees and investment must be identified separately with the recipient, purpose and terms disclosed. |
 
 ## Separation matrix
 

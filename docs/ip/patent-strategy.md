@@ -25,11 +25,11 @@ demos:
 
 | Category | Treatment |
 | --- | --- |
-| **Already publicly disclosed** | The invention has already entered the public domain through a prior publication, talk, paper, or open-source release. No further action under patent strategy. |
+| **Already publicly disclosed** | Record the disclosure, date and scope; seek jurisdiction-specific review of any remaining options. Publication does not itself dedicate copyright or other rights to the public domain. |
 | **Not public yet** | The invention has not been published. A decision is required before any public release. |
 | **Patent candidate** | A decision has been made to seek patent protection. Filing must precede any further public disclosure. |
 | **Trade secret candidate** | The invention is best protected by keeping it confidential, not by patent. See [trade secret policy](trade-secret-policy.md). |
-| **Defensive publication candidate** | The invention is best protected by deliberately publishing in a form that creates prior art, blocking competitors from filing. Used when patent filing is not the priority but the project wants to preclude others. |
+| **Defensive publication candidate** | Consider an authorized, dated technical disclosure after review. Do not promise that publication prevents all third-party filings or claims. |
 
 ## Procedure before disclosure
 
@@ -37,10 +37,9 @@ demos:
    project is already aware of.
 2. Classify into one of the categories above. If the classification
    is unclear, default to **not public yet** and seek legal advice.
-3. If the classification is **patent candidate**, file before
-   publishing. Korea first-to-file means a competitor's filing on
-   the same novelty after the project's publication still wins
-   priority unless the project filed first.
+3. If the classification is **patent candidate**, obtain qualified review
+   of the filing and disclosure sequence before releasing details. Do not
+   infer priority or patentability from this planning document.
 4. If the classification is **trade secret candidate**, treat the
    material under the [trade secret policy](trade-secret-policy.md);
    it does not enter the open repositories.

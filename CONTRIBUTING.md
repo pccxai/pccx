@@ -27,3 +27,21 @@ Before opening a pull request:
 6. If you are unsure, open an issue first.
 
 PCCX is currently research-oriented and evolves quickly, so design discussions are welcome.
+
+
+## Operator, rights and tools
+
+PCCX is initiated and operated by Altifigence. See
+[Transparency](https://pccx.ai/en/Transparency/) for decisions, commercial
+interests, funding and the planned developer support program.
+
+Check [LICENSE](LICENSE) and any file-level notice before contributing.
+Code and documentation do not share a blanket license. Submit only work
+you are authorized to provide, preserve attribution, and identify third-party
+material. Inclusion does not itself assign your ownership to Altifigence.
+
+The [DCO](DCO.md) and CLA placeholder remain drafts, not new requirements.
+You may contribute using other tools without purchasing Altifigence products,
+joining a support program or providing a positive review. The Altifigence
+Open Source Program is in preparation; eligibility and limits will be
+announced separately when available.

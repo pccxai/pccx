@@ -36,7 +36,7 @@ Configuration (``conf_common.py``):
 
 ``rtl_source_repo_url``
     Base GitHub repository URL. Default:
-    ``https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260``.
+    ``https://github.com/pccxai/pccx-v002``.
 
 ``rtl_source_ref``
     Branch / tag / SHA used for ``/blob/<ref>/`` permalinks. Default: ``main``.
@@ -220,7 +220,7 @@ def on_doctree_read(app: Sphinx, doctree: nodes.document) -> None:
 def setup(app: Sphinx) -> dict:
     app.add_config_value(
         "rtl_source_repo_url",
-        "https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260",
+        "https://github.com/pccxai/pccx-v002",
         "env",
     )
     app.add_config_value("rtl_source_ref", "main", "env")

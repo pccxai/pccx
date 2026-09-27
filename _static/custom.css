@@ -117,39 +117,52 @@ article div.sphx-glr-thumbnails .sphx-glr-thumbcontainer:hover {
 }
 
 /* -- Footer icons ---------------------------------------------------------- */
-.footer-icons a:hover svg {
-  fill: var(--color-brand-primary);
+.bottom-of-page {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-/* Labeled footer icons: GitHub / RTL repo / blog, each with a visible label
- * so readers can recognize the destination without hovering. The row wraps on
- * narrow viewports; icons inherit theme colors via currentColor. */
-.footer-icons a.pccx-footer-icon {
+.bottom-of-page .left-details {
+  flex: 1 1 16rem;
+}
+.bottom-of-page .right-details {
+  flex: 1 1 24rem;
+}
+.bottom-of-page .icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  justify-content: flex-start;
+}
+
+/* Labeled links use Furo's actual footer container and wrap as whole items. */
+.bottom-of-page a.pccx-footer-icon {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
   padding: 0.2em 0.55em;
   border-radius: 6px;
-  font-size: 0.9em;
-  line-height: 1;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: nowrap;
   color: var(--color-foreground-secondary);
   transition:
     background-color 120ms ease-in-out,
     color            120ms ease-in-out;
 }
-.footer-icons a.pccx-footer-icon:hover,
-.footer-icons a.pccx-footer-icon:focus-visible {
+.bottom-of-page a.pccx-footer-icon:hover,
+.bottom-of-page a.pccx-footer-icon:focus-visible {
   background-color: var(--color-background-hover);
   color: var(--color-brand-primary);
 }
-.footer-icons a.pccx-footer-icon svg {
+.bottom-of-page a.pccx-footer-icon svg {
   flex: 0 0 auto;
   width: 1.1em;
   height: 1.1em;
 }
-.footer-icons a.pccx-footer-icon:hover svg {
+.bottom-of-page a.pccx-footer-icon:hover svg {
   color: var(--color-brand-primary);
-  fill: var(--color-brand-primary);
 }
 .pccx-footer-icon__label {
   font-weight: 500;

@@ -270,99 +270,30 @@ _ICON_BEAKER = (
 
 
 def build_footer_icons(lang_prefix: str = "en") -> list:
-    """Assemble the labeled footer icon row for pccx.
-
-    Order (left → right): RTL → Lab → Launcher → IDE → Docs → Blog → legal.
-
-    ``lang_prefix`` is retained for compatibility with the language-specific
-    conf wrappers. The Lab, Launcher, and IDE surfaces now live on their own
-    external documentation hosts.
-    """
-    legal_links = {
-        "center": "https://docs.google.com/document/d/e/2PACX-1vQMPYkdXXGSs6B7FUPqP2df7ncRALntT7KKj1LQqYt60IhXhfC90ow0O9TCTgLzD_N_vs8Q7OQRAMwf/pub",
-        "privacy": "https://docs.google.com/document/d/e/2PACX-1vREutdqQF-kY0fsDgpExLBRl0P4uraGxaGy9skjcJNdpWlyw5RFULdQuBcurOnSx75JRjL1rO1k14m_/pub",
-        "terms": "https://docs.google.com/document/d/e/2PACX-1vSqrQ1sd9xH4i3wp6Iy0z1fhJN49SF0Vu6nTXASBZwtrB2PBD_L8mKo32AYZj3nnQjaDEQEI_HRd9DO/pub",
-        "cookies": "https://docs.google.com/document/d/e/2PACX-1vTgkg5KcCB_m28lcPERlEC1O3oSRJCW8RvMEqPL_0o-i7JT0EwxgBilOx5oiMujrcpqlcu8ZZkccq1k/pub",
-    }
+    """Project navigation and canonical legal destinations for both languages."""
+    pccx_locale = "ko-kr" if lang_prefix == "ko" else "en"
+    company_locale = "kr-ko" if lang_prefix == "ko" else "en"
+    legal_base = f"https://altifigence.com/{company_locale}/legal"
+    transparency = f"https://pccx.ai/{pccx_locale}/Transparency/"
+    entries = [
+        ("RTL", "RTL implementation", "https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260", _ICON_CHIP),
+        ("IDE", "SystemVerilog IDE documentation", "https://docs.altifigence.com/ide/", _ICON_PERSON),
+        ("Docs", "PCCX documentation repository", "https://github.com/pccxai/pccx", _ICON_GITHUB),
+        ("Altifigence", "Altifigence — PCCX project operator", "https://altifigence.com/", ""),
+        ("Transparency", "PCCX operating principles", transparency, ""),
+        ("Legal", "PCCX rights and legal documents", transparency + "#documents", ""),
+        ("Privacy", "Altifigence privacy notice", legal_base + "/privacy/", ""),
+        ("Terms", "Altifigence terms", legal_base + "/terms/", ""),
+        ("Cookies", "Altifigence cookie notice", legal_base + "/cookies/", ""),
+    ]
     return [
         {
-            "name":  "RTL implementation — github.com/pccxai/pccx-FPGA-NPU-LLM-kv260",
-            "url":   "https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260",
+            "name": name,
+            "url": url,
             "class": "pccx-footer-icon",
-            "html": (
-                _ICON_CHIP
-                + '<span class="pccx-footer-icon__label">RTL</span>'
-            ),
-        },
-        {
-            "name":  "pccx-lab — simulator & verification lab",
-            "url":   "https://docs.altifigence.com/lab/",
-            "class": "pccx-footer-icon",
-            "html": (
-                _ICON_BEAKER
-                + '<span class="pccx-footer-icon__label">Lab</span>'
-            ),
-        },
-        {
-            "name":  "PCCX Launcher — launcher contracts and readiness",
-            "url":   "https://docs.altifigence.com/launcher/",
-            "class": "pccx-footer-icon",
-            "html": (
-                _ICON_CHIP
-                + '<span class="pccx-footer-icon__label">Launcher</span>'
-            ),
-        },
-        {
-            "name":  "SystemVerilog IDE — diagnostics and validation",
-            "url":   "https://docs.altifigence.com/ide/",
-            "class": "pccx-footer-icon",
-            "html": (
-                _ICON_PERSON
-                + '<span class="pccx-footer-icon__label">IDE</span>'
-            ),
-        },
-        {
-            "name":  "Docs repository — github.com/pccxai/pccx",
-            "url":   "https://github.com/pccxai/pccx",
-            "class": "pccx-footer-icon",
-            "html": (
-                _ICON_GITHUB
-                + '<span class="pccx-footer-icon__label">Docs</span>'
-            ),
-        },
-        {
-            "name":  "Author portfolio — hkimw.github.io/hkimw",
-            "url":   "https://hkimw.github.io/hkimw/",
-            "class": "pccx-footer-icon",
-            "html": (
-                _ICON_PERSON
-                + '<span class="pccx-footer-icon__label">Blog</span>'
-            ),
-        },
-        {
-            "name":  "Public legal center — Altifigence public legal records",
-            "url":   legal_links["center"],
-            "class": "pccx-footer-icon",
-            "html": '<span class="pccx-footer-icon__label">Legal</span>',
-        },
-        {
-            "name":  "Privacy notice — Altifigence public legal records",
-            "url":   legal_links["privacy"],
-            "class": "pccx-footer-icon",
-            "html": '<span class="pccx-footer-icon__label">Privacy</span>',
-        },
-        {
-            "name":  "Terms — Altifigence public legal records",
-            "url":   legal_links["terms"],
-            "class": "pccx-footer-icon",
-            "html": '<span class="pccx-footer-icon__label">Terms</span>',
-        },
-        {
-            "name":  "Cookies — Altifigence public legal records",
-            "url":   legal_links["cookies"],
-            "class": "pccx-footer-icon",
-            "html": '<span class="pccx-footer-icon__label">Cookies</span>',
-        },
+            "html": icon + f'<span class="pccx-footer-icon__label">{label}</span>',
+        }
+        for label, name, url, icon in entries
     ]
 
 

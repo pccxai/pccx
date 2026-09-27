@@ -7,6 +7,24 @@ orphan: true
 
 # Legal entry point
 
+## Current operating principles
+
+PCCX is an open-source project initiated and operated by Altifigence.
+It is not currently a separate nonprofit foundation. Read the current
+[PCCX Transparency statement](https://pccx.ai/en/Transparency/)
+([한국어](https://pccx.ai/ko-kr/Transparency/)) for governance, commercial
+interests, funding, the planned developer support program and the possible
+future foundation. The [repository record](../../TRANSPARENCY.md) tracks
+the same operating direction.
+
+Website and service notices are available from
+[Altifigence's legal center](https://altifigence.com/en/legal/), including
+[privacy](https://altifigence.com/en/legal/privacy/),
+[terms](https://altifigence.com/en/legal/terms/) and
+[cookies](https://altifigence.com/en/legal/cookies/).
+
+## Repository policy map
+
 A single map of the PCCX legal / IP / commercial documentation set.
 None of these pages constitutes legal advice. None of them is a
 contract. Use them to navigate the *layered* policy; rely on the

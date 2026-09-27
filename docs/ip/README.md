@@ -29,12 +29,12 @@ and independently governed.
 
 ## Operating principle
 
-Open-track artefacts (the published RTL, spec, and docs) are
-distributed under the open licence and are not gated by any IP
-mechanism beyond the licence itself. Trade-secret material lives
-outside the open repositories. Patent strategy applies to candidate
-inventions before they are publicly disclosed. Trademarks apply to
-the project's name and the names of its commercial offerings.
+PCCX is operated by Altifigence. The current operating model is described in
+[Transparency](https://pccx.ai/en/Transparency/). Source code, documentation
+and trademarks have distinct terms; public visibility is not a blanket open
+license. Repository and file-level notices control, and third-party ownership
+and attribution remain in place. Open-source license rights also apply to
+competitors. Review rights and confidentiality before publication.
 
 ## Status
 

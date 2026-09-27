@@ -8,13 +8,25 @@
 [![Target](https://img.shields.io/badge/Target-Xilinx_Kria_KV260-red)](https://www.xilinx.com/products/som/kria/kv260-vision-starter-kit.html)
 [![Architecture](https://img.shields.io/badge/Architecture-v002_Active-purple)](#architecture)
 [![Precision](https://img.shields.io/badge/Precision-W4A8_→_BF16%2FFP32-green)](#precision)
-[![Docs](https://img.shields.io/badge/Docs-Online-brightgreen)](https://pccx.pages.dev/)
+[![Docs](https://img.shields.io/badge/Docs-Online-brightgreen)](https://docs.pccx.ai/)
 
-**[Full Documentation →](https://pccx.pages.dev/)**
+**[Full Documentation →](https://docs.pccx.ai/)**
 
 </div>
 
 ---
+
+## Project and operator
+
+PCCX is an open-source semiconductor project initiated, operated and supported
+by **Altifigence**. It is currently company-led, not a separately incorporated
+nonprofit foundation. Participation does not require buying Altifigence tools.
+Code, documentation and brand assets have distinct rights; see [LICENSE](LICENSE).
+
+- [PCCX website](https://pccx.ai/)
+- [Transparency and operating principles](https://pccx.ai/en/Transparency/)
+- [Repository operating record](TRANSPARENCY.md)
+- [Altifigence](https://altifigence.com/)
 
 ## Project status
 
@@ -25,7 +37,7 @@ issues are welcome.
 
 | Entry point | Link |
 | --- | --- |
-| Documentation | <https://pccx.pages.dev/> |
+| Documentation | <https://docs.pccx.ai/> |
 | Releases | <https://github.com/pccxai/pccx/releases> |
 | `v0.1.0-alpha` notes | [docs/releases/v0.1.0-alpha.md](docs/releases/v0.1.0-alpha.md) |
 | Roadmap (project board) | <https://github.com/orgs/pccxai/projects/1> |
@@ -190,8 +202,8 @@ stable.
 a TRC TPU grant lands). The training plan is scoped to v002.1, where
 the speculative-decoding stack is integrated.
 
-→ **[Full roadmap (EN)](https://pccx.pages.dev/en/docs/roadmap.html)**
-&nbsp;·&nbsp; [**한국어**](https://pccx.pages.dev/ko/docs/roadmap.html)
+→ **[Full roadmap (EN)](https://docs.pccx.ai/en/docs/roadmap.html)**
+&nbsp;·&nbsp; [**한국어**](https://docs.pccx.ai/ko/docs/roadmap.html)
 
 ---
 
@@ -211,15 +223,15 @@ Performance simulator, CLI-first verification lab, and trace profiler for the pc
 
 The full technical documentation — architecture deep-dives, ISA encoding tables, DSP48E2 bit-packing derivation, driver API, and embedded RTL source — is published at:
 
-### **[pccx.pages.dev/](https://pccx.pages.dev/)**
+### **[pccx.pages.dev/](https://docs.pccx.ai/)**
 
 Available in **English** and **한국어 (Korean)**.
 
 Highlights:
-- [Architecture Overview](https://pccx.pages.dev/en/docs/v002/Architecture/top_level.html) — block diagram, design rationale, 3.125× gain breakdown
-- [DSP48E2 W4A8 Derivation](https://pccx.pages.dev/en/docs/v002/Architecture/dsp48e2_w4a8.html) — dual-channel bit packing math
-- [Custom ISA Reference](https://pccx.pages.dev/en/docs/v002/ISA/index.html) — 64-bit VLIW encoding, opcode table, dataflow
-- [RTL Source Reference](https://pccx.pages.dev/en/docs/v002/RTL/index.html) — embedded SystemVerilog with live syntax highlighting
+- [Architecture Overview](https://docs.pccx.ai/en/docs/v002/Architecture/top_level.html) — block diagram, design rationale, 3.125× gain breakdown
+- [DSP48E2 W4A8 Derivation](https://docs.pccx.ai/en/docs/v002/Architecture/dsp48e2_w4a8.html) — dual-channel bit packing math
+- [Custom ISA Reference](https://docs.pccx.ai/en/docs/v002/ISA/index.html) — 64-bit VLIW encoding, opcode table, dataflow
+- [RTL Source Reference](https://docs.pccx.ai/en/docs/v002/RTL/index.html) — embedded SystemVerilog with live syntax highlighting
 
 ### Documentation map
 
@@ -293,6 +305,6 @@ use, and the public-safe filing docket.
 
 <div align="center">
 
-Built by [@hkimw](https://hkimw.github.io/hkimw/) · [Documentation](https://pccx.pages.dev/) · [Issues](https://github.com/pccxai/pccx/issues)
+Built by [@hkimw](https://hkimw.github.io/hkimw/) · [Documentation](https://docs.pccx.ai/) · [Issues](https://github.com/pccxai/pccx/issues)
 
 </div>
