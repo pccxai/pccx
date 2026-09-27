@@ -1,7 +1,8 @@
 PCCX mixed rights notice
 ========================
 
-Copyright (c) 2026 Altifigence.
+Copyright (c) 2026 Altifigence and the respective contributors.
+File-level copyright notices identify the relevant rights holders.
 
 This repository uses a mixed rights model.
 
@@ -23,13 +24,13 @@ Documentation and brand assets
 ------------------------------
 
 PCCX™ documentation, site copy, diagrams, prose, logos, trademarks, and
-brand assets are protected company assets of Altifigence. They are not
+brand assets remain the property of their respective rights holders. They are not
 licensed under Apache-2.0 by this repository-level notice.
 
 You may view the documentation through the public PCCX sites and repository
 interfaces. Any copying, redistribution, modification, commercial use, or
 republication of the documentation or brand assets requires separate written
-permission from Altifigence unless another file or written agreement states
+permission from the relevant rights holder unless another file or written agreement states
 otherwise.
 
 Trademark
@@ -44,3 +45,11 @@ Conflict rule
 
 If this mixed rights notice conflicts with a narrower file-level license
 notice, the narrower file-level notice controls for that file only.
+
+Existing rights
+---------------
+
+This notice does not revoke prior license grants, override third-party licenses,
+transfer contributor ownership, or restrict rights provided by applicable law.
+Altifigence can grant permission only for assets it owns or is authorized to
+license. Public availability alone does not make every document open source.

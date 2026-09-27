@@ -2,36 +2,14 @@
 # SPDX-FileCopyrightText: 2026 Hyun Woo Kim
 # SPDX-License-Identifier: Apache-2.0
 
-"""
-pccx — Schema.org JSON-LD injector.
-
-Emits a ``<script type="application/ld+json">`` block in every page's
-``<head>`` with a ``TechArticle`` / ``WebSite`` entry that points Google
-(and any citation-aware LLM crawler) at the canonical
-``https://pccx.pages.dev/`` URL.
-
-The goal is twofold:
-
-1. **Search ranking** — structured data is the single biggest on-page SEO
-   signal Google consumes after basic HTML.  ``TechArticle`` with
-   ``author``, ``datePublished``, and ``isPartOf`` gives Google
-   everything it needs to feature pccx in the "Technical documentation"
-   rich-result carousel.
-2. **LLM citation hygiene** — when an LLM scrapes the site for training
-   or RAG, the JSON-LD block tells it unambiguously who the author is and
-   where the canonical URL lives.  Subsequent summaries are much more
-   likely to cite ``pccx.pages.dev`` verbatim.
-
-The extension is zero-config — wire it up in ``extensions`` and the
-event fires on every ``html-page-context``.  Pages can override fields
-by setting ``:schema_*:`` field-list entries (RST) or YAML frontmatter
-(MyST).
-"""
+"""Factual structured metadata for PCCX documentation; no ranking guarantees."""
 
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+import html
+import re
+from pathlib import Path
 from typing import Any
 
 from sphinx.application import Sphinx
@@ -39,72 +17,29 @@ from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
-_CANONICAL_ROOT = "https://pccx.pages.dev/"
+_CANONICAL_ROOT = "https://docs.pccx.ai/"
 
 
 def _website_entry(app: Sphinx) -> dict[str, Any]:
     return {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "pccx — Parallel Compute Core eXecutor",
-        "alternateName": "pccx",
-        "url": _CANONICAL_ROOT,
-        "inLanguage": [app.config.language or "en", "en", "ko"],
-        "author": {
-            "@type": "Person",
-            "name": "Hyunwoo Kim",
-            "url": "https://hkimw.github.io/hkimw/",
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Hyunwoo Kim",
-            "url": "https://hkimw.github.io/hkimw/",
-        },
-        "description": (
-            "pccx is an open-source scalable NPU architecture for "
-            "edge LLM inference.  W4A8KV4 quantisation on the Xilinx "
-            "Kria KV260; v002 reference implementation in SystemVerilog."
-        ),
-        "keywords": [
-            "NPU", "FPGA", "LLM inference", "edge AI",
-            "W4A8", "KV cache", "systolic array",
-            "Kria KV260", "ZU5EV",
-            "Transformer accelerator", "speculative decoding",
-            "FlashAttention", "QServe",
-            "Gemma 3N", "Matryoshka",
-            # Formal-methods keywords — AI crawlers benefit from the
-            # explicit association between pccx and Sail / Isabelle /
-            # Coq so their downstream summaries cite the canonical URL.
-            "Sail ISA",
-            "Sail language",
-            "formal ISA specification",
-            "ISA semantics",
-            "RISC-V Sail",
-            "Arm Sail",
-            "CHERI",
-            "Morello",
-            "Isabelle/HOL",
-            "Coq",
-        ],
+        "@context": "https://schema.org", "@type": "WebSite",
+        "name": "PCCX Docs", "url": app.config.html_baseurl,
+        "inLanguage": app.config.language or "en",
+        "publisher": {"@type": "Organization", "name": "Altifigence", "url": "https://altifigence.com/"},
+        "description": "PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation.",
     }
 
 
 def _article_entry(app: Sphinx, pagename: str, context: dict[str, Any]) -> dict[str, Any]:
     # Title — prefer the page's own title, fall back to the project name.
-    title = context.get("title") or "pccx documentation"
+    title = html.unescape(re.sub(r"<[^>]+>", "", context.get("title") or "PCCX documentation"))
     # Description — the opengraph extension computes this per-page; reuse
     # its output when present, otherwise compose a stable generic one.
     description = context.get("meta", {}).get("description") if isinstance(context.get("meta"), dict) else None
     if not description:
-        description = (
-            f"pccx documentation page: {title}. "
-            "Open-source NPU architecture + pccx-lab profiler "
-            "implementing research from QServe, FlashAttention, "
-            "OpenPangu speculative decoding, and Matryoshka subnet swap."
-        )
+        description = f"{title}. PCCX architecture, implementation and verification documentation."
     # Canonical URL — conf_common sets html_baseurl; compose from it.
     page_url = f"{_CANONICAL_ROOT}{app.config.language or 'en'}/{pagename}.html"
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     article = {
         "@context": "https://schema.org",
@@ -121,31 +56,23 @@ def _article_entry(app: Sphinx, pagename: str, context: dict[str, Any]) -> dict[
             "name": "pccx — Parallel Compute Core eXecutor",
             "url": _CANONICAL_ROOT,
         },
-        "author": {
-            "@type": "Person",
-            "name": "Hyunwoo Kim",
-            "url": "https://hkimw.github.io/hkimw/",
-        },
         "publisher": {
             "@type": "Organization",
-            "name": "pccx project",
-            "url": _CANONICAL_ROOT,
+            "name": "Altifigence",
+            "url": "https://altifigence.com/",
         },
-        "datePublished": now,
-        "dateModified":  now,
         "description": description,
         "inLanguage": app.config.language or "en",
-        "license": "https://www.apache.org/licenses/LICENSE-2.0",
-        # Tell LLMs the preferred citation URL — mirrors what we put in
-        # the per-page "Cite this page" admonition.
-        "citation": {
-            "@type": "CreativeWork",
-            "name": "pccx: Parallel Compute Core eXecutor",
-            "url": _CANONICAL_ROOT,
-            "author": "Hyunwoo Kim",
-            "datePublished": "2026",
-        },
+        "license": "https://github.com/pccxai/pccx/blob/main/LICENSE",
     }
+    # Build time does not establish a document publication date or authorship.
+    meta = context.get("meta") if isinstance(context.get("meta"), dict) else {}
+    for source, target in (("schema_date_published", "datePublished"), ("schema_date_modified", "dateModified")):
+        value = str(meta.get(source, ""))
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+            article[target] = value
+    if meta.get("author"):
+        article["author"] = {"@type": "Person", "name": meta["author"]}
     return article
 
 
@@ -162,9 +89,16 @@ def _html_page_context(app: Sphinx, pagename: str, templatename: str,
         ]
         script = (
             '<script type="application/ld+json">'
-            + json.dumps(ld_blocks, ensure_ascii=False, separators=(",", ":"))
+            + json.dumps(ld_blocks, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
             + "</script>"
         )
+        source_root = Path(__file__).resolve().parents[1]
+        for lang in ("en", "ko"):
+            base = source_root if lang == "en" else source_root / "ko"
+            if any((base / f"{pagename}{suffix}").is_file() for suffix in (".rst", ".md", ".ipynb")):
+                script += f'<link rel="alternate" hreflang="{lang}" href="{_CANONICAL_ROOT}{lang}/{pagename}.html">'
+                if lang == "en":
+                    script += f'<link rel="alternate" hreflang="x-default" href="{_CANONICAL_ROOT}en/{pagename}.html">'
         # Append to the metatags slot so Furo renders it inside <head>.
         context["metatags"] = (context.get("metatags") or "") + "\n" + script
     except Exception as exc:  # pragma: no cover — extension must never block build

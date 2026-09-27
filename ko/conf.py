@@ -31,6 +31,8 @@ from conf_common import (                          # noqa: F401
 # -- Language ----------------------------------------------------------------
 
 language = "ko"
+html_baseurl = "https://docs.pccx.ai/ko/"
+ogp_site_url = html_baseurl
 
 
 # -- Static & templates ------------------------------------------------------
@@ -111,6 +113,6 @@ notfound_context = {
     "body": (
         "<h1>404 — 페이지 없음</h1>"
         "<p>요청하신 페이지는 이 버전의 pccx 에 존재하지 않습니다.</p>"
-        '<p><a href="/pccx/ko/">문서 루트로 돌아가기</a></p>'
+        '<p><a href="/ko/">문서 루트로 돌아가기</a></p>'
     ),
 }

@@ -468,7 +468,7 @@ html_baseurl = "https://docs.pccx.ai/"
 sitemap_url_scheme = "{link}"
 # sitemap_filename is overridden per-language in concrete conf.py.
 
-ogp_site_url = "https://pccx.pages.dev/"
+ogp_site_url = "https://docs.pccx.ai/"
 ogp_site_name = "pccx — Parallel Compute Core eXecutor"
 ogp_image = None                         # add once a social card exists
 ogp_type = "website"

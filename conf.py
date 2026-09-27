@@ -30,6 +30,8 @@ from conf_common import (                          # noqa: F401  (explicit re-mu
 # -- Language ----------------------------------------------------------------
 
 language = "en"
+html_baseurl = "https://docs.pccx.ai/en/"
+ogp_site_url = html_baseurl
 
 
 # -- Favicon ---------------------------------------------------------------
