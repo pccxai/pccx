@@ -9,7 +9,7 @@ the reader toggles dark mode. No raster fallback is shipped.
 :alt: A 4 by 4 grid of PEs with activation flowing left-to-right and partial sums flowing top-to-bottom.
 :width: 80%
 
-{numref}`fig-sample-pe-array`: weight-stationary dataflow in a toy 4×4 PE
+Weight-stationary dataflow in a toy 4×4 PE
 array. Activations stream along rows (brand-primary arrows), weights stay
 resident inside each PE (dashed accent arrows in the legend), and partial
 sums accumulate down each column.

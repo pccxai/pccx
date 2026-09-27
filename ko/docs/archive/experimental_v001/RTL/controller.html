@@ -15,7 +15,7 @@
 <meta name="description" content="컨트롤러는 NPU 의 프론트엔드 + 스케줄러 반쪽입니다. AXI-Lite 로 64 비트 VLIW 명령어를 받아 디코딩하고, 결과 μop을 엔진별 FIFO 로 푸시하며, 상태 레지스터를 호스트에 노출합니다. 모든 컴퓨트 코어는 컨트롤러의 FIFO 뒤에서만 동작합니다. 토폴로지: 프론트엔드 (AXI-Lite 서피스): ctrl_npu_frontend.sv..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"NPU 컨트롤러","name":"NPU 컨트롤러","url":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/controller.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/controller.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-05-27","dateModified":"2026-05-27","description":"pccx documentation page: NPU 컨트롤러. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../../genindex.html"><link rel="search" title="검색" href="../../../../search.html"><link rel="next" title="행렬 코어 (GEMM)" href="mat_core.html"><link rel="prev" title="패키지와 상수" href="packages.html">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"NPU 컨트롤러","name":"NPU 컨트롤러","url":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/controller.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/controller.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-09-27","dateModified":"2026-09-27","description":"pccx documentation page: NPU 컨트롤러. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../../genindex.html"><link rel="search" title="검색" href="../../../../search.html"><link rel="next" title="행렬 코어 (GEMM)" href="mat_core.html"><link rel="prev" title="패키지와 상수" href="packages.html">
         <link rel="canonical" href="https://docs.pccx.ai/docs/archive/experimental_v001/RTL/controller.html">
 
     <link rel="shortcut icon" href="../../../../_static/pccx_wordmark_favicon.ico"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
@@ -27,13 +27,13 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=e90aefa7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=46f00cd2" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/image-lightbox.css?v=7c940a79" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/language-switcher.css?v=041d5448" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/kr-typography.css?v=d1ebaf6e" />
@@ -249,7 +249,7 @@ SPDX-License-Identifier: Apache-2.0
 </div>
 
 
-<nav class="pccx-repolinks" aria-label="Project repositories">
+<nav class="pccx-repolinks" aria-label="Project links">
   <a class="pccx-repolinks__btn"
      href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"
      title="Active v002 RTL — pccx-FPGA-NPU-LLM-kv260"
@@ -264,32 +264,7 @@ SPDX-License-Identifier: Apache-2.0
     <span class="pccx-repolinks__label">RTL</span>
   </a>
   <a class="pccx-repolinks__btn"
-     href="https://labs.pccx.ai/"
-     title="pccx-lab — verification lab and trace profiler"
-     rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 3h6"/>
-      <path d="M10 3v6.2L4.6 19a1 1 0 0 0 .86 1.5h13.08a1 1 0 0 0 .86-1.5L14 9.2V3"/>
-      <path d="M6.8 14h10.4"/>
-    </svg>
-    <span class="pccx-repolinks__label">Lab</span>
-  </a>
-  <a class="pccx-repolinks__btn"
-     href="https://launcher.pccx.ai/"
-     title="PCCX Launcher — contracts and readiness"
-     rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <rect x="6" y="6" width="12" height="12" rx="1.2"/>
-      <path d="M9 12h6M12 9v6"/>
-    </svg>
-    <span class="pccx-repolinks__label">Launcher</span>
-  </a>
-  <a class="pccx-repolinks__btn"
-     href="https://ide.pccx.ai/"
+     href="https://docs.altifigence.com/ide/"
      title="SystemVerilog IDE — diagnostics and validation"
      rel="noopener">
     <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
@@ -310,17 +285,10 @@ SPDX-License-Identifier: Apache-2.0
     </svg>
     <span class="pccx-repolinks__label">Docs</span>
   </a>
-  <a class="pccx-repolinks__btn"
-     href="https://hkimw.github.io/hkimw/"
-     title="Author portfolio — hkimw.github.io"
-     target="_blank" rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="8" r="3.5"/>
-      <path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/>
-    </svg>
-    <span class="pccx-repolinks__label">Blog</span>
+  <a class="pccx-repolinks__btn" href="https://altifigence.com/"
+     title="Altifigence — PCCX project operator" target="_blank" rel="noopener">
+    <span aria-hidden="true">↗</span>
+    <span class="pccx-repolinks__label">Altifigence</span>
   </a>
 </nav><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="검색" name="q" aria-label="검색">
@@ -433,23 +401,11 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">툴체인 데모</span></p>
+<p class="caption" role="heading"><span class="caption-text">외부 링크</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../samples/index.html">툴체인 데모</a><input aria-label="Toggle navigation of 툴체인 데모" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/mermaid_blockdiagram.html">Mermaid — NPU 블록 다이어그램</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/wavedrom_axi_read.html">WaveDrom — AXI4 read 트랜잭션</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/svg_themed_demo.html">SVG — 테마 대응 4×4 PE 어레이</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/plot_bandwidth.html">scienceplots — batch size 대비 대역폭</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../auto_plots/index.html">Plot gallery</a><input aria-label="Toggle navigation of Plot gallery" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../auto_plots/plot_bandwidth.html">Batch size vs achieved HP-AXI bandwidth</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">도구</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://pccx.ai/ko/lab/">pccx-lab — 시뮬레이터 &amp; AI 프로파일러</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.altifigence.com/ide/">SystemVerilog IDE</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://altifigence.com/">Altifigence.com</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pccx.ai/ko-kr/Transparency/">PCCX Transparency</a></li>
 </ul>
 
   <div class="pccx-version-switcher"
@@ -543,9 +499,9 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">ctrl_npu_frontend.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GEMM_Array.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;npu_interfaces.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GEMM_Array.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"npu_interfaces.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="k">module</span><span class="w"> </span><span class="n">ctrl_npu_frontend</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span>
@@ -576,7 +532,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="w">  </span><span class="kt">logic</span><span class="w">                  </span><span class="n">cmd_valid</span><span class="p">;</span>
 <span class="w">  </span><span class="c1">// logic               decoder_ready; // (Unused wire commented out)</span>
 
-<span class="w">  </span><span class="c1">// FIXED: Removed &#39;assign IN_fetch_ready = IN_fetch_ready;&#39;</span>
+<span class="w">  </span><span class="c1">// FIXED: Removed 'assign IN_fetch_ready = IN_fetch_ready;'</span>
 <span class="w">  </span><span class="c1">// (You cannot continuously assign an input to itself in SystemVerilog)</span>
 
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">OUT_RAW_instruction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmd_data</span><span class="p">;</span>
@@ -640,8 +596,8 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">AXIL_CMD_IN.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
 
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;Algorithms.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"Algorithms.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="c1">// AXIL_CMD_IN</span>
 <span class="c1">// AXI4-Lite Write path : CPU → NPU</span>
@@ -680,8 +636,8 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="w">  </span><span class="cm">/*─────────────────────────────────────────────</span>
 <span class="cm">  Register Address Map</span>
 <span class="cm">  ───────────────────────────────────────────────*/</span>
-<span class="w">  </span><span class="k">localparam</span><span class="w"> </span><span class="n">ADDR_INST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">12&#39;h000</span><span class="p">;</span>
-<span class="w">  </span><span class="k">localparam</span><span class="w"> </span><span class="n">ADDR_KICK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">12&#39;h008</span><span class="p">;</span>
+<span class="w">  </span><span class="k">localparam</span><span class="w"> </span><span class="n">ADDR_INST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">12'h000</span><span class="p">;</span>
+<span class="w">  </span><span class="k">localparam</span><span class="w"> </span><span class="n">ADDR_KICK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">12'h008</span><span class="p">;</span>
 
 <span class="w">  </span><span class="cm">/*─────────────────────────────────────────────</span>
 <span class="cm">  AXI4-Lite Write Path</span>
@@ -696,48 +652,48 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="w">  </span><span class="c1">// if queue is full block receive</span>
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_awready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">aw_pending</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">cmd_q</span><span class="p">.</span><span class="n">full</span><span class="p">;</span>
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_wready</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">aw_pending</span><span class="p">;</span>
-<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_bresp</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mb">2&#39;b00</span><span class="p">;</span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_bresp</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mb">2'b00</span><span class="p">;</span>
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_bvalid</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">bvalid_r</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// AW latch</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">IN_clear</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">aw_addr_latch</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">aw_pending</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">aw_addr_latch</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">aw_pending</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s_awvalid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_awready</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="n">aw_addr_latch</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s_awaddr</span><span class="p">;</span>
-<span class="w">        </span><span class="n">aw_pending</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">aw_pending</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">      </span><span class="k">end</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s_wvalid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_wready</span><span class="p">)</span><span class="w"> </span><span class="n">aw_pending</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s_wvalid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_wready</span><span class="p">)</span><span class="w"> </span><span class="n">aw_pending</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="c1">// W : push into FIFO + B response</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">    </span><span class="n">fifo_wen</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">fifo_wen</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">IN_clear</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">fifo_wdata</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">fifo_wdata</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s_wvalid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_wready</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">aw_addr_latch</span><span class="p">)</span>
 <span class="w">          </span><span class="c1">// push instruction word into FIFO</span>
 <span class="w">          </span><span class="nl">ADDR_INST:</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">            </span><span class="n">fifo_wdata</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s_wdata</span><span class="p">;</span>
-<span class="w">            </span><span class="n">fifo_wen</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">fifo_wen</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 <span class="w">          </span><span class="c1">// KICK : push a special marker (bit63 = 1 as kick flag)</span>
 <span class="w">          </span><span class="nl">ADDR_KICK:</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">            </span><span class="n">fifo_wdata</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">64&#39;h8000_0000_0000_0000</span><span class="p">;</span>
-<span class="w">            </span><span class="n">fifo_wen</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">fifo_wdata</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">64'h8000_0000_0000_0000</span><span class="p">;</span>
+<span class="w">            </span><span class="n">fifo_wen</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 <span class="w">          </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="p">;</span>
 <span class="w">        </span><span class="k">endcase</span>
-<span class="w">        </span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">      </span><span class="k">end</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_bready</span><span class="p">)</span><span class="w"> </span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_bready</span><span class="p">)</span><span class="w"> </span><span class="n">bvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
@@ -824,16 +780,16 @@ AXI-Lite 읽기 슬레이브.</p></li>
 
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">IN_clear</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">wr_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rd_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">wr_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rd_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="c1">// push : upper module feeds status continuously</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_valid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">fifo_full</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="n">mem</span><span class="p">[</span><span class="n">wr_ptr</span><span class="p">[</span><span class="n">PTR_W</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_data</span><span class="p">;</span>
-<span class="w">        </span><span class="n">wr_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">wr_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">wr_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">wr_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">      </span><span class="k">end</span>
 <span class="w">      </span><span class="c1">// pop : CPU consumed the data</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fifo_ren</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">fifo_empty</span><span class="p">)</span><span class="w"> </span><span class="n">rd_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rd_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fifo_ren</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">fifo_empty</span><span class="p">)</span><span class="w"> </span><span class="n">rd_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rd_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
@@ -846,23 +802,23 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="w">  </span><span class="kt">logic</span><span class="w">                  </span><span class="n">rvalid_r</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_rdata</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">rdata_r</span><span class="p">;</span>
-<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_rresp</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mb">2&#39;b00</span><span class="p">;</span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_rresp</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mb">2'b00</span><span class="p">;</span>
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_rvalid</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">rvalid_r</span><span class="p">;</span>
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">s_arready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">fifo_empty</span><span class="p">;</span><span class="w">  </span><span class="c1">// ready only when FIFO has data</span>
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">fifo_ren</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">s_arvalid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_arready</span><span class="p">;</span><span class="w">  </span><span class="c1">// pop on AR handshake</span>
 
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">IN_clear</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">rdata_r</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rdata_r</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="c1">// AR handshake → latch FIFO head and assert rvalid</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s_arvalid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_arready</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="n">rdata_r</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">rd_ptr</span><span class="p">[</span><span class="n">PTR_W</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]];</span>
-<span class="w">        </span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">      </span><span class="k">end</span>
 <span class="w">      </span><span class="c1">// R handshake → CPU consumed data, release</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_rready</span><span class="p">)</span><span class="w"> </span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s_rready</span><span class="p">)</span><span class="w"> </span><span class="n">rvalid_r</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
@@ -898,50 +854,50 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="c1">// memcpy option flags</span>
 
 <span class="c1">// memcpy</span>
-<span class="cp">`define MEMCPY_INT4 2&#39;b00</span>
-<span class="cp">`define MEMCPY_INT8 2&#39;b01</span>
-<span class="cp">`define MEMCPY_INT16 2&#39;b10</span>
-<span class="cp">`define MEMCPY_BF16 2&#39;b11</span>
+<span class="cp">`define MEMCPY_INT4 2'b00</span>
+<span class="cp">`define MEMCPY_INT8 2'b01</span>
+<span class="cp">`define MEMCPY_INT16 2'b10</span>
+<span class="cp">`define MEMCPY_BF16 2'b11</span>
 
 
-<span class="cp">`define MEMCPY_OPT_INT_IS_SCALED 4&#39;b1000</span>
+<span class="cp">`define MEMCPY_OPT_INT_IS_SCALED 4'b1000</span>
 
 
-<span class="cp">`define MEMCPY_FLAG_BF16_ALIGN 4&#39;b1000</span>
-<span class="cp">`define MEMCPY_FLAG_BF16_ALIGN_H 4&#39;b0100</span>
-<span class="cp">`define MEMCPY_FLAG_BF16_ALIGN_V 4&#39;b0010</span>
-<span class="c1">//`define MEMCPY_OPT_BF16_ 4&#39;b0</span>
+<span class="cp">`define MEMCPY_FLAG_BF16_ALIGN 4'b1000</span>
+<span class="cp">`define MEMCPY_FLAG_BF16_ALIGN_H 4'b0100</span>
+<span class="cp">`define MEMCPY_FLAG_BF16_ALIGN_V 4'b0010</span>
+<span class="c1">//`define MEMCPY_OPT_BF16_ 4'b0</span>
 
 
 
-<span class="cp">`define DIM_X 1&#39;b00</span>
-<span class="cp">`define DIM_Y 1&#39;b01</span>
-<span class="cp">`define DIM_Z 2&#39;b10</span>
-<span class="cp">`define DIM_W 3&#39;b11</span>
+<span class="cp">`define DIM_X 1'b00</span>
+<span class="cp">`define DIM_Y 1'b01</span>
+<span class="cp">`define DIM_Z 2'b10</span>
+<span class="cp">`define DIM_W 3'b11</span>
 
 <span class="cp">`define MAX_MATRIX_DIM 4</span>
 <span class="cp">`define MAX_MATRIX_WIDTH 32</span>
 
-<span class="c1">//`define GEMV_LANE_0 4&#39;b0000</span>
-<span class="cp">`define GEMV_LANE_1 4&#39;b0001</span>
-<span class="cp">`define GEMV_LANE_2 4&#39;b0010</span>
-<span class="cp">`define GEMV_LANE_3 4&#39;b0100</span>
-<span class="cp">`define GEMV_LANE_4 4&#39;b1000</span>
+<span class="c1">//`define GEMV_LANE_0 4'b0000</span>
+<span class="cp">`define GEMV_LANE_1 4'b0001</span>
+<span class="cp">`define GEMV_LANE_2 4'b0010</span>
+<span class="cp">`define GEMV_LANE_3 4'b0100</span>
+<span class="cp">`define GEMV_LANE_4 4'b1000</span>
 
-<span class="cp">`define MASKING_WEIGHT 2&#39;b00</span>
-<span class="cp">`define BUFFER_WEIGHT_A1 4&#39;b0000</span>
-<span class="cp">`define BUFFER_WEIGHT_A2 4&#39;b0001</span>
-<span class="cp">`define BUFFER_WEIGHT_A3 4&#39;b0010</span>
-<span class="cp">`define BUFFER_WEIGHT_A4 4&#39;b0011</span>
+<span class="cp">`define MASKING_WEIGHT 2'b00</span>
+<span class="cp">`define BUFFER_WEIGHT_A1 4'b0000</span>
+<span class="cp">`define BUFFER_WEIGHT_A2 4'b0001</span>
+<span class="cp">`define BUFFER_WEIGHT_A3 4'b0010</span>
+<span class="cp">`define BUFFER_WEIGHT_A4 4'b0011</span>
 
-<span class="cp">`define MASKING_SCALE 2&#39;b01</span>
-<span class="cp">`define BUFFER_SCALE 4&#39;b0100</span>
-<span class="cp">`define CACHE_SCALE 4&#39;b0101</span>
+<span class="cp">`define MASKING_SCALE 2'b01</span>
+<span class="cp">`define BUFFER_SCALE 4'b0100</span>
+<span class="cp">`define CACHE_SCALE 4'b0101</span>
 
-<span class="cp">`define MASKING_FMAP 2&#39;b10</span>
-<span class="cp">`define BUFFER_FMAP_C 4&#39;b1000</span>
-<span class="cp">`define CACHE_FMAP_C1 4&#39;b1001</span>
-<span class="cp">`define CACHE_FMAP_C2 4&#39;b1010</span>
+<span class="cp">`define MASKING_FMAP 2'b10</span>
+<span class="cp">`define BUFFER_FMAP_C 4'b1000</span>
+<span class="cp">`define CACHE_FMAP_C1 4'b1001</span>
+<span class="cp">`define CACHE_FMAP_C2 4'b1010</span>
 </pre></div>
 </div>
 </div>
@@ -949,7 +905,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">ctrl_npu_decoder.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">isa_pkg::*</span><span class="p">;</span>
 
@@ -995,24 +951,24 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="w">  </span><span class="c1">// Top 4 bits are the opcode; bottom 60 bits are the instruction body.</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_valid</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4&#39;b0000</span><span class="p">;</span>
-<span class="w">      </span><span class="n">cvo_valid_ff</span><span class="w">     </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_valid</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4'b0000</span><span class="p">;</span>
+<span class="w">      </span><span class="n">cvo_valid_ff</span><span class="w">     </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">      </span><span class="n">OUT_fetch_PC_ready</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="no">`TRUE</span><span class="p">;</span>
-<span class="w">      </span><span class="n">OUT_op_x64</span><span class="w">       </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_op_x64</span><span class="w">       </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_valid</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4&#39;b0000</span><span class="p">;</span>
-<span class="w">      </span><span class="n">cvo_valid_ff</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_valid</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4'b0000</span><span class="p">;</span>
+<span class="w">      </span><span class="n">cvo_valid_ff</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">raw_instruction_pop_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="c1">// Body: bits [59:0] (opcode at [63:60] already stripped by slicing)</span>
 <span class="w">        </span><span class="n">OUT_op_x64</span><span class="p">.</span><span class="n">instruction</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_raw_instruction</span><span class="p">[</span><span class="no">`ISA_BODY_WIDTH</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">];</span>
 
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">IN_raw_instruction</span><span class="p">[</span><span class="no">`ISA_WIDTH</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="no">`ISA_WIDTH</span><span class="o">-</span><span class="no">`ISA_OPCODE_WIDTH</span><span class="p">])</span>
-<span class="w">          </span><span class="nl">OP_GEMV:</span><span class="w">   </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4&#39;b0001</span><span class="p">;</span>
-<span class="w">          </span><span class="nl">OP_GEMM:</span><span class="w">   </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4&#39;b0010</span><span class="p">;</span>
-<span class="w">          </span><span class="nl">OP_MEMCPY:</span><span class="w"> </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4&#39;b0100</span><span class="p">;</span>
-<span class="w">          </span><span class="nl">OP_MEMSET:</span><span class="w"> </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4&#39;b1000</span><span class="p">;</span>
-<span class="w">          </span><span class="nl">OP_CVO:</span><span class="w">    </span><span class="n">cvo_valid_ff</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="nl">OP_GEMV:</span><span class="w">   </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4'b0001</span><span class="p">;</span>
+<span class="w">          </span><span class="nl">OP_GEMM:</span><span class="w">   </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4'b0010</span><span class="p">;</span>
+<span class="w">          </span><span class="nl">OP_MEMCPY:</span><span class="w"> </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4'b0100</span><span class="p">;</span>
+<span class="w">          </span><span class="nl">OP_MEMSET:</span><span class="w"> </span><span class="n">OUT_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">4'b1000</span><span class="p">;</span>
+<span class="w">          </span><span class="nl">OP_CVO:</span><span class="w">    </span><span class="n">cvo_valid_ff</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="k">default</span><span class="o">:</span><span class="w">   </span><span class="p">;</span><span class="w">  </span><span class="c1">// unknown opcode: drop silently</span>
 <span class="w">        </span><span class="k">endcase</span>
 <span class="w">      </span><span class="k">end</span>
@@ -1021,7 +977,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 
 <span class="w">  </span><span class="c1">// ===| Backpressure |==========================================================</span>
 <span class="w">  </span><span class="c1">// Always ready — the frontend FIFO provides buffering; the decoder is single-cycle.</span>
-<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">OUT_fetch_PC_ready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">OUT_fetch_PC_ready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 
 <span class="k">endmodule</span>
 </pre></div>
@@ -1031,9 +987,9 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">ctrl_npu_dispatcher.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="c1">// `timeOUT_scale 1ns / 1ps</span>
-<span class="c1">// `include &quot;GEMM_Array.svh&quot;</span>
-<span class="c1">// `include &quot;npu_interfaces.svh&quot;</span>
-<span class="c1">// `include &quot;GLOBAL_CONST.svh&quot;</span>
+<span class="c1">// `include "GEMM_Array.svh"</span>
+<span class="c1">// `include "npu_interfaces.svh"</span>
+<span class="c1">// `include "GLOBAL_CONST.svh"</span>
 
 <span class="c1">// import isa_pkg::*;</span>
 
@@ -1063,29 +1019,29 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="c1">//   Lane activation bitmask</span>
 <span class="c1">//   bit[0]=lane1, bit[1]=lane2 ...</span>
 <span class="c1">//   ─────────────────────────────────────────────*/</span>
-<span class="c1">//   localparam logic [3:0] LANE_1 = 4&#39;b0001;</span>
-<span class="c1">//   localparam logic [3:0] LANE_2 = 4&#39;b0010;</span>
-<span class="c1">//   localparam logic [3:0] LANE_3 = 4&#39;b0100;</span>
-<span class="c1">//   localparam logic [3:0] LANE_4 = 4&#39;b1000;</span>
+<span class="c1">//   localparam logic [3:0] LANE_1 = 4'b0001;</span>
+<span class="c1">//   localparam logic [3:0] LANE_2 = 4'b0010;</span>
+<span class="c1">//   localparam logic [3:0] LANE_3 = 4'b0100;</span>
+<span class="c1">//   localparam logic [3:0] LANE_4 = 4'b1000;</span>
 
 <span class="c1">//   always_ff @(posedge clk) begin</span>
 <span class="c1">//     if (!rst_n) begin</span>
-<span class="c1">//       o_valid           &lt;= 1&#39;b0;</span>
-<span class="c1">//       OUT_activate_lane     &lt;= &#39;0;</span>
-<span class="c1">//       OUT_result_emax_align        &lt;= 1&#39;b0;</span>
-<span class="c1">//       OUT_result_accm              &lt;= 1&#39;b0;</span>
-<span class="c1">//       OUT_result_scale             &lt;= 1&#39;b0;</span>
-<span class="c1">//       OUT_memcpy_destination_queue &lt;= &#39;0;</span>
-<span class="c1">//       for (int i = 0; i &lt; `MAX_MATRIX_DIM; i++) OUT_memcpy_matrix_shape[i] &lt;= &#39;0;</span>
+<span class="c1">//       o_valid           &lt;= 1'b0;</span>
+<span class="c1">//       OUT_activate_lane     &lt;= '0;</span>
+<span class="c1">//       OUT_result_emax_align        &lt;= 1'b0;</span>
+<span class="c1">//       OUT_result_accm              &lt;= 1'b0;</span>
+<span class="c1">//       OUT_result_scale             &lt;= 1'b0;</span>
+<span class="c1">//       OUT_memcpy_destination_queue &lt;= '0;</span>
+<span class="c1">//       for (int i = 0; i &lt; `MAX_MATRIX_DIM; i++) OUT_memcpy_matrix_shape[i] &lt;= '0;</span>
 <span class="c1">//     end else begin</span>
 
-<span class="c1">//       o_valid &lt;= 1&#39;b0;  // default : deassert every cycle</span>
+<span class="c1">//       o_valid &lt;= 1'b0;  // default : deassert every cycle</span>
 
 <span class="c1">//       if (IN_valid) begin</span>
 <span class="c1">//         case (IN_inst.opcode)</span>
 
 <span class="c1">//           OP_GEMV: begin</span>
-<span class="c1">//             o_valid &lt;= 1&#39;b1;</span>
+<span class="c1">//             o_valid &lt;= 1'b1;</span>
 
 <span class="c1">//             if (IN_inst.cmd_chaining) begin</span>
 <span class="c1">//               // TODO: chaining logic</span>
@@ -1096,12 +1052,12 @@ AXI-Lite 읽기 슬레이브.</p></li>
 
 <span class="c1">//             // lane activation (OR mask, cumulative)</span>
 <span class="c1">//             case (IN_inst.payload.dotm.lane_idq)</span>
-<span class="c1">//               2&#39;b00: OUT_activate_lane &lt;= LANE_1;</span>
-<span class="c1">//               2&#39;b01: OUT_activate_lane &lt;= LANE_1 | LANE_2;</span>
-<span class="c1">//               2&#39;b10: OUT_activate_lane &lt;= LANE_1 | LANE_2 | LANE_3;</span>
-<span class="c1">//               2&#39;b11: OUT_activate_lane &lt;= LANE_1 | LANE_2 | LANE_3 | LANE_4;</span>
+<span class="c1">//               2'b00: OUT_activate_lane &lt;= LANE_1;</span>
+<span class="c1">//               2'b01: OUT_activate_lane &lt;= LANE_1 | LANE_2;</span>
+<span class="c1">//               2'b10: OUT_activate_lane &lt;= LANE_1 | LANE_2 | LANE_3;</span>
+<span class="c1">//               2'b11: OUT_activate_lane &lt;= LANE_1 | LANE_2 | LANE_3 | LANE_4;</span>
 <span class="c1">//               default: begin</span>
-<span class="c1">//                 o_valid &lt;= 1&#39;b0;  // unknown → drop + TODO: interrupt</span>
+<span class="c1">//                 o_valid &lt;= 1'b0;  // unknown → drop + TODO: interrupt</span>
 <span class="c1">//               end</span>
 <span class="c1">//             endcase</span>
 
@@ -1123,7 +1079,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="c1">//               if (IN_inst.cmd_chaining) begin</span>
 <span class="c1">//                 // TODO</span>
 <span class="c1">//               end else begin</span>
-<span class="c1">//                 o_valid &lt;= 1&#39;b1;</span>
+<span class="c1">//                 o_valid &lt;= 1'b1;</span>
 
 <span class="c1">//                 OUT_result_emax_align &lt;= IN_inst.payload.dotm.align;</span>
 <span class="c1">//                 OUT_result_accm       &lt;= IN_inst.payload.dotm.OUT_result_accm;</span>
@@ -1143,7 +1099,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 
 <span class="c1">//               end else begin</span>
 <span class="c1">//                 // chaining end → dispatch memcpy</span>
-<span class="c1">//                 o_valid           &lt;= 1&#39;b1;</span>
+<span class="c1">//                 o_valid           &lt;= 1'b1;</span>
 <span class="c1">//                 OUT_memcpy_destination_queue &lt;= IN_inst.payload.memcpy.dest_queue;</span>
 
 <span class="c1">//                 case (IN_inst.payload.memcpy.dest_queue[3:2])</span>
@@ -1156,7 +1112,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="c1">//                   `MASKING_FMAP: begin</span>
 <span class="c1">//                     // TODO: ACP → find emax &amp; align → cache</span>
 <span class="c1">//                   end</span>
-<span class="c1">//                   default: o_valid &lt;= 1&#39;b0;  // undefined</span>
+<span class="c1">//                   default: o_valid &lt;= 1'b0;  // undefined</span>
 <span class="c1">//                 endcase</span>
 <span class="c1">//               end</span>
 
@@ -1169,13 +1125,13 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="c1">//             if (IN_inst.payload.memcpy.datatype == `BF16) begin</span>
 <span class="c1">//                 // Example: BF16 processing mode</span>
 <span class="c1">//                 // Check if the 4th bit (ALIGN) is set to 1</span>
-<span class="c1">//                 if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_FLAG_BF16_ALIGN) != 4&#39;b0000) begin</span>
+<span class="c1">//                 if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_FLAG_BF16_ALIGN) != 4'b0000) begin</span>
 <span class="c1">//                     OUT_align &lt;= `TRUE;</span>
 
 <span class="c1">//                     // Determine the alignment direction</span>
-<span class="c1">//                     if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_FLAG_BF16_ALIGN_V) != 4&#39;b0000) begin</span>
+<span class="c1">//                     if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_FLAG_BF16_ALIGN_V) != 4'b0000) begin</span>
 <span class="c1">//                         OUT_align_dir &lt;= `ALIGN_VERTICAL;</span>
-<span class="c1">//                     end else if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_FLAG_BF16_ALIGN_H) != 4&#39;b0000) begin</span>
+<span class="c1">//                     end else if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_FLAG_BF16_ALIGN_H) != 4'b0000) begin</span>
 <span class="c1">//                         OUT_align_dir &lt;= `ALIGN_HORIZONTAL;</span>
 <span class="c1">//                     end else begin</span>
 <span class="c1">//                         // Default direction if neither V nor H is specified</span>
@@ -1187,7 +1143,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="c1">//                 end</span>
 <span class="c1">//             end else begin</span>
 <span class="c1">//                 // Example: INT processing mode</span>
-<span class="c1">//                 if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_OPT_INT_IS_SCALED) != 4&#39;b0000) begin</span>
+<span class="c1">//                 if ((IN_inst.payload.memcpy.option_flags &amp; `MEMCPY_OPT_INT_IS_SCALED) != 4'b0000) begin</span>
 <span class="c1">//                     // Logic for scaled INT</span>
 <span class="c1">//                     OUT_align &lt;= `TRUE; // (Adjust according to your actual spec)</span>
 <span class="c1">//                 end else begin</span>
@@ -1198,7 +1154,7 @@ AXI-Lite 읽기 슬레이브.</p></li>
 <span class="c1">//             OUT_datatype &lt;= IN_inst.payload.memcpy.datatype;</span>
 
 <span class="c1">//           end</span>
-<span class="c1">//           default: o_valid &lt;= 1&#39;b0;  // unknown opcode → drop</span>
+<span class="c1">//           default: o_valid &lt;= 1'b0;  // unknown opcode → drop</span>
 <span class="c1">//         endcase</span>
 <span class="c1">//       end</span>
 <span class="c1">//     end</span>
@@ -1221,8 +1177,8 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">Global_Scheduler.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GEMM_Array.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GEMM_Array.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">isa_pkg::*</span><span class="p">;</span>
 
@@ -1271,20 +1227,20 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">  </span><span class="n">cvo_op_x64_t</span><span class="w">    </span><span class="n">cvo_op_x64</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">always_comb</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">    </span><span class="n">GEMV_op_x64</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">GEMV_op_x64_t</span><span class="p">&#39;(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
-<span class="w">    </span><span class="n">GEMM_op_x64</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">GEMM_op_x64_t</span><span class="p">&#39;(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
-<span class="w">    </span><span class="n">memcpy_op_x64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memcpy_op_x64_t</span><span class="p">&#39;(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
-<span class="w">    </span><span class="n">memset_op_x64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memset_op_x64_t</span><span class="p">&#39;(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
-<span class="w">    </span><span class="n">cvo_op_x64</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">cvo_op_x64_t</span><span class="p">&#39;(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GEMV_op_x64</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">GEMV_op_x64_t</span><span class="p">'(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
+<span class="w">    </span><span class="n">GEMM_op_x64</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">GEMM_op_x64_t</span><span class="p">'(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
+<span class="w">    </span><span class="n">memcpy_op_x64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memcpy_op_x64_t</span><span class="p">'(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
+<span class="w">    </span><span class="n">memset_op_x64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memset_op_x64_t</span><span class="p">'(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cvo_op_x64</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">cvo_op_x64_t</span><span class="p">'(</span><span class="n">instruction</span><span class="p">.</span><span class="n">instruction</span><span class="p">);</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="c1">// ===| MEMSET uop |============================================================</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_mem_set_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_mem_set_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_memset_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_mem_set_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
-<span class="w">          </span><span class="n">dest_cache</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dest_cache_e</span><span class="p">&#39;(</span><span class="n">memset_op_x64</span><span class="p">.</span><span class="n">dest_cache</span><span class="p">),</span>
+<span class="w">      </span><span class="n">OUT_mem_set_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
+<span class="w">          </span><span class="n">dest_cache</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dest_cache_e</span><span class="p">'(</span><span class="n">memset_op_x64</span><span class="p">.</span><span class="n">dest_cache</span><span class="p">),</span>
 <span class="w">          </span><span class="n">dest_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">memset_op_x64</span><span class="p">.</span><span class="n">dest_addr</span><span class="p">,</span>
 <span class="w">          </span><span class="n">a_value</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">memset_op_x64</span><span class="p">.</span><span class="n">a_value</span><span class="p">,</span>
 <span class="w">          </span><span class="n">b_value</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">memset_op_x64</span><span class="p">.</span><span class="n">b_value</span><span class="p">,</span>
@@ -1306,33 +1262,33 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">  </span><span class="c1">// ===| LOAD uop — single driver (priority: GEMM &gt; GEMV &gt; MEMCPY &gt; CVO) |======</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_LOAD_uop</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_LOAD_uop</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span><span class="w">   </span><span class="c1">// default: no pulse</span>
+<span class="w">      </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span><span class="w">   </span><span class="c1">// default: no pulse</span>
 
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_GEMM_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">            </span><span class="n">data_dest</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">from_L2_to_L1_GEMM</span><span class="p">,</span>
-<span class="w">            </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
+<span class="w">            </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
 <span class="w">            </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="n">GEMM_op_x64</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
 <span class="w">            </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMM_op_x64</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">,</span>
 <span class="w">            </span><span class="n">async</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">SYNC_OP</span>
 <span class="w">        </span><span class="p">};</span>
-<span class="w">        </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 
 <span class="w">      </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_GEMV_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">            </span><span class="n">data_dest</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">from_L2_to_L1_GEMV</span><span class="p">,</span>
-<span class="w">            </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
+<span class="w">            </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
 <span class="w">            </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="n">GEMV_op_x64</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
 <span class="w">            </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMV_op_x64</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">,</span>
 <span class="w">            </span><span class="n">async</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">SYNC_OP</span>
 <span class="w">        </span><span class="p">};</span>
-<span class="w">        </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">OUT_sram_rd_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 
 <span class="w">      </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_memcpy_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">            </span><span class="n">data_dest</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">memcpy_route</span><span class="p">,</span>
 <span class="w">            </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">memcpy_op_x64</span><span class="p">.</span><span class="n">dest_addr</span><span class="p">,</span>
 <span class="w">            </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="n">memcpy_op_x64</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
@@ -1341,11 +1297,11 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">        </span><span class="p">};</span>
 
 <span class="w">      </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_cvo_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">        </span><span class="n">OUT_LOAD_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">            </span><span class="n">data_dest</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">from_L2_to_CVO</span><span class="p">,</span>
-<span class="w">            </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
+<span class="w">            </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
 <span class="w">            </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
-<span class="w">            </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
+<span class="w">            </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
 <span class="w">            </span><span class="n">async</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">async</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">      </span><span class="k">end</span>
@@ -1356,29 +1312,29 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">  </span><span class="c1">// Held until the engine signals completion (external handshake, not shown here).</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_GEMM_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">          </span><span class="n">data_dest</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">from_GEMM_res_to_L2</span><span class="p">,</span>
 <span class="w">          </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">GEMM_op_x64</span><span class="p">.</span><span class="n">dest_reg</span><span class="p">,</span>
-<span class="w">          </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
+<span class="w">          </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
 <span class="w">          </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMM_op_x64</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">,</span>
 <span class="w">          </span><span class="n">async</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">SYNC_OP</span>
 <span class="w">      </span><span class="p">};</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_GEMV_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">          </span><span class="n">data_dest</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">from_GEMV_res_to_L2</span><span class="p">,</span>
 <span class="w">          </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">GEMV_op_x64</span><span class="p">.</span><span class="n">dest_reg</span><span class="p">,</span>
-<span class="w">          </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
+<span class="w">          </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
 <span class="w">          </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMV_op_x64</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">,</span>
 <span class="w">          </span><span class="n">async</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">SYNC_OP</span>
 <span class="w">      </span><span class="p">};</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_cvo_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">      </span><span class="n">OUT_STORE_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">          </span><span class="n">data_dest</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">from_CVO_res_to_L2</span><span class="p">,</span>
 <span class="w">          </span><span class="n">dest_addr</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">dst_addr</span><span class="p">,</span>
-<span class="w">          </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
-<span class="w">          </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">,</span>
+<span class="w">          </span><span class="n">src_addr</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
+<span class="w">          </span><span class="n">shape_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="m">'0</span><span class="p">,</span>
 <span class="w">          </span><span class="n">async</span><span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">async</span>
 <span class="w">      </span><span class="p">};</span>
 <span class="w">    </span><span class="k">end</span>
@@ -1387,9 +1343,9 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">  </span><span class="c1">// ===| GEMM uop |==============================================================</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_GEMM_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_GEMM_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_GEMM_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_GEMM_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">      </span><span class="n">OUT_GEMM_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">          </span><span class="n">flags</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="n">GEMM_op_x64</span><span class="p">.</span><span class="n">flags</span><span class="p">,</span>
 <span class="w">          </span><span class="n">size_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMM_op_x64</span><span class="p">.</span><span class="n">size_ptr_addr</span><span class="p">,</span>
 <span class="w">          </span><span class="n">parallel_lane</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMM_op_x64</span><span class="p">.</span><span class="n">parallel_lane</span>
@@ -1400,9 +1356,9 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">  </span><span class="c1">// ===| GEMV uop |==============================================================</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_GEMV_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_GEMV_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_GEMV_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_GEMV_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">      </span><span class="n">OUT_GEMV_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">          </span><span class="n">flags</span><span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="n">GEMV_op_x64</span><span class="p">.</span><span class="n">flags</span><span class="p">,</span>
 <span class="w">          </span><span class="n">size_ptr_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMV_op_x64</span><span class="p">.</span><span class="n">size_ptr_addr</span><span class="p">,</span>
 <span class="w">          </span><span class="n">parallel_lane</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">GEMV_op_x64</span><span class="p">.</span><span class="n">parallel_lane</span>
@@ -1413,14 +1369,14 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">  </span><span class="c1">// ===| CVO uop |===============================================================</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_CVO_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_CVO_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_cvo_op_x64_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_CVO_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
-<span class="w">          </span><span class="n">cvo_func</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_func_e</span><span class="p">&#39;(</span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">cvo_func</span><span class="p">),</span>
+<span class="w">      </span><span class="n">OUT_CVO_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
+<span class="w">          </span><span class="n">cvo_func</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_func_e</span><span class="p">'(</span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">cvo_func</span><span class="p">),</span>
 <span class="w">          </span><span class="n">src_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
 <span class="w">          </span><span class="n">dst_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">dst_addr</span><span class="p">,</span>
 <span class="w">          </span><span class="n">length</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">length</span><span class="p">,</span>
-<span class="w">          </span><span class="n">flags</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_flags_t</span><span class="p">&#39;(</span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">flags</span><span class="p">),</span>
+<span class="w">          </span><span class="n">flags</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_flags_t</span><span class="p">'(</span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">flags</span><span class="p">),</span>
 <span class="w">          </span><span class="n">async</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">cvo_op_x64</span><span class="p">.</span><span class="n">async</span>
 <span class="w">      </span><span class="p">};</span>
 <span class="w">    </span><span class="k">end</span>
@@ -1435,7 +1391,7 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">npu_controller_top.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
 
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">isa_pkg::*</span><span class="p">;</span>
 
@@ -1479,8 +1435,8 @@ ACC / FINDEMAX 해저드 처리.</p></li>
 <span class="w">      </span><span class="p">.</span><span class="n">OUT_RAW_instruction</span><span class="p">(</span><span class="n">raw_instruction</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">OUT_kick</span><span class="w">           </span><span class="p">(</span><span class="n">raw_instruction_pop_valid</span><span class="p">),</span>
 
-<span class="w">      </span><span class="p">.</span><span class="n">IN_enc_stat</span><span class="w"> </span><span class="p">(</span><span class="m">&#39;0</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">IN_enc_valid</span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">IN_enc_stat</span><span class="w"> </span><span class="p">(</span><span class="m">'0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">IN_enc_valid</span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
 
 <span class="w">      </span><span class="p">.</span><span class="n">IN_fetch_ready</span><span class="p">(</span><span class="n">fetch_PC_ready</span><span class="p">)</span>
 <span class="w">  </span><span class="p">);</span>
@@ -1572,20 +1528,19 @@ ACC / FINDEMAX 해저드 처리.</p></li>
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-05-27</div>
+              Last updated on 2026-09-27</div>
           </div>
           <div class="right-details">
             <div class="icons">
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation — github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://labs.pccx.ai/" aria-label="pccx-lab — simulator & verification lab"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.2L4.6 19a1 1 0 0 0 .86 1.5h13.08a1 1 0 0 0 .86-1.5L14 9.2V3"/><path d="M6.8 14h10.4"/></svg><span class="pccx-footer-icon__label">Lab</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://launcher.pccx.ai/" aria-label="PCCX Launcher — launcher contracts and readiness"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">Launcher</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://ide.pccx.ai/" aria-label="SystemVerilog IDE — diagnostics and validation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">IDE</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="Docs repository — github.com/pccxai/pccx"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://hkimw.github.io/hkimw/" aria-label="Author portfolio — hkimw.github.io/hkimw"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">Blog</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vQMPYkdXXGSs6B7FUPqP2df7ncRALntT7KKj1LQqYt60IhXhfC90ow0O9TCTgLzD_N_vs8Q7OQRAMwf/pub" aria-label="Public legal center — Altifigence public legal records"><span class="pccx-footer-icon__label">Legal</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vREutdqQF-kY0fsDgpExLBRl0P4uraGxaGy9skjcJNdpWlyw5RFULdQuBcurOnSx75JRjL1rO1k14m_/pub" aria-label="Privacy notice — Altifigence public legal records"><span class="pccx-footer-icon__label">Privacy</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vSqrQ1sd9xH4i3wp6Iy0z1fhJN49SF0Vu6nTXASBZwtrB2PBD_L8mKo32AYZj3nnQjaDEQEI_HRd9DO/pub" aria-label="Terms — Altifigence public legal records"><span class="pccx-footer-icon__label">Terms</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vTgkg5KcCB_m28lcPERlEC1O3oSRJCW8RvMEqPL_0o-i7JT0EwxgBilOx5oiMujrcpqlcu8ZZkccq1k/pub" aria-label="Cookies — Altifigence public legal records"><span class="pccx-footer-icon__label">Cookies</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://docs.altifigence.com/ide/" aria-label="SystemVerilog IDE documentation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">IDE</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="PCCX documentation repository"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/" aria-label="Altifigence — PCCX project operator"><span class="pccx-footer-icon__label">Altifigence</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://pccx.ai/ko-kr/Transparency/" aria-label="PCCX operating principles"><span class="pccx-footer-icon__label">Transparency</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://pccx.ai/ko-kr/Transparency/#documents" aria-label="PCCX rights and legal documents"><span class="pccx-footer-icon__label">Legal</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/kr-ko/legal/privacy/" aria-label="Altifigence privacy notice"><span class="pccx-footer-icon__label">Privacy</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/kr-ko/legal/terms/" aria-label="Altifigence terms"><span class="pccx-footer-icon__label">Terms</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/kr-ko/legal/cookies/" aria-label="Altifigence cookie notice"><span class="pccx-footer-icon__label">Cookies</span></a>
               
             </div>
           </div>
@@ -1641,7 +1596,7 @@ ACC / FINDEMAX 해저드 처리.</p></li>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../../_static/image-lightbox.js?v=efae7920"></script>
     <script src="../../../../_static/language-switcher.js?v=62996a13"></script>
-    <script src="../../../../_static/pccx-version-switcher.js?v=008495d9"></script>
+    <script src="../../../../_static/pccx-version-switcher.js?v=f6a0473a"></script>
     <script src="../../../../_static/auto-translate-dismiss.js?v=ff0a3b93"></script>
     </body>
 </html>

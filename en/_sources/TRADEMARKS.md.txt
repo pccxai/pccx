@@ -76,3 +76,15 @@ tracks (open / commercial / capital) are described in:
   tracks (DRAFT).
 - [`docs/ip/trademark-filing-log.md`](docs/ip/trademark-filing-log.md)
   — public-safe filing docket.
+
+## Operator and foundation references
+
+PCCX is currently a company-led project initiated and operated by Altifigence.
+Use the official project identity; do not describe PCCX as an independent
+nonprofit foundation or IRS-recognized tax-exempt organization. A potential
+future foundation is a direction for review, not a present legal status.
+See [Transparency](https://pccx.ai/en/Transparency/).
+
+This September 27, 2026 operating update does not verify or change the
+application records above and does not assert registration. Rights or brand
+use enquiries may be sent to <contact@altifigence.com>.

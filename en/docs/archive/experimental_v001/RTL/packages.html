@@ -15,7 +15,7 @@
 <meta name="description" content="Compile-order-ordered SystemVerilog packages and.svh headers that establish the global type system, device-specific constants, pipeline configuration, ISA layout, and SystemVerilog interface object..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["en","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"Packages and Constants","name":"Packages and Constants","url":"https://pccx.pages.dev/en/docs/archive/experimental_v001/RTL/packages.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/en/docs/archive/experimental_v001/RTL/packages.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-05-27","dateModified":"2026-05-27","description":"pccx documentation page: Packages and Constants. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"en","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="Index" href="../../../../genindex.html"><link rel="search" title="Search" href="../../../../search.html"><link rel="next" title="NPU Controller" href="controller.html"><link rel="prev" title="Top level" href="top.html">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["en","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"Packages and Constants","name":"Packages and Constants","url":"https://pccx.pages.dev/en/docs/archive/experimental_v001/RTL/packages.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/en/docs/archive/experimental_v001/RTL/packages.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-09-27","dateModified":"2026-09-27","description":"pccx documentation page: Packages and Constants. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"en","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="Index" href="../../../../genindex.html"><link rel="search" title="Search" href="../../../../search.html"><link rel="next" title="NPU Controller" href="controller.html"><link rel="prev" title="Top level" href="top.html">
         <link rel="canonical" href="https://docs.pccx.ai/docs/archive/experimental_v001/RTL/packages.html">
 
     <link rel="shortcut icon" href="../../../../_static/pccx_wordmark_favicon.ico"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
@@ -27,13 +27,13 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=e90aefa7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=46f00cd2" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/image-lightbox.css?v=7c940a79" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/language-switcher.css?v=041d5448" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/kr-typography.css?v=d1ebaf6e" />
@@ -249,7 +249,7 @@ SPDX-License-Identifier: Apache-2.0
 </div>
 
 
-<nav class="pccx-repolinks" aria-label="Project repositories">
+<nav class="pccx-repolinks" aria-label="Project links">
   <a class="pccx-repolinks__btn"
      href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"
      title="Active v002 RTL — pccx-FPGA-NPU-LLM-kv260"
@@ -264,32 +264,7 @@ SPDX-License-Identifier: Apache-2.0
     <span class="pccx-repolinks__label">RTL</span>
   </a>
   <a class="pccx-repolinks__btn"
-     href="https://labs.pccx.ai/"
-     title="pccx-lab — verification lab and trace profiler"
-     rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 3h6"/>
-      <path d="M10 3v6.2L4.6 19a1 1 0 0 0 .86 1.5h13.08a1 1 0 0 0 .86-1.5L14 9.2V3"/>
-      <path d="M6.8 14h10.4"/>
-    </svg>
-    <span class="pccx-repolinks__label">Lab</span>
-  </a>
-  <a class="pccx-repolinks__btn"
-     href="https://launcher.pccx.ai/"
-     title="PCCX Launcher — contracts and readiness"
-     rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <rect x="6" y="6" width="12" height="12" rx="1.2"/>
-      <path d="M9 12h6M12 9v6"/>
-    </svg>
-    <span class="pccx-repolinks__label">Launcher</span>
-  </a>
-  <a class="pccx-repolinks__btn"
-     href="https://ide.pccx.ai/"
+     href="https://docs.altifigence.com/ide/"
      title="SystemVerilog IDE — diagnostics and validation"
      rel="noopener">
     <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
@@ -310,17 +285,10 @@ SPDX-License-Identifier: Apache-2.0
     </svg>
     <span class="pccx-repolinks__label">Docs</span>
   </a>
-  <a class="pccx-repolinks__btn"
-     href="https://hkimw.github.io/hkimw/"
-     title="Author portfolio — hkimw.github.io"
-     target="_blank" rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="8" r="3.5"/>
-      <path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/>
-    </svg>
-    <span class="pccx-repolinks__label">Blog</span>
+  <a class="pccx-repolinks__btn" href="https://altifigence.com/"
+     title="Altifigence — PCCX project operator" target="_blank" rel="noopener">
+    <span aria-hidden="true">↗</span>
+    <span class="pccx-repolinks__label">Altifigence</span>
   </a>
 </nav><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -436,25 +404,11 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Toolchain Demos</span></p>
+<p class="caption" role="heading"><span class="caption-text">External links</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../samples/index.html">Toolchain Demos</a><input aria-label="Toggle navigation of Toolchain Demos" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/mermaid_blockdiagram.html">Mermaid — NPU block diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/wavedrom_axi_read.html">WaveDrom — AXI4 read transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/svg_themed_demo.html">SVG — themed 4×4 PE array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/plot_bandwidth.html">scienceplots — bandwidth vs batch size</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../auto_plots/index.html">Plot gallery</a><input aria-label="Toggle navigation of Plot gallery" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../auto_plots/plot_bandwidth.html">Batch size vs achieved HP-AXI bandwidth</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://labs.pccx.ai/">pccx-lab — Verification Lab</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://launcher.pccx.ai/">PCCX Launcher</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://ide.pccx.ai/">SystemVerilog IDE</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.altifigence.com/ide/">SystemVerilog IDE</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://altifigence.com/">Altifigence.com</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pccx.ai/en/Transparency/">PCCX Transparency</a></li>
 </ul>
 
   <div class="pccx-version-switcher"
@@ -534,7 +488,7 @@ systolic dimensions, FIFO depths).</p></li>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">GLOBAL_CONST.svh</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="c1">// ===| DEPRECATED — use npu_arch.svh + kv260_device.svh instead |===============</span>
-<span class="c1">// This file is kept as a compatibility shim so existing `include &quot;GLOBAL_CONST.svh&quot;</span>
+<span class="c1">// This file is kept as a compatibility shim so existing `include "GLOBAL_CONST.svh"</span>
 <span class="c1">// statements continue to work during the migration period.</span>
 <span class="c1">// Do NOT add new constants here. Add to npu_arch.svh or kv260_device.svh.</span>
 <span class="c1">// ===============================================================================</span>
@@ -542,15 +496,15 @@ systolic dimensions, FIFO depths).</p></li>
 <span class="no">`ifndef</span><span class="w"> </span><span class="n">GLOBAL_CONST_SVH</span>
 <span class="cp">`define GLOBAL_CONST_SVH</span>
 
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;NUMBERS.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;kv260_device.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;npu_arch.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"NUMBERS.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"kv260_device.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"npu_arch.svh"</span>
 
 <span class="c1">// ===| Legacy aliases (kept for backward compatibility) |=======================</span>
 
 <span class="c1">// Boolean</span>
-<span class="cp">`define TRUE  1&#39;b1</span>
-<span class="cp">`define FALSE 1&#39;b0</span>
+<span class="cp">`define TRUE  1'b1</span>
+<span class="cp">`define FALSE 1'b0</span>
 
 <span class="c1">// HP weight bus width aliases (used in port declarations of MAT_CORE)</span>
 <span class="cp">`define HP_PORT_MAX_WIDTH    `HP_TOTAL_WIDTH</span>
@@ -603,7 +557,7 @@ systolic dimensions, FIFO depths).</p></li>
 <span class="no">`ifndef</span><span class="w"> </span><span class="n">DEVICE_INFO_SVH</span>
 <span class="cp">`define DEVICE_INFO_SVH</span>
 
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;kv260_device.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"kv260_device.svh"</span>
 
 <span class="c1">// Legacy aliases (no trailing semicolons — that was a bug)</span>
 <span class="cp">`define DEVICE_HP_SINGLE_LANE_MAX_IN_BIT  `DEVICE_HP_SINGLE_WIDTH_BIT</span>
@@ -729,10 +683,10 @@ systolic dimensions, FIFO depths).</p></li>
 
 <span class="c1">// ===| DSP48E2 Instruction Modes |==============================================</span>
 <span class="c1">// Control codes sent along with fmap in the systolic array V-path</span>
-<span class="cp">`define DSP_IDLE_MOD                2&#39;b00</span>
-<span class="cp">`define DSP_SYSTOLIC_MOD_P          2&#39;b01   </span><span class="c1">// Normal systolic MAC</span>
-<span class="cp">`define DSP_GEMV_STATIONARY_MOD     2&#39;b10   </span><span class="c1">// Weight-stationary GEMV</span>
-<span class="cp">`define DSP_SHIFT_RESULT_MOD        2&#39;b11   </span><span class="c1">// Shift output (for normalization)</span>
+<span class="cp">`define DSP_IDLE_MOD                2'b00</span>
+<span class="cp">`define DSP_SYSTOLIC_MOD_P          2'b01   </span><span class="c1">// Normal systolic MAC</span>
+<span class="cp">`define DSP_GEMV_STATIONARY_MOD     2'b10   </span><span class="c1">// Weight-stationary GEMV</span>
+<span class="cp">`define DSP_SHIFT_RESULT_MOD        2'b11   </span><span class="c1">// Shift output (for normalization)</span>
 
 <span class="c1">// ===| Pipeline Type Selector |=================================================</span>
 <span class="cp">`define PIPELINE_GEMV               0</span>
@@ -936,7 +890,7 @@ systolic dimensions, FIFO depths).</p></li>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">vec_cfg_t</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// ===| Default Configuration (KV260 / Gemma 3N E4B target) |==================</span>
-<span class="w">  </span><span class="k">localparam</span><span class="w"> </span><span class="n">vec_cfg_t</span><span class="w"> </span><span class="n">VecCoreDefaultCfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">  </span><span class="k">localparam</span><span class="w"> </span><span class="n">vec_cfg_t</span><span class="w"> </span><span class="n">VecCoreDefaultCfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">    </span><span class="nl">num_gemv_pipeline:</span><span class="w">          </span><span class="n">device_pkg</span><span class="o">::</span><span class="n">VecPipelineCnt</span><span class="p">,</span>
 
 <span class="w">    </span><span class="nl">throughput:</span><span class="w">                 </span><span class="n">Throughput</span><span class="p">,</span>
@@ -999,18 +953,18 @@ layout. Imported at the top of every controller module.</p>
 
 <span class="w">  </span><span class="c1">// ===| Device Direction Enums |=================================================</span>
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">FROM_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">FROM_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span>
+<span class="w">    </span><span class="n">FROM_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">FROM_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">from_device_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">TO_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">TO_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span>
+<span class="w">    </span><span class="n">TO_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">TO_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">to_device_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">SYNC_OP</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">ASYNC_OP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span>
+<span class="w">    </span><span class="n">SYNC_OP</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ASYNC_OP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">async_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// ===| GEMV / GEMM Flags (6-bit, ISA §4) |=====================================</span>
@@ -1023,11 +977,11 @@ layout. Imported at the top of every controller module.</p>
 
 <span class="w">  </span><span class="c1">// ===| Opcode Table (4-bit, ISA §2) |==========================================</span>
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">OP_GEMV</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_GEMM</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_MEMCPY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_MEMSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h3</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_CVO</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h4</span>
+<span class="w">    </span><span class="n">OP_GEMV</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_GEMM</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_MEMCPY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_MEMSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_CVO</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h4</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">opcode_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// ===| Instruction Body (60-bit, opcode already stripped) |====================</span>
@@ -1085,14 +1039,14 @@ layout. Imported at the top of every controller module.</p>
 
 <span class="w">  </span><span class="c1">// ===| CVO Function Codes (ISA §3.4.1) |=======================================</span>
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">CVO_EXP</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">CVO_SQRT</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">CVO_GELU</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span><span class="p">,</span>
-<span class="w">    </span><span class="n">CVO_SIN</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h3</span><span class="p">,</span>
-<span class="w">    </span><span class="n">CVO_COS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h4</span><span class="p">,</span>
-<span class="w">    </span><span class="n">CVO_REDUCE_SUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h5</span><span class="p">,</span>
-<span class="w">    </span><span class="n">CVO_SCALE</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h6</span><span class="p">,</span>
-<span class="w">    </span><span class="n">CVO_RECIP</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h7</span>
+<span class="w">    </span><span class="n">CVO_EXP</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CVO_SQRT</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CVO_GELU</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CVO_SIN</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CVO_COS</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h4</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CVO_REDUCE_SUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h5</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CVO_SCALE</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h6</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CVO_RECIP</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h7</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">cvo_func_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// ===| CVO Flags (5-bit, ISA §3.4.2) |=========================================</span>
@@ -1107,19 +1061,19 @@ layout. Imported at the top of every controller module.</p>
 <span class="w">  </span><span class="c1">// Each route encodes source[7:4] | dest[3:0] as an 8-bit enum.</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">data_to_host</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_GLOBAL_cache</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_L1_cache_GEMM_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_L1_cache_GEMV_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h3</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_CVO_in</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h4</span>
+<span class="w">    </span><span class="n">data_to_host</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_GLOBAL_cache</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_L1_cache_GEMM_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_L1_cache_GEMV_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_CVO_in</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h4</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">data_dest_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">data_from_host</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_from_GLOBAL_cache</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_from_L1_cache_GEMM_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_from_L1_cache_GEMV_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h3</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_from_CVO_res</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h4</span>
+<span class="w">    </span><span class="n">data_from_host</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_from_GLOBAL_cache</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_from_L1_cache_GEMM_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_from_L1_cache_GEMV_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_from_CVO_res</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h4</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">data_source_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
@@ -1134,8 +1088,8 @@ layout. Imported at the top of every controller module.</p>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">data_route_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">data_to_fmap_shape</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">2&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_weight_shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">2&#39;h1</span>
+<span class="w">    </span><span class="n">data_to_fmap_shape</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">2'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_weight_shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">2'h1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">dest_cache_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// ===| Micro-Op Structures (ISA §6) |==========================================</span>
@@ -1210,17 +1164,17 @@ layout. Imported at the top of every controller module.</p>
 <span class="w">  </span><span class="no">`define</span><span class="w"> </span><span class="n">PORT_MOD_E_READ</span><span class="w"> </span><span class="mi">0</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">data_to_host</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_GLOBAL_cache</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_L1_cache_gemm_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_L1_cache_GEMV_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_host</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_GLOBAL_cache</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_L1_cache_gemm_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_L1_cache_GEMV_in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h3</span><span class="p">,</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">data_dest_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">data_from_host</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_from_GLOBAL_cache</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_from_L1_cache_gemm_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_from_L1_cache_GEMV_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h3</span>
+<span class="w">    </span><span class="n">data_from_host</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_from_GLOBAL_cache</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_from_L1_cache_gemm_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_from_L1_cache_GEMV_res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h3</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">data_source_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
@@ -1248,8 +1202,8 @@ layout. Imported at the top of every controller module.</p>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">memory_control_uop_t</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">data_to_fmap_shape</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">2&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">data_to_weight_shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">2&#39;h1</span>
+<span class="w">    </span><span class="n">data_to_fmap_shape</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">2'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_to_weight_shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">2'h1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">dest_cache_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="k">packed</span><span class="w"> </span><span class="p">{</span>
@@ -1300,9 +1254,9 @@ layout. Imported at the top of every controller module.</p>
 <span class="cm">  Opcode table</span>
 <span class="cm">  ─────────────────────────────────────────────*/</span>
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">OP_GEMV</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_GEMM</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_MEMCPY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span>
+<span class="w">    </span><span class="n">OP_GEMV</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_GEMM</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_MEMCPY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">opcode_t</span><span class="p">;</span>
 
 
@@ -1368,18 +1322,18 @@ layout. Imported at the top of every controller module.</p>
 <span class="w">  </span><span class="c1">// npu -&gt; host</span>
 <span class="w">  </span><span class="c1">// host -&gt; npu</span>
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">FROM_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">FROM_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span>
+<span class="w">    </span><span class="n">FROM_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">FROM_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">from_device_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">TO_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">TO_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span>
+<span class="w">    </span><span class="n">TO_NPU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">TO_HOST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">to_device_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">sync</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span>
+<span class="w">    </span><span class="n">sync</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">async_e</span><span class="p">;</span>
 
 
@@ -1397,10 +1351,10 @@ layout. Imported at the top of every controller module.</p>
 
 <span class="w">  </span><span class="c1">//  Opcode table (4-bit)</span>
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">OP_GEMV</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_GEMM</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_MEMCPY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h2</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OP_MEMSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4&#39;h3</span>
+<span class="w">    </span><span class="n">OP_GEMV</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_GEMM</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_MEMCPY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OP_MEMSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">4'h3</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">opcode_e</span><span class="p">;</span>
 
 
@@ -1484,7 +1438,7 @@ typed handles between blocks.</p></li>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">npu_interfaces.svh</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="no">`ifndef</span><span class="w"> </span><span class="n">NPU_INTERFACES_SVH</span>
 <span class="cp">`define NPU_INTERFACES_SVH</span>
@@ -1599,20 +1553,19 @@ typed handles between blocks.</p></li>
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-05-27</div>
+              Last updated on 2026-09-27</div>
           </div>
           <div class="right-details">
             <div class="icons">
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation — github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://labs.pccx.ai/" aria-label="pccx-lab — simulator & verification lab"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.2L4.6 19a1 1 0 0 0 .86 1.5h13.08a1 1 0 0 0 .86-1.5L14 9.2V3"/><path d="M6.8 14h10.4"/></svg><span class="pccx-footer-icon__label">Lab</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://launcher.pccx.ai/" aria-label="PCCX Launcher — launcher contracts and readiness"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">Launcher</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://ide.pccx.ai/" aria-label="SystemVerilog IDE — diagnostics and validation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">IDE</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="Docs repository — github.com/pccxai/pccx"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://hkimw.github.io/hkimw/" aria-label="Author portfolio — hkimw.github.io/hkimw"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">Blog</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vQMPYkdXXGSs6B7FUPqP2df7ncRALntT7KKj1LQqYt60IhXhfC90ow0O9TCTgLzD_N_vs8Q7OQRAMwf/pub" aria-label="Public legal center — Altifigence public legal records"><span class="pccx-footer-icon__label">Legal</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vREutdqQF-kY0fsDgpExLBRl0P4uraGxaGy9skjcJNdpWlyw5RFULdQuBcurOnSx75JRjL1rO1k14m_/pub" aria-label="Privacy notice — Altifigence public legal records"><span class="pccx-footer-icon__label">Privacy</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vSqrQ1sd9xH4i3wp6Iy0z1fhJN49SF0Vu6nTXASBZwtrB2PBD_L8mKo32AYZj3nnQjaDEQEI_HRd9DO/pub" aria-label="Terms — Altifigence public legal records"><span class="pccx-footer-icon__label">Terms</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vTgkg5KcCB_m28lcPERlEC1O3oSRJCW8RvMEqPL_0o-i7JT0EwxgBilOx5oiMujrcpqlcu8ZZkccq1k/pub" aria-label="Cookies — Altifigence public legal records"><span class="pccx-footer-icon__label">Cookies</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://docs.altifigence.com/ide/" aria-label="SystemVerilog IDE documentation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">IDE</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="PCCX documentation repository"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/" aria-label="Altifigence — PCCX project operator"><span class="pccx-footer-icon__label">Altifigence</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://pccx.ai/en/Transparency/" aria-label="PCCX operating principles"><span class="pccx-footer-icon__label">Transparency</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://pccx.ai/en/Transparency/#documents" aria-label="PCCX rights and legal documents"><span class="pccx-footer-icon__label">Legal</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/en/legal/privacy/" aria-label="Altifigence privacy notice"><span class="pccx-footer-icon__label">Privacy</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/en/legal/terms/" aria-label="Altifigence terms"><span class="pccx-footer-icon__label">Terms</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/en/legal/cookies/" aria-label="Altifigence cookie notice"><span class="pccx-footer-icon__label">Cookies</span></a>
               
             </div>
           </div>
@@ -1668,7 +1621,7 @@ typed handles between blocks.</p></li>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../../_static/image-lightbox.js?v=efae7920"></script>
     <script src="../../../../_static/language-switcher.js?v=62996a13"></script>
-    <script src="../../../../_static/pccx-version-switcher.js?v=008495d9"></script>
+    <script src="../../../../_static/pccx-version-switcher.js?v=f6a0473a"></script>
     <script src="../../../../_static/auto-translate-dismiss.js?v=ff0a3b93"></script>
     </body>
 </html>

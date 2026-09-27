@@ -3,15 +3,15 @@ RTL Source Reference (v002)
 ==============================
 
 This section embeds key SystemVerilog modules from the pccx v002 RTL
-repository: `pccxai/pccx-FPGA-NPU-LLM-kv260
-<https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260>`_.
+repository: `pccxai/pccx-v002
+<https://github.com/pccxai/pccx-v002>`_.
 
 The RTL is cloned into :file:`codes/v002/` at CI build time. Local
 development requires a manual clone:
 
 .. code-block:: bash
 
-   git clone https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260 codes/v002
+   git clone https://github.com/pccxai/pccx-v002 codes/v002
 
 .. toctree::
    :maxdepth: 1

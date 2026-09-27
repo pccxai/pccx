@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Toolchain Demos
 
 Reference pages exercising every diagram / plot pipeline wired into the

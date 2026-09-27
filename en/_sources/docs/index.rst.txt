@@ -188,14 +188,14 @@ Altifigence.
             **github.com/pccxai/pccx** — the Sphinx project powering this site.
 
          .. grid-item-card:: :octicon:`telescope;1em;sd-mr-1` pccx-lab (verify / profile)
-            :link: https://labs.pccx.ai/
+            :link: https://docs.altifigence.com/lab/
             :link-type: url
             :link-alt: Open the pccx-lab verification + profiling hub
 
             **pccx-lab** — Tauri 2 IDE. ``.pccx`` trace loader,
             ``run_verification`` runner, Roofline / Bottleneck cards,
             Vivado synth report view. See the
-            `dedicated lab documentation site <https://labs.pccx.ai/>`_.
+            `dedicated lab documentation site <https://docs.altifigence.com/lab/>`_.
 
          .. grid-item-card:: :octicon:`person;1em;sd-mr-1` Author portfolio
             :link: https://hkimw.github.io/hkimw/

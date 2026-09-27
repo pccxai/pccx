@@ -47,22 +47,6 @@ KV260 bring-up `[HW]` → 런타임 `[HW]` → 릴리스 증거 체크리스트
 - EAGLE head 학습용 컴퓨트 예산: $70–100 (TRC TPU grant 가
   들어오면 $40)
 
-## Later — v003.x: 별도 RTL 저장소 (LLM 라인 후속)
-
-- v003+ 의 활성 RTL 개발은
-  [`pccx-v003`](https://github.com/pccxai/pccx-v003) — 정본 v003
-  IP-core 계획 패키지 — 에서 진행되며, 안정된 릴리스 브랜치는 아직
-  없다 (이전 feeder
-  [`pccx-LLM-v003`](https://github.com/pccxai/pccx-LLM-v003) 은
-  superseded / retired)
-- 이 문서 저장소는 v003 IP-core 패키지를 cross-link 하고 빌드 시
-  `codes/v003/` 로 CI-clone 한다 — 현재
-  `pccx-FPGA-NPU-LLM-kv260` 를 `codes/v002/` 로 CI-clone 하는 것과
-  같은 방식
-- v003.0 — Gemma 4 E4B 파운데이션 + 첫 아키텍처 novelty (planning); 처리량 TBD
-- v003.1 — 두 번째 novelty + KV / 디코딩 co-design; 처리량 TBD
-- 트랙 placeholder 인덱스: [docs.altifigence.com — v003](https://docs.altifigence.com/v003/)
-
 ## Parallel — vision-v001: KV260 위 CNN 추론 트랙
 
 LLM 라인과는 별개로, **vision** 워크로드 전용 두 번째 제품 라인을
@@ -87,10 +71,10 @@ LLM 라인과는 별개로, **vision** 워크로드 전용 두 번째 제품 라
 :name: fig-pccx-family-tree-ko
 :alt: pccx 제품군 트리 — 버전과 트랙별 분기
 
-v001 (archived) → v002 (활성 KV260 LLM 라인: v002.0 → v002.1) →
-v003.x (LLM 라인 후속, 별도 RTL 저장소). **vision-v001** 트랙은
-v002 KV260 substrate 에서 분기되어 자체 저장소에서 평행하게
-진행된다. 노드에 hover 하면 상태와 범위가 표시된다.
+v001 (archived) → v002 (활성 KV260 LLM 라인: v002.0 → v002.1).
+**vision-v001** 트랙은 v002 KV260 substrate 에서 분기되어 자체 저장소에서
+평행하게 진행된다. v003+ 등 다른 트랙은 docs.altifigence.com 에 있습니다.
+노드에 hover 하면 상태와 범위가 표시된다.
 ```
 
 ## 링크

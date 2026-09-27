@@ -11,10 +11,10 @@ orphan: true
 
 # PCCX product packages (draft)
 
-PCCX™ ships in three commercial-track packages alongside the open
-core. None of these packages claim hardware/runtime/timing/bitstream
-evidence; pricing and availability are TBD pending qualified counsel
-review.
+The three package names below are historical planning concepts, not current
+shipping products or availability commitments. Current commercial tools and
+services are operated separately by Altifigence; see
+[Transparency](https://pccx.ai/en/Transparency/).
 
 | Package | Audience | Scope (intent) |
 | --- | --- | --- |
@@ -22,8 +22,9 @@ review.
 | **Enterprise SDK** | Toolchain customers | Closed compiler backend, runtime extensions, certification harness. |
 | **ASICKit** | Tape-out customers | Tape-out-oriented deliverables: foundry-targeted RTL views, timing scripts, verification collateral. Roadmap. |
 
-The open track (PCCX Standard, ISA, SDK reference, simulator,
-conformance tests, OpenCore reference, docs) remains under the
-existing open licence and is not gated by these commercial packages.
+Open-source code remains usable under its applicable license without buying
+commercial tools. Documentation and brand assets retain their separate
+rights notices. This page neither relicenses public material nor promises
+support, certification or access to a commercial package.
 
 Tracker: pccxai/pccx#61.

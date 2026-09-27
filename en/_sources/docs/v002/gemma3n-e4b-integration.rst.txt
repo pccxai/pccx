@@ -103,7 +103,7 @@ Live Surface Map
      - Daemon dependency
      - Issue tracker
    * - pccx-lab Live Run
-     - https://labs.pccx.ai/live-run/
+     - https://docs.altifigence.com/lab/
      - ``/api/status`` plus optional status WebSocket frames.
      - https://github.com/pccxai/pccx-lab/issues
    * - pccx-trace Live Capture
@@ -111,11 +111,11 @@ Live Surface Map
      - ``/api/trace`` NDJSON timeline stream.
      - https://github.com/pccx-internal/pccx-trace/issues
    * - systemverilog-ide Board Health
-     - https://ide.pccx.ai/board-health/
+     - https://docs.altifigence.com/ide/
      - ``/api/status`` board, backend, and SHA fields.
      - https://github.com/pccxai/systemverilog-ide/issues
    * - pccx-launcher chat
-     - https://launcher.pccx.ai/chat/
+     - https://docs.altifigence.com/launcher/
      - ``/api/status`` preflight plus chat WebSocket events.
      - https://github.com/pccxai/pccx-launcher/issues
 

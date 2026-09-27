@@ -15,7 +15,7 @@
 <meta name="description" content="호스트 DDR ↔ L2 URAM 캐시 ↔ 코어별 L1 캐시 ↔ CVO 스트림 인제스트 사이의 모든 경로를 맡습니다. 전용 디스패처가 ISA §5 에 열거된 8 개 data_route_e 경로를 중재하고, 두 개의 상수 메모리 어레이가 행렬/벡터 코어에 shape 와 size 디스크립터를 공급합니다. 최상위 플러밍: mem_dispatcher.sv — ..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"메모리 제어","name":"메모리 제어","url":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/mem_control.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/mem_control.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-05-27","dateModified":"2026-05-27","description":"pccx documentation page: 메모리 제어. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../../genindex.html"><link rel="search" title="검색" href="../../../../search.html"><link rel="next" title="전처리" href="preprocess.html"><link rel="prev" title="CVO 코어 (SFU)" href="cvo_core.html">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","alternateName":"pccx","url":"https://pccx.pages.dev/","inLanguage":["ko","en","ko"],"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"description":"pccx is an open-source scalable NPU architecture for edge LLM inference.  W4A8KV4 quantisation on the Xilinx Kria KV260; v002 reference implementation in SystemVerilog.","keywords":["NPU","FPGA","LLM inference","edge AI","W4A8","KV cache","systolic array","Kria KV260","ZU5EV","Transformer accelerator","speculative decoding","FlashAttention","QServe","Gemma 3N","Matryoshka","Sail ISA","Sail language","formal ISA specification","ISA semantics","RISC-V Sail","Arm Sail","CHERI","Morello","Isabelle/HOL","Coq"]},{"@context":"https://schema.org","@type":"TechArticle","headline":"메모리 제어","name":"메모리 제어","url":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/mem_control.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://pccx.pages.dev/ko/docs/archive/experimental_v001/RTL/mem_control.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/"},"author":{"@type":"Person","name":"Hyunwoo Kim","url":"https://hkimw.github.io/hkimw/"},"publisher":{"@type":"Organization","name":"pccx project","url":"https://pccx.pages.dev/"},"datePublished":"2026-09-27","dateModified":"2026-09-27","description":"pccx documentation page: 메모리 제어. Open-source NPU architecture + pccx-lab profiler implementing research from QServe, FlashAttention, OpenPangu speculative decoding, and Matryoshka subnet swap.","inLanguage":"ko","license":"https://www.apache.org/licenses/LICENSE-2.0","citation":{"@type":"CreativeWork","name":"pccx: Parallel Compute Core eXecutor","url":"https://pccx.pages.dev/","author":"Hyunwoo Kim","datePublished":"2026"}}]</script><link rel="index" title="색인" href="../../../../genindex.html"><link rel="search" title="검색" href="../../../../search.html"><link rel="next" title="전처리" href="preprocess.html"><link rel="prev" title="CVO 코어 (SFU)" href="cvo_core.html">
         <link rel="canonical" href="https://docs.pccx.ai/docs/archive/experimental_v001/RTL/mem_control.html">
 
     <link rel="shortcut icon" href="../../../../_static/pccx_wordmark_favicon.ico"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
@@ -27,13 +27,13 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=e90aefa7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=46f00cd2" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/image-lightbox.css?v=7c940a79" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/language-switcher.css?v=041d5448" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/kr-typography.css?v=d1ebaf6e" />
@@ -249,7 +249,7 @@ SPDX-License-Identifier: Apache-2.0
 </div>
 
 
-<nav class="pccx-repolinks" aria-label="Project repositories">
+<nav class="pccx-repolinks" aria-label="Project links">
   <a class="pccx-repolinks__btn"
      href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"
      title="Active v002 RTL — pccx-FPGA-NPU-LLM-kv260"
@@ -264,32 +264,7 @@ SPDX-License-Identifier: Apache-2.0
     <span class="pccx-repolinks__label">RTL</span>
   </a>
   <a class="pccx-repolinks__btn"
-     href="https://labs.pccx.ai/"
-     title="pccx-lab — verification lab and trace profiler"
-     rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 3h6"/>
-      <path d="M10 3v6.2L4.6 19a1 1 0 0 0 .86 1.5h13.08a1 1 0 0 0 .86-1.5L14 9.2V3"/>
-      <path d="M6.8 14h10.4"/>
-    </svg>
-    <span class="pccx-repolinks__label">Lab</span>
-  </a>
-  <a class="pccx-repolinks__btn"
-     href="https://launcher.pccx.ai/"
-     title="PCCX Launcher — contracts and readiness"
-     rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <rect x="6" y="6" width="12" height="12" rx="1.2"/>
-      <path d="M9 12h6M12 9v6"/>
-    </svg>
-    <span class="pccx-repolinks__label">Launcher</span>
-  </a>
-  <a class="pccx-repolinks__btn"
-     href="https://ide.pccx.ai/"
+     href="https://docs.altifigence.com/ide/"
      title="SystemVerilog IDE — diagnostics and validation"
      rel="noopener">
     <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
@@ -310,17 +285,10 @@ SPDX-License-Identifier: Apache-2.0
     </svg>
     <span class="pccx-repolinks__label">Docs</span>
   </a>
-  <a class="pccx-repolinks__btn"
-     href="https://hkimw.github.io/hkimw/"
-     title="Author portfolio — hkimw.github.io"
-     target="_blank" rel="noopener">
-    <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
-         fill="none" stroke="currentColor" stroke-width="1.6"
-         stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="8" r="3.5"/>
-      <path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/>
-    </svg>
-    <span class="pccx-repolinks__label">Blog</span>
+  <a class="pccx-repolinks__btn" href="https://altifigence.com/"
+     title="Altifigence — PCCX project operator" target="_blank" rel="noopener">
+    <span aria-hidden="true">↗</span>
+    <span class="pccx-repolinks__label">Altifigence</span>
   </a>
 </nav><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="검색" name="q" aria-label="검색">
@@ -433,23 +401,11 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">툴체인 데모</span></p>
+<p class="caption" role="heading"><span class="caption-text">외부 링크</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../samples/index.html">툴체인 데모</a><input aria-label="Toggle navigation of 툴체인 데모" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/mermaid_blockdiagram.html">Mermaid — NPU 블록 다이어그램</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/wavedrom_axi_read.html">WaveDrom — AXI4 read 트랜잭션</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/svg_themed_demo.html">SVG — 테마 대응 4×4 PE 어레이</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../samples/plot_bandwidth.html">scienceplots — batch size 대비 대역폭</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../auto_plots/index.html">Plot gallery</a><input aria-label="Toggle navigation of Plot gallery" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../auto_plots/plot_bandwidth.html">Batch size vs achieved HP-AXI bandwidth</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">도구</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://pccx.ai/ko/lab/">pccx-lab — 시뮬레이터 &amp; AI 프로파일러</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.altifigence.com/ide/">SystemVerilog IDE</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://altifigence.com/">Altifigence.com</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pccx.ai/ko-kr/Transparency/">PCCX Transparency</a></li>
 </ul>
 
   <div class="pccx-version-switcher"
@@ -529,9 +485,9 @@ size 디스크립터를 공급합니다.</p>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">mem_dispatcher.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GEMM_Array.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;mem_IO.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GEMM_Array.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"mem_IO.svh"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">isa_pkg::*</span><span class="p">;</span>
 
@@ -609,11 +565,11 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="c1">// ===| MEMSET handler |========================================================</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">fmap_write_enable</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">weight_write_enable</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">fmap_write_enable</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">weight_write_enable</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">fmap_write_enable</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">weight_write_enable</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">fmap_write_enable</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">weight_write_enable</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 
 <span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">IN_mem_set_uop</span><span class="p">.</span><span class="n">dest_cache</span><span class="p">)</span>
 <span class="w">        </span><span class="nl">data_to_fmap_shape:</span><span class="w"> </span><span class="k">begin</span>
@@ -621,7 +577,7 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">          </span><span class="n">fmap_arr_shape_X</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_mem_set_uop</span><span class="p">.</span><span class="n">a_value</span><span class="p">;</span>
 <span class="w">          </span><span class="n">fmap_arr_shape_Y</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_mem_set_uop</span><span class="p">.</span><span class="n">b_value</span><span class="p">;</span>
 <span class="w">          </span><span class="n">fmap_arr_shape_Z</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_mem_set_uop</span><span class="p">.</span><span class="n">c_value</span><span class="p">;</span>
-<span class="w">          </span><span class="n">fmap_write_enable</span><span class="w">       </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">fmap_write_enable</span><span class="w">       </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">        </span><span class="k">end</span>
 
 <span class="w">        </span><span class="nl">data_to_weight_shape:</span><span class="w"> </span><span class="k">begin</span>
@@ -629,7 +585,7 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">          </span><span class="n">weight_arr_shape_X</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_mem_set_uop</span><span class="p">.</span><span class="n">a_value</span><span class="p">;</span>
 <span class="w">          </span><span class="n">weight_arr_shape_Y</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_mem_set_uop</span><span class="p">.</span><span class="n">b_value</span><span class="p">;</span>
 <span class="w">          </span><span class="n">weight_arr_shape_Z</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_mem_set_uop</span><span class="p">.</span><span class="n">c_value</span><span class="p">;</span>
-<span class="w">          </span><span class="n">weight_write_enable</span><span class="w">       </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">weight_write_enable</span><span class="w">       </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">        </span><span class="k">end</span>
 
 <span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="p">;</span>
@@ -684,62 +640,62 @@ size 디스크립터를 공급합니다.</p>
 
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 
 <span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">data_dest</span><span class="p">)</span>
 <span class="w">        </span><span class="c1">// Host DDR4 → L2 (feature map DMA in)</span>
 <span class="w">        </span><span class="nl">from_host_to_L2:</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">          </span><span class="n">acp_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">          </span><span class="n">acp_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">              </span><span class="n">write_en</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="no">`PORT_MOD_E_WRITE</span><span class="p">,</span>
 <span class="w">              </span><span class="n">base_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">dest_addr</span><span class="p">,</span>
-<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">dest_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">fmap_word_total</span><span class="p">)</span>
+<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">dest_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">fmap_word_total</span><span class="p">)</span>
 <span class="w">          </span><span class="p">};</span>
-<span class="w">          </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
-<span class="w">          </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="n">fmap_shape_read_address</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">;</span>
 <span class="w">        </span><span class="k">end</span>
 
 <span class="w">        </span><span class="c1">// L2 → host DDR4 (result DMA out)</span>
 <span class="w">        </span><span class="nl">from_L2_to_host:</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">          </span><span class="n">acp_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">          </span><span class="n">acp_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">              </span><span class="n">write_en</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="no">`PORT_MOD_E_READ</span><span class="p">,</span>
 <span class="w">              </span><span class="n">base_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
-<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">fmap_word_total</span><span class="p">)</span>
+<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">fmap_word_total</span><span class="p">)</span>
 <span class="w">          </span><span class="p">};</span>
-<span class="w">          </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
-<span class="w">          </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">acp_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">IN_acp_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="n">fmap_shape_read_address</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">;</span>
 <span class="w">        </span><span class="k">end</span>
 
 <span class="w">        </span><span class="c1">// L2 → GEMM fmap broadcast</span>
 <span class="w">        </span><span class="nl">from_L2_to_L1_GEMM:</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">          </span><span class="n">npu_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">          </span><span class="n">npu_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">              </span><span class="n">write_en</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="no">`PORT_MOD_E_READ</span><span class="p">,</span>
 <span class="w">              </span><span class="n">base_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
-<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">fmap_word_total</span><span class="p">)</span>
+<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">fmap_word_total</span><span class="p">)</span>
 <span class="w">          </span><span class="p">};</span>
-<span class="w">          </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
-<span class="w">          </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="n">fmap_shape_read_address</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">;</span>
 <span class="w">        </span><span class="k">end</span>
 
 <span class="w">        </span><span class="c1">// L2 → GEMV fmap broadcast</span>
 <span class="w">        </span><span class="nl">from_L2_to_L1_GEMV:</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">          </span><span class="n">npu_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">&#39;{</span>
+<span class="w">          </span><span class="n">npu_uop</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">'{</span>
 <span class="w">              </span><span class="n">write_en</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="no">`PORT_MOD_E_READ</span><span class="p">,</span>
 <span class="w">              </span><span class="n">base_addr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="p">,</span>
-<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">fmap_word_total</span><span class="p">)</span>
+<span class="w">              </span><span class="n">end_addr</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">fmap_word_total</span><span class="p">)</span>
 <span class="w">          </span><span class="p">};</span>
-<span class="w">          </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
-<span class="w">          </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">npu_rx_start</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">IN_npu_rdy</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="n">fmap_shape_read_address</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_LOAD_uop</span><span class="p">.</span><span class="n">shape_ptr_addr</span><span class="p">;</span>
 <span class="w">        </span><span class="k">end</span>
 
@@ -873,7 +829,7 @@ size 디스크립터를 공급합니다.</p>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">mem_L2_cache_fmap.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="c1">// ===| L2 Feature Map &amp; KV Cache (URAM) |========================================</span>
 <span class="c1">// True dual-port URAM: Depth x 128-bit wide.</span>
@@ -916,47 +872,47 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">      </span><span class="p">.</span><span class="n">MEMORY_SIZE</span><span class="w">        </span><span class="p">(</span><span class="mi">128</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Depth</span><span class="p">),</span>
 
 <span class="w">      </span><span class="c1">// ===| Implementation |===</span>
-<span class="w">      </span><span class="p">.</span><span class="n">MEMORY_PRIMITIVE</span><span class="w">   </span><span class="p">(</span><span class="s">&quot;ultra&quot;</span><span class="p">),</span><span class="w">      </span><span class="c1">// Force URAM on UltraScale+</span>
-<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="w">      </span><span class="p">(</span><span class="s">&quot;common_clock&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">MEMORY_PRIMITIVE</span><span class="w">   </span><span class="p">(</span><span class="s">"ultra"</span><span class="p">),</span><span class="w">      </span><span class="c1">// Force URAM on UltraScale+</span>
+<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="w">      </span><span class="p">(</span><span class="s">"common_clock"</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">READ_LATENCY_A</span><span class="w">     </span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">READ_LATENCY_B</span><span class="w">     </span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">WRITE_MODE_A</span><span class="w">       </span><span class="p">(</span><span class="s">&quot;write_first&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">WRITE_MODE_B</span><span class="w">       </span><span class="p">(</span><span class="s">&quot;write_first&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">WRITE_MODE_A</span><span class="w">       </span><span class="p">(</span><span class="s">"write_first"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">WRITE_MODE_B</span><span class="w">       </span><span class="p">(</span><span class="s">"write_first"</span><span class="p">),</span>
 
 <span class="w">      </span><span class="c1">// ===| Init / Misc |===</span>
-<span class="w">      </span><span class="p">.</span><span class="n">MEMORY_INIT_FILE</span><span class="w">   </span><span class="p">(</span><span class="s">&quot;none&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">MEMORY_INIT_PARAM</span><span class="w">  </span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">MEMORY_INIT_FILE</span><span class="w">   </span><span class="p">(</span><span class="s">"none"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">MEMORY_INIT_PARAM</span><span class="w">  </span><span class="p">(</span><span class="s">"0"</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">USE_MEM_INIT</span><span class="w">       </span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">AUTO_SLEEP_TIME</span><span class="w">    </span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">WAKEUP_TIME</span><span class="w">        </span><span class="p">(</span><span class="s">&quot;disable_sleep&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">ECC_MODE</span><span class="w">           </span><span class="p">(</span><span class="s">&quot;no_ecc&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">WAKEUP_TIME</span><span class="w">        </span><span class="p">(</span><span class="s">"disable_sleep"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">ECC_MODE</span><span class="w">           </span><span class="p">(</span><span class="s">"no_ecc"</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">USE_EMBEDDED_CONSTRAINT</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_l2_uram</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="c1">// Port A</span>
 <span class="w">      </span><span class="p">.</span><span class="n">clka</span><span class="w">           </span><span class="p">(</span><span class="n">clk_core</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">rsta</span><span class="w">           </span><span class="p">(</span><span class="o">~</span><span class="n">rst_n_core</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">ena</span><span class="w">            </span><span class="p">(</span><span class="mb">1&#39;b1</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">ena</span><span class="w">            </span><span class="p">(</span><span class="mb">1'b1</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">wea</span><span class="w">            </span><span class="p">(</span><span class="n">IN_acp_we</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">addra</span><span class="w">          </span><span class="p">(</span><span class="n">IN_acp_addr</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">dina</span><span class="w">           </span><span class="p">(</span><span class="n">IN_acp_wdata</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">douta</span><span class="w">          </span><span class="p">(</span><span class="n">OUT_acp_rdata</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">regcea</span><span class="w">         </span><span class="p">(</span><span class="mb">1&#39;b1</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">injectsbiterra</span><span class="w"> </span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">injectdbiterra</span><span class="w"> </span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">regcea</span><span class="w">         </span><span class="p">(</span><span class="mb">1'b1</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">injectsbiterra</span><span class="w"> </span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">injectdbiterra</span><span class="w"> </span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">sbiterra</span><span class="w">       </span><span class="p">(),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">dbiterra</span><span class="w">       </span><span class="p">(),</span>
 
 <span class="w">      </span><span class="c1">// Port B</span>
 <span class="w">      </span><span class="p">.</span><span class="n">clkb</span><span class="w">           </span><span class="p">(</span><span class="n">clk_core</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">rstb</span><span class="w">           </span><span class="p">(</span><span class="o">~</span><span class="n">rst_n_core</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">enb</span><span class="w">            </span><span class="p">(</span><span class="mb">1&#39;b1</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">enb</span><span class="w">            </span><span class="p">(</span><span class="mb">1'b1</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">web</span><span class="w">            </span><span class="p">(</span><span class="n">IN_npu_we</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">addrb</span><span class="w">          </span><span class="p">(</span><span class="n">IN_npu_addr</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">dinb</span><span class="w">           </span><span class="p">(</span><span class="n">IN_npu_wdata</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">doutb</span><span class="w">          </span><span class="p">(</span><span class="n">OUT_npu_rdata</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">regceb</span><span class="w">         </span><span class="p">(</span><span class="mb">1&#39;b1</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">injectsbiterrb</span><span class="w"> </span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">injectdbiterrb</span><span class="w"> </span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">regceb</span><span class="w">         </span><span class="p">(</span><span class="mb">1'b1</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">injectsbiterrb</span><span class="w"> </span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">injectdbiterrb</span><span class="w"> </span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">sbiterrb</span><span class="w">       </span><span class="p">(),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">dbiterrb</span><span class="w">       </span><span class="p">()</span>
 <span class="w">  </span><span class="p">);</span>
@@ -969,8 +925,8 @@ size 디스크립터를 공급합니다.</p>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">mem_HP_buffer.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GEMM_Array.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GEMM_Array.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="k">module</span><span class="w"> </span><span class="n">mem_HP_buffer</span><span class="w"> </span><span class="p">#(</span>
 <span class="p">)</span><span class="w"> </span><span class="p">(</span>
@@ -1000,8 +956,8 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="n">xpm_fifo_axis</span><span class="w"> </span><span class="p">#(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="w">      </span><span class="p">(</span><span class="n">URAM_FIFO_DEPTH</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">TDATA_WIDTH</span><span class="w">     </span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">&quot;ultra&quot;</span><span class="p">),</span><span class="w">             </span><span class="c1">// Forces UltraRAM</span>
-<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="w">   </span><span class="p">(</span><span class="s">&quot;independent_clock&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">"ultra"</span><span class="p">),</span><span class="w">             </span><span class="c1">// Forces UltraRAM</span>
+<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="w">   </span><span class="p">(</span><span class="s">"independent_clock"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_hp0_weight_fifo</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aclk</span><span class="p">(</span><span class="n">clk_axi</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aresetn</span><span class="p">(</span><span class="n">rst_axi_n</span><span class="p">),</span>
@@ -1019,8 +975,8 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="n">xpm_fifo_axis</span><span class="w"> </span><span class="p">#(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="p">(</span><span class="n">URAM_FIFO_DEPTH</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">TDATA_WIDTH</span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">&quot;ultra&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">&quot;independent_clock&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">"ultra"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">"independent_clock"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_hp1_weight_fifo</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aclk</span><span class="p">(</span><span class="n">clk_axi</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aresetn</span><span class="p">(</span><span class="n">rst_axi_n</span><span class="p">),</span>
@@ -1038,8 +994,8 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="n">xpm_fifo_axis</span><span class="w"> </span><span class="p">#(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="p">(</span><span class="n">URAM_FIFO_DEPTH</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">TDATA_WIDTH</span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">&quot;ultra&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">&quot;independent_clock&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">"ultra"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">"independent_clock"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_hp2_weight_fifo</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aclk</span><span class="p">(</span><span class="n">clk_axi</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aresetn</span><span class="p">(</span><span class="n">rst_axi_n</span><span class="p">),</span>
@@ -1057,8 +1013,8 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="n">xpm_fifo_axis</span><span class="w"> </span><span class="p">#(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="p">(</span><span class="n">URAM_FIFO_DEPTH</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">TDATA_WIDTH</span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">&quot;ultra&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">&quot;independent_clock&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">"ultra"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">"independent_clock"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_hp3_weight_fifo</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aclk</span><span class="p">(</span><span class="n">clk_axi</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aresetn</span><span class="p">(</span><span class="n">rst_axi_n</span><span class="p">),</span>
@@ -1080,7 +1036,7 @@ size 디스크립터를 공급합니다.</p>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">mem_CVO_stream_bridge.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">isa_pkg::*</span><span class="p">;</span>
 
@@ -1129,10 +1085,10 @@ size 디스크립터를 공급합니다.</p>
 
 <span class="w">  </span><span class="c1">// ===| State Machine |=========================================================</span>
 <span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">ST_IDLE</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">2&#39;b00</span><span class="p">,</span>
-<span class="w">    </span><span class="n">ST_READ</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">2&#39;b01</span><span class="p">,</span><span class="w">  </span><span class="c1">// reading L2 → CVO (buffering outputs)</span>
-<span class="w">    </span><span class="n">ST_WRITE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">2&#39;b10</span><span class="p">,</span><span class="w">  </span><span class="c1">// draining buffer → L2</span>
-<span class="w">    </span><span class="n">ST_DONE</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">2&#39;b11</span>
+<span class="w">    </span><span class="n">ST_IDLE</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">2'b00</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ST_READ</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">2'b01</span><span class="p">,</span><span class="w">  </span><span class="c1">// reading L2 → CVO (buffering outputs)</span>
+<span class="w">    </span><span class="n">ST_WRITE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">2'b10</span><span class="p">,</span><span class="w">  </span><span class="c1">// draining buffer → L2</span>
+<span class="w">    </span><span class="n">ST_DONE</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">2'b11</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">bridge_state_e</span><span class="p">;</span>
 
 <span class="w">  </span><span class="n">bridge_state_e</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
@@ -1144,7 +1100,7 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="kt">logic</span><span class="w"> </span><span class="p">[</span><span class="mi">12</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">total_words</span><span class="p">;</span><span class="w"> </span><span class="c1">// ceil(total_elems / 8)</span>
 
 <span class="w">  </span><span class="k">always_comb</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">    </span><span class="n">total_words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">&#39;((</span><span class="n">total_elems</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16&#39;d7</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n">total_words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">'((</span><span class="n">total_elems</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16'd7</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="c1">// ===| Read-side state |=======================================================</span>
@@ -1178,11 +1134,11 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="w">      </span><span class="p">(</span><span class="mi">2048</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">WRITE_DATA_WIDTH</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">READ_DATA_WIDTH</span><span class="w"> </span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">&quot;block&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">READ_MODE</span><span class="w">       </span><span class="p">(</span><span class="s">&quot;std&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">"block"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">READ_MODE</span><span class="w">       </span><span class="p">(</span><span class="s">"std"</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FULL_RESET_VALUE</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_result_fifo</span><span class="w"> </span><span class="p">(</span>
-<span class="w">      </span><span class="p">.</span><span class="n">sleep</span><span class="w"> </span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">sleep</span><span class="w"> </span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">rst</span><span class="w">   </span><span class="p">(</span><span class="o">~</span><span class="n">rst_n</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">wr_clk</span><span class="p">(</span><span class="n">clk</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">rd_clk</span><span class="p">(</span><span class="n">clk</span><span class="p">),</span>
@@ -1198,40 +1154,40 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="n">state</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">ST_IDLE</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rd_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">wr_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">total_elems</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rd_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rd_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rd_deser_buf</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">rd_lat_pipe</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">3&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">elems_fed</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">wr_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">wr_ser_buf</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">wr_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">elems_result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">OUT_done</span><span class="w">     </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rd_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">wr_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">total_elems</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rd_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rd_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rd_deser_buf</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">rd_lat_pipe</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">3'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">elems_fed</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">wr_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">wr_ser_buf</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">wr_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">elems_result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_done</span><span class="w">     </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">OUT_done</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_done</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 
 <span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
 <span class="w">        </span><span class="c1">// ===| IDLE: latch uop, convert element addresses to word addresses |===</span>
 <span class="w">        </span><span class="nl">ST_IDLE:</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_cvo_uop_valid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">            </span><span class="c1">// src/dst are element (16-bit) addresses; divide by 8 for 128-bit words</span>
-<span class="w">            </span><span class="n">rd_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">IN_cvo_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-<span class="w">            </span><span class="n">wr_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">IN_cvo_uop</span><span class="p">.</span><span class="n">dst_addr</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">            </span><span class="n">rd_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">IN_cvo_uop</span><span class="p">.</span><span class="n">src_addr</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">            </span><span class="n">wr_base</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">IN_cvo_uop</span><span class="p">.</span><span class="n">dst_addr</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 <span class="w">            </span><span class="n">total_elems</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_cvo_uop</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-<span class="w">            </span><span class="n">rd_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">rd_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">rd_lat_pipe</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">3&#39;b0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">elems_fed</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">wr_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">wr_ser_buf</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">wr_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">            </span><span class="n">elems_result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">rd_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">rd_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">rd_lat_pipe</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">3'b0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">elems_fed</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">wr_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">wr_ser_buf</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">wr_word_cnt</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">elems_result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 <span class="w">            </span><span class="n">state</span><span class="w">        </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">ST_READ</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 <span class="w">        </span><span class="k">end</span>
@@ -1239,27 +1195,27 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">        </span><span class="c1">// ===| READ: stream L2 → CVO; capture results in FIFO |================</span>
 <span class="w">        </span><span class="nl">ST_READ:</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">          </span><span class="c1">// Advance latency shift register</span>
-<span class="w">          </span><span class="n">rd_lat_pipe</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">{</span><span class="n">rd_lat_pipe</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">};</span>
+<span class="w">          </span><span class="n">rd_lat_pipe</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">{</span><span class="n">rd_lat_pipe</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">};</span>
 
 <span class="w">          </span><span class="c1">// Issue next L2 read when deser buffer is empty (pre-fetch when 3 left)</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rd_word_cnt</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">13</span><span class="p">&#39;(</span><span class="n">total_words</span><span class="p">))</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">            </span><span class="n">rd_lat_pipe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span><span class="w">  </span><span class="c1">// mark new read outstanding</span>
-<span class="w">            </span><span class="n">rd_word_cnt</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rd_word_cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">13&#39;d1</span><span class="p">;</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rd_word_cnt</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">13</span><span class="p">'(</span><span class="n">total_words</span><span class="p">))</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">            </span><span class="n">rd_lat_pipe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span><span class="w">  </span><span class="c1">// mark new read outstanding</span>
+<span class="w">            </span><span class="n">rd_word_cnt</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rd_word_cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">13'd1</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 
 <span class="w">          </span><span class="c1">// Capture L2 data 3 cycles after read issued</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rd_lat_pipe</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">            </span><span class="n">rd_deser_buf</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_l2_rdata</span><span class="p">;</span>
-<span class="w">            </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
-<span class="w">            </span><span class="n">rd_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3&#39;d0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">rd_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3'd0</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 
 <span class="w">          </span><span class="c1">// Feed CVO one element per cycle from deser buffer</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">IN_cvo_data_ready</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">            </span><span class="n">rd_elem_idx</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rd_elem_idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3&#39;d1</span><span class="p">;</span>
-<span class="w">            </span><span class="n">elems_fed</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">elems_fed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16&#39;d1</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rd_elem_idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3&#39;d7</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">elems_fed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16&#39;d1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">total_elems</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">              </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">rd_elem_idx</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rd_elem_idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3'd1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">elems_fed</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">elems_fed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16'd1</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rd_elem_idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3'd7</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">elems_fed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16'd1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">total_elems</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">              </span><span class="n">rd_buf_valid</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">            </span><span class="k">end</span>
 <span class="w">          </span><span class="k">end</span>
 
@@ -1273,14 +1229,14 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">        </span><span class="nl">ST_WRITE:</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">fifo_empty</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">            </span><span class="n">wr_ser_buf</span><span class="w">   </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">{</span><span class="n">fifo_dout</span><span class="p">,</span><span class="w"> </span><span class="n">wr_ser_buf</span><span class="p">[</span><span class="mi">127</span><span class="o">:</span><span class="mi">16</span><span class="p">]};</span>
-<span class="w">            </span><span class="n">wr_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3&#39;d1</span><span class="p">;</span>
-<span class="w">            </span><span class="n">elems_result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">elems_result</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16&#39;d1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">wr_elem_idx</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3'd1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">elems_result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">elems_result</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16'd1</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 
 <span class="w">          </span><span class="c1">// When 8 elements accumulated (or last partial word), write to L2</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3&#39;d7</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">elems_result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">total_elems</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">            </span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">13&#39;d1</span><span class="p">;</span>
-<span class="w">            </span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3&#39;d0</span><span class="p">;</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3'd7</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">elems_result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">total_elems</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">            </span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">13'd1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3'd0</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elems_result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">total_elems</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fifo_empty</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
@@ -1290,7 +1246,7 @@ size 디스크립터를 공급합니다.</p>
 
 <span class="w">        </span><span class="c1">// ===| DONE: pulse, return to IDLE |====================================</span>
 <span class="w">        </span><span class="nl">ST_DONE:</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">          </span><span class="n">OUT_done</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">          </span><span class="n">OUT_done</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">          </span><span class="n">state</span><span class="w">    </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">ST_IDLE</span><span class="p">;</span>
 <span class="w">        </span><span class="k">end</span>
 
@@ -1305,19 +1261,19 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="c1">// ===| L2 port B output mux ===================================================</span>
 <span class="w">  </span><span class="c1">// Priority: write (WRITE phase) &gt; read (READ phase)</span>
 <span class="w">  </span><span class="k">always_comb</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">    </span><span class="n">OUT_l2_we</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">OUT_l2_addr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">OUT_l2_wdata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">OUT_l2_we</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">OUT_l2_addr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">OUT_l2_wdata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ST_WRITE</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3&#39;d0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ST_WRITE</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wr_elem_idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3'd0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="c1">// Write accumulated 128-bit word to dst</span>
-<span class="w">      </span><span class="n">OUT_l2_we</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
-<span class="w">      </span><span class="n">OUT_l2_addr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">wr_base</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">13&#39;d1</span><span class="p">));</span>
+<span class="w">      </span><span class="n">OUT_l2_we</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_l2_addr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">wr_base</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">wr_word_cnt</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">13'd1</span><span class="p">));</span>
 <span class="w">      </span><span class="n">OUT_l2_wdata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wr_ser_buf</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ST_READ</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rd_lat_pipe</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="c1">// Issue read for next 128-bit word from src</span>
-<span class="w">      </span><span class="n">OUT_l2_we</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">OUT_l2_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">&#39;(</span><span class="n">rd_base</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">rd_word_cnt</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">13&#39;d1</span><span class="p">));</span>
+<span class="w">      </span><span class="n">OUT_l2_we</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">OUT_l2_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">'(</span><span class="n">rd_base</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">rd_word_cnt</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">13'd1</span><span class="p">));</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
@@ -1348,9 +1304,9 @@ size 디스크립터를 공급합니다.</p>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">mem_GLOBAL_cache.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GEMM_Array.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;mem_IO.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GEMM_Array.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"mem_IO.svh"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">isa_pkg::*</span><span class="p">;</span>
 
@@ -1420,41 +1376,41 @@ size 디스크립터를 공급합니다.</p>
 
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">acp_rd_valid_pipe</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">3&#39;b000</span><span class="p">;</span>
+<span class="w">      </span><span class="n">acp_rd_valid_pipe</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">3'b000</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="n">acp_rd_valid_pipe</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">{</span><span class="n">acp_rd_valid_pipe</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="n">acp_is_busy</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">acp_write_en</span><span class="p">)};</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">  </span><span class="k">end</span>
 
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">core_acp_tx_bus</span><span class="p">.</span><span class="n">tvalid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acp_rd_valid_pipe</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">core_acp_tx_bus</span><span class="p">.</span><span class="n">tkeep</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">&#39;1</span><span class="p">;</span>
-<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">core_acp_tx_bus</span><span class="p">.</span><span class="n">tlast</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">core_acp_tx_bus</span><span class="p">.</span><span class="n">tkeep</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">'1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">core_acp_tx_bus</span><span class="p">.</span><span class="n">tlast</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">assign</span><span class="w"> </span><span class="n">core_acp_rx_bus</span><span class="p">.</span><span class="n">tready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acp_is_busy</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">acp_write_en</span><span class="p">;</span>
 
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">acp_ptr</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">acp_end_addr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">acp_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">acp_write_en</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">acp_ptr</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">acp_end_addr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">acp_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">acp_write_en</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">acp_is_busy</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">acp_write_en</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">core_acp_rx_bus</span><span class="p">.</span><span class="n">tvalid</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">            </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17&#39;d1</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17&#39;d1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">acp_end_addr</span><span class="p">)</span><span class="w"> </span><span class="n">acp_is_busy</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17'd1</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17'd1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">acp_end_addr</span><span class="p">)</span><span class="w"> </span><span class="n">acp_is_busy</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 <span class="w">        </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">core_acp_tx_bus</span><span class="p">.</span><span class="n">tready</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">            </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17&#39;d1</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17&#39;d1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">acp_end_addr</span><span class="p">)</span><span class="w"> </span><span class="n">acp_is_busy</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17'd1</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">acp_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17'd1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">acp_end_addr</span><span class="p">)</span><span class="w"> </span><span class="n">acp_is_busy</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">          </span><span class="k">end</span>
 <span class="w">        </span><span class="k">end</span>
 <span class="w">      </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_acp_rx_start</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="n">acp_ptr</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_acp_base_addr</span><span class="p">;</span>
 <span class="w">        </span><span class="n">acp_end_addr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_acp_end_addr</span><span class="p">;</span>
-<span class="w">        </span><span class="n">acp_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">acp_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">        </span><span class="n">acp_write_en</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_acp_write_en</span><span class="p">;</span>
 <span class="w">      </span><span class="k">end</span>
 <span class="w">    </span><span class="k">end</span>
@@ -1470,18 +1426,18 @@ size 디스크립터를 공급합니다.</p>
 
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n_core</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="n">npu_ptr</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">npu_end_addr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">&#39;0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">npu_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
-<span class="w">      </span><span class="n">npu_write_en</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">npu_ptr</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">npu_end_addr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">'0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">npu_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
+<span class="w">      </span><span class="n">npu_write_en</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">npu_is_busy</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">        </span><span class="n">npu_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">npu_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17&#39;d1</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">npu_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17&#39;d1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">npu_end_addr</span><span class="p">)</span><span class="w"> </span><span class="n">npu_is_busy</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">npu_ptr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">npu_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17'd1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">npu_ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">17'd1</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">npu_end_addr</span><span class="p">)</span><span class="w"> </span><span class="n">npu_is_busy</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b0</span><span class="p">;</span>
 <span class="w">      </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IN_npu_rx_start</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="n">npu_ptr</span><span class="w">      </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_npu_base_addr</span><span class="p">;</span>
 <span class="w">        </span><span class="n">npu_end_addr</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_npu_end_addr</span><span class="p">;</span>
-<span class="w">        </span><span class="n">npu_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">npu_is_busy</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="mb">1'b1</span><span class="p">;</span>
 <span class="w">        </span><span class="n">npu_write_en</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IN_npu_write_en</span><span class="p">;</span>
 <span class="w">      </span><span class="k">end</span>
 <span class="w">    </span><span class="k">end</span>
@@ -1517,8 +1473,8 @@ size 디스크립터를 공급합니다.</p>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">mem_BUFFER.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GEMM_Array.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GEMM_Array.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="k">module</span><span class="w"> </span><span class="n">mem_BUFFER</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="c1">// ===| Clock &amp; Reset |======================================</span>
@@ -1543,8 +1499,8 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="n">xpm_fifo_axis</span><span class="w"> </span><span class="p">#(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="w">      </span><span class="p">(</span><span class="n">BRAM_FIFO_DEPTH</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">TDATA_WIDTH</span><span class="w">     </span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">&quot;block&quot;</span><span class="p">),</span><span class="w">             </span><span class="c1">// BRAM is enough for CDC</span>
-<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="w">   </span><span class="p">(</span><span class="s">&quot;independent_clock&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">"block"</span><span class="p">),</span><span class="w">             </span><span class="c1">// BRAM is enough for CDC</span>
+<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="w">   </span><span class="p">(</span><span class="s">"independent_clock"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_acp_rx_fifo</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aclk</span><span class="p">(</span><span class="n">clk_axi</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aresetn</span><span class="p">(</span><span class="n">rst_axi_n</span><span class="p">),</span>
@@ -1562,8 +1518,8 @@ size 디스크립터를 공급합니다.</p>
 <span class="w">  </span><span class="n">xpm_fifo_axis</span><span class="w"> </span><span class="p">#(</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="p">(</span><span class="n">BRAM_FIFO_DEPTH</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">TDATA_WIDTH</span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">&quot;block&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">&quot;independent_clock&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="p">(</span><span class="s">"block"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">CLOCKING_MODE</span><span class="p">(</span><span class="s">"independent_clock"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_acp_tx_fifo</span><span class="w"> </span><span class="p">(</span>
 <span class="w">      </span><span class="c1">// a flows FROM the Core domain...</span>
 <span class="w">      </span><span class="p">.</span><span class="n">s_aclk</span><span class="p">(</span><span class="n">clk_core</span><span class="p">),</span>
@@ -1630,7 +1586,7 @@ shape 디스크립터 상수 메모리.</p></li>
 <span class="w">  </span><span class="c1">// ===| write (sync to clk) |===</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">51&#39;d0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">51'd0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wr_en</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="n">mem</span><span class="p">[</span><span class="n">wr_addr</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">{</span><span class="n">wr_val2</span><span class="p">,</span><span class="w"> </span><span class="n">wr_val1</span><span class="p">,</span><span class="w"> </span><span class="n">wr_val0</span><span class="p">};</span>
@@ -1686,7 +1642,7 @@ shape 디스크립터 상수 메모리.</p></li>
 <span class="w">  </span><span class="c1">// ===| write (sync to clk) |===</span>
 <span class="w">  </span><span class="k">always_ff</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
-<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">51&#39;d0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">51'd0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wr_en</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
 <span class="w">        </span><span class="n">mem</span><span class="p">[</span><span class="n">wr_addr</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">{</span><span class="n">wr_val2</span><span class="p">,</span><span class="w"> </span><span class="n">wr_val1</span><span class="p">,</span><span class="w"> </span><span class="n">wr_val0</span><span class="p">};</span>
@@ -1722,8 +1678,8 @@ shape 디스크립터 상수 메모리.</p></li>
 <span class="no">`ifndef</span><span class="w"> </span><span class="n">MEM_IO_SVH</span>
 <span class="cp">`define MEM_IO_SVH</span>
 
-<span class="cp">`define PORT_MOD_E_WRITE  1&#39;b1   </span><span class="c1">// Port is in write (sink) mode</span>
-<span class="cp">`define PORT_MOD_E_READ   1&#39;b0   </span><span class="c1">// Port is in read  (source) mode</span>
+<span class="cp">`define PORT_MOD_E_WRITE  1'b1   </span><span class="c1">// Port is in write (sink) mode</span>
+<span class="cp">`define PORT_MOD_E_READ   1'b0   </span><span class="c1">// Port is in read  (source) mode</span>
 
 <span class="no">`endif</span><span class="w"> </span><span class="c1">// MEM_IO_SVH</span>
 </pre></div>
@@ -1733,8 +1689,8 @@ shape 디스크립터 상수 메모리.</p></li>
 <summary class="sd-summary-title sd-card-header sd-bg-muted sd-bg-text-muted">
 <span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-code" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="sd-summary-text"><code class="docutils literal notranslate"><span class="pre">mem_u_operation_queue.sv</span></code></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="highlight-systemverilog notranslate"><div class="highlight"><pre><span></span><span class="no">`timescale</span><span class="w"> </span><span class="mi">1</span><span class="n">ns</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="n">ps</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GEMM_Array.svh&quot;</span>
-<span class="no">`include</span><span class="w"> </span><span class="s">&quot;GLOBAL_CONST.svh&quot;</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GEMM_Array.svh"</span>
+<span class="no">`include</span><span class="w"> </span><span class="s">"GLOBAL_CONST.svh"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">isa_pkg::*</span><span class="p">;</span>
 
@@ -1787,12 +1743,12 @@ shape 디스크립터 상수 메모리.</p></li>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="w">        </span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">WRITE_DATA_WIDTH</span><span class="w">  </span><span class="p">(</span><span class="n">UopWidth</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">READ_DATA_WIDTH</span><span class="w">   </span><span class="p">(</span><span class="n">UopWidth</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="w">  </span><span class="p">(</span><span class="s">&quot;block&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">READ_MODE</span><span class="w">         </span><span class="p">(</span><span class="s">&quot;std&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="w">  </span><span class="p">(</span><span class="s">"block"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">READ_MODE</span><span class="w">         </span><span class="p">(</span><span class="s">"std"</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FULL_RESET_VALUE</span><span class="w">  </span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">PROG_FULL_THRESH</span><span class="w">  </span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_acp_uop_fifo</span><span class="w"> </span><span class="p">(</span>
-<span class="w">      </span><span class="p">.</span><span class="n">sleep</span><span class="w">    </span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">sleep</span><span class="w">    </span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">rst</span><span class="w">      </span><span class="p">(</span><span class="o">~</span><span class="n">rst_n_core</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">wr_clk</span><span class="w">   </span><span class="p">(</span><span class="n">clk_core</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">wr_en</span><span class="w">    </span><span class="p">(</span><span class="n">IN_acp_rdy</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">acp_fifo_full</span><span class="p">),</span>
@@ -1809,12 +1765,12 @@ shape 디스크립터 상수 메모리.</p></li>
 <span class="w">      </span><span class="p">.</span><span class="n">FIFO_DEPTH</span><span class="w">        </span><span class="p">(</span><span class="mi">128</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">WRITE_DATA_WIDTH</span><span class="w">  </span><span class="p">(</span><span class="n">UopWidth</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">READ_DATA_WIDTH</span><span class="w">   </span><span class="p">(</span><span class="n">UopWidth</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="w">  </span><span class="p">(</span><span class="s">&quot;block&quot;</span><span class="p">),</span>
-<span class="w">      </span><span class="p">.</span><span class="n">READ_MODE</span><span class="w">         </span><span class="p">(</span><span class="s">&quot;std&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">FIFO_MEMORY_TYPE</span><span class="w">  </span><span class="p">(</span><span class="s">"block"</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">READ_MODE</span><span class="w">         </span><span class="p">(</span><span class="s">"std"</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">FULL_RESET_VALUE</span><span class="w">  </span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">PROG_FULL_THRESH</span><span class="w">  </span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="n">u_npu_uop_fifo</span><span class="w"> </span><span class="p">(</span>
-<span class="w">      </span><span class="p">.</span><span class="n">sleep</span><span class="w">    </span><span class="p">(</span><span class="mb">1&#39;b0</span><span class="p">),</span>
+<span class="w">      </span><span class="p">.</span><span class="n">sleep</span><span class="w">    </span><span class="p">(</span><span class="mb">1'b0</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">rst</span><span class="w">      </span><span class="p">(</span><span class="o">~</span><span class="n">rst_n_core</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">wr_clk</span><span class="w">   </span><span class="p">(</span><span class="n">clk_core</span><span class="p">),</span>
 <span class="w">      </span><span class="p">.</span><span class="n">wr_en</span><span class="w">    </span><span class="p">(</span><span class="n">IN_npu_rdy</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">npu_fifo_full</span><span class="p">),</span>
@@ -1873,20 +1829,19 @@ shape 디스크립터 상수 메모리.</p></li>
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-05-27</div>
+              Last updated on 2026-09-27</div>
           </div>
           <div class="right-details">
             <div class="icons">
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation — github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://labs.pccx.ai/" aria-label="pccx-lab — simulator & verification lab"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.2L4.6 19a1 1 0 0 0 .86 1.5h13.08a1 1 0 0 0 .86-1.5L14 9.2V3"/><path d="M6.8 14h10.4"/></svg><span class="pccx-footer-icon__label">Lab</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://launcher.pccx.ai/" aria-label="PCCX Launcher — launcher contracts and readiness"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">Launcher</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://ide.pccx.ai/" aria-label="SystemVerilog IDE — diagnostics and validation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">IDE</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="Docs repository — github.com/pccxai/pccx"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://hkimw.github.io/hkimw/" aria-label="Author portfolio — hkimw.github.io/hkimw"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">Blog</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vQMPYkdXXGSs6B7FUPqP2df7ncRALntT7KKj1LQqYt60IhXhfC90ow0O9TCTgLzD_N_vs8Q7OQRAMwf/pub" aria-label="Public legal center — Altifigence public legal records"><span class="pccx-footer-icon__label">Legal</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vREutdqQF-kY0fsDgpExLBRl0P4uraGxaGy9skjcJNdpWlyw5RFULdQuBcurOnSx75JRjL1rO1k14m_/pub" aria-label="Privacy notice — Altifigence public legal records"><span class="pccx-footer-icon__label">Privacy</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vSqrQ1sd9xH4i3wp6Iy0z1fhJN49SF0Vu6nTXASBZwtrB2PBD_L8mKo32AYZj3nnQjaDEQEI_HRd9DO/pub" aria-label="Terms — Altifigence public legal records"><span class="pccx-footer-icon__label">Terms</span></a>
-              <a class="muted-link pccx-footer-icon" href="https://docs.google.com/document/d/e/2PACX-1vTgkg5KcCB_m28lcPERlEC1O3oSRJCW8RvMEqPL_0o-i7JT0EwxgBilOx5oiMujrcpqlcu8ZZkccq1k/pub" aria-label="Cookies — Altifigence public legal records"><span class="pccx-footer-icon__label">Cookies</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://docs.altifigence.com/ide/" aria-label="SystemVerilog IDE documentation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">IDE</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="PCCX documentation repository"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/" aria-label="Altifigence — PCCX project operator"><span class="pccx-footer-icon__label">Altifigence</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://pccx.ai/ko-kr/Transparency/" aria-label="PCCX operating principles"><span class="pccx-footer-icon__label">Transparency</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://pccx.ai/ko-kr/Transparency/#documents" aria-label="PCCX rights and legal documents"><span class="pccx-footer-icon__label">Legal</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/kr-ko/legal/privacy/" aria-label="Altifigence privacy notice"><span class="pccx-footer-icon__label">Privacy</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/kr-ko/legal/terms/" aria-label="Altifigence terms"><span class="pccx-footer-icon__label">Terms</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://altifigence.com/kr-ko/legal/cookies/" aria-label="Altifigence cookie notice"><span class="pccx-footer-icon__label">Cookies</span></a>
               
             </div>
           </div>
@@ -1941,7 +1896,7 @@ shape 디스크립터 상수 메모리.</p></li>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../../_static/image-lightbox.js?v=efae7920"></script>
     <script src="../../../../_static/language-switcher.js?v=62996a13"></script>
-    <script src="../../../../_static/pccx-version-switcher.js?v=008495d9"></script>
+    <script src="../../../../_static/pccx-version-switcher.js?v=f6a0473a"></script>
     <script src="../../../../_static/auto-translate-dismiss.js?v=ff0a3b93"></script>
     </body>
 </html>

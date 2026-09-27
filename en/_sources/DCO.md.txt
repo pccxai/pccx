@@ -46,3 +46,10 @@ When the DCO and CLA are formally adopted, the project will publish:
 - a one-paragraph summary in `CONTRIBUTING.md` linking to this page.
 
 Until then, this file is informational only.
+
+## Current operating context
+
+PCCX is operated by Altifigence. See [Transparency](https://pccx.ai/en/Transparency/).
+This operating update does not adopt the DCO or CLA, transfer contributor
+ownership, or add retroactive requirements. Applicable asset licenses and
+separately executed agreements remain controlling.

@@ -46,24 +46,26 @@ published.**
 
 ## Why a CLA at all
 
-PCCX's commercial track requires the project to be able to
-redistribute contributed code under licence terms the original
-contribution licence may not permit on its own. A CLA cleanly grants
-that redistribution right without changing the contributor's
-ownership. Without the CLA, every relicensing decision would
-require contacting every contributor; with it, the project can
-operate the commercial track without that lookup cost.
+Additional permission may be needed for uses not already allowed by the
+applicable license. Commercial use alone does not establish a need for a
+CLA. Any future proposal must explain the extra rights requested, its
+scope and voluntary treatment of existing contributions. This placeholder
+does not grant those rights or require a contributor to assign ownership.
 
 ## Until the CLA is published
 
-- Contributions accepted before the CLA is published are treated
-  under the existing open licence only.
+- Contributions remain governed by their applicable asset licenses,
+  file-level notices and any separately executed agreements.
 - When the CLA is published, the project will ask earlier
   contributors to confirm under it. Confirmation is voluntary; a
-  contributor who declines keeps their contribution under the
-  existing open licence only, and the project respects that.
+  contributor who declines retains the existing terms, and the project
+  respects that choice.
 
 ## Authority
+
+PCCX is operated by Altifigence. See
+[Transparency](https://pccx.ai/en/Transparency/) for the current model.
+The CLA is not currently adopted or required.
 
 This page is a description of intent. The CLA itself, when
 published, is the authoritative document. This page is **not** the

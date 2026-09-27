@@ -11,7 +11,15 @@ orphan: true
 
 # Sponsorship policy (draft)
 
-Sponsorship of the PCCX™ project is acknowledgement-only.
+PCCX is currently operated by Altifigence. External sponsorship is a proposed
+operating model, not an announcement that a collection program is open.
+Before accepting support, disclose the recipient, intended use, conditions
+and sponsor benefits. The initial operating model uses Altifigence's
+development and community budget. See
+[Transparency](https://pccx.ai/en/Transparency/).
+
+Acknowledgement-only sponsorship is one proposed arrangement. It must not be
+presented as a tax-deductible contribution to a US 501(c)(3) organization.
 
 A sponsor:
 - May be acknowledged on the PCCX project site or in release notes
