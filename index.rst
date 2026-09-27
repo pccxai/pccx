@@ -93,10 +93,10 @@ Tooling & Lab
 
       :bdg-warning:`Private source`
 
-   .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` SystemVerilog IDE
+   .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` Digital Design Studio
       :link: https://docs.altifigence.com/ide/
       :link-type: url
-      :link-alt: Open the SystemVerilog IDE documentation
+      :link-alt: Open the Digital Design Studio documentation
 
       Editor diagnostics, validation context, declaration navigation, and
       proposal-only workflow surfaces.
@@ -147,6 +147,6 @@ Tooling & Lab
    :maxdepth: 1
    :caption: External links
 
-   SystemVerilog IDE <https://docs.altifigence.com/ide/>
+   Digital Design Studio <https://docs.altifigence.com/ide/>
    Altifigence.com <https://altifigence.com/>
-   PCCX Transparency <https://pccx.ai/en/Transparency/>
+   PCCX Transparency <https://pccx.ai/en/legal/transparency/>

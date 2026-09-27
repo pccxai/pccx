@@ -32,7 +32,7 @@ PCCX is currently research-oriented and evolves quickly, so design discussions a
 ## Operator, rights and tools
 
 PCCX is initiated and operated by Altifigence. See
-[Transparency](https://pccx.ai/en/Transparency/) for decisions, commercial
+[Transparency](https://pccx.ai/en/legal/transparency/) for decisions, commercial
 interests, funding and the planned developer support program.
 
 Check [LICENSE](LICENSE) and any file-level notice before contributing.
