@@ -45,3 +45,13 @@ You may contribute using other tools without purchasing Altifigence products,
 joining a support program or providing a positive review. The Altifigence
 Open Source Program is in preparation; eligibility and limits will be
 announced separately when available.
+
+## Documentation contributions and rights
+
+The prose and artwork in this repository are not currently covered by the
+Apache-2.0 code grant. For substantial new text or artwork, state its author,
+source and proposed license or publication permission in the PR. Maintainers
+must resolve the applicable rights before merging; submission alone is not an
+assignment to Altifigence or consent to an unpublished CLA. Preserve existing
+third-party notices and earlier grants. Licensing policy work is tracked in
+[PCCX #71](https://github.com/pccxai/pccx/issues/71).

@@ -2,6 +2,18 @@
 
 # pccx — Parallel Compute Core eXecutor
 
+## Start here
+
+PCCX is an open-source semiconductor project initiated and operated by
+Altifigence. Read [START_HERE.md](START_HERE.md) for the current repository map,
+first reproducible checks and the next maintainer tasks.
+
+**Evidence boundary:** architecture sizes, frequencies and calculated peak
+throughput below are design descriptions or targets, not measured board or
+model throughput. Use the source SHA and logs linked from the current evidence
+trackers when making implementation or release claims.
+
+
 **A scalable NPU architecture for Transformer LLM inference on edge FPGAs**
 
 [![License](https://img.shields.io/badge/License-Mixed%3A_code_Apache--2.0%2C_docs_protected-blue.svg)](LICENSE)
