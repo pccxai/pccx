@@ -1,17 +1,44 @@
 검증
-=====
+====
 
-본 섹션은 v002 RTL 에 딸린 **유닛 레벨 검증 harness** 의 현 상태를
-추적합니다. 시스템 레벨 기능 · formal · 실리콘 검증은 계획 단계이며 아직
-자리 잡지 않았습니다 — 범위는 페이지 끝에 따로 정리되어 있습니다.
+현재 v002 RTL과 테스트벤치의 원본은
+`pccx-v002 <https://github.com/pccxai/pccx-v002>`_\ 입니다.
+보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면
+:doc:`/docs/quickstart`\ 에서 구조 점검과 테스트 목록부터 확인하세요.
 
-1. 현재 테스트 스위트
------------------------
+현재 실행 조건
+---------------
 
-모든 테스트는 RTL 리포의
-:file:`hw/sim/run_verification.sh` 통합 러너로 **Vivado xsim** 위에서
-실행됩니다. 각 테스트는 pccx-lab Timeline 에서 시각화할 수 있는
-``.pccx`` 트레이스를 생성합니다.
+**pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다.**
+현재 ``LLM/sim/run_verification.sh``\ 는 Vivado xsim을 사용하며,
+폐지된 Lab의 ``from_xsim_log``\ 를 테스트 전 빌드하고 실행 후 호출합니다.
+독립적인 공개 시뮬레이션 경로는 아직 완료되지 않았습니다.
+
+``--list``\ 로 목록을 확인할 수 있지만 시뮬레이션은 수행하지 않습니다.
+폐지 도구를 설치하도록 안내하지 않습니다. 의존성 제거는
+`KV260 #152 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152>`_\ 와
+:doc:`/docs/onboarding/getting-started`\ 에서 추적합니다.
+
+테스트벤치 목록과 실제 통과 기록은 구분해야 합니다. 실행 결과에는
+코어 SHA·도구 버전·명령·예상 결과·실제 결과·원본 로그를 첨부합니다.
+원본 로그의 예정 위치는 ``LLM/sim/work/<tb>/``\ 이며,
+보드 wrapper 요약은 ``build/sim_v002_submodule.log``\ 입니다.
+
+첫 검증 기여의 범위
+--------------------
+
+* 기존 weight dispatcher, result packer, memory operation queue
+  테스트벤치를 읽고 이미 다루는 조건을 확인합니다.
+* 리셋·핸드셰이크·경계 조건 중 재현 가능한 작은 범위를 정합니다.
+* assertion 또는 PASS/FAIL 기준을 정하고 리뷰 담당자와 합의합니다.
+* 도구 오류나 미실행 결과를 성공으로 처리하지 않습니다.
+
+과거 유닛 테스트 기록
+----------------------
+
+아래 표는 2026-04-21의 KV260 저장소 커밋 ``773bd82``\ 를 대상으로
+이 문서에 기록됐던 결과입니다. 현재 main을 다시 실행한 결과가 아니며,
+당시 경로와 실행기를 현재 기여 절차로 사용하지 않습니다.
 
 .. list-table::
    :header-rows: 1
@@ -39,92 +66,16 @@
      - 64-bit VLIW 디코드 → 타입 구조체, 6 사이클
      - PASS
 
-스위트 실행
-~~~~~~~~~~~
 
-.. code-block:: bash
+시뮬레이션 이후의 검증
+----------------------
 
-   cd pccx-FPGA-NPU-LLM-kv260/hw/sim
-   bash run_verification.sh
-
-스크립트는 idempotent 합니다 — 각 tb 는
-:file:`hw/sim/work/<tb_name>/` 하위에 독립된 작업 디렉토리를 써서 반복
-실행·동시 실행이 서로 덮어쓰지 않습니다. 끝에 한 줄 PASS / FAIL 요약과
-생성된 각 ``.pccx`` 트레이스 경로가 출력됩니다.
-
-.. admonition:: 마지막 검증 대상
-   :class: note
-
-   커밋 ``773bd82`` @ ``pccxai/pccx-FPGA-NPU-LLM-kv260``
-   (2026-04-21). 6개 테스트벤치 PASS; ``tb_GEMM_fmap_staggered_delay`` 는
-   park 상태 — 사유는 ``run_verification.sh`` 참고.
-
-2. 갭 (공개 항목으로 관리)
------------------------------
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 70
-
-   * - 영역
-     - 다음 단계 계획
-   * - **시스템 레벨 smoke**
-     - ``tb_NPU_top_smoke`` — AXI-Lite 디코드 → MEMSET → MEMCPY →
-       GEMV → MEMCPY readback, ``llm-lite`` 참조와 골든 비교.
-       ACP fanout / writeback 배선 (:doc:`../RTL/npu_top` 참고) 해결
-       전까지 블록.
-   * - **CVO 브리지**
-     - ``tb_cvo_bridge`` — cvo_uop → READ 버스트 → CVO echo → WRITE
-       버스트; L2 포트-B 직결 주소 경로 테스트 (arbiter 랜딩 후).
-   * - **mem_dispatcher uop 표**
-     - MEMSET + LOAD + STORE + CVO 라우팅 regression guard.
-   * - **드라이버-RTL 교차 검증**
-     - 호스트 전용 테스트: ``uca_*`` API 로 인코딩 → 64-bit VLIW
-       덤프 → ``isa_pkg.sv`` 비트 레이아웃과 교차 확인.
-   * - **Formal**
-     - ISA 디코더와 메모리 중재기의 SymbiYosys / JasperGold property
-       (향후).
-
-3. 계획된 범위 (시스템 레벨)
------------------------------
-
-위 유닛 레벨 갭이 채워지면 전체 섹션은 다음을 다룹니다:
-
-* **검증 계획** — 모듈별 기능 커버리지 목표와 sign-off 기준.
-* **테스트벤치 아키텍처** — UVM / cocotb harness 레이아웃, 참조 모델,
-  자극 생성기 (``llm-lite`` CPU 참조 구현에서 가져온 골든 데이터).
-* **커버리지 대시보드** — 기능 · 코드 · 단언 커버리지를 코어별
-  (GEMM / GEMV / CVO / MEM) 롤업.
-* **Formal 결과** — 컨트롤러, ISA 디코더, 메모리 중재기에 대한
-  SymbiYosys / JasperGold property.
-* **실리콘 레벨 검증** — post-implementation 시뮬레이션, 보드 bring-up
-  스크립트, :doc:`호스트 C 드라이버 </docs/v002/Drivers/api>` 대비
-  골든 트레이스 비교.
-
-.. admonition:: 외부 도구 인터페이스 — 상태 표면 boundary
-   :class: note
-
-   verification 워크플로는 외부 도구가 free-form 로그를 파싱하지 않고도
-   소비할 수 있는 JSON status summary 를 점진적으로 노출하고 있다.
-   해당 boundary 는 이 문서 사이트 외부에 있다:
-
-   * **pccx-lab** — JSON / Sail / hybrid source-intake status summary
-     boundary, 그리고 plugin 및 외부 도구 인터페이스 샘플 boundary.
-     v002.0 verification evidence 가 공개되기 전까지는 안정성을
-     보장하지 않는 진화 중 boundary 로 취급한다.
-   * **systemverilog-ide** — module-graph 보고서 (path / edge /
-     port connection audit / reachability / span / file-layout /
-     order) 를 별도 boundary 로 노출. 리뷰용으로 소비되며 pccx 문서
-     표면의 일부는 아니다.
-
-   이 boundary 들은 추적성을 위한 참조이며, 그 자체로 verification
-   증거가 되지 않는다.
+형식 모델, 합성·배치배선, 타이밍 리포트, 실제 보드 실행은 각각 별도의
+증거가 필요합니다. 모듈 테스트 통과만으로 모델 추론·성능·실리콘 동작을
+보장하지 않습니다. :doc:`/docs/Evidence/index`\ 의 기준을 따르세요.
 
 .. seealso::
 
    :doc:`/docs/v002/Architecture/index`
-       이 섹션이 검증하는 아키텍처 계약.
    :doc:`/docs/v002/ISA/index`
-       테스트벤치가 확인하는 ISA 레벨 불변식.
    :doc:`/docs/v002/RTL/index`
-       검증 대상 RTL 모듈.

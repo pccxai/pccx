@@ -1,119 +1,78 @@
-================================
-pccx Documentation
-================================
+========================================
+PCCX Documentation
+========================================
 
-Welcome to the **pccx** (Parallel Compute Core eXecutor) documentation.
-pccx is a scalable NPU architecture for accelerating Transformer-based LLMs
-on edge devices. Select a section from the sidebar to begin.
+PCCX (Parallel Compute Core eXecutor) is an open-source semiconductor
+project initiated and operated by Altifigence. Explore public RTL,
+verification and architecture documentation. SystemVerilog developers
+can begin with :doc:`docs/quickstart`.
 
-Ecosystem
----------
+Project
+-------
 
 .. grid:: 1 1 2 2
    :gutter: 3 4 4 4
    :class-container: pccx-ecosystem-grid
 
-   .. grid-item-card:: :octicon:`cpu;1.5em;sd-mr-2` KV260 integration
-      :columns: 12 12 8 8
-      :class-card: pccx-hero-card
+   .. grid-item-card:: :octicon:`cpu;1.2em;sd-mr-1` v002 RTL
+      :link: https://github.com/pccxai/pccx-v002
+      :link-type: url
+
+      Reusable RTL, testbenches and the Sail ISA model. Start with a small verification contribution.
+
+   .. grid-item-card:: :octicon:`cpu;1.2em;sd-mr-1` KV260 integration
       :link: https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260
       :link-type: url
-      :link-alt: Open the pccx-FPGA-NPU-LLM-kv260 repository on GitHub
 
-      **github.com/pccxai/pccx-FPGA-NPU-LLM-kv260**
+      Board integration and runtime consuming a pinned core. Board results need their own evidence.
 
-      KV260 + LLM application integration for the **v002** line. Reusable
-      IP-core sources live in ``pccx-v002``; this repository owns board
-      flow, driver handoff, and application wiring.
+   .. grid-item-card:: :octicon:`book;1.2em;sd-mr-1` Documentation source
+      :link: https://github.com/pccxai/pccx
+      :link-type: url
 
-      **Current focus:** Gemma-3N E4B @ W4A8KV4 remains an evidence-gated
-      target. Token-rate, board-run, and timing-closure results are pending
-      measured KV260 evidence (see :doc:`docs/Evidence/index`). Everything
-      else (v003 / Gemma-4 / Llama) lives on the :doc:`docs/roadmap`.
+      The English and Korean sources and contribution guidance for this site.
 
-      Every v002 RTL reference page on this site links back to the exact
-      ``.sv`` file in that repository.
+   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` Experimental v003
+      :link: https://github.com/pccxai/pccx-v003
+      :link-type: url
 
-   .. grid-item::
-      :columns: 12 12 4 4
+      v003 RTL and verification work. Source availability does not establish hardware readiness.
 
-      .. grid:: 1
-         :gutter: 3
-
-         .. grid-item-card:: :octicon:`book;1em;sd-mr-1` Documentation source
-            :link: https://github.com/pccxai/pccx
-            :link-type: url
-            :link-alt: Open the pccx documentation repository on GitHub
-
-            **github.com/pccxai/pccx** — the Sphinx project powering this site.
-
-         .. grid-item-card:: :octicon:`person;1em;sd-mr-1` Author portfolio
-            :link: https://hkimw.github.io/hkimw/
-            :link-type: url
-            :link-alt: Open the hkimw portfolio site
-
-            **hkimw.github.io/hkimw** — blog, other projects, about.
-
-The public ``pccx-v003`` repository now serves as the v003 IP-core
-planning package. It is an evidence-gated planning package, not a
-stable RTL release. The earlier ``pccx-LLM-v003`` feeder is superseded
-/ retired and is no longer an active public track; new reusable v003
-LLM material belongs under ``pccx-v003/LLM/``. Board and model
-repositories consume v003 material only through explicit compatibility
-contracts.
-
-Tooling & Lab
--------------
+Contribute and verify
+---------------------
 
 .. grid:: 1 1 2 2
    :gutter: 3 4 4 4
    :class-container: pccx-toolchain-grid
 
-   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` pccx-lab
-      :link: https://docs.altifigence.com/lab/
-      :link-type: url
-      :link-alt: Open the pccx-lab verification lab
-      :class-card: pccx-lab-card
+   .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` Getting started
+      :link: docs/onboarding/getting-started
+      :link-type: doc
 
-      CLI-first verification lab for pccx traces, reports, diagnostics,
-      and workflow boundaries. GUI, IDE, launcher, and future MCP surfaces
-      should reuse the same CLI / core boundary instead of duplicating logic.
+      Check what you can run today and the remaining simulation dependency.
 
-      :bdg-warning:`Work in Progress`
+   .. grid-item-card:: :octicon:`project-roadmap;1.2em;sd-mr-1` Contribution roadmap
+      :link: docs/roadmap
+      :link-type: doc
 
-      Source: github.com/pccxai/pccx-lab
+      Backlog cleanup → independent RTL test → scoped verification issues → external PR.
 
-   .. grid-item-card:: :octicon:`rocket;1.2em;sd-mr-1` PCCX Launcher
-      :link: https://docs.altifigence.com/launcher/
-      :link-type: url
-      :link-alt: Open the PCCX Launcher documentation
+   .. grid-item-card:: :octicon:`verified;1.2em;sd-mr-1` Verification and evidence
+      :link: docs/Evidence/index
+      :link-type: doc
 
-      Launcher contracts, runtime-readiness status, device/session summaries,
-      and diagnostics handoff records.
-
-      :bdg-warning:`Private source`
+      Keep simulation, synthesis and execution on a board tied to their own evidence.
 
    .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` Digital Design Studio
       :link: https://docs.altifigence.com/ide/
       :link-type: url
-      :link-alt: Open the Digital Design Studio documentation
 
-      Editor diagnostics, validation context, declaration navigation, and
-      proposal-only workflow surfaces.
+      Optional Altifigence tooling documentation. PCCX participation does not require a particular IDE.
 
-      :bdg-warning:`Private source`
+.. note::
 
-   .. grid-item-card:: :octicon:`verified;1.2em;sd-mr-1` Formal model — Sail
-      :link: docs/v002/Formal/index
-      :link-type: doc
-      :link-alt: Read the pccx Sail ISA model
-
-      **pccx is formally specified in** `Sail <https://sail-lang.org/>`_ —
-      the same ISA-semantics language used for **RISC-V**, **Arm**,
-      **CHERI**, and **Morello**. The 64-bit / 4-bit-opcode v002 ISA
-      lives under ``formal/sail/`` in the RTL repo; each SystemVerilog
-      ``typedef`` has a 1:1 Sail counterpart so width drift fails
-      Sail's type checker before it fails silicon.
+   pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.
+   Removing remaining dependencies is part of :doc:`docs/roadmap`.
 
 .. toctree::
    :maxdepth: 2
@@ -121,6 +80,7 @@ Tooling & Lab
 
    docs/index
    docs/quickstart
+   docs/onboarding/getting-started
    docs/Evidence/index
    docs/repo-boundaries
    docs/roadmap

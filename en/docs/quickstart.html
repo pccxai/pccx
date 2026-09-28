@@ -3,19 +3,19 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="Reader quickstart for the pccx v002.1 path: resolve the spec, inventory public evidence, run the local docs checks, understand deployment, and answer common review questions without treating targets as measured results. " lang="en" name="description" xml:lang="en" />
+<meta content="Start contributing to PCCX RTL and verification: find public sources, check repository boundaries, understand the remaining simulation dependency, and prepare a focused pull request. " lang="en" name="description" xml:lang="en" />
 <meta property="og:title" content="Quickstart" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/en/docs/quickstart.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="This page is the shortest reader path through the active pccx line. It is not a benchmark recipe. Use it to decide what is specified, what is evidenced, what remains pending, and which commands kee..." />
+<meta property="og:description" content="PCCX welcomes developers with SystemVerilog RTL and verification experience. Start with one module or testbench. The Roadmap prioritizes a public, independent test path and small, reviewable contri..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_quickstart_36f24583.png" />
-<meta property="og:image:alt" content="This page is the shortest reader path through the active pccx line. It is not a benchmark recipe. Use it to decide what is specified, what is evidenced, what remains pending, and which commands kee..." />
+<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_quickstart_8ccfacdd.png" />
+<meta property="og:image:alt" content="PCCX welcomes developers with SystemVerilog RTL and verification experience. Start with one module or testbench. The Roadmap prioritizes a public, independent test path and small, reviewable contri..." />
 <meta name="twitter:card" content="summary_large_image" />
 
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/en/","inLanguage":"en","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Quickstart","name":"Quickstart","url":"https://docs.pccx.ai/en/docs/quickstart.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/en/docs/quickstart.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Quickstart. PCCX architecture, implementation and verification documentation.","inLanguage":"en","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/quickstart.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/quickstart.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/quickstart.html"><link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Evidence" href="Evidence/index.html"><link rel="prev" title="pccx: Parallel Compute Core eXecutor" href="index.html">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/en/","inLanguage":"en","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Quickstart","name":"Quickstart","url":"https://docs.pccx.ai/en/docs/quickstart.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/en/docs/quickstart.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Quickstart. PCCX architecture, implementation and verification documentation.","inLanguage":"en","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/quickstart.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/quickstart.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/quickstart.html"><link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Getting started" href="onboarding/getting-started.html"><link rel="prev" title="pccx: Parallel Compute Core eXecutor" href="index.html">
         <link rel="canonical" href="https://docs.pccx.ai/en/docs/quickstart.html">
 
     <link rel="shortcut icon" href="../_static/pccx_wordmark_favicon.ico"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=46f00cd2" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8b6ba3ab" />
     <link rel="stylesheet" type="text/css" href="../_static/image-lightbox.css?v=7c940a79" />
     <link rel="stylesheet" type="text/css" href="../_static/language-switcher.css?v=041d5448" />
     <link rel="stylesheet" type="text/css" href="../_static/css/kr-typography.css?v=d1ebaf6e" />
@@ -247,8 +247,8 @@ SPDX-License-Identifier: Apache-2.0
 
 <nav class="pccx-repolinks" aria-label="Project links">
   <a class="pccx-repolinks__btn"
-     href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"
-     title="Active v002 RTL — pccx-FPGA-NPU-LLM-kv260"
+     href="https://github.com/pccxai/pccx-v002"
+     title="Reusable v002 RTL — pccx-v002"
      target="_blank" rel="noopener">
     <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
          fill="none" stroke="currentColor" stroke-width="1.6"
@@ -299,18 +299,17 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Quickstart</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Evidence/index.html">Evidence</a><input aria-label="Toggle navigation of Evidence" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="onboarding/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Evidence/index.html">Evidence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repo-boundaries.html">Repository boundaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v002 Architecture</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="v002/index.html">pccx v002 Architecture</a><input aria-label="Toggle navigation of pccx v002 Architecture" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="v002/index.html">pccx v002 Architecture</a><input aria-label="Toggle navigation of pccx v002 Architecture" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="v002/overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="v002/gemma3n-e4b-integration.html">v002 Gemma 3N E4B Integration Milestone</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Architecture/index.html">Hardware Architecture</a><input aria-label="Toggle navigation of Hardware Architecture" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="v002/gemma3n-e4b-integration.html">Historical Gemma 3N E4B Integration Plan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Architecture/index.html">Hardware Architecture</a><input aria-label="Toggle navigation of Hardware Architecture" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="v002/Architecture/rationale.html">Design Rationale: v001 → v002</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/Architecture/top_level.html">Top-Level Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/Architecture/floorplan.html">Physical Floorplan</a></li>
@@ -323,21 +322,21 @@ SPDX-License-Identifier: Apache-2.0
 <li class="toctree-l3"><a class="reference internal" href="v002/Architecture/dsp48e2_w4a8.html">DSP48E2 W4A8 Bit Packing and Sign Recovery</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="v002/ISA/index.html">Instruction Set Architecture (ISA)</a><input aria-label="Toggle navigation of Instruction Set Architecture (ISA)" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="v002/ISA/index.html">Instruction Set Architecture (ISA)</a><input aria-label="Toggle navigation of Instruction Set Architecture (ISA)" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="v002/ISA/encoding.html">Instruction Encoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/ISA/instructions.html">Per-Instruction Encoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/ISA/dataflow.html">Per-Instruction Dataflow</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Formal/index.html">Formal Model — Sail</a><input aria-label="Toggle navigation of Formal Model — Sail" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Formal/index.html">Formal Model — Sail</a><input aria-label="Toggle navigation of Formal Model — Sail" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Drivers/index.html">Software Stack</a><input aria-label="Toggle navigation of Software Stack" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Drivers/index.html">Software Stack</a><input aria-label="Toggle navigation of Software Stack" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="v002/Drivers/api.html">C API Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/Drivers/hal.html">HAL — AXI-Lite MMIO Layer</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Models/index.html">Target Models</a><input aria-label="Toggle navigation of Target Models" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Models/index.html">Target Models</a><input aria-label="Toggle navigation of Target Models" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="v002/Models/gemma3n_overview.html">Gemma 3N E4B — Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/Models/gemma3n_pipeline.html">Gemma 3N E4B — Operator-Level Pipeline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/Models/gemma3n_attention_rope.html">Gemma 3N — Attention and RoPE Constraints</a></li>
@@ -346,7 +345,7 @@ SPDX-License-Identifier: Apache-2.0
 <li class="toctree-l3"><a class="reference internal" href="v002/Models/gemma3n_execution.html">Gemma 3N E4B on pccx v002 — Execution and Scheduling</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="v002/RTL/index.html">RTL Source Reference (v002)</a><input aria-label="Toggle navigation of RTL Source Reference (v002)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="v002/RTL/index.html">RTL Source Reference (v002)</a><input aria-label="Toggle navigation of RTL Source Reference (v002)" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="v002/RTL/isa_pkg.html">ISA Type Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/RTL/npu_top.html">NPU Top-Level</a></li>
 <li class="toctree-l3"><a class="reference internal" href="v002/RTL/compute_cores.html">Compute Core Modules</a></li>
@@ -361,7 +360,7 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="v002/Verification/index.html">Verification</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Build/index.html">Vivado Build</a><input aria-label="Toggle navigation of Vivado Build" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="v002/Build/index.html">Vivado Build</a><input aria-label="Toggle navigation of Vivado Build" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -369,20 +368,20 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Target Hardware</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Devices/kv260.html">Target Hardware: Xilinx Kria KV260</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Archive</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="archive/index.html">Archive</a><input aria-label="Toggle navigation of Archive" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="archive/experimental_v001/index.html">Archive: v001 Experimental Architecture</a><input aria-label="Toggle navigation of Archive: v001 Experimental Architecture" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="archive/index.html">Archive</a><input aria-label="Toggle navigation of Archive" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="archive/experimental_v001/index.html">Archive: v001 Experimental Architecture</a><input aria-label="Toggle navigation of Archive: v001 Experimental Architecture" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="archive/experimental_v001/Architecture/v001_architecture.html">pccx: Parallel Compute Core eXecutor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="archive/experimental_v001/Drivers/ISA.html">pccx ISA Specification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="archive/experimental_v001/Drivers/ISA_Spreadsheet.html">pccx ISA Spreadsheet View</a></li>
 <li class="toctree-l3"><a class="reference internal" href="archive/experimental_v001/Drivers/v001_API.html">Developer Reference for pccx v001 Host API</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="archive/experimental_v001/RTL/index.html">RTL Source Reference (v001)</a><input aria-label="Toggle navigation of RTL Source Reference (v001)" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="archive/experimental_v001/RTL/index.html">RTL Source Reference (v001)</a><input aria-label="Toggle navigation of RTL Source Reference (v001)" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="archive/experimental_v001/RTL/top.html">Top level</a></li>
 <li class="toctree-l4"><a class="reference internal" href="archive/experimental_v001/RTL/packages.html">Packages and Constants</a></li>
 <li class="toctree-l4"><a class="reference internal" href="archive/experimental_v001/RTL/controller.html">NPU Controller</a></li>
@@ -433,12 +432,12 @@ SPDX-License-Identifier: Apache-2.0
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/pccxai/pccx/blob/main/docs/docs/quickstart.md?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/pccxai/pccx/blob/main/docs/quickstart.md?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/pccxai/pccx/edit/main/docs/docs/quickstart.md" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/pccxai/pccx/edit/main/docs/quickstart.md" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -457,149 +456,97 @@ SPDX-License-Identifier: Apache-2.0
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h1>
-<p>This page is the shortest reader path through the active pccx line.
-It is not a benchmark recipe. Use it to decide what is specified, what
-is evidenced, what remains pending, and which commands keep a docs
-change honest.</p>
-<section id="read-the-spec-resolution">
-<h2>1. Read the spec resolution<a class="headerlink" href="#read-the-spec-resolution" title="Link to this heading">¶</a></h2>
-<p>Start by separating release-line intent from measured evidence:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="v002/overview.html"><span class="doc">Overview</span></a> defines the active architecture line. v002.0 is
-the baseline KV260 integration line; v002.1 layers sparsity and
-speculative decoding on top of that baseline.</p></li>
-<li><p><a class="reference internal" href="roadmap.html"><span class="doc">Roadmap</span></a> is the release-line map. It records the v002.1
-throughput figure as a target, not as an achieved result.</p></li>
-<li><p><a class="reference internal" href="v002/Models/gemma3n_overview.html"><span class="doc">Gemma 3N E4B — Overview</span></a> and
-<a class="reference internal" href="v002/Models/gemma3n_pipeline.html"><span class="doc">Gemma 3N E4B — Operator-Level Pipeline</span></a> describe the Gemma 3N E4B model
-path that v002.1 is meant to exercise.</p></li>
-<li><p><a class="reference internal" href="v002/ISA/index.html"><span class="doc">Instruction Set Architecture (ISA)</span></a> and <a class="reference internal" href="v002/Formal/index.html"><span class="doc">Formal Model — Sail</span></a> explain the ISA
-contract and the Sail model. Encoding details still resolve back to
-the active RTL package when documentation and implementation differ.</p></li>
-</ul>
-<p>Reader rule: a claim about a planned v002.1 mechanism can live in the
-architecture or model docs; a claim that it has run on KV260 belongs on
-the evidence page only after the release checklist gates it in.</p>
-</section>
-<section id="inventory-the-evidence">
-<h2>2. Inventory the evidence<a class="headerlink" href="#inventory-the-evidence" title="Link to this heading">¶</a></h2>
-<p>Read <a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a> before interpreting any performance wording.
-That page is the public inventory of measured, reproducible artefacts
-and pending gates.</p>
-<p>Use this checklist while reading:</p>
+<p>PCCX welcomes developers with SystemVerilog RTL and verification experience.
+Start with one module or testbench. The <a class="reference internal" href="roadmap.html"><span class="doc">Roadmap</span></a> prioritizes a public,
+independent test path and small, reviewable contributions.</p>
+<section id="choose-the-right-repository">
+<h2>1. Choose the right repository<a class="headerlink" href="#choose-the-right-repository" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Question</p></th>
-<th class="head"><p>Where to check</p></th>
+<tr class="row-odd"><th class="head"><p>Work</p></th>
+<th class="head"><p>Repository</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Is the value measured, pending, or a target?</p></td>
-<td><p><a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a> and <a class="reference internal" href="roadmap.html"><span class="doc">Roadmap</span></a></p></td>
+<tr class="row-even"><td><p>Reusable v002 RTL, testbenches and Sail model</p></td>
+<td><p><a class="reference external" href="https://github.com/pccxai/pccx-v002">pccx-v002</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Which testbench or tool produced it?</p></td>
-<td><p><a class="reference internal" href="v002/Verification/index.html"><span class="doc">Verification</span></a> (Lab workflow now at docs.altifigence.com)</p></td>
+<tr class="row-odd"><td><p>KV260 integration, runtime and board evidence</p></td>
+<td><p><a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260">pccx-FPGA-NPU-LLM-kv260</a></p></td>
 </tr>
-<tr class="row-even"><td><p>Does it depend on Vivado synth, implementation, or board bring-up?</p></td>
-<td><p><a class="reference internal" href="v002/Build/index.html"><span class="doc">Vivado Build</span></a></p></td>
+<tr class="row-even"><td><p>Experimental v003 RTL</p></td>
+<td><p><a class="reference external" href="https://github.com/pccxai/pccx-v003">pccx-v003</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Is it a model-mapping claim rather than hardware evidence?</p></td>
-<td><p><a class="reference internal" href="v002/Models/gemma3n_execution.html"><span class="doc">Gemma 3N E4B on pccx v002 — Execution and Scheduling</span></a></p></td>
+<tr class="row-odd"><td><p>Architecture documentation and project guidance</p></td>
+<td><p><a class="reference external" href="https://github.com/pccxai/pccx">pccx</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>If a number is not present in <a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a>, treat it as design
-intent or release planning text. Do not quote it as a measured result.</p>
+<p>Read <a class="reference internal" href="v002/ISA/index.html"><span class="doc">Instruction Set Architecture (ISA)</span></a> and <a class="reference internal" href="v002/RTL/index.html"><span class="doc">RTL Source Reference (v002)</span></a> for the module you
+want to work on. Use each repository’s contribution and license files.</p>
 </section>
-<section id="run-the-local-docs-runbook">
-<h2>3. Run the local docs runbook<a class="headerlink" href="#run-the-local-docs-runbook" title="Link to this heading">¶</a></h2>
-<p>For docs-only review, clone this repository and run the strict build:</p>
+<section id="make-the-first-local-check">
+<h2>2. Make the first local check<a class="headerlink" href="#make-the-first-local-check" title="Link to this heading">¶</a></h2>
+<p>In Linux, WSL, or a Bash environment with Git and standard Unix tools:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pccxai/pccx-v002.git
+<span class="nb">cd</span><span class="w"> </span>pccx-v002
+bash<span class="w"> </span>scripts/check_repo_boundary.sh
+git<span class="w"> </span>rev-parse<span class="w"> </span>HEAD
+bash<span class="w"> </span>LLM/sim/run_verification.sh<span class="w"> </span>--list
+</pre></div>
+</div>
+<p>The boundary check validates repository layout; <code class="docutils literal notranslate"><span class="pre">--list</span></code> only lists
+testbench names. <strong>Neither command simulates the RTL or proves hardware
+correctness.</strong></p>
+<p><strong>Simulation is still being made independent.</strong> The current xsim runner
+uses Vivado and calls <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code> from the discontinued <code class="docutils literal notranslate"><span class="pre">pccx-lab</span></code>
+project. This dependency can block execution before a test runs.
+Do not install the retired Lab as an onboarding step.
+Follow <a class="reference internal" href="onboarding/getting-started.html"><span class="doc">Getting started</span></a> and
+<a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>
+for the removal work and supported test commands as they become available.</p>
+</section>
+<section id="prepare-a-focused-contribution">
+<h2>3. Prepare a focused contribution<a class="headerlink" href="#prepare-a-focused-contribution" title="Link to this heading">¶</a></h2>
+<p>Choose one behavior: reset, a ready/valid handshake, a boundary condition,
+or an instruction decode. Check the existing testbench before proposing
+new coverage. Record the source SHA, tool versions, input, expected result,
+actual result and raw log. If the run is blocked, report that outcome.</p>
+<p>Use the owning repository’s issues to agree on scope and a reviewer.
+The proposed first-issue set is being prepared; it is not yet a promise
+that five ready-to-pick tasks are available.
+See the <a class="reference external" href="https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md">contribution guide</a>.</p>
+</section>
+<section id="build-a-documentation-change">
+<h2>4. Build a documentation change<a class="headerlink" href="#build-a-documentation-change" title="Link to this heading">¶</a></h2>
+<p>In Linux or WSL, with Python, Make and Graphviz available:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pccxai/pccx.git
 <span class="nb">cd</span><span class="w"> </span>pccx
-make<span class="w"> </span>strict
-make<span class="w"> </span>lint
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+.<span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+make<span class="w"> </span>strict<span class="w"> </span><span class="nv">REQUIRE_RTL</span><span class="o">=</span><span class="m">0</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">strict</span></code> builds the English and Korean Sphinx sites with warnings
-as errors. <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">lint</span></code> runs the lightweight prose and Sphinx lint pass.
-For longer-lived branches, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">linkcheck</span></code> before release or when
-adding external URLs.</p>
-<p>For trace and lab workflow reproduction, see the PCCX Lab handbook at
-<code class="docutils literal notranslate"><span class="pre">docs.altifigence.com</span> <span class="pre">&lt;https://docs.altifigence.com/&gt;</span></code>__ — the Sphinx
-mirror of the Lab pages no longer lives on this site.</p>
+<p>This builds both language trees with warnings as errors. <code class="docutils literal notranslate"><span class="pre">REQUIRE_RTL=0</span></code>
+is the documented docs-only mode; it does not verify embedded RTL source.
+For that check, follow the
+<a class="reference external" href="https://github.com/pccxai/pccx/blob/main/README.md">README</a> to obtain the
+RTL sources and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">strict</span></code>.
+Update the corresponding English and Korean guidance together.</p>
+<p>The production documentation is published at
+<a class="reference external" href="https://docs.pccx.ai/">docs.pccx.ai</a> through Cloudflare Pages.
+A deployment check confirms publication, not RTL correctness.</p>
 </section>
-<section id="read-the-deploy-runbook">
-<h2>4. Read the deploy runbook<a class="headerlink" href="#read-the-deploy-runbook" title="Link to this heading">¶</a></h2>
-<p>The public site is generated from this docs repository and deployed by
-GitHub Actions after changes land on <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
-<p>Operationally, a docs PR should keep this order:</p>
-<ol class="arabic simple">
-<li><p>Build locally with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">strict</span></code>.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">lint</span></code>; run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">linkcheck</span></code> when URLs changed.</p></li>
-<li><p>Merge only evidence wording that has a named source artefact or a
-pending gate.</p></li>
-<li><p>Let the Pages workflow publish <code class="docutils literal notranslate"><span class="pre">https://pccxai.github.io/pccx/</span></code>.</p></li>
-<li><p>Check the deployed page for the exact path you changed.</p></li>
-</ol>
-<p>Deployment does not convert a target into evidence. The deploy check
-only proves the site built and published; the evidence page still owns
-measurement status.</p>
-</section>
-<section id="faq">
-<h2>5. FAQ<a class="headerlink" href="#faq" title="Link to this heading">¶</a></h2>
-<section id="is-v002-1-already-released">
-<h3>Is v002.1 already released?<a class="headerlink" href="#is-v002-1-already-released" title="Link to this heading">¶</a></h3>
-<p>No. v002.1 is the planned sparsity and speculative-decoding ramp on the
-same KV260 RTL line. The baseline v002.0 integration and evidence gates
-remain visible dependencies.</p>
-</section>
-<section id="does-the-20-tok-s-figure-mean-measured-throughput">
-<h3>Does the 20 tok/s figure mean measured throughput?<a class="headerlink" href="#does-the-20-tok-s-figure-mean-measured-throughput" title="Link to this heading">¶</a></h3>
-<p>No. It is a v002.1 target. The docs may discuss it as a target, but it
-must not be phrased as achieved throughput until KV260 evidence lands in
-<a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a>.</p>
-</section>
-<section id="which-repository-is-the-source-of-truth-for-rtl">
-<h3>Which repository is the source of truth for RTL?<a class="headerlink" href="#which-repository-is-the-source-of-truth-for-rtl" title="Link to this heading">¶</a></h3>
-<p>The active v002 RTL lives in
-<code class="docutils literal notranslate"><span class="pre">pccxai/pccx-FPGA-NPU-LLM-kv260</span></code>. This docs repository cross-references
-that source and builds a public narrative around it. For ISA encodings,
-the RTL <code class="docutils literal notranslate"><span class="pre">isa_pkg.sv</span></code> package wins over prose.</p>
-</section>
-<section id="should-a-reader-start-with-the-lab-app">
-<h3>Should a reader start with the lab app?<a class="headerlink" href="#should-a-reader-start-with-the-lab-app" title="Link to this heading">¶</a></h3>
-<p>Start with this page if you are reviewing claims. For trace/UI work,
-see the Lab handbook at
-<a class="reference external" href="https://docs.altifigence.com/">docs.altifigence.com</a>.</p>
-</section>
-<section id="do-english-and-korean-docs-both-need-manual-edits">
-<h3>Do English and Korean docs both need manual edits?<a class="headerlink" href="#do-english-and-korean-docs-both-need-manual-edits" title="Link to this heading">¶</a></h3>
-<p>No for new work. English is the canonical source; the Korean tree is
-produced by external translation tooling and may trail the English
-source.</p>
-</section>
-<section id="what-makes-a-quickstart-or-release-note-misleading">
-<h3>What makes a quickstart or release note misleading?<a class="headerlink" href="#what-makes-a-quickstart-or-release-note-misleading" title="Link to this heading">¶</a></h3>
-<p>The common failure mode is mixing target, simulator, synthesis, and
-board evidence in one sentence. Keep each claim tied to its source:
-roadmap for targets, architecture/model pages for design intent,
-verification pages for testbench status, and <a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a> for
-published measurement status.</p>
-</section>
-</section>
-<section id="cite-this-page">
-<h2>Cite this page<a class="headerlink" href="#cite-this-page" title="Link to this heading">¶</a></h2>
-<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">pccx_reader_quickstart_2026</span><span class="p">,</span>
-<span class="w">  </span><span class="na">title</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{pccx Quickstart: reader path for the v002.1 release line}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">author</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="s">{Kim, Hyunwoo}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">year</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{\url{https://pccx.pages.dev/en/docs/quickstart.html}}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">note</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{Part of pccx: \url{https://pccx.pages.dev/}}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<section id="tool-status">
+<h2>Tool status<a class="headerlink" href="#tool-status" title="Link to this heading">¶</a></h2>
+<p><strong>pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.</strong>
+PCCX participation does not require those products or a particular IDE.
+<a class="reference external" href="https://docs.altifigence.com/ide/">Digital Design Studio</a> is an optional
+Altifigence resource. The first contribution goal does not require an FPGA.</p>
+<p>For evidence boundaries, read <a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a>.</p>
 </section>
 </section>
 
@@ -614,12 +561,12 @@ published measurement status.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="Evidence/index.html">
+          <a class="next-page" href="onboarding/getting-started.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Evidence</div>
+                <div class="title">Getting started</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -643,11 +590,11 @@ published measurement status.</p>
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-09-27</div>
+              Last updated on 2026-09-28</div>
           </div>
           <div class="right-details">
             <div class="icons">
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-v002" aria-label="Reusable v002 RTL"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
               <a class="muted-link pccx-footer-icon" href="https://docs.altifigence.com/ide/" aria-label="Digital Design Studio documentation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">Digital Design Studio</span></a>
               <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="PCCX documentation repository"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
               <a class="muted-link pccx-footer-icon" href="https://altifigence.com/" aria-label="Altifigence — PCCX project operator"><span class="pccx-footer-icon__label">Altifigence</span></a>
@@ -676,20 +623,11 @@ published measurement status.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Quickstart</a><ul>
-<li><a class="reference internal" href="#read-the-spec-resolution">1. Read the spec resolution</a></li>
-<li><a class="reference internal" href="#inventory-the-evidence">2. Inventory the evidence</a></li>
-<li><a class="reference internal" href="#run-the-local-docs-runbook">3. Run the local docs runbook</a></li>
-<li><a class="reference internal" href="#read-the-deploy-runbook">4. Read the deploy runbook</a></li>
-<li><a class="reference internal" href="#faq">5. FAQ</a><ul>
-<li><a class="reference internal" href="#is-v002-1-already-released">Is v002.1 already released?</a></li>
-<li><a class="reference internal" href="#does-the-20-tok-s-figure-mean-measured-throughput">Does the 20 tok/s figure mean measured throughput?</a></li>
-<li><a class="reference internal" href="#which-repository-is-the-source-of-truth-for-rtl">Which repository is the source of truth for RTL?</a></li>
-<li><a class="reference internal" href="#should-a-reader-start-with-the-lab-app">Should a reader start with the lab app?</a></li>
-<li><a class="reference internal" href="#do-english-and-korean-docs-both-need-manual-edits">Do English and Korean docs both need manual edits?</a></li>
-<li><a class="reference internal" href="#what-makes-a-quickstart-or-release-note-misleading">What makes a quickstart or release note misleading?</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cite-this-page">Cite this page</a></li>
+<li><a class="reference internal" href="#choose-the-right-repository">1. Choose the right repository</a></li>
+<li><a class="reference internal" href="#make-the-first-local-check">2. Make the first local check</a></li>
+<li><a class="reference internal" href="#prepare-a-focused-contribution">3. Prepare a focused contribution</a></li>
+<li><a class="reference internal" href="#build-a-documentation-change">4. Build a documentation change</a></li>
+<li><a class="reference internal" href="#tool-status">Tool status</a></li>
 </ul>
 </li>
 </ul>

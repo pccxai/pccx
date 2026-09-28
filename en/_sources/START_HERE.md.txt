@@ -30,20 +30,25 @@ git rev-parse HEAD
 ```
 
 This checks the reusable core's repository boundary. It does **not** simulate
-the NPU or establish hardware correctness. For xsim, use the KV260 repository's
-contribution guide; its current flow also requires Vivado and a legacy
-`pccx-lab` checkout. That legacy dependency needs a reproducible public replacement
-before it can be advertised as a frictionless first-contributor path.
+the NPU or establish hardware correctness. For xsim, the current runner requires Vivado and still invokes the converter
+from the discontinued `pccx-lab` project. This dependency can block execution
+before tests run. Do not restore retired tools as an onboarding step; removal
+and a clean public reproduction remain open work. Read the
+[current prerequisites](https://docs.pccx.ai/en/docs/onboarding/getting-started.html).
 
 For this documentation checkout, install `requirements.txt` in a virtual
 environment, follow the README's RTL-source setup, and run `make strict`.
+
+pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued. The current
+[roadmap](https://docs.pccx.ai/en/docs/roadmap.html) prioritizes independent RTL
+verification and small external contributions.
 
 ## What the maintainer should do next
 
 1. **One reproducible baseline.** Start with
    [KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152):
-   verify a clean contributor checkout, document required tools and replace or
-   explain the legacy lab dependency. Record an exact command and expected result.
+   remove the retired Lab dependency, document required tools and verify
+   a clean public contributor checkout. Record an exact command and expected result.
 2. **Close one runtime blocker.** Continue
    [KV260 #154](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/154):
    deterministic HP0/HP1 INT4 weight packing and tests, then board smoke.
@@ -69,8 +74,8 @@ The public `pccx` repository owns documentation. `pccx-v002` and `pccx-v003`
 own reusable core sources. The KV260 repository owns board and model integration.
 The private `pccx.ai` repository only publishes the project website.
 The dated `v002-kv260-deploy-20260527` repository preserves deployment/debug
-history and artifacts. Do not delete it before migrating and verifying unique
-sources, logs, rights and provenance. It is not the current contribution entry point.
+history and artifacts. It is archived and is not the current contribution
+entry point.
 
 [Website](https://pccx.ai/) · [Transparency](https://pccx.ai/en/legal/transparency/)
 · [Rights](LICENSE) · [Altifigence](https://altifigence.com/)

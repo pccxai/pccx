@@ -1,89 +1,81 @@
 # Roadmap
 
-The detailed execution board lives in [GitHub Projects][project]. This page
-only summarizes the current release direction across the pccx ecosystem.
+Updated September 28, 2026.
 
-The release cadence is staged on a shared KV260 bitstream harness.
-v002.0 is the baseline integration; v002.1 layers sparsity and
-speculative decoding on the same RTL; v003.x moves to a separate RTL
-repository as architectural novelties land. A parallel **vision-v001**
-track shares the same KV260 substrate but covers CNN-class workloads
-(classification / detection) and lives on its own repository.
+PCCX is an open-source semiconductor project initiated and operated by
+Altifigence. Our immediate priority is to make it practical for developers
+with **SystemVerilog RTL and verification experience** to contribute.
 
-## Now — v002.0: baseline integration on KV260
+The first milestone is a small, reproducible contribution: check out public
+RTL, run a testbench without an FPGA, investigate a result, and submit a
+reviewable verification PR.
 
-- finish remaining RTL integration on `pccx-FPGA-NPU-LLM-kv260`
-- A–F baseline phases on the v002.0 release line
-  - in progress: Phase 3 step 1 (shape constant RAM unification, see
-    {doc}`v002/RTL/shape_const_ram`) and Stage C cleanup (counters,
-    constants, `GLOBAL_CONST` consolidation)
-- trace-driven verification on `pccx-lab`
-- Sail execute increments
-- xsim / KV260 baseline bring-up logs
-- release evidence checklist (`docs/RELEASE_EVIDENCE_CHECKLIST.md`
-  in `pccx-FPGA-NPU-LLM-kv260`) gates timing / throughput / bring-up
-  wording before any claim lands in this docs site
-- throughput is measured-only on this release line — no timing or
-  throughput signoff claim until the verification evidence is published
+## Current scope
 
-```{figure} ../_static/diagrams/v002_evidence_flow.svg
-:name: fig-v002-evidence-flow-en
-:alt: pccx v002 release evidence flow
+| Repository | Responsibility |
+| --- | --- |
+| [pccx-v002](https://github.com/pccxai/pccx-v002) | Reusable v002 RTL, testbenches and the Sail ISA model. |
+| [KV260 integration](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) | Board integration, runtime and hardware evidence; consumes a pinned v002 core. |
+| [pccx-v003](https://github.com/pccxai/pccx-v003) | Experimental v003 RTL and verification work; hardware readiness is not established by source availability. |
+| [pccx](https://github.com/pccxai/pccx) | Architecture documentation, contribution guidance and the public roadmap. |
 
-RTL source → xsim testbenches → synthesis / implementation →
-KV260 bring-up `[HW]` → runtime `[HW]` → release evidence checklist
-(`RELEASE_EVIDENCE_CHECKLIST.md`) acting as the tag gate. Hardware-gated
-stages do not produce numbers that are quoted on this docs site until
-the checklist gates them in.
-```
+## Retired tools
 
-Tracking issue: [pccxai/pccx#28 — v0.2.0 umbrella][v020].
+**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
+They are outside the active roadmap. Their old installation instructions,
+product links and integration plans are not a supported contribution path.
+SystemVerilog remains the language used for RTL and testbench development.
 
-## Next — v002.1: sparsity + speculative decoding stack
+The current v002 simulation runner still invokes the retired Lab trace
+converter, `from_xsim_log`. Removing that dependency is an **open task**,
+not a completed migration. Do not restore the retired tools to get started.
+{doc}`onboarding/getting-started` explains the available first check and
+the remaining simulation prerequisite.
 
-- same RTL repository (`pccx-FPGA-NPU-LLM-kv260`), continued from v002.0
-- v002.1 v12d bitstream + sw/runtime Gemma port (experimental,
-  golden-vector gated); see {doc}`v002/gemma3n-e4b-integration`
-- G sparsity / H–H+ EAGLE-3 / I SSD / J Tree / K benchmark phases
-- 20 tok/s target lives on this release line
-- compute budget for EAGLE head training: $70–100 ($40 if a TRC TPU
-  grant lands)
+## First contribution milestone
 
-## Parallel — vision-v001: CNN inference track on KV260
+| Step | Work | Completion criterion |
+| --- | --- | --- |
+| 1. Align the backlog | Review old issues, PRs and milestones; separate retired work from current RTL work. | Each active task has a scope, reviewer, dependencies and a checkable result. Retired work is recorded as discontinued rather than implemented. |
+| 2. Publish an independent RTL test path | Remove the Lab dependency; document supported tools and one small testbench. | A clean public checkout runs without the retired tools or an FPGA, producing a meaningful PASS/FAIL result and raw logs. |
+| 3. Prepare small verification tasks | Prepare about five scoped RTL/TB issues after checking existing test coverage. | Each issue identifies files, interface or timing rules, a reproduction command, expected results and a reviewer. |
+| 4. Validate external participation | Have an independent contributor follow checkout → test → change → PR → review. | The path is reproduced, obstacles are fixed, and the resulting change can be reviewed using its evidence. |
 
-A second product line scoped to **vision** workloads shares the same
-KV260 board and the W4A8 NPU substrate but covers a distinct workload
-family from the LLM line. Active RTL development will live in a
-dedicated repository.
+These are completion goals, not claims that the work has finished. Dates
+will be assigned when maintainer availability and dependencies are agreed.
+There is no new fixed release deadline.
 
-- [`pccx-vision-v001`](https://github.com/pccxai/pccx-vision-v001)
-- shared substrate with the LLM line — same KV260 board, same W4A8
-  weight × activation ratio, same L2 URAM organisation
-- distinct dataflow — dense-conv tile reuse instead of token-by-token
-  KV streaming; the GEMM systolic + GEMV hybrid is reused for conv
-- first model candidates — ResNet18 / YOLOv8n / MobileNetV3
-  (smallest-footprint variants first)
-- evidence posture — the same release evidence checklist gates
-  timing / throughput / bring-up before any FPS or mAP figure lands
-  on this docs site
-- placeholder track index: vision is being absorbed into v003 at docs.altifigence.com
+The first implementation entry is
+[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152),
+covering contributor onboarding. The v002 weight dispatcher, result packer
+and memory operation queue are candidate areas for small verification work;
+existing testbenches must be reviewed before adding duplicate coverage.
 
-## Family overview
+## Hardware and later research
 
-```{figure} ../_static/diagrams/pccx_family_tree.svg
-:name: fig-pccx-family-tree-en
-:alt: pccx product family tree across versions and tracks
+Board runtime investigation continues separately through
+[KV260 #154](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/154).
+Simulation, synthesis, implementation and execution on a board have
+separate completion criteria. Board access is not a prerequisite for the
+first contribution milestone.
 
-v001 (archived) → v002 (active KV260 LLM line: v002.0 → v002.1).
-The **vision-v001** track branches at the v002 KV260 substrate and runs
-in parallel on its own repository. v003+ and other tracks live at
-docs.altifigence.com. Hover any node for status and scope.
-```
+Advanced decoding, sparsity, new workloads and further v003 development
+remain subjects for scoped technical proposals. Earlier calendar plans,
+training budgets and throughput targets are not current commitments.
+Measured results belong in {doc}`Evidence/index` with source SHAs,
+tool versions, commands and raw logs.
 
-## Links
+## Tracking and participation
 
-- GitHub Project (source of truth): <https://github.com/orgs/pccxai/projects/1>
-- v0.2.0 umbrella: <https://github.com/pccxai/pccx/issues/28>
+Use the existing [PCCX Roadmap project](https://github.com/orgs/pccxai/projects/1)
+and [contribution guide](https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md).
+The board is being reconciled with the new direction; old target-release
+fields and status columns may still reflect earlier plans.
+Original experiment and release dates remain historical records.
 
-[project]: https://github.com/orgs/pccxai/projects/1
-[v020]: https://github.com/pccxai/pccx/issues/28
+Start with {doc}`quickstart`. Altifigence
+[Digital Design Studio documentation](https://docs.altifigence.com/ide/)
+is an optional external resource, not a prerequisite or an automatic
+replacement for retired PCCX tools. See
+[Transparency](https://pccx.ai/en/legal/transparency/) for the relationship
+between PCCX and Altifigence.

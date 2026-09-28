@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/en/docs/v002/Verification/index.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="This section tracks the unit-level verification harness that accompanies the v002 RTL. Functional / formal / silicon checks at the system level are planned but not yet in place — their scope is lis..." />
+<meta property="og:description" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Current execution prereq..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_v002_Verification_index_ac539e95.png" />
-<meta property="og:image:alt" content="This section tracks the unit-level verification harness that accompanies the v002 RTL. Functional / formal / silicon checks at the system level are planned but not yet in place — their scope is lis..." />
-<meta name="description" content="This section tracks the unit-level verification harness that accompanies the v002 RTL. Functional / formal / silicon checks at the system level are planned but not yet in place — their scope is lis..." />
+<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_v002_Verification_index_a4728b92.png" />
+<meta property="og:image:alt" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Current execution prereq..." />
+<meta name="description" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Current execution prereq..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/en/","inLanguage":"en","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Verification","name":"Verification","url":"https://docs.pccx.ai/en/docs/v002/Verification/index.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/en/docs/v002/Verification/index.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Verification. PCCX architecture, implementation and verification documentation.","inLanguage":"en","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/v002/Verification/index.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/v002/Verification/index.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/v002/Verification/index.html"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Vivado Build" href="../Build/index.html"><link rel="prev" title="Shared Library" href="../RTL/library.html">
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=46f00cd2" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=8b6ba3ab" />
     <link rel="stylesheet" type="text/css" href="../../../_static/image-lightbox.css?v=7c940a79" />
     <link rel="stylesheet" type="text/css" href="../../../_static/language-switcher.css?v=041d5448" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/kr-typography.css?v=d1ebaf6e" />
@@ -247,8 +247,8 @@ SPDX-License-Identifier: Apache-2.0
 
 <nav class="pccx-repolinks" aria-label="Project links">
   <a class="pccx-repolinks__btn"
-     href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260"
-     title="Active v002 RTL — pccx-FPGA-NPU-LLM-kv260"
+     href="https://github.com/pccxai/pccx-v002"
+     title="Reusable v002 RTL — pccx-v002"
      target="_blank" rel="noopener">
     <svg aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em"
          fill="none" stroke="currentColor" stroke-width="1.6"
@@ -299,18 +299,17 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Evidence/index.html">Evidence</a><input aria-label="Toggle navigation of Evidence" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../onboarding/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Evidence/index.html">Evidence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repo-boundaries.html">Repository boundaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v002 Architecture</span></p>
 <ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">pccx v002 Architecture</a><input aria-label="Toggle navigation of pccx v002 Architecture" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">pccx v002 Architecture</a><input aria-label="Toggle navigation of pccx v002 Architecture" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gemma3n-e4b-integration.html">v002 Gemma 3N E4B Integration Milestone</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../Architecture/index.html">Hardware Architecture</a><input aria-label="Toggle navigation of Hardware Architecture" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gemma3n-e4b-integration.html">Historical Gemma 3N E4B Integration Plan</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Architecture/index.html">Hardware Architecture</a><input aria-label="Toggle navigation of Hardware Architecture" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Architecture/rationale.html">Design Rationale: v001 → v002</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Architecture/top_level.html">Top-Level Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Architecture/floorplan.html">Physical Floorplan</a></li>
@@ -323,21 +322,21 @@ SPDX-License-Identifier: Apache-2.0
 <li class="toctree-l3"><a class="reference internal" href="../Architecture/dsp48e2_w4a8.html">DSP48E2 W4A8 Bit Packing and Sign Recovery</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../ISA/index.html">Instruction Set Architecture (ISA)</a><input aria-label="Toggle navigation of Instruction Set Architecture (ISA)" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ISA/index.html">Instruction Set Architecture (ISA)</a><input aria-label="Toggle navigation of Instruction Set Architecture (ISA)" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ISA/encoding.html">Instruction Encoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ISA/instructions.html">Per-Instruction Encoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ISA/dataflow.html">Per-Instruction Dataflow</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../Formal/index.html">Formal Model — Sail</a><input aria-label="Toggle navigation of Formal Model — Sail" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Formal/index.html">Formal Model — Sail</a><input aria-label="Toggle navigation of Formal Model — Sail" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../Drivers/index.html">Software Stack</a><input aria-label="Toggle navigation of Software Stack" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Drivers/index.html">Software Stack</a><input aria-label="Toggle navigation of Software Stack" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Drivers/api.html">C API Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Drivers/hal.html">HAL — AXI-Lite MMIO Layer</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../Models/index.html">Target Models</a><input aria-label="Toggle navigation of Target Models" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Models/index.html">Target Models</a><input aria-label="Toggle navigation of Target Models" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Models/gemma3n_overview.html">Gemma 3N E4B — Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Models/gemma3n_pipeline.html">Gemma 3N E4B — Operator-Level Pipeline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Models/gemma3n_attention_rope.html">Gemma 3N — Attention and RoPE Constraints</a></li>
@@ -346,7 +345,7 @@ SPDX-License-Identifier: Apache-2.0
 <li class="toctree-l3"><a class="reference internal" href="../Models/gemma3n_execution.html">Gemma 3N E4B on pccx v002 — Execution and Scheduling</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../RTL/index.html">RTL Source Reference (v002)</a><input aria-label="Toggle navigation of RTL Source Reference (v002)" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../RTL/index.html">RTL Source Reference (v002)</a><input aria-label="Toggle navigation of RTL Source Reference (v002)" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../RTL/isa_pkg.html">ISA Type Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RTL/npu_top.html">NPU Top-Level</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RTL/compute_cores.html">Compute Core Modules</a></li>
@@ -361,7 +360,7 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 </li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Verification</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../Build/index.html">Vivado Build</a><input aria-label="Toggle navigation of Vivado Build" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Build/index.html">Vivado Build</a><input aria-label="Toggle navigation of Vivado Build" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -369,20 +368,20 @@ SPDX-License-Identifier: Apache-2.0
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Target Hardware</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Devices/kv260.html">Target Hardware: Xilinx Kria KV260</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Archive</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../archive/index.html">Archive</a><input aria-label="Toggle navigation of Archive" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../archive/experimental_v001/index.html">Archive: v001 Experimental Architecture</a><input aria-label="Toggle navigation of Archive: v001 Experimental Architecture" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../archive/index.html">Archive</a><input aria-label="Toggle navigation of Archive" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../archive/experimental_v001/index.html">Archive: v001 Experimental Architecture</a><input aria-label="Toggle navigation of Archive: v001 Experimental Architecture" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Architecture/v001_architecture.html">pccx: Parallel Compute Core eXecutor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/ISA.html">pccx ISA Specification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/ISA_Spreadsheet.html">pccx ISA Spreadsheet View</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../archive/experimental_v001/Drivers/v001_API.html">Developer Reference for pccx v001 Host API</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../archive/experimental_v001/RTL/index.html">RTL Source Reference (v001)</a><input aria-label="Toggle navigation of RTL Source Reference (v001)" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../archive/experimental_v001/RTL/index.html">RTL Source Reference (v001)</a><input aria-label="Toggle navigation of RTL Source Reference (v001)" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/top.html">Top level</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/packages.html">Packages and Constants</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../archive/experimental_v001/RTL/controller.html">NPU Controller</a></li>
@@ -433,12 +432,12 @@ SPDX-License-Identifier: Apache-2.0
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/pccxai/pccx/blob/main/docs/docs/v002/Verification/index.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/pccxai/pccx/blob/main/docs/v002/Verification/index.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/pccxai/pccx/edit/main/docs/docs/v002/Verification/index.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/pccxai/pccx/edit/main/docs/v002/Verification/index.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -457,15 +456,40 @@ SPDX-License-Identifier: Apache-2.0
         <article role="main" id="furo-main-content">
           <section id="verification">
 <h1>Verification<a class="headerlink" href="#verification" title="Link to this heading">¶</a></h1>
-<p>This section tracks the <strong>unit-level verification harness</strong> that
-accompanies the v002 RTL. Functional / formal / silicon checks at the
-system level are planned but not yet in place — their scope is listed at
-the end of this page.</p>
-<section id="current-test-suite">
-<h2>1. Current test suite<a class="headerlink" href="#current-test-suite" title="Link to this heading">¶</a></h2>
-<p>All tests run under <strong>Vivado xsim</strong> via the unified runner
-<code class="file docutils literal notranslate"><span class="pre">hw/sim/run_verification.sh</span></code> in the RTL repo. Each test generates a
-<code class="docutils literal notranslate"><span class="pre">.pccx</span></code> trace that pccx-lab can visualise on the Timeline.</p>
+<p>Current v002 RTL and testbenches live in
+<a class="reference external" href="https://github.com/pccxai/pccx-v002">pccx-v002</a>.
+The board integration repository consumes a pinned core. Begin with
+the structural check and test listing in <a class="reference internal" href="../../quickstart.html"><span class="doc">Quickstart</span></a>.</p>
+<section id="current-execution-prerequisites">
+<h2>Current execution prerequisites<a class="headerlink" href="#current-execution-prerequisites" title="Link to this heading">¶</a></h2>
+<p><strong>pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.</strong>
+The current <code class="docutils literal notranslate"><span class="pre">LLM/sim/run_verification.sh</span></code> uses Vivado xsim and still
+builds the retired Lab’s <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code> before tests, then invokes it
+after simulation. The independent public simulation path is not complete.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--list</span></code> can enumerate testbenches without running them. Installing
+retired tools is not an onboarding step. Dependency removal is tracked
+through <a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>
+and <a class="reference internal" href="../../onboarding/getting-started.html"><span class="doc">Getting started</span></a>.</p>
+<p>A testbench listing is distinct from a passing run. Attach the core SHA,
+tool version, command, expected result, actual result and raw logs.
+The runner’s output location is <code class="docutils literal notranslate"><span class="pre">LLM/sim/work/&lt;tb&gt;/</span></code>;
+the board wrapper summary belongs in <code class="docutils literal notranslate"><span class="pre">build/sim_v002_submodule.log</span></code>.</p>
+</section>
+<section id="scope-a-first-verification-contribution">
+<h2>Scope a first verification contribution<a class="headerlink" href="#scope-a-first-verification-contribution" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Read the existing weight dispatcher, result packer or memory operation
+queue testbench before proposing new coverage.</p></li>
+<li><p>Choose a small reset, handshake or boundary-condition case.</p></li>
+<li><p>Agree on assertions or PASS/FAIL criteria with a reviewer.</p></li>
+<li><p>Report tool failures and unexecuted tests as such.</p></li>
+</ul>
+</section>
+<section id="historical-unit-test-record">
+<h2>Historical unit-test record<a class="headerlink" href="#historical-unit-test-record" title="Link to this heading">¶</a></h2>
+<p>The table below was recorded here for KV260 repository commit
+<code class="docutils literal notranslate"><span class="pre">773bd82</span></code> on April 21, 2026. It is not a fresh result for current main.
+The old source paths and runner are not the current contributor runbook.</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -507,110 +531,18 @@ the end of this page.</p>
 </tbody>
 </table>
 </div>
-<section id="running-the-suite">
-<h3>Running the suite<a class="headerlink" href="#running-the-suite" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>pccx-FPGA-NPU-LLM-kv260/hw/sim
-bash<span class="w"> </span>run_verification.sh
-</pre></div>
-</div>
-<p>The script is idempotent — each tb writes to its own
-<code class="file docutils literal notranslate"><span class="pre">hw/sim/work/&lt;tb_name&gt;/</span></code> directory so concurrent runs do not
-stomp on each other. A one-line PASS / FAIL summary prints at the
-end along with the path of each emitted <code class="docutils literal notranslate"><span class="pre">.pccx</span></code> trace.</p>
-<div class="note admonition">
-<p class="admonition-title">Last verified against</p>
-<p>Commit <code class="docutils literal notranslate"><span class="pre">773bd82</span></code> &#64; <code class="docutils literal notranslate"><span class="pre">pccxai/pccx-FPGA-NPU-LLM-kv260</span></code>
-(2026-04-21). Six testbenches PASS; <code class="docutils literal notranslate"><span class="pre">tb_GEMM_fmap_staggered_delay</span></code>
-is parked — see <code class="docutils literal notranslate"><span class="pre">run_verification.sh</span></code> for the reason.</p>
-</div>
 </section>
-</section>
-<section id="gaps-tracked-as-open-items">
-<h2>2. Gaps (tracked as open items)<a class="headerlink" href="#gaps-tracked-as-open-items" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper colwidths-given docutils container">
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 30.0%" />
-<col style="width: 70.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Area</p></th>
-<th class="head"><p>Planned next step</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>System-level smoke</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">tb_NPU_top_smoke</span></code> — AXI-Lite decode → MEMSET → MEMCPY →
-GEMV → MEMCPY readback, golden compare against <code class="docutils literal notranslate"><span class="pre">llm-lite</span></code>
-reference. Blocked on the ACP fanout / writeback wiring (see
-<a class="reference internal" href="../RTL/npu_top.html"><span class="doc">NPU Top-Level</span></a>).</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>CVO bridge</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">tb_cvo_bridge</span></code> — cvo_uop → READ burst → CVO echo → WRITE
-burst; covers the L2 port-B direct-address path once the
-arbiter lands.</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>mem_dispatcher uop table</strong></p></td>
-<td><p>Regression guard for MEMSET + LOAD + STORE + CVO routing.</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Driver-RTL cross check</strong></p></td>
-<td><p>Host-only test: encode via <code class="docutils literal notranslate"><span class="pre">uca_*</span></code> API, dump 64-bit VLIW,
-cross-check against <code class="docutils literal notranslate"><span class="pre">isa_pkg.sv</span></code> bit layout.</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Formal</strong></p></td>
-<td><p>SymbiYosys / JasperGold properties for the ISA decoder and
-memory arbitration (future).</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="planned-scope-system-level">
-<h2>3. Planned scope (system level)<a class="headerlink" href="#planned-scope-system-level" title="Link to this heading">¶</a></h2>
-<p>Once the unit-level gaps above are closed, the full verification
-section will cover:</p>
-<ul class="simple">
-<li><p><strong>Verification plan</strong> — per-module functional coverage targets and
-sign-off criteria.</p></li>
-<li><p><strong>Testbench architecture</strong> — UVM / cocotb harness layout, reference
-model, and stimulus generators (golden data from the <code class="docutils literal notranslate"><span class="pre">llm-lite</span></code>
-CPU reference).</p></li>
-<li><p><strong>Coverage dashboard</strong> — functional + code + assertion coverage,
-rolled up by core (GEMM / GEMV / CVO / MEM).</p></li>
-<li><p><strong>Formal results</strong> — SymbiYosys / JasperGold properties for the
-controller, ISA decoder, and memory arbitration.</p></li>
-<li><p><strong>Silicon-level checks</strong> — post-implementation simulation, on-board
-bring-up scripts, and golden-trace comparison against the
-<a class="reference internal" href="../Drivers/api.html"><span class="doc">host-side C driver</span></a>.</p></li>
-</ul>
-<div class="note admonition">
-<p class="admonition-title">External tool interface — status surface boundaries</p>
-<p>The verification workflow is incrementally surfacing JSON status
-summaries that external tools can consume without parsing free-form
-logs. These boundaries live outside this docs site:</p>
-<ul class="simple">
-<li><p><strong>pccx-lab</strong> — JSON / Sail / hybrid source-intake status summary
-boundaries, plus sample boundaries for plugins and external tool
-interfaces. Treated as an evolving boundary; no stability promise
-is made until the v002.0 verification evidence is published.</p></li>
-<li><p><strong>systemverilog-ide</strong> — module-graph reports (path, edge, port
-connection audit, reachability, span, file-layout, order) exposed
-as a separate boundary; consumed by reviewers but not part of the
-pccx documentation surface.</p></li>
-</ul>
-<p>These boundaries are referenced here for traceability only. They
-do not constitute verification evidence on their own.</p>
-</div>
+<section id="verification-beyond-simulation">
+<h2>Verification beyond simulation<a class="headerlink" href="#verification-beyond-simulation" title="Link to this heading">¶</a></h2>
+<p>Formal models, synthesis and implementation, timing reports and execution
+on a board require separate evidence. Passing a module test does not
+establish model inference, performance or silicon readiness.
+Follow <a class="reference internal" href="../../Evidence/index.html"><span class="doc">Evidence</span></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="../Architecture/index.html"><span class="doc">Hardware Architecture</span></a></dt><dd><p>The architectural contracts this section verifies.</p>
-</dd>
-<dt><a class="reference internal" href="../ISA/index.html"><span class="doc">Instruction Set Architecture (ISA)</span></a></dt><dd><p>ISA-level invariants the testbench checks.</p>
-</dd>
-<dt><a class="reference internal" href="../RTL/index.html"><span class="doc">RTL Source Reference (v002)</span></a></dt><dd><p>RTL modules under test.</p>
-</dd>
-</dl>
+<p><a class="reference internal" href="../Architecture/index.html"><span class="doc">Hardware Architecture</span></a>
+<a class="reference internal" href="../ISA/index.html"><span class="doc">Instruction Set Architecture (ISA)</span></a>
+<a class="reference internal" href="../RTL/index.html"><span class="doc">RTL Source Reference (v002)</span></a></p>
 </div>
 </section>
 </section>
@@ -655,11 +587,11 @@ do not constitute verification evidence on their own.</p>
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-09-27</div>
+              Last updated on 2026-09-28</div>
           </div>
           <div class="right-details">
             <div class="icons">
-              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260" aria-label="RTL implementation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
+              <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx-v002" aria-label="Reusable v002 RTL"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.2"/><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg><span class="pccx-footer-icon__label">RTL</span></a>
               <a class="muted-link pccx-footer-icon" href="https://docs.altifigence.com/ide/" aria-label="Digital Design Studio documentation"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></svg><span class="pccx-footer-icon__label">Digital Design Studio</span></a>
               <a class="muted-link pccx-footer-icon" href="https://github.com/pccxai/pccx" aria-label="PCCX documentation repository"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="pccx-footer-icon__label">Docs</span></a>
               <a class="muted-link pccx-footer-icon" href="https://altifigence.com/" aria-label="Altifigence — PCCX project operator"><span class="pccx-footer-icon__label">Altifigence</span></a>
@@ -688,12 +620,10 @@ do not constitute verification evidence on their own.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Verification</a><ul>
-<li><a class="reference internal" href="#current-test-suite">1. Current test suite</a><ul>
-<li><a class="reference internal" href="#running-the-suite">Running the suite</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#gaps-tracked-as-open-items">2. Gaps (tracked as open items)</a></li>
-<li><a class="reference internal" href="#planned-scope-system-level">3. Planned scope (system level)</a></li>
+<li><a class="reference internal" href="#current-execution-prerequisites">Current execution prerequisites</a></li>
+<li><a class="reference internal" href="#scope-a-first-verification-contribution">Scope a first verification contribution</a></li>
+<li><a class="reference internal" href="#historical-unit-test-record">Historical unit-test record</a></li>
+<li><a class="reference internal" href="#verification-beyond-simulation">Verification beyond simulation</a></li>
 </ul>
 </li>
 </ul>
