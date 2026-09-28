@@ -15,6 +15,10 @@
     return new URL("_static/", window.location.href);
   }
 
+  // Capture this while the script is executing; currentScript is null in the
+  // DOMContentLoaded callback and Sphinx adds a version query to script URLs.
+  const scriptBase = currentScriptBase();
+
   function pageLanguage() {
     const lang = document.documentElement.getAttribute("lang") || "";
     if (lang.toLowerCase().startsWith("ko")) {
@@ -143,8 +147,7 @@
   }
 
   async function main() {
-    const base = currentScriptBase();
-    const manifestUrl = new URL("pccx_versions.json", base);
+    const manifestUrl = new URL("pccx_versions.json", scriptBase);
     const response = await fetch(manifestUrl, { cache: "no-cache" });
     if (!response.ok) {
       throw new Error("version manifest unavailable");
