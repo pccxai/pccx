@@ -94,48 +94,19 @@ v001 레퍼런스 아키텍처는 :doc:`archive/experimental_v001/index` 에 보
 
 --------------
 
-5. 에코시스템
--------------
+5. 프로젝트와 참여
+----------------------------------------
 
-.. grid:: 1 1 2 2
-   :gutter: 3 4 4 4
-   :class-container: pccx-ecosystem-grid
+재사용 가능한 RTL과 테스트벤치는
+`pccx-v002 <https://github.com/pccxai/pccx-v002>`_\ 에서,
+보드·런타임 통합은
+`KV260 저장소 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260>`_\ 에서
+관리합니다. `pccx-v003 <https://github.com/pccxai/pccx-v003>`_\ 는
+실험 단계의 RTL과 검증 작업을 담고 있습니다.
 
-   .. grid-item-card:: :octicon:`cpu;1.5em;sd-mr-2` RTL 구현체
-      :columns: 12 12 8 8
-      :class-card: pccx-hero-card
-      :link: https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260
-      :link-type: url
-      :link-alt: pccx-FPGA-NPU-LLM-kv260 저장소를 GitHub 에서 열기
-
-      **github.com/pccxai/pccx-FPGA-NPU-LLM-kv260**
-
-      활성 상태의 **v002** SystemVerilog 컴포넌트 — ISA 패키지, 제어 유닛,
-      연산 파이프라인 (GEMM / GEMV / CVO), 및 메모리 스토리지 계층 구성을 관장한다.
-      운영 타겟 하드웨어는 Xilinx Kria **KV260** (Zynq UltraScale+ ZU5EV)이다.
-
-      본 문서 사이트의 모든 v002 RTL 참조 페이지는
-      GitHub 프로젝트의 최신 ``.sv`` 코드로 직접 라우팅된다.
-
-   .. grid-item::
-      :columns: 12 12 4 4
-
-      .. grid:: 1
-         :gutter: 3
-
-         .. grid-item-card:: :octicon:`book;1em;sd-mr-1` 문서 소스
-            :link: https://github.com/pccxai/pccx
-            :link-type: url
-            :link-alt: pccx 문서 저장소를 GitHub 에서 열기
-
-            **github.com/pccxai/pccx** — 본 문서 사이트를 빌드하기 위한 Sphinx 프로젝트.
-
-         .. grid-item-card:: :octicon:`person;1em;sd-mr-1` 저자 포트폴리오
-            :link: https://hkimw.github.io/hkimw/
-            :link-type: url
-            :link-alt: hkimw 포트폴리오 사이트 열기
-
-            **hkimw.github.io/hkimw** — 블로그, 다른 프로젝트, 소개.
+작은 RTL·검증 기여는 :doc:`quickstart`\ 에서 시작하세요.
+현재 실행 조건은 :doc:`onboarding/getting-started`\ 에,
+앞으로의 완료 기준은 :doc:`roadmap`\ 에 정리했습니다.
 
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 .. |Architecture| image:: https://img.shields.io/badge/Architecture-Scalable_NPU-purple

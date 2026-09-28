@@ -187,47 +187,34 @@ pccx/
 
 Sibling repositories:
 
-- **`pccx-v002`** — reusable v002 IP-core package.
-- **`pccx-v003`** — future reusable v003 IP-core package.
-- **[pccxai/pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260)** — KV260 + LLM application integration that consumes `pccx-v002`.
-- **[pccxai/pccx-lab](https://github.com/pccxai/pccx-lab)** — performance simulator, CLI-first verification lab, and trace profiler. The public Lab documentation lives on `https://docs.altifigence.com/lab/`.
+- **[pccx-v002](https://github.com/pccxai/pccx-v002)** — reusable v002 RTL, testbenches and the Sail model.
+- **[pccx-v003](https://github.com/pccxai/pccx-v003)** — experimental v003 RTL and verification work.
+- **[KV260 integration](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260)** — board and runtime integration consuming a pinned v002 core.
 
----
+## Roadmap — public RTL contributions
 
-## Roadmap — Staged release track
+The first milestone is to let an external SystemVerilog developer reproduce
+a small testbench without an FPGA and submit a reviewable verification PR.
 
-pccx is developed across staged releases. v002.0 is the baseline KV260
-integration; v002.1 layers sparsity and speculative decoding on the v002
-line; v003.x belongs to the future `pccx-v003` IP-core package. A
-long-term auto-porting compiler begins once the v002 / v003 lines are
-stable.
+1. Reconcile current issues, PRs and retired work.
+2. Remove the retired Lab dependency and validate an independent public RTL test.
+3. Prepare small verification issues with reproduction commands and reviewers.
+4. Validate the checkout → test → change → PR → review path with an external contributor.
 
-| Release | RTL Repo | Target Model | Scope | Throughput Target | Status |
-|---------|----------|--------------|-------|-------------------|--------|
-| **v002.0** | `pccx-v002` + [`pccxai/pccx-FPGA-NPU-LLM-kv260`](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) | Gemma 3N E4B | A–F baseline integration | measured-only | In progress |
-| **v002.1** | `pccx-v002` + [`pccxai/pccx-FPGA-NPU-LLM-kv260`](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) | Gemma 3N E4B | G sparsity / H–H+ EAGLE-3 / I SSD / J Tree / K benchmark | evidence-only | Planned |
-| **v003.0** | `pccx-v003` | Gemma 4 E4B | foundation + first architectural novelty | TBD | Planned |
-| **v003.1** | `pccx-v003` | Gemma 4 E4B | second novelty + KV/decoding co-design | TBD | Planned |
-| **Auto-Porting α** | [`pccxai/pccx`](https://github.com/pccxai/pccx) | Arbitrary Transformer | `config.json` → pccx ISA codegen | n/a | Planned (Y2) |
+Dates are not assigned. Board runtime and later architecture research remain
+separate work; old training budgets and throughput targets are not current
+commitments. See the [English roadmap](https://docs.pccx.ai/en/docs/roadmap.html)
+or [한국어 로드맵](https://docs.pccx.ai/ko/docs/roadmap.html).
 
-**v002.1 compute budget**: $70–100 total for EAGLE head training ($40 if
-a TRC TPU grant lands). The training plan is scoped to v002.1, where
-the speculative-decoding stack is integrated.
+## Tool status
 
-→ **[Full roadmap (EN)](https://docs.pccx.ai/en/docs/roadmap.html)**
-&nbsp;·&nbsp; [**한국어**](https://docs.pccx.ai/ko/docs/roadmap.html)
-
----
-
-## Ecosystem
-
-### pccx-lab — Simulator & Verification Lab
-
-Performance simulator, CLI-first verification lab, and trace profiler for the pccx NPU. Pre-RTL bottleneck detection, UVM co-simulation, and testbench/trace workflow support share one workflow.
-
-- Repository: https://github.com/pccxai/pccx-lab
-- Documentation: https://docs.altifigence.com/lab/
-- Status: Work in Progress
+**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
+The current v002 runner still calls the Lab trace converter. Removing that
+dependency and validating a clean public run remain open tasks.
+Do not install retired tools as an onboarding step.
+Use the [Quickstart](https://docs.pccx.ai/en/docs/quickstart.html).
+[Digital Design Studio](https://docs.altifigence.com/ide/) is optional
+Altifigence tooling, not a prerequisite for PCCX participation.
 
 ---
 
@@ -235,7 +222,7 @@ Performance simulator, CLI-first verification lab, and trace profiler for the pc
 
 The full technical documentation — architecture deep-dives, ISA encoding tables, DSP48E2 bit-packing derivation, driver API, and embedded RTL source — is published at:
 
-### **[pccx.pages.dev/](https://docs.pccx.ai/)**
+### **[docs.pccx.ai](https://docs.pccx.ai/)**
 
 Available in **English** and **한국어 (Korean)**.
 

@@ -4,8 +4,10 @@ orphan: true
 
 # Evidence pack index
 
-프로젝트의 검증·통합 evidence를 구성하는 항목 목록이다. 각 행은 근거를
-제공한 소스에 링크되며, 실행과 로그는 재현 가능한 경로에서 생성된다.
+이 페이지는 기존 검증 기록의 위치를 안내합니다. 과거 통과 기록은 현재
+main의 재검증 결과가 아닙니다. pccx-lab은 폐지되었지만 실행기에 변환기
+의존성이 남아 있어 새 공개 환경에서의 재현 경로는 정비 중입니다.
+{doc}`../onboarding/getting-started`와 {doc}`/docs/Evidence/index`를 먼저 확인하세요.
 
 ## 검증 evidence
 
@@ -15,7 +17,7 @@ orphan: true
 | KV260 sim wrapper PASS 요약(11 testbench) | `pccxai/pccx-FPGA-NPU-LLM-kv260/scripts/v002/use_submodule_sources.sh` | `build/sim_v002_submodule.log` |
 | 테스트벤치별 산출물 (`xsim.log`, `.pccx`) | 동일한 wrapper | `third_party/pccx-v002/LLM/sim/work/<tb>/` |
 
-현재 Phase D2 기준 PASS는 `11 passed / 0 failed`.
+과거 Phase D2 기록에 적힌 PASS는 `11 passed / 0 failed`.
 
 ## 통합 evidence
 

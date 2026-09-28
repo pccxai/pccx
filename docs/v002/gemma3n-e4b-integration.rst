@@ -1,46 +1,23 @@
 ==========================================
-v002 Gemma 3N E4B Integration Milestone
+Historical Gemma 3N E4B Integration Plan
 ==========================================
 
-This page records the coordinated v002 Gemma 3N E4B target path across
-the canonical PCCX docs site and the four live debugging surfaces:
-pccx-lab Live Run, pccx-trace Live Capture, systemverilog-ide Board
-Health, and pccx-launcher chat.
+.. warning::
 
-This milestone is evidence-gated — no measured tok/s claims. It documents
-target wiring, runtime readiness checks, and golden-vector gates. It does
-not claim production readiness or a completed Gemma 3N E4B runtime.
+   Historical integration plan. pccx-lab, SystemVerilog IDE and PCCX
+   Launcher are discontinued. The former UI/daemon protocol below is
+   retained for provenance, not as a supported product or installation
+   guide. For current work, read :doc:`/docs/roadmap` and
+   :doc:`/docs/onboarding/getting-started`.
 
-Code and review references:
-
-- KV260 integration code branch:
-  https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/tree/docs/v002-gemma-integration
-- Canonical docs branch:
-  https://github.com/pccxai/pccx/tree/docs/v002-gemma-integration
-- PCCX docs issues:
-  https://github.com/pccxai/pccx/issues
-- KV260 integration issues:
-  https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues
-
-Milestone Boundary
-==================
-
-The coordinated milestone is Stage 1 of staged release:
-
-- pccx-launcher chat provides the user-facing command surface.
-- pccx-lab Live Run shows readiness, backend, and NPU status.
-- pccx-trace Live Capture streams timeline events from the daemon.
-- systemverilog-ide Board Health verifies board status and bitstream
-  identity.
-
-Later stages cover NPU GEMM offload and W4A8 golden-vector verification.
-Until those gates are reviewed, use "Gemma 3N E4B target path" rather
-than production-runtime wording.
+This page preserves the earlier Gemma 3N E4B target-path contract and
+candidate bitstream identity. It does not establish current runtime,
+timing, model accuracy or throughput.
 
 Shared Daemon Contract
 ======================
 
-The live surfaces consume an aiohttp HTTP+WS daemon on port ``7860``. The
+The former integration plan described an aiohttp HTTP+WS daemon on port ``7860``. The
 common readiness endpoint is ``GET /api/status``.
 
 .. code-block:: json
@@ -86,43 +63,23 @@ Backend modes are interpreted conservatively:
    CPU orchestration with selected NPU offload targets. Each offload
    remains separately gated.
 
-The current v12d candidate SHA256 is
+The v12d candidate SHA256 recorded in that plan was
 ``59558c5f86968be2cd968212be3519afeb7afd148809079a314af29a50cf0c6c``.
 A SHA match identifies the candidate bitstream only; it is not a
 throughput, timing, or runtime signoff.
 
-Live Surface Map
-================
+Former integration surfaces
+============================
 
-.. list-table::
-   :header-rows: 1
-   :widths: 22 30 28 20
-
-   * - Surface
-     - Public route
-     - Daemon dependency
-     - Issue tracker
-   * - pccx-lab Live Run
-     - https://docs.altifigence.com/lab/
-     - ``/api/status`` plus optional status WebSocket frames.
-     - https://github.com/pccxai/pccx-lab/issues
-   * - pccx-trace Live Capture
-     - https://trace.pccx.ai/live-capture/
-     - ``/api/trace`` NDJSON timeline stream.
-     - https://github.com/pccx-internal/pccx-trace/issues
-   * - systemverilog-ide Board Health
-     - https://docs.altifigence.com/ide/
-     - ``/api/status`` board, backend, and SHA fields.
-     - https://github.com/pccxai/systemverilog-ide/issues
-   * - pccx-launcher chat
-     - https://docs.altifigence.com/launcher/
-     - ``/api/status`` preflight plus chat WebSocket events.
-     - https://github.com/pccxai/pccx-launcher/issues
+The plan referenced pccx-lab Live Run, SystemVerilog IDE Board Health,
+PCCX Launcher chat and a trace Live Capture endpoint. These references
+do not define a current contribution route. Use raw runtime logs and
+source/bitstream identifiers in a scoped KV260 issue.
 
 Release Wording Rules
 =====================
 
-Use the following wording while this milestone is under review:
+The original plan used the following evidence-limited wording:
 
 - "Gemma 3N E4B target path"
 - "runtime readiness checks"
@@ -149,7 +106,6 @@ File daemon, board integration, bitstream, and golden-vector evidence
 issues in:
 https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues
 
-When filing an issue, include the daemon URL pattern, backend mode,
-``/api/status`` payload, v12d SHA match state, and which live debug
-surface exposed the problem. Do not include secrets, private model paths,
-or unreviewed measurements.
+For current issues, include the checked-out source and bitstream hashes,
+tool versions, reproduction command, expected/actual behavior and raw logs.
+Do not require a retired debug UI to report a board or runtime problem.

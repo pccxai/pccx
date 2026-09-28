@@ -4,88 +4,48 @@ orphan: true
 
 # Getting started
 
-The shortest reproducible path from a clean checkout to a passing
-verification run.
+Start with {doc}`../quickstart` to select a repository, inspect public RTL
+and list the available testbenches. Our first participation goal is a
+small SystemVerilog verification PR without requiring an FPGA.
 
-## Clone the application repo with submodules
+## Current simulation blocker
 
-```
-git clone --recurse-submodules \
-    https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260.git
+**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
+The v002 runner `LLM/sim/run_verification.sh` still invokes
+`from_xsim_log` from `PCCX_LAB_DIR`. It attempts to build the converter
+before running tests when the executable is missing. This is an execution
+dependency, not just an optional trace viewer.
+
+The KV260 wrapper `scripts/v002/use_submodule_sources.sh` delegates to
+that runner through `third_party/pccx-v002` and also forwards the old
+Lab directory. Removing this dependency and updating the consumer pin
+are tracked through
+[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152).
+The replacement public simulation path has not yet been validated.
+Do not restore discontinued tools as part of onboarding.
+
+## Inspect board integration when needed
+
+```bash
+git clone --recurse-submodules https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260.git
 cd pccx-FPGA-NPU-LLM-kv260
+git rev-parse HEAD
+git submodule status
 ```
 
-The `--recurse-submodules` flag is mandatory. The board integration
-repo consumes the v002 IP-core through the
-`third_party/pccx-v002` submodule and a clone without it will not
-build. If you forgot the flag, run `git submodule update --init
---recursive` from inside the working tree.
+Record both board and core SHAs. A successful clone is not a simulation
+result. The existing xsim flow requires Vivado and its simulation
+libraries; no simulator-independent replacement is claimed here.
+See {doc}`../reference/submodule-pin-policy` for pin review.
 
-## Toolchain expectations
+## Agree on one test and its result
 
-| Tool | Used for | Where |
-| --- | --- | --- |
-| `git` | repo + submodule operations | local |
-| `bash` | wrapper scripts | local |
-| `gh` (GitHub CLI) | PR / Actions queries | local |
-| Vivado xsim (`xvlog`, `xelab`, `xsim`) | KV260 sim wrapper | local; expected on `PATH` |
-| `opam` + `sail 0.20.1` + `ocaml 5.1.0` + `z3` | Sail typecheck (CI) | runs in `pccx-v002` GitHub Actions; local install optional |
-| `python3` | helper scripts (smoke program generator etc.) | local |
+A contributor issue should identify the target files, interface or
+timing behavior, tool version, command, expected assertion or PASS/FAIL
+result, raw-log location and reviewer. Check existing coverage before
+adding a new testbench. Report blocked execution rather than a synthetic
+PASS. Do not infer current-main success from a historical run.
 
-The `pccx-FPGA-NPU-LLM-kv260` repo expects a sibling `pccx-lab`
-checkout (or `PCCX_LAB_DIR` set) for trace inspection; its absence
-does not block the sim wrapper, only the trace viewing.
-
-## Run the v002 simulation suite via the wrapper
-
-```
-bash scripts/v002/use_submodule_sources.sh
-tail -n 5 build/sim_v002_submodule.log
-```
-
-The wrapper forwards arguments to the v002 runner inside the
-submodule. Quick smoke and per-testbench modes work the same way:
-
-```
-bash scripts/v002/use_submodule_sources.sh --quick
-bash scripts/v002/use_submodule_sources.sh --tb tb_v002_runtime_smoke_program
-```
-
-A successful run prints `PASS: submodule simulation complete` and the
-log tail shows a per-testbench `Summary: <N> passed, 0 failed` block.
-
-## Check the formal Sail model (optional, normally CI-only)
-
-The Sail typecheck runs in `pccxai/pccx-v002` GitHub Actions on every
-push that touches `LLM/formal/sail/**`. To run it locally:
-
-```
-cd third_party/pccx-v002/LLM/formal/sail
-make check
-```
-
-This requires `sail`, `z3`, and `opam` available on `PATH`. The CI
-job does the cold opam build for you; running locally is mainly
-useful when iterating on the Sail model.
-
-## Verify the submodule pin is reachable from `pccx-v002/main`
-
-```
-cd third_party/pccx-v002
-git fetch origin main
-PIN=$(git rev-parse HEAD)
-git merge-base --is-ancestor "$PIN" origin/main
-echo "exit=$?"
-```
-
-`exit=0` is the expected outcome. `exit=1` means the pin needs
-repair; see [submodule pin policy](../reference/submodule-pin-policy.md).
-
-## Where evidence lives
-
-| Evidence | Where to look |
-| --- | --- |
-| Sail typecheck run | GitHub Actions on `pccxai/pccx-v002`. |
-| Sim wrapper summary | `build/sim_v002_submodule.log` in the board integration checkout. |
-| Per-testbench artefacts | `third_party/pccx-v002/LLM/sim/work/<tb>/` after a wrapper run. |
-| CI status of any open PR | `gh pr checks <number> --repo <repo>`. |
+Read {doc}`../v002/Verification/index` and {doc}`../Evidence/index`.
+Formal-model checks live with the core under `LLM/formal/sail/`;
+their results are distinct from RTL simulation and board execution.

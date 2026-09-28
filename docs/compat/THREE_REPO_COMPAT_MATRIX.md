@@ -2,13 +2,13 @@
 orphan: true
 ---
 
-# Three-repo compatibility matrix
+# Historical compatibility matrix — discontinued tools
 
-Scope: `systemverilog-ide`, `pccx-launcher`, and `pccx-lab`.
-
-This page is the source of truth for the data-only boundary between the
-editor cockpit, launcher surface, and lab backend. It uses the post-rename
-public name `pccx-launcher` for all new compatibility wording.
+> **Discontinued — status confirmed September 28, 2026.** SystemVerilog IDE,
+> PCCX Launcher and pccx-lab are retired. The material below preserves the
+> former contracts and source references; it is not a current support,
+> development or installation guide. Use [Quickstart](../quickstart.md)
+> and the [roadmap](../roadmap.md) for current participation.
 
 ## Goals
 

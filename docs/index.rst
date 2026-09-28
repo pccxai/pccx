@@ -139,70 +139,19 @@ Altifigence.
 
 --------------
 
-5. Ecosystem
-------------
+5. Project and participation
+----------------------------------------
 
-.. grid:: 1 1 2 2
-   :gutter: 3 4 4 4
-   :class-container: pccx-ecosystem-grid
+Reusable RTL and testbenches live in
+`pccx-v002 <https://github.com/pccxai/pccx-v002>`_.
+`KV260 integration <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260>`_
+owns board and runtime work.
+`pccx-v003 <https://github.com/pccxai/pccx-v003>`_ contains experimental
+RTL and verification work.
 
-   .. grid-item-card:: :octicon:`cpu;1.5em;sd-mr-2` KV260 integration
-      :columns: 12 12 8 8
-      :class-card: pccx-hero-card
-      :link: https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260
-      :link-type: url
-      :link-alt: Open the pccx-FPGA-NPU-LLM-kv260 repository on GitHub
-
-      **github.com/pccxai/pccx-FPGA-NPU-LLM-kv260**
-
-      KV260 + LLM application integration for the **v002** line. Reusable
-      IP-core sources live in ``pccx-v002``; this repository owns board
-      flow, driver handoff, and application wiring.
-
-      Every v002 RTL reference page on this site links back to the exact
-      ``.sv`` file in that repository.
-
-   .. grid-item-card:: :octicon:`globe;1em;sd-mr-1` docs.altifigence.com
-      :columns: 12 12 4 4
-      :link: https://docs.altifigence.com/
-      :link-type: url
-      :link-alt: Open the Altifigence documentation hub
-
-      **docs.altifigence.com**
-
-      Canonical hub for every PCCX™ track beyond v002 (v003, Vision,
-      Lab, IDE, Launcher, Evolve). This Sphinx site keeps v002 in a
-      legacy-archive shape.
-
-   .. grid-item::
-      :columns: 12 12 4 4
-
-      .. grid:: 1
-         :gutter: 3
-
-         .. grid-item-card:: :octicon:`book;1em;sd-mr-1` Documentation source
-            :link: https://github.com/pccxai/pccx
-            :link-type: url
-            :link-alt: Open the pccx documentation repository on GitHub
-
-            **github.com/pccxai/pccx** — the Sphinx project powering this site.
-
-         .. grid-item-card:: :octicon:`telescope;1em;sd-mr-1` pccx-lab (verify / profile)
-            :link: https://docs.altifigence.com/lab/
-            :link-type: url
-            :link-alt: Open the pccx-lab verification + profiling hub
-
-            **pccx-lab** — Tauri 2 IDE. ``.pccx`` trace loader,
-            ``run_verification`` runner, Roofline / Bottleneck cards,
-            Vivado synth report view. See the
-            `dedicated lab documentation site <https://docs.altifigence.com/lab/>`_.
-
-         .. grid-item-card:: :octicon:`person;1em;sd-mr-1` Author portfolio
-            :link: https://hkimw.github.io/hkimw/
-            :link-type: url
-            :link-alt: Open the hkimw portfolio site
-
-            **hkimw.github.io/hkimw** — blog, other projects, about.
+Begin a small RTL or verification contribution at :doc:`quickstart`.
+Read :doc:`onboarding/getting-started` for current execution prerequisites
+and :doc:`roadmap` for the next completion goals.
 
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 .. |Architecture| image:: https://img.shields.io/badge/Architecture-Scalable_NPU-purple

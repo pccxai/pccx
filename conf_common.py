@@ -276,7 +276,7 @@ def build_footer_icons(lang_prefix: str = "en") -> list:
     legal_base = f"https://altifigence.com/{company_locale}/legal"
     transparency = f"https://pccx.ai/{pccx_locale}/legal/transparency/"
     entries = [
-        ("RTL", "RTL implementation", "https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260", _ICON_CHIP),
+        ("RTL", "Reusable v002 RTL", "https://github.com/pccxai/pccx-v002", _ICON_CHIP),
         ("Digital Design Studio", "Digital Design Studio documentation", "https://docs.altifigence.com/ide/", _ICON_PERSON),
         ("Docs", "PCCX documentation repository", "https://github.com/pccxai/pccx", _ICON_GITHUB),
         ("Altifigence", "Altifigence — PCCX project operator", "https://altifigence.com/", ""),

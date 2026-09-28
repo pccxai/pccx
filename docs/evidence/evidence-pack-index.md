@@ -4,17 +4,18 @@ orphan: true
 
 # Evidence pack index
 
-Index of artefacts that constitute the project's verification and
-integration evidence today. Each entry links to the source that
-produced the artefact; runs and logs are reproducible from a clean
-checkout.
+This page locates existing verification records. Historical passes are
+not fresh results for current main. pccx-lab is discontinued, but the
+runner still has its converter dependency; independent public reproduction
+is pending. Read {doc}`../onboarding/getting-started` and
+{doc}`/docs/Evidence/index` first.
 
 ## Verification evidence
 
 | Artefact | Source | Where to look |
 | --- | --- | --- |
 | Sail typecheck pass on the v002 ISA model | `pccxai/pccx-v002/.github/workflows/sail-typecheck.yml`, job `typecheck`. | GitHub Actions on `pccxai/pccx-v002`; the most recent run on `main` is the live evidence. |
-| KV260 sim wrapper PASS summary (11 testbenches) | `pccxai/pccx-FPGA-NPU-LLM-kv260/scripts/v002/use_submodule_sources.sh`. | `build/sim_v002_submodule.log` after a local run. The Phase D2 evidence count was `11 passed / 0 failed`; the same wrapper is what produces the live evidence on main today. |
+| KV260 sim wrapper PASS summary (11 testbenches) | `pccxai/pccx-FPGA-NPU-LLM-kv260/scripts/v002/use_submodule_sources.sh`. | `build/sim_v002_submodule.log` after a local run. The Phase D2 evidence count was `11 passed / 0 failed`; that count is historical and must be revalidated against a named source SHA. |
 | Per-testbench artefacts (`xsim.log`, `.pccx`) | Same wrapper; output lands inside the submodule. | `third_party/pccx-v002/LLM/sim/work/<tb>/`. |
 
 ## Integration evidence
