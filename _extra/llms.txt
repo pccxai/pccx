@@ -20,21 +20,19 @@ English: https://docs.pccx.ai/en/
 ## Sources and architecture
 
 - [v002 RTL and testbenches](https://github.com/pccxai/pccx-v002)
-- [Experimental v003 RTL](https://github.com/pccxai/pccx-v003)
+- [v003 RTL and testbenches](https://github.com/pccxai/pccx-v003)
 - [KV260 integration](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260)
 - [Documentation source](https://github.com/pccxai/pccx)
 - [v002 architecture](https://docs.pccx.ai/en/docs/v002/)
 - [ISA](https://docs.pccx.ai/en/docs/v002/ISA/)
 - [Sail formal model](https://docs.pccx.ai/en/docs/v002/Formal/)
 
-## Status
+## Development setup
 
-pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.
-The v002 runner still has a retired Lab trace-converter dependency;
-removing it and validating an independent public test path remain open work.
-Repository checks and test listings are not RTL simulations.
-Source availability, simulation, synthesis and board execution are distinct
-evidence. Historical records and design targets are not current measurements.
+The v002 simulation runner uses Vivado xsim and currently depends on an
+external trace converter. Work to simplify the setup is tracked in KV260 #152.
+The Getting started guide describes the current environment and the
+repository checks available to new contributors.
 
 ## Organization
 

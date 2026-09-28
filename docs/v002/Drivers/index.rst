@@ -26,8 +26,7 @@ comment updates for the pccx v002 ISA reference URL.
 
 .. note::
 
-   PCCX Launcher is discontinued. Driver contributions do not require
-   a separate launcher. Track current board and runtime work in
+   Follow board and runtime development in
    `KV260 issues <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues>`_
    and :doc:`/docs/Evidence/index`.
 

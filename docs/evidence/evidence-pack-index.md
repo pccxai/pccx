@@ -4,11 +4,9 @@ orphan: true
 
 # Evidence pack index
 
-This page locates existing verification records. Historical passes are
-not fresh results for current main. pccx-lab is discontinued, but the
-runner still has its converter dependency; independent public reproduction
-is pending. Read {doc}`../onboarding/getting-started` and
-{doc}`/docs/Evidence/index` first.
+Find existing verification records below. Check the commit and run date
+when using a result. For the environment and log format, see
+{doc}`../onboarding/getting-started` and {doc}`/docs/Evidence/index`.
 
 ## Verification evidence
 

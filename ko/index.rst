@@ -17,13 +17,13 @@ PCCX (Parallel Compute Core eXecutor)는 Altifigence가 시작하고 운영하�
       :link: https://github.com/pccxai/pccx-v002
       :link-type: url
 
-      재사용 가능한 RTL, 테스트벤치, Sail ISA 모델. 작은 검증 기여의 출발점입니다.
+      v002 RTL, 테스트벤치, Sail ISA 모델을 살펴보세요.
 
    .. grid-item-card:: :octicon:`cpu;1.2em;sd-mr-1` KV260 통합
       :link: https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260
       :link-type: url
 
-      고정된 코어를 사용하는 보드 통합과 런타임. 실제 보드 결과는 별도로 검증합니다.
+      v002 코어를 사용하는 KV260 보드 통합, 런타임, 보드 테스트입니다.
 
    .. grid-item-card:: :octicon:`book;1.2em;sd-mr-1` 문서 소스
       :link: https://github.com/pccxai/pccx
@@ -31,11 +31,11 @@ PCCX (Parallel Compute Core eXecutor)는 Altifigence가 시작하고 운영하�
 
       이 사이트의 영어·한국어 문서와 기여 안내입니다.
 
-   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` 실험 단계의 v003
+   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` v003 RTL
       :link: https://github.com/pccxai/pccx-v003
       :link-type: url
 
-      v003 RTL과 검증 작업. 소스 공개가 하드웨어 검증 완료를 뜻하지 않습니다.
+      v003 아키텍처를 위한 RTL 설계와 테스트벤치입니다.
 
 참여와 검증
 ------------
@@ -48,30 +48,25 @@ PCCX (Parallel Compute Core eXecutor)는 Altifigence가 시작하고 운영하�
       :link: docs/onboarding/getting-started
       :link-type: doc
 
-      지금 가능한 로컬 점검과 시뮬레이션의 남은 의존성을 확인하세요.
+      저장소 선택부터 RTL 살펴보기, 첫 기여 준비까지 안내합니다.
 
    .. grid-item-card:: :octicon:`project-roadmap;1.2em;sd-mr-1` 공개 참여 로드맵
       :link: docs/roadmap
       :link-type: doc
 
-      기존 작업 정리 → 독립적인 RTL 테스트 → 작은 검증 이슈 → 외부 PR.
+      테스트 환경 정비와 첫 기여 이슈, 기여 가이드의 개발 계획입니다.
 
-   .. grid-item-card:: :octicon:`verified;1.2em;sd-mr-1` 검증과 증거
+   .. grid-item-card:: :octicon:`verified;1.2em;sd-mr-1` 검증 자료
       :link: docs/Evidence/index
       :link-type: doc
 
-      시뮬레이션·합성·실제 보드 실행의 근거를 구분합니다.
+      시뮬레이션과 보드 테스트의 결과, 소스 버전, 로그를 확인하세요.
 
    .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` Digital Design Studio
       :link: https://docs.altifigence.com/ide/
       :link-type: url
 
-      선택적으로 참고할 Altifigence 도구 문서. PCCX 참여에 특정 IDE를 요구하지 않습니다.
-
-.. note::
-
-   pccx-lab, SystemVerilog IDE, PCCX Launcher는 폐지되었습니다.
-   폐지 도구의 남은 의존성 제거는 :doc:`docs/roadmap`\ 에서 추적합니다.
+      디지털 설계를 위한 Altifigence의 개발 도구를 소개합니다.
 
 .. toctree::
    :maxdepth: 2

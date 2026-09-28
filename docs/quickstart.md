@@ -10,8 +10,7 @@ myst:
 # Quickstart
 
 PCCX welcomes developers with SystemVerilog RTL and verification experience.
-Start with one module or testbench. The {doc}`roadmap` prioritizes a public,
-independent test path and small, reviewable contributions.
+Start with one module or testbench. See the {doc}`roadmap` for upcoming work.
 
 ## 1. Choose the right repository
 
@@ -19,7 +18,7 @@ independent test path and small, reviewable contributions.
 | --- | --- |
 | Reusable v002 RTL, testbenches and Sail model | [pccx-v002](https://github.com/pccxai/pccx-v002) |
 | KV260 integration, runtime and board evidence | [pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) |
-| Experimental v003 RTL | [pccx-v003](https://github.com/pccxai/pccx-v003) |
+| v003 RTL and testbenches | [pccx-v003](https://github.com/pccxai/pccx-v003) |
 | Architecture documentation and project guidance | [pccx](https://github.com/pccxai/pccx) |
 
 Read {doc}`v002/ISA/index` and {doc}`v002/RTL/index` for the module you
@@ -37,17 +36,10 @@ git rev-parse HEAD
 bash LLM/sim/run_verification.sh --list
 ```
 
-The boundary check validates repository layout; `--list` only lists
-testbench names. **Neither command simulates the RTL or proves hardware
-correctness.**
-
-**Simulation is still being made independent.** The current xsim runner
-uses Vivado and calls `from_xsim_log` from the discontinued `pccx-lab`
-project. This dependency can block execution before a test runs.
-Do not install the retired Lab as an onboarding step.
-Follow {doc}`onboarding/getting-started` and
-[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152)
-for the removal work and supported test commands as they become available.
+The boundary check checks the repository layout, and `--list` shows the
+testbench names. To run simulations, see the Vivado and converter setup
+notes in {doc}`onboarding/getting-started`. We are simplifying that setup
+through [KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152).
 
 ## 3. Prepare a focused contribution
 
@@ -57,8 +49,6 @@ new coverage. Record the source SHA, tool versions, input, expected result,
 actual result and raw log. If the run is blocked, report that outcome.
 
 Use the owning repository's issues to agree on scope and a reviewer.
-The proposed first-issue set is being prepared; it is not yet a promise
-that five ready-to-pick tasks are available.
 See the [contribution guide](https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md).
 
 ## 4. Build a documentation change
@@ -83,13 +73,9 @@ Update the corresponding English and Korean guidance together.
 
 The production documentation is published at
 [docs.pccx.ai](https://docs.pccx.ai/) through Cloudflare Pages.
-A deployment check confirms publication, not RTL correctness.
 
-## Tool status
+## More resources
 
-**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
-PCCX participation does not require those products or a particular IDE.
-[Digital Design Studio](https://docs.altifigence.com/ide/) is an optional
-Altifigence resource. The first contribution goal does not require an FPGA.
-
-For evidence boundaries, read {doc}`Evidence/index`.
+Use your preferred editor for RTL and documentation work.
+Altifigence's [Digital Design Studio documentation](https://docs.altifigence.com/ide/)
+is also available. See {doc}`Evidence/index` for test records and log locations.

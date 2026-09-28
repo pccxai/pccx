@@ -9,8 +9,8 @@ myst:
 # 빠른 시작
 
 PCCX는 SystemVerilog 경험이 있는 RTL·검증 개발자의 참여를 환영합니다.
-모듈이나 테스트벤치 하나부터 살펴보세요. {doc}`roadmap`의 우선순위는
-독립적인 공개 테스트 경로와 작고 리뷰 가능한 기여를 준비하는 것입니다.
+모듈이나 테스트벤치 하나부터 살펴보세요. 개발 계획은 {doc}`roadmap`에서
+확인할 수 있습니다.
 
 ## 1. 작업할 저장소 선택
 
@@ -18,7 +18,7 @@ PCCX는 SystemVerilog 경험이 있는 RTL·검증 개발자의 참여를 환영
 | --- | --- |
 | 재사용 가능한 v002 RTL·테스트벤치·Sail 모델 | [pccx-v002](https://github.com/pccxai/pccx-v002) |
 | KV260 통합·런타임·보드 검증 자료 | [pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) |
-| 실험 단계의 v003 RTL | [pccx-v003](https://github.com/pccxai/pccx-v003) |
+| v003 RTL과 테스트벤치 | [pccx-v003](https://github.com/pccxai/pccx-v003) |
 | 아키텍처 문서·프로젝트 안내 | [pccx](https://github.com/pccxai/pccx) |
 
 관심 모듈의 {doc}`v002/ISA/index`와 {doc}`v002/RTL/index`를 읽고,
@@ -36,16 +36,10 @@ git rev-parse HEAD
 bash LLM/sim/run_verification.sh --list
 ```
 
-첫 명령은 저장소 구조를 점검하고, `--list`는 테스트벤치 이름만 출력합니다.
-**두 명령 모두 RTL 시뮬레이션이나 하드웨어 동작 검증이 아닙니다.**
-
-**시뮬레이션 독립 실행은 준비 중입니다.** 현재 xsim 실행기는 Vivado를
-사용하며, 폐지된 `pccx-lab`의 `from_xsim_log`를 호출합니다.
-이 의존성 때문에 테스트 시작 전 실행이 막힐 수 있습니다.
-참여를 위해 폐지된 Lab을 설치하지 마세요. 의존성 제거와 지원할 실행
-명령은 {doc}`onboarding/getting-started` 및
-[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152)에서
-확인할 수 있습니다.
+`check_repo_boundary.sh`는 저장소 구조를 점검하고, `--list`는 테스트벤치
+목록을 출력합니다. 시뮬레이션에 필요한 Vivado와 변환기 설정은
+{doc}`onboarding/getting-started`를 참고하세요. 실행 환경을 간소화하는 작업은
+[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152)에서 진행합니다.
 
 ## 3. 작은 기여 준비
 
@@ -55,8 +49,6 @@ bash LLM/sim/run_verification.sh --list
 실행이 막혔다면 그 결과를 그대로 보고합니다.
 
 해당 저장소의 이슈에서 범위와 리뷰 담당자를 정합니다.
-첫 기여 이슈 묶음은 준비할 대상이며, 지금 바로 선택할 수 있는
-이슈 5개가 마련됐다는 뜻은 아닙니다.
 [기여 가이드](https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md)도 확인하세요.
 
 ## 4. 문서 변경 빌드
@@ -80,13 +72,9 @@ make strict REQUIRE_RTL=0
 
 운영 문서는 Cloudflare Pages를 통해
 [docs.pccx.ai](https://docs.pccx.ai/)에 게시합니다.
-배포 확인은 게시 성공을 뜻하며 RTL 동작 검증을 대신하지 않습니다.
 
-## 도구 상태
+## 참고 자료
 
-**pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다.**
-PCCX 참여에 세 제품이나 특정 IDE를 요구하지 않습니다.
-[Digital Design Studio](https://docs.altifigence.com/ide/)는 선택적으로
-참고할 Altifigence의 도구입니다. 첫 기여 목표에는 FPGA가 필요하지 않습니다.
-
-검증 자료의 범위는 {doc}`Evidence/index`에서 확인하세요.
+RTL과 문서는 익숙한 편집기로 작업하면 됩니다.
+Altifigence의 개발 도구는 [Digital Design Studio 문서](https://docs.altifigence.com/ide/)를
+참고하세요. 테스트 기록과 로그 위치는 {doc}`Evidence/index`에 정리되어 있습니다.

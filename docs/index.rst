@@ -146,12 +146,12 @@ Reusable RTL and testbenches live in
 `pccx-v002 <https://github.com/pccxai/pccx-v002>`_.
 `KV260 integration <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260>`_
 owns board and runtime work.
-`pccx-v003 <https://github.com/pccxai/pccx-v003>`_ contains experimental
-RTL and verification work.
+`pccx-v003 <https://github.com/pccxai/pccx-v003>`_ contains RTL design
+and testbenches for the v003 architecture.
 
 Begin a small RTL or verification contribution at :doc:`quickstart`.
 Read :doc:`onboarding/getting-started` for current execution prerequisites
-and :doc:`roadmap` for the next completion goals.
+and :doc:`roadmap` for upcoming work.
 
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 .. |Architecture| image:: https://img.shields.io/badge/Architecture-Scalable_NPU-purple

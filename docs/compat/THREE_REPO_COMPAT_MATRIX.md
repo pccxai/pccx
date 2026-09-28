@@ -2,13 +2,10 @@
 orphan: true
 ---
 
-# Historical compatibility matrix — discontinued tools
+# Earlier integration contracts
 
-> **Discontinued — status confirmed September 28, 2026.** SystemVerilog IDE,
-> PCCX Launcher and pccx-lab are retired. The material below preserves the
-> former contracts and source references; it is not a current support,
-> development or installation guide. Use [Quickstart](../quickstart.md)
-> and the [roadmap](../roadmap.md) for current participation.
+This page preserves an earlier set of tool integration contracts and source
+references. For the current development setup, see [Quickstart](../quickstart.md).
 
 ## Goals
 

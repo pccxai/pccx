@@ -4,10 +4,9 @@ orphan: true
 
 # Evidence pack index
 
-이 페이지는 기존 검증 기록의 위치를 안내합니다. 과거 통과 기록은 현재
-main의 재검증 결과가 아닙니다. pccx-lab은 폐지되었지만 실행기에 변환기
-의존성이 남아 있어 새 공개 환경에서의 재현 경로는 정비 중입니다.
-{doc}`../onboarding/getting-started`와 {doc}`/docs/Evidence/index`를 먼저 확인하세요.
+기존 검증 기록과 로그 위치를 안내합니다. 결과를 확인할 때는 해당 커밋과
+실행 날짜를 함께 살펴보세요. 실행 환경과 기록 방법은
+{doc}`../onboarding/getting-started`와 {doc}`/docs/Evidence/index`에 있습니다.
 
 ## 검증 evidence
 

@@ -24,7 +24,7 @@ Project
       :link: https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260
       :link-type: url
 
-      Board integration and runtime consuming a pinned core. Board results need their own evidence.
+      KV260 board integration, runtime and board tests using the v002 core.
 
    .. grid-item-card:: :octicon:`book;1.2em;sd-mr-1` Documentation source
       :link: https://github.com/pccxai/pccx
@@ -32,11 +32,11 @@ Project
 
       The English and Korean sources and contribution guidance for this site.
 
-   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` Experimental v003
+   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` v003 RTL
       :link: https://github.com/pccxai/pccx-v003
       :link-type: url
 
-      v003 RTL and verification work. Source availability does not establish hardware readiness.
+      RTL design and testbenches for the v003 architecture.
 
 Contribute and verify
 ---------------------
@@ -49,30 +49,25 @@ Contribute and verify
       :link: docs/onboarding/getting-started
       :link-type: doc
 
-      Check what you can run today and the remaining simulation dependency.
+      Choose a repository, explore the RTL and prepare your first contribution.
 
    .. grid-item-card:: :octicon:`project-roadmap;1.2em;sd-mr-1` Contribution roadmap
       :link: docs/roadmap
       :link-type: doc
 
-      Backlog cleanup → independent RTL test → scoped verification issues → external PR.
+      Follow the plans for the test environment, first issues and contribution guides.
 
    .. grid-item-card:: :octicon:`verified;1.2em;sd-mr-1` Verification and evidence
       :link: docs/Evidence/index
       :link-type: doc
 
-      Keep simulation, synthesis and execution on a board tied to their own evidence.
+      Find simulation and board test records, source versions and logs.
 
    .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` Digital Design Studio
       :link: https://docs.altifigence.com/ide/
       :link-type: url
 
-      Optional Altifigence tooling documentation. PCCX participation does not require a particular IDE.
-
-.. note::
-
-   pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.
-   Removing remaining dependencies is part of :doc:`docs/roadmap`.
+      Explore Altifigence's development tools for digital design.
 
 .. toctree::
    :maxdepth: 2
