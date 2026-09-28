@@ -7,10 +7,8 @@ orphan: true
 Verification은 IP-core 저장소와 board integration 저장소로 분리한다.
 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다.
 
-> **현재 실행 조건:** pccx-lab은 폐지되었습니다. 아래 KV260 wrapper가
-> 호출하는 코어 실행기에는 예전 변환기 의존성이 남아 있습니다.
-> [기여 시작](../onboarding/getting-started.md)을 먼저 확인하고,
-> 독립 실행 경로를 검증하기 전에는 과거 PASS를 현재 결과로 사용하지 마세요.
+Vivado와 트레이스 변환기 설정은
+[기여 시작](../onboarding/getting-started.md)을 참고하세요.
 
 ## Sail typecheck (`pccx-v002`)
 

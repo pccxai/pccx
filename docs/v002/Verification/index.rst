@@ -6,23 +6,19 @@ Current v002 RTL and testbenches live in
 The board integration repository consumes a pinned core. Begin with
 the structural check and test listing in :doc:`/docs/quickstart`.
 
-Current execution prerequisites
---------------------------------
+Execution environment
+----------------------
 
-**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
-The current ``LLM/sim/run_verification.sh`` uses Vivado xsim and still
-builds the retired Lab's ``from_xsim_log`` before tests, then invokes it
-after simulation. The independent public simulation path is not complete.
+``LLM/sim/run_verification.sh`` uses Vivado xsim and currently also needs
+the external ``from_xsim_log`` trace converter. Work to reduce this
+dependency is tracked in
+`KV260 #152 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152>`_.
+See :doc:`/docs/onboarding/getting-started` for the setup. Use ``--list``
+to view the testbench names.
 
-``--list`` can enumerate testbenches without running them. Installing
-retired tools is not an onboarding step. Dependency removal is tracked
-through `KV260 #152 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152>`_
-and :doc:`/docs/onboarding/getting-started`.
-
-A testbench listing is distinct from a passing run. Attach the core SHA,
-tool version, command, expected result, actual result and raw logs.
-The runner's output location is ``LLM/sim/work/<tb>/``;
-the board wrapper summary belongs in ``build/sim_v002_submodule.log``.
+Include the core commit, tool version, command and logs when sharing a run.
+Test logs are written to ``LLM/sim/work/<tb>/``; the board wrapper's
+summary is written to ``build/sim_v002_submodule.log``.
 
 Scope a first verification contribution
 ---------------------------------------
@@ -31,14 +27,13 @@ Scope a first verification contribution
   queue testbench before proposing new coverage.
 * Choose a small reset, handshake or boundary-condition case.
 * Agree on assertions or PASS/FAIL criteria with a reviewer.
-* Report tool failures and unexecuted tests as such.
+* Attach the run log and compare it with the expected result.
 
 Historical unit-test record
 ---------------------------
 
-The table below was recorded here for KV260 repository commit
-``773bd82`` on April 21, 2026. It is not a fresh result for current main.
-The old source paths and runner are not the current contributor runbook.
+The following results were recorded on April 21, 2026, for commit
+``773bd82`` in the KV260 repository.
 
 .. list-table::
    :header-rows: 1
@@ -70,10 +65,9 @@ The old source paths and runner are not the current contributor runbook.
 Verification beyond simulation
 -------------------------------
 
-Formal models, synthesis and implementation, timing reports and execution
-on a board require separate evidence. Passing a module test does not
-establish model inference, performance or silicon readiness.
-Follow :doc:`/docs/Evidence/index`.
+After synthesis and implementation, check timing and resource use, then
+test data transfers and runtime behavior on the board. See
+:doc:`/docs/Evidence/index` for how to record the results.
 
 .. seealso::
 

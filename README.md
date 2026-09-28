@@ -188,33 +188,33 @@ pccx/
 Sibling repositories:
 
 - **[pccx-v002](https://github.com/pccxai/pccx-v002)** — reusable v002 RTL, testbenches and the Sail model.
-- **[pccx-v003](https://github.com/pccxai/pccx-v003)** — experimental v003 RTL and verification work.
+- **[pccx-v003](https://github.com/pccxai/pccx-v003)** — RTL design and testbenches for the v003 architecture.
 - **[KV260 integration](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260)** — board and runtime integration consuming a pinned v002 core.
 
 ## Roadmap — public RTL contributions
 
-The first milestone is to let an external SystemVerilog developer reproduce
-a small testbench without an FPGA and submit a reviewable verification PR.
+We are improving the test environment and contribution guides so
+SystemVerilog developers can start with a small verification task.
 
-1. Reconcile current issues, PRs and retired work.
-2. Remove the retired Lab dependency and validate an independent public RTL test.
-3. Prepare small verification issues with reproduction commands and reviewers.
-4. Validate the checkout → test → change → PR → review path with an external contributor.
+1. Review existing issues and PRs, choose upcoming work and agree on owners.
+2. Reduce external tool dependencies and document a testbench setup without an FPGA.
+3. Prepare small verification issues with commands and expected results.
+4. Improve the guide with feedback from first-time contributors.
 
-Dates are not assigned. Board runtime and later architecture research remain
-separate work; old training budgets and throughput targets are not current
-commitments. See the [English roadmap](https://docs.pccx.ai/en/docs/roadmap.html)
-or [한국어 로드맵](https://docs.pccx.ai/ko/docs/roadmap.html).
+Dates will be shared once the scope and owners are agreed. See the
+[English roadmap](https://docs.pccx.ai/en/docs/roadmap.html) or
+[한국어 로드맵](https://docs.pccx.ai/ko/docs/roadmap.html).
 
-## Tool status
+## Getting started
 
-**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
-The current v002 runner still calls the Lab trace converter. Removing that
-dependency and validating a clean public run remain open tasks.
-Do not install retired tools as an onboarding step.
-Use the [Quickstart](https://docs.pccx.ai/en/docs/quickstart.html).
-[Digital Design Studio](https://docs.altifigence.com/ide/) is optional
-Altifigence tooling, not a prerequisite for PCCX participation.
+Choose a repository in the [Quickstart](https://docs.pccx.ai/en/docs/quickstart.html).
+The v002 simulation runner currently needs Vivado xsim and an external
+trace converter; see the [setup guide](https://docs.pccx.ai/en/docs/onboarding/getting-started.html).
+We are working on simplifying that environment.
+
+Use your preferred editor. Altifigence's
+[Digital Design Studio documentation](https://docs.altifigence.com/ide/)
+is also available.
 
 ---
 

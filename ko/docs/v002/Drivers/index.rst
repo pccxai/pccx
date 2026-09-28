@@ -25,8 +25,7 @@ ISA 참조 URL 만 pccx v002 기준으로 갱신.
 
 .. note::
 
-   PCCX Launcher는 폐지되었습니다. 드라이버 기여에 별도 Launcher를
-   요구하지 않습니다. 현재 보드·런타임 상태는
+   보드와 런타임의 개발 현황은
    `KV260 이슈 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues>`_\ 와
    :doc:`/docs/Evidence/index`\ 에서 확인하세요.
 

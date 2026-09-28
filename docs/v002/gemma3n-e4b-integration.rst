@@ -2,17 +2,12 @@
 Historical Gemma 3N E4B Integration Plan
 ==========================================
 
-.. warning::
+.. note::
 
-   Historical integration plan. pccx-lab, SystemVerilog IDE and PCCX
-   Launcher are discontinued. The former UI/daemon protocol below is
-   retained for provenance, not as a supported product or installation
-   guide. For current work, read :doc:`/docs/roadmap` and
+   This page preserves the earlier Gemma 3N E4B integration plan,
+   UI/daemon protocol and candidate bitstream identity. For current
+   development, see :doc:`/docs/roadmap` and
    :doc:`/docs/onboarding/getting-started`.
-
-This page preserves the earlier Gemma 3N E4B target-path contract and
-candidate bitstream identity. It does not establish current runtime,
-timing, model accuracy or throughput.
 
 Shared Daemon Contract
 ======================
@@ -108,4 +103,3 @@ https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues
 
 For current issues, include the checked-out source and bitstream hashes,
 tool versions, reproduction command, expected/actual behavior and raw logs.
-Do not require a retired debug UI to report a board or runtime problem.

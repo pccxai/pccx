@@ -102,11 +102,11 @@ v001 레퍼런스 아키텍처는 :doc:`archive/experimental_v001/index` 에 보
 보드·런타임 통합은
 `KV260 저장소 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260>`_\ 에서
 관리합니다. `pccx-v003 <https://github.com/pccxai/pccx-v003>`_\ 는
-실험 단계의 RTL과 검증 작업을 담고 있습니다.
+v003 아키텍처를 위한 RTL 설계와 테스트벤치를 담고 있습니다.
 
 작은 RTL·검증 기여는 :doc:`quickstart`\ 에서 시작하세요.
 현재 실행 조건은 :doc:`onboarding/getting-started`\ 에,
-앞으로의 완료 기준은 :doc:`roadmap`\ 에 정리했습니다.
+앞으로의 개발 계획은 :doc:`roadmap`\ 에 정리했습니다.
 
 .. |License| image:: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 .. |Architecture| image:: https://img.shields.io/badge/Architecture-Scalable_NPU-purple

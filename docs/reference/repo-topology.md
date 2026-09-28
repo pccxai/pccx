@@ -20,7 +20,7 @@ references a specific model or board name in `rtl/` or
 | `pccxai/pccx-vision-v001` | Standalone vision line on the v002 KV260 substrate. Will fold into `pccx-v002/Vision/` after compatibility review. |
 | `pccxai/pccx-FPGA-NPU-LLM-kv260` | KV260 + LLM application integration. Consumes `pccx-v002` through `third_party/pccx-v002` submodule pinned at `pccx-v002/main`. |
 
-## Historical / retired repositories
+## Historical repositories
 
 | Repository | Role |
 | --- | --- |
