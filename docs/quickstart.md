@@ -2,144 +2,94 @@
 myst:
   html_meta:
     description lang=en: |
-      Reader quickstart for the pccx v002.1 path: resolve the spec,
-      inventory public evidence, run the local docs checks, understand
-      deployment, and answer common review questions without treating
-      targets as measured results.
+      Start contributing to PCCX RTL and verification: find public sources,
+      check repository boundaries, understand the remaining simulation dependency,
+      and prepare a focused pull request.
 ---
 
 # Quickstart
 
-This page is the shortest reader path through the active pccx line.
-It is not a benchmark recipe. Use it to decide what is specified, what
-is evidenced, what remains pending, and which commands keep a docs
-change honest.
+PCCX welcomes developers with SystemVerilog RTL and verification experience.
+Start with one module or testbench. The {doc}`roadmap` prioritizes a public,
+independent test path and small, reviewable contributions.
 
-## 1. Read the spec resolution
+## 1. Choose the right repository
 
-Start by separating release-line intent from measured evidence:
+| Work | Repository |
+| --- | --- |
+| Reusable v002 RTL, testbenches and Sail model | [pccx-v002](https://github.com/pccxai/pccx-v002) |
+| KV260 integration, runtime and board evidence | [pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) |
+| Experimental v003 RTL | [pccx-v003](https://github.com/pccxai/pccx-v003) |
+| Architecture documentation and project guidance | [pccx](https://github.com/pccxai/pccx) |
 
-- {doc}`v002/overview` defines the active architecture line. v002.0 is
-  the baseline KV260 integration line; v002.1 layers sparsity and
-  speculative decoding on top of that baseline.
-- {doc}`roadmap` is the release-line map. It records the v002.1
-  throughput figure as a target, not as an achieved result.
-- {doc}`v002/Models/gemma3n_overview` and
-  {doc}`v002/Models/gemma3n_pipeline` describe the Gemma 3N E4B model
-  path that v002.1 is meant to exercise.
-- {doc}`v002/ISA/index` and {doc}`v002/Formal/index` explain the ISA
-  contract and the Sail model. Encoding details still resolve back to
-  the active RTL package when documentation and implementation differ.
+Read {doc}`v002/ISA/index` and {doc}`v002/RTL/index` for the module you
+want to work on. Use each repository's contribution and license files.
 
-Reader rule: a claim about a planned v002.1 mechanism can live in the
-architecture or model docs; a claim that it has run on KV260 belongs on
-the evidence page only after the release checklist gates it in.
+## 2. Make the first local check
 
-## 2. Inventory the evidence
+In Linux, WSL, or a Bash environment with Git and standard Unix tools:
 
-Read {doc}`Evidence/index` before interpreting any performance wording.
-That page is the public inventory of measured, reproducible artefacts
-and pending gates.
+```bash
+git clone https://github.com/pccxai/pccx-v002.git
+cd pccx-v002
+bash scripts/check_repo_boundary.sh
+git rev-parse HEAD
+bash LLM/sim/run_verification.sh --list
+```
 
-Use this checklist while reading:
+The boundary check validates repository layout; `--list` only lists
+testbench names. **Neither command simulates the RTL or proves hardware
+correctness.**
 
-| Question | Where to check |
-|---|---|
-| Is the value measured, pending, or a target? | {doc}`Evidence/index` and {doc}`roadmap` |
-| Which testbench or tool produced it? | {doc}`v002/Verification/index` (Lab workflow now at docs.altifigence.com) |
-| Does it depend on Vivado synth, implementation, or board bring-up? | {doc}`v002/Build/index` |
-| Is it a model-mapping claim rather than hardware evidence? | {doc}`v002/Models/gemma3n_execution` |
+**Simulation is still being made independent.** The current xsim runner
+uses Vivado and calls `from_xsim_log` from the discontinued `pccx-lab`
+project. This dependency can block execution before a test runs.
+Do not install the retired Lab as an onboarding step.
+Follow {doc}`onboarding/getting-started` and
+[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152)
+for the removal work and supported test commands as they become available.
 
-If a number is not present in {doc}`Evidence/index`, treat it as design
-intent or release planning text. Do not quote it as a measured result.
+## 3. Prepare a focused contribution
 
-## 3. Run the local docs runbook
+Choose one behavior: reset, a ready/valid handshake, a boundary condition,
+or an instruction decode. Check the existing testbench before proposing
+new coverage. Record the source SHA, tool versions, input, expected result,
+actual result and raw log. If the run is blocked, report that outcome.
 
-For docs-only review, clone this repository and run the strict build:
+Use the owning repository's issues to agree on scope and a reviewer.
+The proposed first-issue set is being prepared; it is not yet a promise
+that five ready-to-pick tasks are available.
+See the [contribution guide](https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md).
+
+## 4. Build a documentation change
+
+In Linux or WSL, with Python, Make and Graphviz available:
 
 ```bash
 git clone https://github.com/pccxai/pccx.git
 cd pccx
-make strict
-make lint
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+make strict REQUIRE_RTL=0
 ```
 
-`make strict` builds the English and Korean Sphinx sites with warnings
-as errors. `make lint` runs the lightweight prose and Sphinx lint pass.
-For longer-lived branches, run `make linkcheck` before release or when
-adding external URLs.
+This builds both language trees with warnings as errors. `REQUIRE_RTL=0`
+is the documented docs-only mode; it does not verify embedded RTL source.
+For that check, follow the
+[README](https://github.com/pccxai/pccx/blob/main/README.md) to obtain the
+RTL sources and run `make strict`.
+Update the corresponding English and Korean guidance together.
 
-For trace and lab workflow reproduction, see the PCCX Lab handbook at
-`docs.altifigence.com <https://docs.altifigence.com/>`__ — the Sphinx
-mirror of the Lab pages no longer lives on this site.
+The production documentation is published at
+[docs.pccx.ai](https://docs.pccx.ai/) through Cloudflare Pages.
+A deployment check confirms publication, not RTL correctness.
 
-## 4. Read the deploy runbook
+## Tool status
 
-The public site is generated from this docs repository and deployed by
-GitHub Actions after changes land on `main`.
+**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
+PCCX participation does not require those products or a particular IDE.
+[Digital Design Studio](https://docs.altifigence.com/ide/) is an optional
+Altifigence resource. The first contribution goal does not require an FPGA.
 
-Operationally, a docs PR should keep this order:
-
-1. Build locally with `make strict`.
-2. Run `make lint`; run `make linkcheck` when URLs changed.
-3. Merge only evidence wording that has a named source artefact or a
-   pending gate.
-4. Let the Pages workflow publish `https://pccxai.github.io/pccx/`.
-5. Check the deployed page for the exact path you changed.
-
-Deployment does not convert a target into evidence. The deploy check
-only proves the site built and published; the evidence page still owns
-measurement status.
-
-## 5. FAQ
-
-### Is v002.1 already released?
-
-No. v002.1 is the planned sparsity and speculative-decoding ramp on the
-same KV260 RTL line. The baseline v002.0 integration and evidence gates
-remain visible dependencies.
-
-### Does the 20 tok/s figure mean measured throughput?
-
-No. It is a v002.1 target. The docs may discuss it as a target, but it
-must not be phrased as achieved throughput until KV260 evidence lands in
-{doc}`Evidence/index`.
-
-### Which repository is the source of truth for RTL?
-
-The active v002 RTL lives in
-`pccxai/pccx-FPGA-NPU-LLM-kv260`. This docs repository cross-references
-that source and builds a public narrative around it. For ISA encodings,
-the RTL `isa_pkg.sv` package wins over prose.
-
-### Should a reader start with the lab app?
-
-Start with this page if you are reviewing claims. For trace/UI work,
-see the Lab handbook at
-[docs.altifigence.com](https://docs.altifigence.com/).
-
-### Do English and Korean docs both need manual edits?
-
-No for new work. English is the canonical source; the Korean tree is
-produced by external translation tooling and may trail the English
-source.
-
-### What makes a quickstart or release note misleading?
-
-The common failure mode is mixing target, simulator, synthesis, and
-board evidence in one sentence. Keep each claim tied to its source:
-roadmap for targets, architecture/model pages for design intent,
-verification pages for testbench status, and {doc}`Evidence/index` for
-published measurement status.
-
-## Cite this page
-
-```bibtex
-@misc{pccx_reader_quickstart_2026,
-  title        = {pccx Quickstart: reader path for the v002.1 release line},
-  author       = {Kim, Hyunwoo},
-  year         = {2026},
-  howpublished = {\url{https://pccx.pages.dev/en/docs/quickstart.html}},
-  note         = {Part of pccx: \url{https://pccx.pages.dev/}}
-}
-```
+For evidence boundaries, read {doc}`Evidence/index`.

@@ -54,7 +54,7 @@ exclude_patterns = [
 
 html_theme_options = {
     **html_theme_options,
-    "source_directory": "docs/",
+    "source_directory": "",
     # Default announcement is empty — the sidebar's EN · 한국어 switch
     # handles language.  `_ext.archive_banner` selectively fills this
     # slot when the reader lands on an archived (non-active) page.

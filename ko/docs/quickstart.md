@@ -2,126 +2,91 @@
 myst:
   html_meta:
     description lang=ko: |
-      pccx NPU의 원-커맨드(one-command) 재현 가이드 — clone, build, 샘플 .pccx 트레이스
-      로딩, Sail 형식 모델 실행, pccx-lab 프로파일러 열기.  Docker
-      레시피 + 네이티브 bare-metal 경로 모두 Ubuntu 24.04 에서 검증.
+      PCCX RTL·검증 기여 시작: 공개 소스 확인, 저장소 구조 점검,
+      시뮬레이션의 남은 의존성 확인, 작은 PR 준비.
 ---
 
-# 퀵스타트
+# 빠른 시작
 
-`git clone` 에서 "pccx 트레이스를 보고 있다" 까지의 최단 경로.
-이 페이지는 **재현 가이드**입니다. `docker compose up` 명령어 한 번으로 샘플
-캡처가 로딩된 프로파일러가 실행 상태로 구동되어야 합니다.
+PCCX는 SystemVerilog 경험이 있는 RTL·검증 개발자의 참여를 환영합니다.
+모듈이나 테스트벤치 하나부터 살펴보세요. {doc}`roadmap`의 우선순위는
+독립적인 공개 테스트 경로와 작고 리뷰 가능한 기여를 준비하는 것입니다.
 
-## 0. 얻게 되는 산출물
+## 1. 작업할 저장소 선택
 
-```{mermaid}
-flowchart LR
-    A[RTL Repository<br>Vivado Synth] -->|생성| B(16-토큰 .pccx 트레이스)
-    A -->|산출| C(Sail ISA 모델)
-    
-    B -.->|로딩| D{pccx-lab 프로파일러}
-    C -.->|타입체크| E[OCaml / opam]
-    
-    D --> F[CLI Analytics<br>roofline / report]
-    D --> G[Tauri Desktop 앱<br>Visual IDE]
-    
-    style D fill:#ff7a00,stroke:#fff,color:#fff
-```
+| 작업 | 저장소 |
+| --- | --- |
+| 재사용 가능한 v002 RTL·테스트벤치·Sail 모델 | [pccx-v002](https://github.com/pccxai/pccx-v002) |
+| KV260 통합·런타임·보드 검증 자료 | [pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) |
+| 실험 단계의 v003 RTL | [pccx-v003](https://github.com/pccxai/pccx-v003) |
+| 아키텍처 문서·프로젝트 안내 | [pccx](https://github.com/pccxai/pccx) |
 
-| 산출물 | 생성 주체 | 여는 도구 |
-|---|---|---|
-| `.pccx` 트레이스 (16-토큰 Gemma-3N 디코드) | `pccx-FPGA-NPU-LLM-kv260/hw/sim/run_verification.sh` | `pccx-lab` (Tauri 앱), `pccx_cli` |
-| Sail ISA 모델 (타입체크 완료) | `pccx-FPGA-NPU-LLM-kv260/formal/sail/` | `sail`, `sail --doc` |
-| Vivado synth + timing 리포트 | `pccx-FPGA-NPU-LLM-kv260/vivado/build.sh synth` | `pccx-lab` IDE → Verification → Synth Status |
-| 트레이스 분석 | `pccx-lab` 워크스페이스 | `pccx_cli --roofline --report-md`, IDE 분석기 탭 |
+관심 모듈의 {doc}`v002/ISA/index`와 {doc}`v002/RTL/index`를 읽고,
+해당 저장소의 기여 조건과 라이선스를 확인하세요.
 
-## 1. 사전 조건
+## 2. 첫 로컬 점검
 
-단일 64-bit Linux 머신 (Ubuntu 24.04 검증):
-
-- `git` ≥ 2.40
-- `opam` + `ocaml` ≥ 4.14 — Sail 용
-- `docker` ≥ 24 — 재현기 컨테이너 용
-- `rustup` (stable toolchain) — `pccx-core` + Tauri 용
-- *(선택)* Xilinx Vivado 2024.1 — RTL 합성 경로
-- *(선택)* Xilinx Kria KV260 보드 — 실측 토큰 생성
-
-앞의 4개로만 **소프트웨어** 절반을 재현할 수 있습니다. 보드 접근은 선택입니다.
-
-## 2. 세 레포 클론
-
-pccx는 **3-레포 연합**입니다. ({doc}`index` 의 에코시스템 섹션 참고).
-형제 디렉토리에 클론:
+Git과 기본 Unix 도구가 있는 Linux·WSL 또는 Bash 환경에서 실행합니다.
 
 ```bash
-mkdir -p ~/pccx-ws && cd ~/pccx-ws
-git clone https://github.com/pccxai/pccx.git                    # docs (이 사이트)
-git clone https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260.git  # RTL + Sail 모델
-git clone https://github.com/pccxai/pccx-lab.git                 # 프로파일러 + UVM workflow facade
+git clone https://github.com/pccxai/pccx-v002.git
+cd pccx-v002
+bash scripts/check_repo_boundary.sh
+git rev-parse HEAD
+bash LLM/sim/run_verification.sh --list
 ```
 
-## 3. 원-커맨드 재현기 (Docker)
+첫 명령은 저장소 구조를 점검하고, `--list`는 테스트벤치 이름만 출력합니다.
+**두 명령 모두 RTL 시뮬레이션이나 하드웨어 동작 검증이 아닙니다.**
 
-```{admonition} 계획 단계 — 아직 미반영
-:class: warning
+**시뮬레이션 독립 실행은 준비 중입니다.** 현재 xsim 실행기는 Vivado를
+사용하며, 폐지된 `pccx-lab`의 `from_xsim_log`를 호출합니다.
+이 의존성 때문에 테스트 시작 전 실행이 막힐 수 있습니다.
+참여를 위해 폐지된 Lab을 설치하지 마세요. 의존성 제거와 지원할 실행
+명령은 {doc}`onboarding/getting-started` 및
+[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152)에서
+확인할 수 있습니다.
 
-Docker 재현기 (`scripts/docker/quickstart.yml`) 는 pccx-lab 로드맵에
-올라가 있으나 아직 `main` 에 반영되지 않았습니다.  반영 전까지는 아래의
-[네이티브 경로](#4-네이티브-경로-docker-없음)를 따르십시오 — 컨테이너가
-내부적으로 실행할 내용과 동일합니다.
-```
+## 3. 작은 기여 준비
 
-## 4. 네이티브 경로 (Docker 없음)
+리셋, ready/valid 핸드셰이크, 경계 조건, 명령어 디코드 중 한 동작을
+선택합니다. 새 커버리지를 제안하기 전에 기존 테스트벤치를 확인하세요.
+소스 SHA·도구 버전·입력·예상 결과·실제 결과·원본 로그를 기록합니다.
+실행이 막혔다면 그 결과를 그대로 보고합니다.
+
+해당 저장소의 이슈에서 범위와 리뷰 담당자를 정합니다.
+첫 기여 이슈 묶음은 준비할 대상이며, 지금 바로 선택할 수 있는
+이슈 5개가 마련됐다는 뜻은 아닙니다.
+[기여 가이드](https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md)도 확인하세요.
+
+## 4. 문서 변경 빌드
+
+Python·Make·Graphviz가 있는 Linux 또는 WSL에서 실행합니다.
 
 ```bash
-# ── Sail 모델 ───────────────────────────────────────────────────
-eval $(opam env)
-cd ~/pccx-ws/pccx-FPGA-NPU-LLM-kv260/formal/sail
-make check                           # 타입체크; < 5 초
-
-# ── pccx-core + CLI ────────────────────────────────────────────
-cd ~/pccx-ws/pccx-lab
-cargo build -p pccx-reports --bin pccx_cli --release
-./target/release/pccx_cli \
-    samples/gemma3n_16tok_smoke.pccx \
-    --roofline --report-md          # 헤더 + roofline + bottleneck
-
-# ── pccx-lab (Tauri 데스크톱 앱) ────────────────────────────────
-cd ui
-npm ci && npm run tauri dev
+git clone https://github.com/pccxai/pccx.git
+cd pccx
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+make strict REQUIRE_RTL=0
 ```
 
-``samples/`` 디렉토리는 두 개의 사전 캡처 트레이스를 제공합니다 —
-[`samples/README.md`](https://github.com/pccxai/pccx-lab/blob/main/samples/README.md) 참고:
+경고를 오류로 처리하면서 두 언어 문서를 빌드합니다.
+`REQUIRE_RTL=0`은 문서만 작업할 때 쓰는 모드이며, 포함된 RTL 소스를
+검증하지 않습니다. RTL 참조까지 확인하려면
+[README](https://github.com/pccxai/pccx/blob/main/README.md)에 따라 소스를
+준비하고 `make strict`를 실행하세요. 관련 안내는 영어·한국어를 함께 수정합니다.
 
-- ``gemma3n_16tok_smoke.pccx``   (101 KB, 2,568 events)  — CI smoke.
-- ``gemma3n_128tok_decode.pccx`` (797 KB, 20,488 events) — steady-state decode.
+운영 문서는 Cloudflare Pages를 통해
+[docs.pccx.ai](https://docs.pccx.ai/)에 게시합니다.
+배포 확인은 게시 성공을 뜻하며 RTL 동작 검증을 대신하지 않습니다.
 
-## 5. 보드 경로 (선택)
+## 도구 상태
 
-```bash
-# 비트스트림 플래시 후 KV260 에서 16-토큰 디코드.
-cd ~/pccx-ws/pccx-FPGA-NPU-LLM-kv260/scripts/board
-./bringup.sh kv260.local
-# .pccx를 호스트로 자동 가져오며, pccx-lab 에서 열기.
-```
+**pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다.**
+PCCX 참여에 세 제품이나 특정 IDE를 요구하지 않습니다.
+[Digital Design Studio](https://docs.altifigence.com/ide/)는 선택적으로
+참고할 Altifigence의 도구입니다. 첫 기여 목표에는 FPGA가 필요하지 않습니다.
 
-## 6. 다음 단계
-
-- 프로파일러 API surface 는 [pccx-lab 핸드북 (docs.altifigence.com)](https://docs.altifigence.com/).
-- Sail 스캐폴드는 [형식 모델(Formal Model) 페이지](v002/Formal/index).
-- 실측 tok/s + 지연 수치는 [Evidence 페이지](Evidence/index) (보드
-  실행 및 측정 진행 중).
-
-## 이 페이지 인용
-
-```bibtex
-@misc{pccx_quickstart_2026,
-  title        = {pccx Quickstart: one-command reproducer for the open NPU},
-  author       = {Kim, Hyunwoo},
-  year         = {2026},
-  howpublished = {\url{https://pccx.ai/ko/docs/quickstart.html}},
-  note         = {Part of pccx: \url{https://pccx.ai/}}
-}
-```
+검증 자료의 범위는 {doc}`Evidence/index`에서 확인하세요.

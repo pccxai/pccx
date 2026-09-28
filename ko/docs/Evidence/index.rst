@@ -1,127 +1,74 @@
-Evidence
-========
+검증 자료
+=========
 
-.. rubric:: "설계" → "검증된 시스템"
+검증 기록에는 소스 버전·도구·명령·입력·예상 결과·실제 결과·원본 로그를
+명시합니다. 문서나 사이트 배포 성공은 시뮬레이션 또는 하드웨어 검증
+결과를 대신하지 않습니다.
 
-이 페이지는 회의적인 리뷰어가 던지는 단 하나의 질문에 답한다:
-**"이게 실제로 돌아가는가?"**  각 행은 재현 가능한 산출물 (캡처된
-``.pccx`` 트레이스, Vivado utilisation 리포트, 보드 로그 발췌) 로
-링크되어 있어 숫자를 독립적으로 검증할 수 있다.
-
-측정치가 아직 없는 행은 **pending** 으로 명시하며, 차단 요소를
-항상 명시한다 — 추정치는 기록하지 않는다.
-
-측정 완료 (재현 가능)
----------------------
-
-.. list-table::
-   :header-rows: 1
-   :widths: 25 20 25 30
-
-   * - 메트릭
-     - 값
-     - 소스
-     - 재현기
-   * - Sail 모델 타입체크
-     - clean
-     - ``formal/sail/`` (64-bit / 4-bit opcode)
-     - ``make check`` (< 5 초)
-   * - pccx-core 테스트 스위트
-     - 7/7 ISA + 16 분석기 테스트
-     - ``cargo test -p pccx-core``
-     - pccx-lab 루트에서 ``cargo test``
-   * - ``.pccx`` 바이너리 포맷 디코드 라운드트립
-     - 비트-정확
-     - ``pccx_format.rs``
-     - ``pccx_analyze sample.pccx``
-   * - Sphinx zero-warning 빌드
-     - EN + KO
-     - ``_ext/*.py`` + ``docs/**``
-     - ``make strict``
-   * - Golden-diff 회귀 게이트 (self-calibrated)
-     - 8 / 8 스텝 + 128 / 128 스텝 ±15 % 이내
-     - pccx-lab 의 ``samples/*.ref.jsonl``
-     - ``pccx_golden_diff --check samples/gemma3n_16tok_smoke.ref.jsonl samples/gemma3n_16tok_smoke.pccx``
-
-보류 중 (보드 / synth)
+현재 확인해야 할 근거
 ----------------------
 
 .. list-table::
    :header-rows: 1
    :widths: 25 30 45
 
-   * - 메트릭
-     - 상태
-     - 차단 요소
-   * - End-to-end Gemma-3N E4B 디코드 tok/s
-     - 보드 실행 대기
-     - §4.1 RTL dispatcher + Global_Scheduler 와이어링
-       (:doc:`../v002/Architecture/index`)
-   * - KV260 자원 사용량 (LUT / DSP / URAM / BRAM)
-     - Vivado impl 대기
-     - ``pccx_analyze --run-synth <rtl_repo>`` 랜딩
-       (Lab CLI 는 docs.altifigence.com 에서 추적)
-   * - Post-route timing status @ 400 MHz core / 250 MHz AXI
-     - Vivado impl 대기
-     - 위와 동일
-   * - Layer-by-layer 골든 모델 diff (PyTorch 레퍼런스 대비)
-     - ``tools/pytorch_reference.py`` 랜딩 대기
-     - 스캐폴드 (``pccx_golden_diff`` CLI + ``.ref.jsonl`` 스키마)
-       이미 랜딩 — 위의 measured 행 참고. PyTorch 쪽이
-       self-calibrated 레퍼런스를 시맨틱 기반 기대치로 교체할 예정.
-   * - 지속 부하 하 P99 디코드 지연
-     - 보드 캡처 대기
-     - 실제 DDR 트래픽으로 512-토큰 실행 필요.
-   * - W4A8KV4 디코드 중 7 W TDP 헤드룸
-     - Vivado impl + 보드 pmbus 대기
-     - 자원 사용량과 동일 차단.
+   * - 영역
+     - 현재 해석
+     - 필요한 근거
+   * - 공개 저장소 경계
+     - 실행 가능한 구조 점검이며 RTL 실행은 아닙니다.
+     - ``pccx-v002``\ 의 ``scripts/check_repo_boundary.sh`` 출력과 소스 SHA.
+       :doc:`../quickstart`\ 를 참고하세요.
+   * - v002 RTL 시뮬레이션
+     - 독립적인 공개 환경 재현은 미완료입니다.
+     - 폐지된 Lab 변환기 의존성을 제거한 뒤 새 checkout·도구 버전·
+       테스트별 로그를 기록합니다. :doc:`../onboarding/getting-started` 참고.
+   * - Sail ISA 모델
+     - 형식 모델 결과는 특정 실행 기록과 연결해야 합니다.
+     - `pccx-v002 Actions <https://github.com/pccxai/pccx-v002/actions>`_\ 의
+       소스 SHA와 실행 기록. 타입 검사는 RTL·보드 동작 검증이 아닙니다.
+   * - 문서
+     - 빌드와 게시 확인은 문서의 검증입니다.
+     - EN/KO strict 빌드 로그·병합 SHA·Cloudflare 배포 결과·게시 페이지.
+   * - KV260 구현과 런타임
+     - 보드 동작 주장은 별도의 근거가 필요합니다.
+     - 소스·비트스트림 해시, 도구 버전, 타이밍 리포트, 런타임 입력과 보드 로그.
+       `KV260 #58 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/58>`_\ 에서 검토합니다.
 
-베이스라인 (향후 비교용)
-------------------------
+폐지 도구의 과거 기록
+---------------------
+
+**pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다.**
+세 도구는 현재 기여 로드맵의 필수 제품이 아닙니다. 예전 Lab 테스트,
+트레이스 포맷 점검, 분석기 출력으로 지금의 공개 RTL checkout이
+독립적으로 실행된다고 판단하지 않습니다.
+
+아래 내용은
+`\ 이전 검증 자료 페이지 <https://github.com/pccxai/pccx/blob/6336b16d5fe4ae80721e0bbb9e2cae00f24e8325/ko/docs/Evidence/index.rst>`_\ 에
+기록됐던 주장입니다. 과거 기록으로 보존하며, 이번에 재검증한 결과가 아닙니다.
 
 .. list-table::
    :header-rows: 1
-   :widths: 25 25 50
+   :widths: 45 55
 
-   * - 베이스라인
-     - 타겟
-     - 방법
-   * - CPU (Ryzen 4500U, llama.cpp Q4_K_M)
-     - Gemma-3N E4B tok/s
-     - ``llama.cpp`` + 고정 스레드 (4 × 2 GHz Zen 2).
-   * - GPU (RTX 4060, HF Transformers bf16)
-     - Gemma-3N E4B tok/s
-     - PyTorch 2.4, generate() + KV cache, batch = 1.
-   * - On-device (pccx v002 @ KV260)
-     - Gemma-3N E4B tok/s
-     - ``pccx_analyze --board kv260.local`` (큐 중).
+   * - 과거 항목
+     - 당시 기록한 결과
+   * - Lab 코어 테스트
+     - ISA 테스트 7/7과 분석기 테스트 16개.
+   * - 트레이스 포맷 왕복 변환
+     - 예전 포맷 도구에서 비트가 일치하는 디코드를 보고했습니다.
+   * - 자체 보정 golden diff
+     - 8/8 및 128/128 스텝에서 ±15% 이내. 모델 정확도나 하드웨어 성능
+       검증 결과는 아닙니다.
 
-이 페이지의 갱신 방법
----------------------
+새 결과 게시 절차
+------------------
 
-1. ``pccx-FPGA-NPU-LLM-kv260`` 가 새 ``.pccx`` 또는 Vivado 리포트를
-   캡처.
-2. ``pccx-lab`` 이 ``pccx_analyze --json`` 으로 필드 export.
-3. 본 레포 커밋이 테이블에 숫자를 랜딩 — 소스 링크 + 영구
-   ``samples/`` 산출물 포함.
-4. ``make strict`` 통과, CI 가 페이지 재배포.
+1. 작업을 담당하는 저장소에 시뮬레이션·합성·보드 원본 로그를 남깁니다.
+2. 정확한 소스·도구 버전과 재현 명령을 기록합니다.
+3. 고정된 산출물 또는 실행 기록을 연결하고 범위와 한계를 명시합니다.
+4. 결과를 검토한 뒤 문서에 측정값을 추가합니다.
 
-추정치 없음. 모든 행은 재현 가능한 산출물로 연결되거나 명명된 차단
-요소와 함께 **pending** 으로 표시된다.
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-이 페이지 인용
---------------
-
-.. code-block:: bibtex
-
-   @misc{pccx_evidence_2026,
-     title        = {pccx Evidence: reproducible measurement log for an open W4A8 NPU},
-     author       = {Kim, Hyunwoo},
-     year         = {2026},
-     howpublished = {\url{https://pccx.ai/ko/docs/Evidence/index.html}},
-     note         = {Tracks the "설계 → 검증된 시스템" closure plan.  Part of pccx: \url{https://pccx.ai/}}
-   }
+처리량·지연·자원 사용량·전력은 각각 별도의 측정입니다. 목표치나
+과거 보고를 현재의 측정 결과로 소개하지 않습니다.
+:doc:`../v002/Verification/index`\ 와 :doc:`../roadmap`\ 을 참고하세요.

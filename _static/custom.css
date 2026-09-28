@@ -251,15 +251,6 @@ article .pccx-hero-card .sd-card-title svg {
   color: var(--color-brand-primary);
   vertical-align: -0.15em;
 }
-/* Lab card: pccx-lab — secondary accent (brand orange). */
-article .pccx-lab-card {
-  border-left: 3px solid var(--pccx-accent, #ff7a00);
-}
-article .pccx-lab-card .sd-card-title svg {
-  color: var(--pccx-accent, #ff7a00);
-  vertical-align: -0.15em;
-}
-
 .pccx-version-switcher-item {
   margin: 0.35rem 0 0.75rem;
   list-style: none;

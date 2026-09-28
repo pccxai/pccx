@@ -2,12 +2,12 @@
 orphan: true
 ---
 
-# 3개 저장소 호환성 매트릭스
+# 과거 기록: 폐지된 도구의 호환성 매트릭스
 
-범위: `systemverilog-ide`, `pccx-launcher`, `pccx-lab`.
-
-이 페이지는 에디터 cockpit, launcher surface, lab backend 간 data-only
-boundary의 정본이다. 새 호환성 문안에는 공개명칭 `pccx-launcher`를 사용한다.
+> **폐지 상태 — 2026-09-28 확인.** SystemVerilog IDE, PCCX Launcher,
+> pccx-lab은 모두 폐지되었습니다. 아래는 당시의 계약·소스 기록입니다.
+> 현재의 지원 범위·개발 계획·설치 안내로 사용하지 마세요.
+> 현재 참여 경로는 [빠른 시작](../quickstart.md)과 [로드맵](../roadmap.md)을 참고하세요.
 
 ## 목표
 

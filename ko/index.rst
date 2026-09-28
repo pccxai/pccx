@@ -1,118 +1,77 @@
-================================
-pccx 문서
-================================
+========================================
+PCCX 문서
+========================================
 
-**pccx** (Parallel Compute Core eXecutor) 문서에 오신 것을 환영합니다.
-pccx는 엣지 디바이스에서 Transformer 기반 LLM을 가속하기 위한
-확장 가능한 NPU 아키텍처입니다. 사이드바에서 섹션을 선택하세요.
+PCCX (Parallel Compute Core eXecutor)는 Altifigence가 시작하고 운영하는
+오픈소스 반도체 프로젝트입니다. 공개 RTL·검증 환경·기술 문서를 함께
+발전시킵니다. SystemVerilog 개발자는 :doc:`docs/quickstart`\ 에서 시작하세요.
 
-에코시스템
-----------
+프로젝트
+--------
 
 .. grid:: 1 1 2 2
    :gutter: 3 4 4 4
    :class-container: pccx-ecosystem-grid
 
-   .. grid-item-card:: :octicon:`cpu;1.5em;sd-mr-2` RTL 구현체
-      :columns: 12 12 8 8
-      :class-card: pccx-hero-card
+   .. grid-item-card:: :octicon:`cpu;1.2em;sd-mr-1` v002 RTL
+      :link: https://github.com/pccxai/pccx-v002
+      :link-type: url
+
+      재사용 가능한 RTL, 테스트벤치, Sail ISA 모델. 작은 검증 기여의 출발점입니다.
+
+   .. grid-item-card:: :octicon:`cpu;1.2em;sd-mr-1` KV260 통합
       :link: https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260
       :link-type: url
-      :link-alt: pccx-FPGA-NPU-LLM-kv260 저장소를 GitHub 에서 열기
 
-      **github.com/pccxai/pccx-FPGA-NPU-LLM-kv260**
+      고정된 코어를 사용하는 보드 통합과 런타임. 실제 보드 결과는 별도로 검증합니다.
 
-      활성 **v002** SystemVerilog 원본 — ISA 패키지, 컨트롤러,
-      컴퓨트 코어 (GEMM / GEMV / CVO), 메모리 계층. 타겟 디바이스는
-      Xilinx Kria **KV260** (Zynq UltraScale+ ZU5EV).
+   .. grid-item-card:: :octicon:`book;1.2em;sd-mr-1` 문서 소스
+      :link: https://github.com/pccxai/pccx
+      :link-type: url
 
-      **현재 지원 (집중):** Gemma-3N E4B @ W4A8KV4 — KV260 보드 실측
-      tok/s 는 :doc:`docs/Evidence/index` 에서 추적합니다. 그 외 항목
-      (v003 / Gemma-4 / Llama)은 :doc:`docs/roadmap` 에 정리됩니다.
+      이 사이트의 영어·한국어 문서와 기여 안내입니다.
 
-      이 사이트의 모든 v002 RTL 레퍼런스 페이지는 해당 ``.sv`` 파일로
-      직접 연결됩니다.
+   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` 실험 단계의 v003
+      :link: https://github.com/pccxai/pccx-v003
+      :link-type: url
 
-   .. grid-item::
-      :columns: 12 12 4 4
+      v003 RTL과 검증 작업. 소스 공개가 하드웨어 검증 완료를 뜻하지 않습니다.
 
-      .. grid:: 1
-         :gutter: 3
-
-         .. grid-item-card:: :octicon:`book;1em;sd-mr-1` 문서 소스
-            :link: https://github.com/pccxai/pccx
-            :link-type: url
-            :link-alt: pccx 문서 저장소를 GitHub 에서 열기
-
-            **github.com/pccxai/pccx** — 이 사이트를 빌드하는 Sphinx 프로젝트.
-
-         .. grid-item-card:: :octicon:`telescope;1em;sd-mr-1` pccx-lab (검증 / 프로파일)
-            :link: https://docs.altifigence.com/lab/
-            :link-type: url
-            :link-alt: pccx-lab 검증·프로파일링 허브 열기
-
-            **pccx-lab** — Tauri 2 IDE. ``.pccx`` 트레이스 로딩,
-            ``run_verification`` 러너, Roofline / Bottleneck 카드,
-            Vivado synth 리포트 뷰.
-            `검증 워크플로우 가이드 <https://docs.altifigence.com/lab/>`_
-
-         .. grid-item-card:: :octicon:`person;1em;sd-mr-1` 저자 포트폴리오
-            :link: https://hkimw.github.io/hkimw/
-            :link-type: url
-            :link-alt: hkimw 포트폴리오 사이트 열기
-
-            **hkimw.github.io/hkimw** — 블로그, 다른 프로젝트, 소개.
-
-공개 `pccxai/pccx-v003 <https://github.com/pccxai/pccx-v003>`_ 저장소는
-현재 v003 IP-core 계획 패키지의 위치를 담당합니다. Evidence-gated
-계획 패키지로, 안정 RTL 릴리스는 아닙니다. 이전 피더 저장소인
-`pccxai/pccx-LLM-v003 <https://github.com/pccxai/pccx-LLM-v003>`_ 은
-폐기되었거나 중단되어 더 이상 활성 공개 트랙이 아닙니다.
-재사용 가능한 v003 LLM 자료는 ``pccx-v003/LLM/`` 아래로 이동합니다.
-보드/모델 저장소는 명시적 호환성 계약(compatibility contract)을 통해서만
-v003 산출물을 사용합니다.
-
-도구 & 랩
----------
+참여와 검증
+------------
 
 .. grid:: 1 1 2 2
    :gutter: 3 4 4 4
    :class-container: pccx-toolchain-grid
 
-   .. grid-item-card:: :octicon:`beaker;1.2em;sd-mr-1` pccx-lab
-      :link: https://docs.altifigence.com/lab/
-      :link-type: url
-      :link-alt: pccx-lab 시뮬레이터 & 프로파일러 열기
-      :class-card: pccx-lab-card
-
-      pccx NPU 전용 성능 시뮬레이터 + AI 통합 프로파일러.
-      RTL 이전 병목 탐지, UVM co-simulation, LLM 기반 테스트벤치 생성을
-      한 워크플로우로 통합.
-
-      :bdg-warning:`Work in Progress`
-
-      소스: github.com/pccxai/pccx-lab
-
-   .. grid-item-card:: :octicon:`project-roadmap;1.2em;sd-mr-1` 설계 근거
-      :link: https://docs.altifigence.com/lab/
-      :link-type: url
-      :link-alt: pccx-lab 설계 근거 읽기
-
-      왜 pccx-lab은 다섯 개가 아닌 한 레포인가. 모듈 경계 규칙
-      (``core/``, ``ui/``, ``uvm_bridge/``, ``workflow_facade/``).
-
-   .. grid-item-card:: :octicon:`verified;1.2em;sd-mr-1` 형식 모델 — Sail
-      :link: docs/v002/Formal/index
+   .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` 기여 시작
+      :link: docs/onboarding/getting-started
       :link-type: doc
-      :link-alt: pccx Sail ISA 모델 읽기
 
-      **pccx는** `Sail <https://sail-lang.org/>`_ **로 형식적으로
-      정의된다** — **RISC-V**, **Arm**, **CHERI**, **Morello** 의
-      공식 사양을 기술하는 것과 동일한 ISA 시맨틱 언어. 64-bit /
-      4-bit-opcode v002 ISA 는 RTL 레포의 ``formal/sail/`` 하위에
-      거주하며, SystemVerilog 의 각 ``typedef`` 는 Sail 측에 1:1
-      대응이 있어 비트 폭 오류(width error)가 실리콘 검증 전에 Sail 타입 체커에서 먼저
-      발견됩니다.
+      지금 가능한 로컬 점검과 시뮬레이션의 남은 의존성을 확인하세요.
+
+   .. grid-item-card:: :octicon:`project-roadmap;1.2em;sd-mr-1` 공개 참여 로드맵
+      :link: docs/roadmap
+      :link-type: doc
+
+      기존 작업 정리 → 독립적인 RTL 테스트 → 작은 검증 이슈 → 외부 PR.
+
+   .. grid-item-card:: :octicon:`verified;1.2em;sd-mr-1` 검증과 증거
+      :link: docs/Evidence/index
+      :link-type: doc
+
+      시뮬레이션·합성·실제 보드 실행의 근거를 구분합니다.
+
+   .. grid-item-card:: :octicon:`terminal;1.2em;sd-mr-1` Digital Design Studio
+      :link: https://docs.altifigence.com/ide/
+      :link-type: url
+
+      선택적으로 참고할 Altifigence 도구 문서. PCCX 참여에 특정 IDE를 요구하지 않습니다.
+
+.. note::
+
+   pccx-lab, SystemVerilog IDE, PCCX Launcher는 폐지되었습니다.
+   폐지 도구의 남은 의존성 제거는 :doc:`docs/roadmap`\ 에서 추적합니다.
 
 .. toctree::
    :maxdepth: 2
@@ -120,6 +79,7 @@ v003 산출물을 사용합니다.
 
    docs/index
    docs/quickstart
+   docs/onboarding/getting-started
    docs/Evidence/index
    docs/roadmap
 

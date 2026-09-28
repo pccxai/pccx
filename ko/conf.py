@@ -64,7 +64,7 @@ exclude_patterns = [
 
 html_theme_options = {
     **html_theme_options,
-    "source_directory": "ko/docs/",
+    "source_directory": "ko/",
     # The Korean tree is produced by external translation tooling; the
     # English page is the canonical source. ``_ext.archive_banner``
     # overrides this slot on archived pages with its own redirect, so

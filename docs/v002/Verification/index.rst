@@ -1,17 +1,44 @@
 Verification
-=============
+============
 
-This section tracks the **unit-level verification harness** that
-accompanies the v002 RTL. Functional / formal / silicon checks at the
-system level are planned but not yet in place — their scope is listed at
-the end of this page.
+Current v002 RTL and testbenches live in
+`pccx-v002 <https://github.com/pccxai/pccx-v002>`_.
+The board integration repository consumes a pinned core. Begin with
+the structural check and test listing in :doc:`/docs/quickstart`.
 
-1. Current test suite
----------------------
+Current execution prerequisites
+--------------------------------
 
-All tests run under **Vivado xsim** via the unified runner
-:file:`hw/sim/run_verification.sh` in the RTL repo. Each test generates a
-``.pccx`` trace that pccx-lab can visualise on the Timeline.
+**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
+The current ``LLM/sim/run_verification.sh`` uses Vivado xsim and still
+builds the retired Lab's ``from_xsim_log`` before tests, then invokes it
+after simulation. The independent public simulation path is not complete.
+
+``--list`` can enumerate testbenches without running them. Installing
+retired tools is not an onboarding step. Dependency removal is tracked
+through `KV260 #152 <https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152>`_
+and :doc:`/docs/onboarding/getting-started`.
+
+A testbench listing is distinct from a passing run. Attach the core SHA,
+tool version, command, expected result, actual result and raw logs.
+The runner's output location is ``LLM/sim/work/<tb>/``;
+the board wrapper summary belongs in ``build/sim_v002_submodule.log``.
+
+Scope a first verification contribution
+---------------------------------------
+
+* Read the existing weight dispatcher, result packer or memory operation
+  queue testbench before proposing new coverage.
+* Choose a small reset, handshake or boundary-condition case.
+* Agree on assertions or PASS/FAIL criteria with a reviewer.
+* Report tool failures and unexecuted tests as such.
+
+Historical unit-test record
+---------------------------
+
+The table below was recorded here for KV260 repository commit
+``773bd82`` on April 21, 2026. It is not a fresh result for current main.
+The old source paths and runner are not the current contributor runbook.
 
 .. list-table::
    :header-rows: 1
@@ -39,96 +66,17 @@ All tests run under **Vivado xsim** via the unified runner
      - 64-bit VLIW decode → typed structs, 6 cycles
      - PASS
 
-Running the suite
-~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
-
-   cd pccx-FPGA-NPU-LLM-kv260/hw/sim
-   bash run_verification.sh
-
-The script is idempotent — each tb writes to its own
-:file:`hw/sim/work/<tb_name>/` directory so concurrent runs do not
-stomp on each other. A one-line PASS / FAIL summary prints at the
-end along with the path of each emitted ``.pccx`` trace.
-
-.. admonition:: Last verified against
-   :class: note
-
-   Commit ``773bd82`` @ ``pccxai/pccx-FPGA-NPU-LLM-kv260``
-   (2026-04-21). Six testbenches PASS; ``tb_GEMM_fmap_staggered_delay``
-   is parked — see ``run_verification.sh`` for the reason.
-
-2. Gaps (tracked as open items)
+Verification beyond simulation
 -------------------------------
 
-.. list-table::
-   :header-rows: 1
-   :widths: 30 70
-
-   * - Area
-     - Planned next step
-   * - **System-level smoke**
-     - ``tb_NPU_top_smoke`` — AXI-Lite decode → MEMSET → MEMCPY →
-       GEMV → MEMCPY readback, golden compare against ``llm-lite``
-       reference. Blocked on the ACP fanout / writeback wiring (see
-       :doc:`../RTL/npu_top`).
-   * - **CVO bridge**
-     - ``tb_cvo_bridge`` — cvo_uop → READ burst → CVO echo → WRITE
-       burst; covers the L2 port-B direct-address path once the
-       arbiter lands.
-   * - **mem_dispatcher uop table**
-     - Regression guard for MEMSET + LOAD + STORE + CVO routing.
-   * - **Driver-RTL cross check**
-     - Host-only test: encode via ``uca_*`` API, dump 64-bit VLIW,
-       cross-check against ``isa_pkg.sv`` bit layout.
-   * - **Formal**
-     - SymbiYosys / JasperGold properties for the ISA decoder and
-       memory arbitration (future).
-
-3. Planned scope (system level)
--------------------------------
-
-Once the unit-level gaps above are closed, the full verification
-section will cover:
-
-* **Verification plan** — per-module functional coverage targets and
-  sign-off criteria.
-* **Testbench architecture** — UVM / cocotb harness layout, reference
-  model, and stimulus generators (golden data from the ``llm-lite``
-  CPU reference).
-* **Coverage dashboard** — functional + code + assertion coverage,
-  rolled up by core (GEMM / GEMV / CVO / MEM).
-* **Formal results** — SymbiYosys / JasperGold properties for the
-  controller, ISA decoder, and memory arbitration.
-* **Silicon-level checks** — post-implementation simulation, on-board
-  bring-up scripts, and golden-trace comparison against the
-  :doc:`host-side C driver </docs/v002/Drivers/api>`.
-
-.. admonition:: External tool interface — status surface boundaries
-   :class: note
-
-   The verification workflow is incrementally surfacing JSON status
-   summaries that external tools can consume without parsing free-form
-   logs. These boundaries live outside this docs site:
-
-   * **pccx-lab** — JSON / Sail / hybrid source-intake status summary
-     boundaries, plus sample boundaries for plugins and external tool
-     interfaces. Treated as an evolving boundary; no stability promise
-     is made until the v002.0 verification evidence is published.
-   * **systemverilog-ide** — module-graph reports (path, edge, port
-     connection audit, reachability, span, file-layout, order) exposed
-     as a separate boundary; consumed by reviewers but not part of the
-     pccx documentation surface.
-
-   These boundaries are referenced here for traceability only. They
-   do not constitute verification evidence on their own.
+Formal models, synthesis and implementation, timing reports and execution
+on a board require separate evidence. Passing a module test does not
+establish model inference, performance or silicon readiness.
+Follow :doc:`/docs/Evidence/index`.
 
 .. seealso::
 
    :doc:`/docs/v002/Architecture/index`
-       The architectural contracts this section verifies.
    :doc:`/docs/v002/ISA/index`
-       ISA-level invariants the testbench checks.
    :doc:`/docs/v002/RTL/index`
-       RTL modules under test.
