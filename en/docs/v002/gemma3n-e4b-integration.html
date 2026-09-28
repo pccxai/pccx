@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/en/docs/v002/gemma3n-e4b-integration.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="This page preserves the earlier Gemma 3N E4B target-path contract and candidate bitstream identity. It does not establish current runtime, timing, model accuracy or throughput. Shared Daemon Contra..." />
+<meta property="og:description" content="Shared Daemon Contract: The former integration plan described an aiohttp HTTP+WS daemon on port 7860. The common readiness endpoint is GET /api/status. Backend modes are interpreted conservatively:..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_v002_gemma3n-e4b-integration_b2727f16.png" />
-<meta property="og:image:alt" content="This page preserves the earlier Gemma 3N E4B target-path contract and candidate bitstream identity. It does not establish current runtime, timing, model accuracy or throughput. Shared Daemon Contra..." />
-<meta name="description" content="This page preserves the earlier Gemma 3N E4B target-path contract and candidate bitstream identity. It does not establish current runtime, timing, model accuracy or throughput. Shared Daemon Contra..." />
+<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_v002_gemma3n-e4b-integration_fd839ad7.png" />
+<meta property="og:image:alt" content="Shared Daemon Contract: The former integration plan described an aiohttp HTTP+WS daemon on port 7860. The common readiness endpoint is GET /api/status. Backend modes are interpreted conservatively:..." />
+<meta name="description" content="Shared Daemon Contract: The former integration plan described an aiohttp HTTP+WS daemon on port 7860. The common readiness endpoint is GET /api/status. Backend modes are interpreted conservatively:..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/en/","inLanguage":"en","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Historical Gemma 3N E4B Integration Plan","name":"Historical Gemma 3N E4B Integration Plan","url":"https://docs.pccx.ai/en/docs/v002/gemma3n-e4b-integration.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/en/docs/v002/gemma3n-e4b-integration.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Historical Gemma 3N E4B Integration Plan. PCCX architecture, implementation and verification documentation.","inLanguage":"en","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/v002/gemma3n-e4b-integration.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/v002/gemma3n-e4b-integration.html"><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Hardware Architecture" href="Architecture/index.html"><link rel="prev" title="Overview" href="overview.html">
@@ -456,17 +456,13 @@ SPDX-License-Identifier: Apache-2.0
         <article role="main" id="furo-main-content">
           <section id="historical-gemma-3n-e4b-integration-plan">
 <h1>Historical Gemma 3N E4B Integration Plan<a class="headerlink" href="#historical-gemma-3n-e4b-integration-plan" title="Link to this heading">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Historical integration plan. pccx-lab, SystemVerilog IDE and PCCX
-Launcher are discontinued. The former UI/daemon protocol below is
-retained for provenance, not as a supported product or installation
-guide. For current work, read <a class="reference internal" href="../roadmap.html"><span class="doc">Roadmap</span></a> and
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page preserves the earlier Gemma 3N E4B integration plan,
+UI/daemon protocol and candidate bitstream identity. For current
+development, see <a class="reference internal" href="../roadmap.html"><span class="doc">Roadmap</span></a> and
 <a class="reference internal" href="../onboarding/getting-started.html"><span class="doc">Getting started</span></a>.</p>
 </div>
-<p>This page preserves the earlier Gemma 3N E4B target-path contract and
-candidate bitstream identity. It does not establish current runtime,
-timing, model accuracy or throughput.</p>
 <section id="shared-daemon-contract">
 <h2>Shared Daemon Contract<a class="headerlink" href="#shared-daemon-contract" title="Link to this heading">¶</a></h2>
 <p>The former integration plan described an aiohttp HTTP+WS daemon on port <code class="docutils literal notranslate"><span class="pre">7860</span></code>. The
@@ -551,8 +547,7 @@ source/bitstream identifiers in a scoped KV260 issue.</p>
 issues in:
 <a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues">https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues</a></p>
 <p>For current issues, include the checked-out source and bitstream hashes,
-tool versions, reproduction command, expected/actual behavior and raw logs.
-Do not require a retired debug UI to report a board or runtime problem.</p>
+tool versions, reproduction command, expected/actual behavior and raw logs.</p>
 </section>
 </section>
 

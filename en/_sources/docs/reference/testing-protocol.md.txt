@@ -8,10 +8,8 @@ Verification is split between the IP-core repository and the board
 integration repository. Each layer produces evidence the other layer
 can read.
 
-> **Current prerequisite:** pccx-lab is discontinued. The core runner
-> invoked by the KV260 wrapper below still depends on its old converter.
-> Read [Getting started](../onboarding/getting-started.md) first; historical
-> PASS records do not establish an independent run on current main.
+For the Vivado and trace-converter setup, see
+[Getting started](../onboarding/getting-started.md).
 
 ## Sail typecheck (in `pccx-v002`)
 

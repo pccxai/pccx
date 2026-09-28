@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/ko/docs/Evidence/index.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="검증 기록에는 소스 버전·도구·명령·입력·예상 결과·실제 결과·원본 로그를 명시합니다. 문서나 사이트 배포 성공은 시뮬레이션 또는 하드웨어 검증 결과를 대신하지 않습니다. 현재 확인해야 할 근거:,,, 영역, 현재 해석, 필요한 근거,,, 공개 저장소 경계, 실행 가능한 구조 점검이며 RTL 실행은 아닙니다., pccx-v002 의 scripts/ch..." />
+<meta property="og:description" content="PCCX의 시뮬레이션, ISA 모델, 보드 테스트 기록을 모읍니다. 결과를 공유할 때는 소스 커밋, 도구 버전, 실행 명령과 로그를 함께 남겨주세요. 자료별 기록 위치:,,, 항목, 함께 기록할 정보, 위치와 안내,,, 저장소 구조 점검, 소스 커밋과 점검 결과, pccx-v002 의 scripts/check_repo_boundary.sh. 빠른 시작..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/ko/_images/social_previews/summary_docs_Evidence_index_8a0d81d2.png" />
-<meta property="og:image:alt" content="검증 기록에는 소스 버전·도구·명령·입력·예상 결과·실제 결과·원본 로그를 명시합니다. 문서나 사이트 배포 성공은 시뮬레이션 또는 하드웨어 검증 결과를 대신하지 않습니다. 현재 확인해야 할 근거:,,, 영역, 현재 해석, 필요한 근거,,, 공개 저장소 경계, 실행 가능한 구조 점검이며 RTL 실행은 아닙니다., pccx-v002 의 scripts/ch..." />
-<meta name="description" content="검증 기록에는 소스 버전·도구·명령·입력·예상 결과·실제 결과·원본 로그를 명시합니다. 문서나 사이트 배포 성공은 시뮬레이션 또는 하드웨어 검증 결과를 대신하지 않습니다. 현재 확인해야 할 근거:,,, 영역, 현재 해석, 필요한 근거,,, 공개 저장소 경계, 실행 가능한 구조 점검이며 RTL 실행은 아닙니다., pccx-v002 의 scripts/ch..." />
+<meta property="og:image" content="https://docs.pccx.ai/ko/_images/social_previews/summary_docs_Evidence_index_d218c7b2.png" />
+<meta property="og:image:alt" content="PCCX의 시뮬레이션, ISA 모델, 보드 테스트 기록을 모읍니다. 결과를 공유할 때는 소스 커밋, 도구 버전, 실행 명령과 로그를 함께 남겨주세요. 자료별 기록 위치:,,, 항목, 함께 기록할 정보, 위치와 안내,,, 저장소 구조 점검, 소스 커밋과 점검 결과, pccx-v002 의 scripts/check_repo_boundary.sh. 빠른 시작..." />
+<meta name="description" content="PCCX의 시뮬레이션, ISA 모델, 보드 테스트 기록을 모읍니다. 결과를 공유할 때는 소스 커밋, 도구 버전, 실행 명령과 로그를 함께 남겨주세요. 자료별 기록 위치:,,, 항목, 함께 기록할 정보, 위치와 안내,,, 저장소 구조 점검, 소스 커밋과 점검 결과, pccx-v002 의 scripts/check_repo_boundary.sh. 빠른 시작..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/ko/","inLanguage":"ko","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"검증 자료","name":"검증 자료","url":"https://docs.pccx.ai/ko/docs/Evidence/index.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/ko/docs/Evidence/index.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"검증 자료. PCCX architecture, implementation and verification documentation.","inLanguage":"ko","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/Evidence/index.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/Evidence/index.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/Evidence/index.html"><link rel="index" title="색인" href="../../genindex.html"><link rel="search" title="검색" href="../../search.html"><link rel="next" title="로드맵" href="../roadmap.html"><link rel="prev" title="기여 시작" href="../onboarding/getting-started.html">
@@ -457,99 +457,66 @@ SPDX-License-Identifier: Apache-2.0
         <article role="main" id="furo-main-content">
           <section id="id1">
 <h1>검증 자료<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<p>검증 기록에는 소스 버전·도구·명령·입력·예상 결과·실제 결과·원본 로그를
-명시합니다. 문서나 사이트 배포 성공은 시뮬레이션 또는 하드웨어 검증
-결과를 대신하지 않습니다.</p>
+<p>PCCX의 시뮬레이션, ISA 모델, 보드 테스트 기록을 모읍니다.
+결과를 공유할 때는 소스 커밋, 도구 버전, 실행 명령과 로그를 함께 남겨주세요.</p>
 <section id="id2">
-<h2>현재 확인해야 할 근거<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h2>자료별 기록 위치<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
-<col style="width: 30.0%" />
-<col style="width: 45.0%" />
+<col style="width: 35.0%" />
+<col style="width: 40.0%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>영역</p></th>
-<th class="head"><p>현재 해석</p></th>
-<th class="head"><p>필요한 근거</p></th>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>함께 기록할 정보</p></th>
+<th class="head"><p>위치와 안내</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>공개 저장소 경계</p></td>
-<td><p>실행 가능한 구조 점검이며 RTL 실행은 아닙니다.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">pccx-v002</span></code>의 <code class="docutils literal notranslate"><span class="pre">scripts/check_repo_boundary.sh</span></code> 출력과 소스 SHA.
-<a class="reference internal" href="../quickstart.html"><span class="doc">빠른 시작</span></a>를 참고하세요.</p></td>
+<tr class="row-even"><td><p>저장소 구조 점검</p></td>
+<td><p>소스 커밋과 점검 결과</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pccx-v002</span></code>의 <code class="docutils literal notranslate"><span class="pre">scripts/check_repo_boundary.sh</span></code>.
+<a class="reference internal" href="../quickstart.html"><span class="doc">빠른 시작</span></a>에서 실행 방법을 안내합니다.</p></td>
 </tr>
 <tr class="row-odd"><td><p>v002 RTL 시뮬레이션</p></td>
-<td><p>독립적인 공개 환경 재현은 미완료입니다.</p></td>
-<td><p>폐지된 Lab 변환기 의존성을 제거한 뒤 새 checkout·도구 버전·
-테스트별 로그를 기록합니다. <a class="reference internal" href="../onboarding/getting-started.html"><span class="doc">기여 시작</span></a> 참고.</p></td>
+<td><p>테스트벤치, 도구 버전, 실행 명령, 예상 결과와 실제 로그</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LLM/sim/work/&lt;tb&gt;/</span></code>.
+실행 환경은 <a class="reference internal" href="../onboarding/getting-started.html"><span class="doc">기여 시작</span></a>를 참고하세요.</p></td>
 </tr>
 <tr class="row-even"><td><p>Sail ISA 모델</p></td>
-<td><p>형식 모델 결과는 특정 실행 기록과 연결해야 합니다.</p></td>
-<td><p><a class="reference external" href="https://github.com/pccxai/pccx-v002/actions">pccx-v002 Actions</a>의
-소스 SHA와 실행 기록. 타입 검사는 RTL·보드 동작 검증이 아닙니다.</p></td>
+<td><p>소스 커밋과 타입 검사 결과</p></td>
+<td><p><a class="reference external" href="https://github.com/pccxai/pccx-v002/actions">pccx-v002 Actions</a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>문서</p></td>
-<td><p>빌드와 게시 확인은 문서의 검증입니다.</p></td>
-<td><p>EN/KO strict 빌드 로그·병합 SHA·Cloudflare 배포 결과·게시 페이지.</p></td>
+<td><p>EN/KO 빌드 로그와 배포 버전</p></td>
+<td><p>pccx 저장소의 GitHub Actions와 Cloudflare Pages 배포 기록.</p></td>
 </tr>
-<tr class="row-even"><td><p>KV260 구현과 런타임</p></td>
-<td><p>보드 동작 주장은 별도의 근거가 필요합니다.</p></td>
-<td><p>소스·비트스트림 해시, 도구 버전, 타이밍 리포트, 런타임 입력과 보드 로그.
-<a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/58">KV260 #58</a>에서 검토합니다.</p></td>
+<tr class="row-even"><td><p>KV260 보드와 런타임</p></td>
+<td><p>소스·비트스트림 해시, 타이밍 리포트, 입력 데이터와 보드 로그</p></td>
+<td><p><a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/58">KV260 #58</a>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
 <section id="id3">
-<h2>폐지 도구의 과거 기록<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
-<p><strong>pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다.</strong>
-세 도구는 현재 기여 로드맵의 필수 제품이 아닙니다. 예전 Lab 테스트,
-트레이스 포맷 점검, 분석기 출력으로 지금의 공개 RTL checkout이
-독립적으로 실행된다고 판단하지 않습니다.</p>
-<p>아래 내용은
-<a class="reference external" href="https://github.com/pccxai/pccx/blob/6336b16d5fe4ae80721e0bbb9e2cae00f24e8325/ko/docs/Evidence/index.rst">이전 검증 자료 페이지</a>에
-기록됐던 주장입니다. 과거 기록으로 보존하며, 이번에 재검증한 결과가 아닙니다.</p>
-<div class="table-wrapper colwidths-given docutils container">
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 45.0%" />
-<col style="width: 55.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>과거 항목</p></th>
-<th class="head"><p>당시 기록한 결과</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Lab 코어 테스트</p></td>
-<td><p>ISA 테스트 7/7과 분석기 테스트 16개.</p></td>
-</tr>
-<tr class="row-odd"><td><p>트레이스 포맷 왕복 변환</p></td>
-<td><p>예전 포맷 도구에서 비트가 일치하는 디코드를 보고했습니다.</p></td>
-</tr>
-<tr class="row-even"><td><p>자체 보정 golden diff</p></td>
-<td><p>8/8 및 128/128 스텝에서 ±15% 이내. 모델 정확도나 하드웨어 성능
-검증 결과는 아닙니다.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<h2>이전 기록<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p>이전 테스트와 트레이스 분석 결과는
+<a class="reference external" href="https://github.com/pccxai/pccx/blob/6336b16d5fe4ae80721e0bbb9e2cae00f24e8325/ko/docs/Evidence/index.rst">과거 문서</a>에 보관되어 있습니다. 각 결과는 당시의 소스와 실행 환경을 기준으로 합니다.</p>
 </section>
 <section id="id5">
-<h2>새 결과 게시 절차<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<h2>결과 공유하기<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>작업을 담당하는 저장소에 시뮬레이션·합성·보드 원본 로그를 남깁니다.</p></li>
-<li><p>정확한 소스·도구 버전과 재현 명령을 기록합니다.</p></li>
-<li><p>고정된 산출물 또는 실행 기록을 연결하고 범위와 한계를 명시합니다.</p></li>
-<li><p>결과를 검토한 뒤 문서에 측정값을 추가합니다.</p></li>
+<li><p>해당 저장소의 이슈나 PR에 테스트 목적과 대상 커밋을 적습니다.</p></li>
+<li><p>도구 버전, 입력 데이터, 실행 명령을 남깁니다.</p></li>
+<li><p>예상 결과와 실제 결과를 설명하고 원본 로그를 첨부합니다.</p></li>
+<li><p>리뷰를 거친 결과를 문서에 추가합니다.</p></li>
 </ol>
-<p>처리량·지연·자원 사용량·전력은 각각 별도의 측정입니다. 목표치나
-과거 보고를 현재의 측정 결과로 소개하지 않습니다.
-<a class="reference internal" href="../v002/Verification/index.html"><span class="doc">검증</span></a>와 <a class="reference internal" href="../roadmap.html"><span class="doc">로드맵</span></a>을 참고하세요.</p>
+<p>처리량, 지연, 자원 사용량, 전력을 비교할 때는 측정 환경과 입력 조건도
+함께 확인하세요. 테스트 구성은 <a class="reference internal" href="../v002/Verification/index.html"><span class="doc">검증</span></a>에서
+살펴볼 수 있습니다.</p>
 </section>
 </section>
 
@@ -626,9 +593,9 @@ SPDX-License-Identifier: Apache-2.0
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">검증 자료</a><ul>
-<li><a class="reference internal" href="#id2">현재 확인해야 할 근거</a></li>
-<li><a class="reference internal" href="#id3">폐지 도구의 과거 기록</a></li>
-<li><a class="reference internal" href="#id5">새 결과 게시 절차</a></li>
+<li><a class="reference internal" href="#id2">자료별 기록 위치</a></li>
+<li><a class="reference internal" href="#id3">이전 기록</a></li>
+<li><a class="reference internal" href="#id5">결과 공유하기</a></li>
 </ul>
 </li>
 </ul>

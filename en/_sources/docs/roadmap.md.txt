@@ -3,79 +3,60 @@
 Updated September 28, 2026.
 
 PCCX is an open-source semiconductor project initiated and operated by
-Altifigence. Our immediate priority is to make it practical for developers
-with **SystemVerilog RTL and verification experience** to contribute.
+Altifigence. We are improving the development setup and documentation so
+SystemVerilog developers can explore the RTL, work on a testbench, and
+make a first contribution.
 
-The first milestone is a small, reproducible contribution: check out public
-RTL, run a testbench without an FPGA, investigate a result, and submit a
-reviewable verification PR.
+Our first goal is a test environment that runs without an FPGA, with a
+guide that takes contributors from running a test to opening a pull request.
 
-## Current scope
+## Repositories
 
-| Repository | Responsibility |
+| Repository | Contents |
 | --- | --- |
-| [pccx-v002](https://github.com/pccxai/pccx-v002) | Reusable v002 RTL, testbenches and the Sail ISA model. |
-| [KV260 integration](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) | Board integration, runtime and hardware evidence; consumes a pinned v002 core. |
-| [pccx-v003](https://github.com/pccxai/pccx-v003) | Experimental v003 RTL and verification work; hardware readiness is not established by source availability. |
-| [pccx](https://github.com/pccxai/pccx) | Architecture documentation, contribution guidance and the public roadmap. |
+| [pccx-v002](https://github.com/pccxai/pccx-v002) | v002 RTL, testbenches and the Sail ISA model. |
+| [KV260 integration](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260) | KV260 board integration, runtime and board tests. |
+| [pccx-v003](https://github.com/pccxai/pccx-v003) | RTL design and testbenches for the v003 architecture. |
+| [pccx](https://github.com/pccxai/pccx) | Architecture documentation, contribution guides and the development roadmap. |
 
-## Retired tools
+## What we are working toward
 
-**pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.**
-They are outside the active roadmap. Their old installation instructions,
-product links and integration plans are not a supported contribution path.
-SystemVerilog remains the language used for RTL and testbench development.
-
-The current v002 simulation runner still invokes the retired Lab trace
-converter, `from_xsim_log`. Removing that dependency is an **open task**,
-not a completed migration. Do not restore the retired tools to get started.
-{doc}`onboarding/getting-started` explains the available first check and
-the remaining simulation prerequisite.
-
-## First contribution milestone
-
-| Step | Work | Completion criterion |
+| Step | Work | Goal |
 | --- | --- | --- |
-| 1. Align the backlog | Review old issues, PRs and milestones; separate retired work from current RTL work. | Each active task has a scope, reviewer, dependencies and a checkable result. Retired work is recorded as discontinued rather than implemented. |
-| 2. Publish an independent RTL test path | Remove the Lab dependency; document supported tools and one small testbench. | A clean public checkout runs without the retired tools or an FPGA, producing a meaningful PASS/FAIL result and raw logs. |
-| 3. Prepare small verification tasks | Prepare about five scoped RTL/TB issues after checking existing test coverage. | Each issue identifies files, interface or timing rules, a reproduction command, expected results and a reviewer. |
-| 4. Validate external participation | Have an independent contributor follow checkout → test → change → PR → review. | The path is reproduced, obstacles are fixed, and the resulting change can be reviewed using its evidence. |
+| 1. Organize upcoming work | Review existing issues and PRs and choose what to carry forward. | An issue list with a scope and owner for each task. |
+| 2. Simplify the test setup | Reduce external tool dependencies and document the tools and commands. | A testbench that runs without an FPGA, with setup instructions. |
+| 3. Prepare first-contribution issues | Choose small reset, handshake and boundary-condition tests. | Around five issues with a command to run and an expected result. |
+| 4. Improve the contribution guide | Use feedback from first-time contributors to fix difficult steps. | A guide covering tests, pull requests and review. |
 
-These are completion goals, not claims that the work has finished. Dates
-will be assigned when maintainer availability and dependencies are agreed.
-There is no new fixed release deadline.
+We will share dates once the scope and owners are agreed.
+Test setup work is discussed in
+[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152).
+See {doc}`onboarding/getting-started` for the current environment.
 
-The first implementation entry is
-[KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152),
-covering contributor onboarding. The v002 weight dispatcher, result packer
-and memory operation queue are candidate areas for small verification work;
-existing testbenches must be reviewed before adding duplicate coverage.
+The v002 weight dispatcher, result packer and memory operation queue are
+starting points for small verification tasks. Read their existing testbenches
+and help identify additional cases to cover.
 
-## Hardware and later research
+## Board and architecture development
 
-Board runtime investigation continues separately through
+KV260 runtime work is tracked in
 [KV260 #154](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/154).
-Simulation, synthesis, implementation and execution on a board have
-separate completion criteria. Board access is not a prerequisite for the
-first contribution milestone.
+Contributors with a board can work on runtime and data transfers; RTL and
+testbench work can begin by reading the sources without one.
 
-Advanced decoding, sparsity, new workloads and further v003 development
-remain subjects for scoped technical proposals. Earlier calendar plans,
-training budgets and throughput targets are not current commitments.
-Measured results belong in {doc}`Evidence/index` with source SHAs,
-tool versions, commands and raw logs.
+Proposals for v003, decoding, sparsity and new workloads are welcome in
+the relevant repository's issues. Simulation and board test results are
+collected in {doc}`Evidence/index`, along with source revisions, tools and logs.
 
-## Tracking and participation
+## Get involved
 
-Use the existing [PCCX Roadmap project](https://github.com/orgs/pccxai/projects/1)
-and [contribution guide](https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md).
-The board is being reconciled with the new direction; old target-release
-fields and status columns may still reflect earlier plans.
-Original experiment and release dates remain historical records.
+Choose a repository in {doc}`quickstart`. Use
+[PCCX Roadmap](https://github.com/orgs/pccxai/projects/1) to discuss and follow
+work, and the [contribution guide](https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md)
+to prepare a PR. We will also update the project board's dates and statuses
+to match this roadmap.
 
-Start with {doc}`quickstart`. Altifigence
-[Digital Design Studio documentation](https://docs.altifigence.com/ide/)
-is an optional external resource, not a prerequisite or an automatic
-replacement for retired PCCX tools. See
-[Transparency](https://pccx.ai/en/legal/transparency/) for the relationship
-between PCCX and Altifigence.
+For Altifigence's development tools, see the
+[Digital Design Studio documentation](https://docs.altifigence.com/ide/).
+[Transparency](https://pccx.ai/en/legal/transparency/) describes how PCCX
+is operated. You are welcome to contribute using your preferred editor and tools.

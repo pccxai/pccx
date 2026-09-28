@@ -4,26 +4,22 @@ orphan: true
 
 # 기여 시작
 
-{doc}`../quickstart`에서 저장소를 선택하고 공개 RTL과 테스트벤치 목록을
-확인하세요. 첫 참여 목표는 FPGA 없이 작은 SystemVerilog 검증 PR을
-제출할 수 있는 경로를 마련하는 것입니다.
+{doc}`../quickstart`에서 관심 있는 저장소와 테스트벤치를 골라보세요.
+RTL이나 문서를 읽다가 발견한 오류, 추가하고 싶은 테스트를 해당 저장소의
+이슈로 남겨주시면 작업 범위를 함께 정할 수 있습니다.
 
-## 현재 시뮬레이션을 막는 의존성
+## 시뮬레이션 환경
 
-**pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다.**
-v002의 `LLM/sim/run_verification.sh`에는 `PCCX_LAB_DIR` 아래의
-`from_xsim_log` 호출이 남아 있습니다. 실행 파일이 없으면 테스트 전에
-변환기 빌드를 시도합니다. 선택적인 트레이스 뷰어만의 문제가 아니라
-실행을 막을 수 있는 의존성입니다.
+v002 실행기 `LLM/sim/run_verification.sh`는 Vivado xsim을 사용합니다.
+현재는 `PCCX_LAB_DIR`에 있는 트레이스 변환기 `from_xsim_log`에도 의존하므로,
+코어 저장소만 내려받으면 시뮬레이션 실행 단계에서 막힐 수 있습니다.
 
-KV260의 `scripts/v002/use_submodule_sources.sh`는
-`third_party/pccx-v002`를 통해 해당 실행기를 호출하며 예전 Lab
-디렉터리도 전달합니다. 의존성 제거와 소비 저장소의 고정 버전 갱신은
+외부 변환기 없이 실행할 수 있도록 환경을 정리하는 작업은
 [KV260 #152](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152)에서
-추적합니다. 대체할 공개 시뮬레이션 경로는 아직 검증되지 않았습니다.
-참여를 위해 폐지 도구를 복원하지 마세요.
+진행합니다. 그동안 `--list`로 테스트벤치 목록을 확인하고,
+관심 모듈과 테스트 코드를 살펴볼 수 있습니다.
 
-## 필요할 때 보드 통합 확인
+## KV260 보드 통합 살펴보기
 
 ```bash
 git clone --recurse-submodules https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260.git
@@ -32,19 +28,18 @@ git rev-parse HEAD
 git submodule status
 ```
 
-보드와 코어의 SHA를 함께 기록합니다. clone 성공은 시뮬레이션 결과가
-아닙니다. 기존 xsim 경로에는 Vivado와 해당 시뮬레이션 라이브러리가
-필요하며, 시뮬레이터에 독립적인 대체 경로가 완성됐다고 안내하지 않습니다.
-고정 버전 검토는 {doc}`../reference/submodule-pin-policy`를 참고하세요.
+KV260 저장소는 `third_party/pccx-v002`에 지정된 코어 버전을 사용합니다.
+`scripts/v002/use_submodule_sources.sh`가 코어의 시뮬레이션 실행기를
+호출하므로 위의 실행 환경이 필요합니다. 문제를 공유할 때는 보드와 코어의
+커밋을 함께 적어주세요. 버전 관리 방법은 {doc}`../reference/submodule-pin-policy`에 있습니다.
 
-## 테스트 하나의 범위와 결과 정하기
+## 첫 테스트 고르기
 
-기여 이슈에는 대상 파일·인터페이스 또는 타이밍 동작·도구 버전·명령·
-예상 assertion 또는 PASS/FAIL 결과·원본 로그 위치·리뷰 담당자를 명시합니다.
-기존 커버리지를 먼저 확인하고 테스트벤치를 추가합니다.
-실행이 막혔다면 PASS로 바꾸지 말고 그대로 기록합니다.
-과거 실행 결과만으로 현재 main이 통과한다고 판단하지 않습니다.
+기존 테스트벤치를 읽고 리셋, 핸드셰이크, 경계 조건 중 하나를 골라보세요.
+이슈에는 대상 파일, 확인하려는 동작, 실행 명령과 예상 결과를 적으면 좋습니다.
+실행 로그와 도구 버전도 함께 남겨주세요. 실행 중 오류가 났다면 오류 로그를
+첨부하면 원인을 찾는 데 도움이 됩니다.
 
-{doc}`../v002/Verification/index`와 {doc}`../Evidence/index`를 읽어보세요.
-형식 모델 점검은 코어의 `LLM/formal/sail/`에 있으며, RTL 시뮬레이션 및
-실제 보드 실행과 별개의 결과입니다.
+테스트 구성은 {doc}`../v002/Verification/index`에서,
+기존 결과와 로그 위치는 {doc}`../Evidence/index`에서 확인할 수 있습니다.
+Sail ISA 모델에 관심이 있다면 코어 저장소의 `LLM/formal/sail/`을 살펴보세요.

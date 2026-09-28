@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/en/docs/onboarding/getting-started.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="Start with Quickstart to select a repository, inspect public RTL and list the available testbenches. Our first participation goal is a small SystemVerilog verification PR without requiring an FPGA...." />
+<meta property="og:description" content="Choose a repository and testbench in Quickstart. If you find a bug or a case worth testing, open an issue in that repository so we can agree on the scope of a contribution. Simulation environment: ..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_onboarding_getting-started_dfb1b984.png" />
-<meta property="og:image:alt" content="Start with Quickstart to select a repository, inspect public RTL and list the available testbenches. Our first participation goal is a small SystemVerilog verification PR without requiring an FPGA...." />
-<meta name="description" content="Start with Quickstart to select a repository, inspect public RTL and list the available testbenches. Our first participation goal is a small SystemVerilog verification PR without requiring an FPGA...." />
+<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_onboarding_getting-started_518c5675.png" />
+<meta property="og:image:alt" content="Choose a repository and testbench in Quickstart. If you find a bug or a case worth testing, open an issue in that repository so we can agree on the scope of a contribution. Simulation environment: ..." />
+<meta name="description" content="Choose a repository and testbench in Quickstart. If you find a bug or a case worth testing, open an issue in that repository so we can agree on the scope of a contribution. Simulation environment: ..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/en/","inLanguage":"en","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Getting started","name":"Getting started","url":"https://docs.pccx.ai/en/docs/onboarding/getting-started.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/en/docs/onboarding/getting-started.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Getting started. PCCX architecture, implementation and verification documentation.","inLanguage":"en","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/onboarding/getting-started.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/onboarding/getting-started.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/onboarding/getting-started.html"><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Evidence" href="../Evidence/index.html"><link rel="prev" title="Quickstart" href="../quickstart.html">
@@ -456,47 +456,42 @@ SPDX-License-Identifier: Apache-2.0
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h1>
-<p>Start with <a class="reference internal" href="../quickstart.html"><span class="doc">Quickstart</span></a> to select a repository, inspect public RTL
-and list the available testbenches. Our first participation goal is a
-small SystemVerilog verification PR without requiring an FPGA.</p>
-<section id="current-simulation-blocker">
-<h2>Current simulation blocker<a class="headerlink" href="#current-simulation-blocker" title="Link to this heading">¶</a></h2>
-<p><strong>pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.</strong>
-The v002 runner <code class="docutils literal notranslate"><span class="pre">LLM/sim/run_verification.sh</span></code> still invokes
-<code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code> from <code class="docutils literal notranslate"><span class="pre">PCCX_LAB_DIR</span></code>. It attempts to build the converter
-before running tests when the executable is missing. This is an execution
-dependency, not just an optional trace viewer.</p>
-<p>The KV260 wrapper <code class="docutils literal notranslate"><span class="pre">scripts/v002/use_submodule_sources.sh</span></code> delegates to
-that runner through <code class="docutils literal notranslate"><span class="pre">third_party/pccx-v002</span></code> and also forwards the old
-Lab directory. Removing this dependency and updating the consumer pin
-are tracked through
+<p>Choose a repository and testbench in <a class="reference internal" href="../quickstart.html"><span class="doc">Quickstart</span></a>.
+If you find a bug or a case worth testing, open an issue in that repository
+so we can agree on the scope of a contribution.</p>
+<section id="simulation-environment">
+<h2>Simulation environment<a class="headerlink" href="#simulation-environment" title="Link to this heading">¶</a></h2>
+<p>The v002 runner, <code class="docutils literal notranslate"><span class="pre">LLM/sim/run_verification.sh</span></code>, uses Vivado xsim.
+It currently also needs the <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code> trace converter in <code class="docutils literal notranslate"><span class="pre">PCCX_LAB_DIR</span></code>,
+so checking out the core repository alone may leave simulation blocked.</p>
+<p>Work to run tests without the external converter is tracked in
 <a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>.
-The replacement public simulation path has not yet been validated.
-Do not restore discontinued tools as part of onboarding.</p>
+In the meantime, <code class="docutils literal notranslate"><span class="pre">--list</span></code> shows the available testbenches, and you can
+explore the module and test sources.</p>
 </section>
-<section id="inspect-board-integration-when-needed">
-<h2>Inspect board integration when needed<a class="headerlink" href="#inspect-board-integration-when-needed" title="Link to this heading">¶</a></h2>
+<section id="explore-kv260-board-integration">
+<h2>Explore KV260 board integration<a class="headerlink" href="#explore-kv260-board-integration" title="Link to this heading">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260.git
 <span class="nb">cd</span><span class="w"> </span>pccx-FPGA-NPU-LLM-kv260
 git<span class="w"> </span>rev-parse<span class="w"> </span>HEAD
 git<span class="w"> </span>submodule<span class="w"> </span>status
 </pre></div>
 </div>
-<p>Record both board and core SHAs. A successful clone is not a simulation
-result. The existing xsim flow requires Vivado and its simulation
-libraries; no simulator-independent replacement is claimed here.
-See <a class="reference internal" href="../reference/submodule-pin-policy.html"><span class="doc">Submodule pin policy</span></a> for pin review.</p>
+<p>The KV260 repository uses the core revision pinned in <code class="docutils literal notranslate"><span class="pre">third_party/pccx-v002</span></code>.
+Its <code class="docutils literal notranslate"><span class="pre">scripts/v002/use_submodule_sources.sh</span></code> wrapper calls the core runner,
+so it needs the environment described above. Include both board and core
+commits when reporting an issue. See <a class="reference internal" href="../reference/submodule-pin-policy.html"><span class="doc">Submodule pin policy</span></a>
+for how core revisions are managed.</p>
 </section>
-<section id="agree-on-one-test-and-its-result">
-<h2>Agree on one test and its result<a class="headerlink" href="#agree-on-one-test-and-its-result" title="Link to this heading">¶</a></h2>
-<p>A contributor issue should identify the target files, interface or
-timing behavior, tool version, command, expected assertion or PASS/FAIL
-result, raw-log location and reviewer. Check existing coverage before
-adding a new testbench. Report blocked execution rather than a synthetic
-PASS. Do not infer current-main success from a historical run.</p>
-<p>Read <a class="reference internal" href="../v002/Verification/index.html"><span class="doc">Verification</span></a> and <a class="reference internal" href="../Evidence/index.html"><span class="doc">Evidence</span></a>.
-Formal-model checks live with the core under <code class="docutils literal notranslate"><span class="pre">LLM/formal/sail/</span></code>;
-their results are distinct from RTL simulation and board execution.</p>
+<section id="choose-a-first-test">
+<h2>Choose a first test<a class="headerlink" href="#choose-a-first-test" title="Link to this heading">¶</a></h2>
+<p>Read an existing testbench and choose a reset, handshake or boundary-condition
+case. Include the target files, behavior, command and expected result in
+your issue. Share the tool version and logs from your run. If a tool fails,
+its error log will help others investigate.</p>
+<p>See <a class="reference internal" href="../v002/Verification/index.html"><span class="doc">Verification</span></a> for the test structure and
+<a class="reference internal" href="../Evidence/index.html"><span class="doc">Evidence</span></a> for existing results and log locations.
+For the Sail ISA model, explore <code class="docutils literal notranslate"><span class="pre">LLM/formal/sail/</span></code> in the core repository.</p>
 </section>
 </section>
 
@@ -573,9 +568,9 @@ their results are distinct from RTL simulation and board execution.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Getting started</a><ul>
-<li><a class="reference internal" href="#current-simulation-blocker">Current simulation blocker</a></li>
-<li><a class="reference internal" href="#inspect-board-integration-when-needed">Inspect board integration when needed</a></li>
-<li><a class="reference internal" href="#agree-on-one-test-and-its-result">Agree on one test and its result</a></li>
+<li><a class="reference internal" href="#simulation-environment">Simulation environment</a></li>
+<li><a class="reference internal" href="#explore-kv260-board-integration">Explore KV260 board integration</a></li>
+<li><a class="reference internal" href="#choose-a-first-test">Choose a first test</a></li>
 </ul>
 </li>
 </ul>

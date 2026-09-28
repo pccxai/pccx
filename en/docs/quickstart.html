@@ -8,11 +8,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/en/docs/quickstart.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="PCCX welcomes developers with SystemVerilog RTL and verification experience. Start with one module or testbench. The Roadmap prioritizes a public, independent test path and small, reviewable contri..." />
+<meta property="og:description" content="PCCX welcomes developers with SystemVerilog RTL and verification experience. Start with one module or testbench. See the Roadmap for upcoming work. 1. Choose the right repository:,, Work, Repositor..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_quickstart_8ccfacdd.png" />
-<meta property="og:image:alt" content="PCCX welcomes developers with SystemVerilog RTL and verification experience. Start with one module or testbench. The Roadmap prioritizes a public, independent test path and small, reviewable contri..." />
+<meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_quickstart_05a8b79f.png" />
+<meta property="og:image:alt" content="PCCX welcomes developers with SystemVerilog RTL and verification experience. Start with one module or testbench. See the Roadmap for upcoming work. 1. Choose the right repository:,, Work, Repositor..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/en/","inLanguage":"en","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Quickstart","name":"Quickstart","url":"https://docs.pccx.ai/en/docs/quickstart.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/en/docs/quickstart.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Quickstart. PCCX architecture, implementation and verification documentation.","inLanguage":"en","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/quickstart.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/quickstart.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/quickstart.html"><link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Getting started" href="onboarding/getting-started.html"><link rel="prev" title="pccx: Parallel Compute Core eXecutor" href="index.html">
@@ -457,8 +457,7 @@ SPDX-License-Identifier: Apache-2.0
           <section class="tex2jax_ignore mathjax_ignore" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h1>
 <p>PCCX welcomes developers with SystemVerilog RTL and verification experience.
-Start with one module or testbench. The <a class="reference internal" href="roadmap.html"><span class="doc">Roadmap</span></a> prioritizes a public,
-independent test path and small, reviewable contributions.</p>
+Start with one module or testbench. See the <a class="reference internal" href="roadmap.html"><span class="doc">Roadmap</span></a> for upcoming work.</p>
 <section id="choose-the-right-repository">
 <h2>1. Choose the right repository<a class="headerlink" href="#choose-the-right-repository" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-auto docutils container">
@@ -475,7 +474,7 @@ independent test path and small, reviewable contributions.</p>
 <tr class="row-odd"><td><p>KV260 integration, runtime and board evidence</p></td>
 <td><p><a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260">pccx-FPGA-NPU-LLM-kv260</a></p></td>
 </tr>
-<tr class="row-even"><td><p>Experimental v003 RTL</p></td>
+<tr class="row-even"><td><p>v003 RTL and testbenches</p></td>
 <td><p><a class="reference external" href="https://github.com/pccxai/pccx-v003">pccx-v003</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Architecture documentation and project guidance</p></td>
@@ -497,16 +496,10 @@ git<span class="w"> </span>rev-parse<span class="w"> </span>HEAD
 bash<span class="w"> </span>LLM/sim/run_verification.sh<span class="w"> </span>--list
 </pre></div>
 </div>
-<p>The boundary check validates repository layout; <code class="docutils literal notranslate"><span class="pre">--list</span></code> only lists
-testbench names. <strong>Neither command simulates the RTL or proves hardware
-correctness.</strong></p>
-<p><strong>Simulation is still being made independent.</strong> The current xsim runner
-uses Vivado and calls <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code> from the discontinued <code class="docutils literal notranslate"><span class="pre">pccx-lab</span></code>
-project. This dependency can block execution before a test runs.
-Do not install the retired Lab as an onboarding step.
-Follow <a class="reference internal" href="onboarding/getting-started.html"><span class="doc">Getting started</span></a> and
-<a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>
-for the removal work and supported test commands as they become available.</p>
+<p>The boundary check checks the repository layout, and <code class="docutils literal notranslate"><span class="pre">--list</span></code> shows the
+testbench names. To run simulations, see the Vivado and converter setup
+notes in <a class="reference internal" href="onboarding/getting-started.html"><span class="doc">Getting started</span></a>. We are simplifying that setup
+through <a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>.</p>
 </section>
 <section id="prepare-a-focused-contribution">
 <h2>3. Prepare a focused contribution<a class="headerlink" href="#prepare-a-focused-contribution" title="Link to this heading">¶</a></h2>
@@ -515,8 +508,6 @@ or an instruction decode. Check the existing testbench before proposing
 new coverage. Record the source SHA, tool versions, input, expected result,
 actual result and raw log. If the run is blocked, report that outcome.</p>
 <p>Use the owning repository’s issues to agree on scope and a reviewer.
-The proposed first-issue set is being prepared; it is not yet a promise
-that five ready-to-pick tasks are available.
 See the <a class="reference external" href="https://github.com/pccxai/pccx/blob/main/CONTRIBUTING.md">contribution guide</a>.</p>
 </section>
 <section id="build-a-documentation-change">
@@ -537,16 +528,13 @@ For that check, follow the
 RTL sources and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">strict</span></code>.
 Update the corresponding English and Korean guidance together.</p>
 <p>The production documentation is published at
-<a class="reference external" href="https://docs.pccx.ai/">docs.pccx.ai</a> through Cloudflare Pages.
-A deployment check confirms publication, not RTL correctness.</p>
+<a class="reference external" href="https://docs.pccx.ai/">docs.pccx.ai</a> through Cloudflare Pages.</p>
 </section>
-<section id="tool-status">
-<h2>Tool status<a class="headerlink" href="#tool-status" title="Link to this heading">¶</a></h2>
-<p><strong>pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.</strong>
-PCCX participation does not require those products or a particular IDE.
-<a class="reference external" href="https://docs.altifigence.com/ide/">Digital Design Studio</a> is an optional
-Altifigence resource. The first contribution goal does not require an FPGA.</p>
-<p>For evidence boundaries, read <a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a>.</p>
+<section id="more-resources">
+<h2>More resources<a class="headerlink" href="#more-resources" title="Link to this heading">¶</a></h2>
+<p>Use your preferred editor for RTL and documentation work.
+Altifigence’s <a class="reference external" href="https://docs.altifigence.com/ide/">Digital Design Studio documentation</a>
+is also available. See <a class="reference internal" href="Evidence/index.html"><span class="doc">Evidence</span></a> for test records and log locations.</p>
 </section>
 </section>
 
@@ -627,7 +615,7 @@ Altifigence resource. The first contribution goal does not require an FPGA.</p>
 <li><a class="reference internal" href="#make-the-first-local-check">2. Make the first local check</a></li>
 <li><a class="reference internal" href="#prepare-a-focused-contribution">3. Prepare a focused contribution</a></li>
 <li><a class="reference internal" href="#build-a-documentation-change">4. Build a documentation change</a></li>
-<li><a class="reference internal" href="#tool-status">Tool status</a></li>
+<li><a class="reference internal" href="#more-resources">More resources</a></li>
 </ul>
 </li>
 </ul>

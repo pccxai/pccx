@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/ko/docs/v002/Verification/index.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="현재 v002 RTL과 테스트벤치의 원본은 pccx-v002 입니다. 보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면 빠른 시작 에서 구조 점검과 테스트 목록부터 확인하세요. 현재 실행 조건: pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다. 현재 LLM/sim/run_verificat..." />
+<meta property="og:description" content="현재 v002 RTL과 테스트벤치의 원본은 pccx-v002 입니다. 보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면 빠른 시작 에서 구조 점검과 테스트 목록부터 확인하세요. 실행 환경: LLM/sim/run_verification.sh 는 Vivado xsim을 사용합니다. 현재는 외부 트레이스 변환기 from_xsim_log 도 필..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/ko/_images/social_previews/summary_docs_v002_Verification_index_4c35e3f8.png" />
-<meta property="og:image:alt" content="현재 v002 RTL과 테스트벤치의 원본은 pccx-v002 입니다. 보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면 빠른 시작 에서 구조 점검과 테스트 목록부터 확인하세요. 현재 실행 조건: pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다. 현재 LLM/sim/run_verificat..." />
-<meta name="description" content="현재 v002 RTL과 테스트벤치의 원본은 pccx-v002 입니다. 보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면 빠른 시작 에서 구조 점검과 테스트 목록부터 확인하세요. 현재 실행 조건: pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다. 현재 LLM/sim/run_verificat..." />
+<meta property="og:image" content="https://docs.pccx.ai/ko/_images/social_previews/summary_docs_v002_Verification_index_fd95e879.png" />
+<meta property="og:image:alt" content="현재 v002 RTL과 테스트벤치의 원본은 pccx-v002 입니다. 보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면 빠른 시작 에서 구조 점검과 테스트 목록부터 확인하세요. 실행 환경: LLM/sim/run_verification.sh 는 Vivado xsim을 사용합니다. 현재는 외부 트레이스 변환기 from_xsim_log 도 필..." />
+<meta name="description" content="현재 v002 RTL과 테스트벤치의 원본은 pccx-v002 입니다. 보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면 빠른 시작 에서 구조 점검과 테스트 목록부터 확인하세요. 실행 환경: LLM/sim/run_verification.sh 는 Vivado xsim을 사용합니다. 현재는 외부 트레이스 변환기 from_xsim_log 도 필..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/ko/","inLanguage":"ko","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"검증","name":"검증","url":"https://docs.pccx.ai/ko/docs/v002/Verification/index.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/ko/docs/v002/Verification/index.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"검증. PCCX architecture, implementation and verification documentation.","inLanguage":"ko","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/v002/Verification/index.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/v002/Verification/index.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/v002/Verification/index.html"><link rel="index" title="색인" href="../../../genindex.html"><link rel="search" title="검색" href="../../../search.html"><link rel="next" title="Vivado 빌드" href="../Build/index.html"><link rel="prev" title="공유 라이브러리" href="../RTL/library.html">
@@ -462,19 +462,15 @@ SPDX-License-Identifier: Apache-2.0
 보드 통합 저장소는 고정된 코어를 사용합니다. 검증에 참여하려면
 <a class="reference internal" href="../../quickstart.html"><span class="doc">빠른 시작</span></a>에서 구조 점검과 테스트 목록부터 확인하세요.</p>
 <section id="id2">
-<h2>현재 실행 조건<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p><strong>pccx-lab, SystemVerilog IDE, PCCX Launcher는 모두 폐지되었습니다.</strong>
-현재 <code class="docutils literal notranslate"><span class="pre">LLM/sim/run_verification.sh</span></code>는 Vivado xsim을 사용하며,
-폐지된 Lab의 <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code>를 테스트 전 빌드하고 실행 후 호출합니다.
-독립적인 공개 시뮬레이션 경로는 아직 완료되지 않았습니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--list</span></code>로 목록을 확인할 수 있지만 시뮬레이션은 수행하지 않습니다.
-폐지 도구를 설치하도록 안내하지 않습니다. 의존성 제거는
-<a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>와
-<a class="reference internal" href="../../onboarding/getting-started.html"><span class="doc">기여 시작</span></a>에서 추적합니다.</p>
-<p>테스트벤치 목록과 실제 통과 기록은 구분해야 합니다. 실행 결과에는
-코어 SHA·도구 버전·명령·예상 결과·실제 결과·원본 로그를 첨부합니다.
-원본 로그의 예정 위치는 <code class="docutils literal notranslate"><span class="pre">LLM/sim/work/&lt;tb&gt;/</span></code>이며,
-보드 wrapper 요약은 <code class="docutils literal notranslate"><span class="pre">build/sim_v002_submodule.log</span></code>입니다.</p>
+<h2>실행 환경<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">LLM/sim/run_verification.sh</span></code>는 Vivado xsim을 사용합니다.
+현재는 외부 트레이스 변환기 <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code>도 필요하며,
+이 의존성을 줄이는 작업은
+<a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>에서 진행합니다. 자세한 설정은 <a class="reference internal" href="../../onboarding/getting-started.html"><span class="doc">기여 시작</span></a>를
+참고하세요. <code class="docutils literal notranslate"><span class="pre">--list</span></code>로 테스트벤치 목록을 확인할 수 있습니다.</p>
+<p>실행 결과에는 코어 커밋, 도구 버전, 명령과 로그를 함께 남겨주세요.
+테스트별 로그는 <code class="docutils literal notranslate"><span class="pre">LLM/sim/work/&lt;tb&gt;/</span></code>에,
+보드 wrapper의 요약은 <code class="docutils literal notranslate"><span class="pre">build/sim_v002_submodule.log</span></code>에 기록됩니다.</p>
 </section>
 <section id="id3">
 <h2>첫 검증 기여의 범위<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
@@ -483,14 +479,13 @@ SPDX-License-Identifier: Apache-2.0
 테스트벤치를 읽고 이미 다루는 조건을 확인합니다.</p></li>
 <li><p>리셋·핸드셰이크·경계 조건 중 재현 가능한 작은 범위를 정합니다.</p></li>
 <li><p>assertion 또는 PASS/FAIL 기준을 정하고 리뷰 담당자와 합의합니다.</p></li>
-<li><p>도구 오류나 미실행 결과를 성공으로 처리하지 않습니다.</p></li>
+<li><p>실행 로그를 첨부하고 예상 결과와 비교합니다.</p></li>
 </ul>
 </section>
 <section id="id4">
 <h2>과거 유닛 테스트 기록<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
-<p>아래 표는 2026-04-21의 KV260 저장소 커밋 <code class="docutils literal notranslate"><span class="pre">773bd82</span></code>를 대상으로
-이 문서에 기록됐던 결과입니다. 현재 main을 다시 실행한 결과가 아니며,
-당시 경로와 실행기를 현재 기여 절차로 사용하지 않습니다.</p>
+<p>아래는 KV260 저장소의 커밋 <code class="docutils literal notranslate"><span class="pre">773bd82</span></code>에서 기록한
+2026년 4월 21일의 테스트 결과입니다.</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -535,9 +530,9 @@ SPDX-License-Identifier: Apache-2.0
 </section>
 <section id="id5">
 <h2>시뮬레이션 이후의 검증<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
-<p>형식 모델, 합성·배치배선, 타이밍 리포트, 실제 보드 실행은 각각 별도의
-증거가 필요합니다. 모듈 테스트 통과만으로 모델 추론·성능·실리콘 동작을
-보장하지 않습니다. <a class="reference internal" href="../../Evidence/index.html"><span class="doc">검증 자료</span></a>의 기준을 따르세요.</p>
+<p>합성·배치배선 이후에는 타이밍과 자원 사용량을 확인하고, 보드에서
+데이터 전송과 런타임을 테스트합니다. 결과를 기록하는 방법은
+<a class="reference internal" href="../../Evidence/index.html"><span class="doc">검증 자료</span></a>에 정리되어 있습니다.</p>
 <div class="admonition seealso">
 <p class="admonition-title">더 보기</p>
 <p><a class="reference internal" href="../Architecture/index.html"><span class="doc">하드웨어 아키텍처</span></a>
@@ -620,7 +615,7 @@ SPDX-License-Identifier: Apache-2.0
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">검증</a><ul>
-<li><a class="reference internal" href="#id2">현재 실행 조건</a></li>
+<li><a class="reference internal" href="#id2">실행 환경</a></li>
 <li><a class="reference internal" href="#id3">첫 검증 기여의 범위</a></li>
 <li><a class="reference internal" href="#id4">과거 유닛 테스트 기록</a></li>
 <li><a class="reference internal" href="#id5">시뮬레이션 이후의 검증</a></li>

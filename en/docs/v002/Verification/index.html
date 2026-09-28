@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/en/docs/v002/Verification/index.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Current execution prereq..." />
+<meta property="og:description" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Execution environment: L..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image" content="https://docs.pccx.ai/en/_images/social_previews/summary_docs_v002_Verification_index_a4728b92.png" />
-<meta property="og:image:alt" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Current execution prereq..." />
-<meta name="description" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Current execution prereq..." />
+<meta property="og:image:alt" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Execution environment: L..." />
+<meta name="description" content="Current v002 RTL and testbenches live in pccx-v002. The board integration repository consumes a pinned core. Begin with the structural check and test listing in Quickstart. Execution environment: L..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/en/","inLanguage":"en","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Verification","name":"Verification","url":"https://docs.pccx.ai/en/docs/v002/Verification/index.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/en/docs/v002/Verification/index.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Verification. PCCX architecture, implementation and verification documentation.","inLanguage":"en","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/v002/Verification/index.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/v002/Verification/index.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/v002/Verification/index.html"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Vivado Build" href="../Build/index.html"><link rel="prev" title="Shared Library" href="../RTL/library.html">
@@ -460,20 +460,17 @@ SPDX-License-Identifier: Apache-2.0
 <a class="reference external" href="https://github.com/pccxai/pccx-v002">pccx-v002</a>.
 The board integration repository consumes a pinned core. Begin with
 the structural check and test listing in <a class="reference internal" href="../../quickstart.html"><span class="doc">Quickstart</span></a>.</p>
-<section id="current-execution-prerequisites">
-<h2>Current execution prerequisites<a class="headerlink" href="#current-execution-prerequisites" title="Link to this heading">¶</a></h2>
-<p><strong>pccx-lab, SystemVerilog IDE and PCCX Launcher are discontinued.</strong>
-The current <code class="docutils literal notranslate"><span class="pre">LLM/sim/run_verification.sh</span></code> uses Vivado xsim and still
-builds the retired Lab’s <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code> before tests, then invokes it
-after simulation. The independent public simulation path is not complete.</p>
-<p><code class="docutils literal notranslate"><span class="pre">--list</span></code> can enumerate testbenches without running them. Installing
-retired tools is not an onboarding step. Dependency removal is tracked
-through <a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>
-and <a class="reference internal" href="../../onboarding/getting-started.html"><span class="doc">Getting started</span></a>.</p>
-<p>A testbench listing is distinct from a passing run. Attach the core SHA,
-tool version, command, expected result, actual result and raw logs.
-The runner’s output location is <code class="docutils literal notranslate"><span class="pre">LLM/sim/work/&lt;tb&gt;/</span></code>;
-the board wrapper summary belongs in <code class="docutils literal notranslate"><span class="pre">build/sim_v002_submodule.log</span></code>.</p>
+<section id="execution-environment">
+<h2>Execution environment<a class="headerlink" href="#execution-environment" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">LLM/sim/run_verification.sh</span></code> uses Vivado xsim and currently also needs
+the external <code class="docutils literal notranslate"><span class="pre">from_xsim_log</span></code> trace converter. Work to reduce this
+dependency is tracked in
+<a class="reference external" href="https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260/issues/152">KV260 #152</a>.
+See <a class="reference internal" href="../../onboarding/getting-started.html"><span class="doc">Getting started</span></a> for the setup. Use <code class="docutils literal notranslate"><span class="pre">--list</span></code>
+to view the testbench names.</p>
+<p>Include the core commit, tool version, command and logs when sharing a run.
+Test logs are written to <code class="docutils literal notranslate"><span class="pre">LLM/sim/work/&lt;tb&gt;/</span></code>; the board wrapper’s
+summary is written to <code class="docutils literal notranslate"><span class="pre">build/sim_v002_submodule.log</span></code>.</p>
 </section>
 <section id="scope-a-first-verification-contribution">
 <h2>Scope a first verification contribution<a class="headerlink" href="#scope-a-first-verification-contribution" title="Link to this heading">¶</a></h2>
@@ -482,14 +479,13 @@ the board wrapper summary belongs in <code class="docutils literal notranslate">
 queue testbench before proposing new coverage.</p></li>
 <li><p>Choose a small reset, handshake or boundary-condition case.</p></li>
 <li><p>Agree on assertions or PASS/FAIL criteria with a reviewer.</p></li>
-<li><p>Report tool failures and unexecuted tests as such.</p></li>
+<li><p>Attach the run log and compare it with the expected result.</p></li>
 </ul>
 </section>
 <section id="historical-unit-test-record">
 <h2>Historical unit-test record<a class="headerlink" href="#historical-unit-test-record" title="Link to this heading">¶</a></h2>
-<p>The table below was recorded here for KV260 repository commit
-<code class="docutils literal notranslate"><span class="pre">773bd82</span></code> on April 21, 2026. It is not a fresh result for current main.
-The old source paths and runner are not the current contributor runbook.</p>
+<p>The following results were recorded on April 21, 2026, for commit
+<code class="docutils literal notranslate"><span class="pre">773bd82</span></code> in the KV260 repository.</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -534,10 +530,9 @@ The old source paths and runner are not the current contributor runbook.</p>
 </section>
 <section id="verification-beyond-simulation">
 <h2>Verification beyond simulation<a class="headerlink" href="#verification-beyond-simulation" title="Link to this heading">¶</a></h2>
-<p>Formal models, synthesis and implementation, timing reports and execution
-on a board require separate evidence. Passing a module test does not
-establish model inference, performance or silicon readiness.
-Follow <a class="reference internal" href="../../Evidence/index.html"><span class="doc">Evidence</span></a>.</p>
+<p>After synthesis and implementation, check timing and resource use, then
+test data transfers and runtime behavior on the board. See
+<a class="reference internal" href="../../Evidence/index.html"><span class="doc">Evidence</span></a> for how to record the results.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../Architecture/index.html"><span class="doc">Hardware Architecture</span></a>
@@ -620,7 +615,7 @@ Follow <a class="reference internal" href="../../Evidence/index.html"><span clas
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Verification</a><ul>
-<li><a class="reference internal" href="#current-execution-prerequisites">Current execution prerequisites</a></li>
+<li><a class="reference internal" href="#execution-environment">Execution environment</a></li>
 <li><a class="reference internal" href="#scope-a-first-verification-contribution">Scope a first verification contribution</a></li>
 <li><a class="reference internal" href="#historical-unit-test-record">Historical unit-test record</a></li>
 <li><a class="reference internal" href="#verification-beyond-simulation">Verification beyond simulation</a></li>

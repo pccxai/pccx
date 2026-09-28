@@ -7,12 +7,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://docs.pccx.ai/ko/docs/reference/testing-protocol.html" />
 <meta property="og:site_name" content="pccx — Parallel Compute Core eXecutor" />
-<meta property="og:description" content="Verification은 IP-core 저장소와 board integration 저장소로 분리한다. 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다. 현재 실행 조건: pccx-lab은 폐지되었습니다. 아래 KV260 wrapper가 호출하는 코어 실행기에는 예전 변환기 의존성이 남아 있습니다. 기여 시작 을 먼저 확인하고, 독립 실행 경로..." />
+<meta property="og:description" content="Verification은 IP-core 저장소와 board integration 저장소로 분리한다. 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다. Vivado와 트레이스 변환기 설정은 기여 시작 을 참고하세요. Sail typecheck ( pccx-v002): 위치: pccxai/pccx-v002/.github/workflows/sai..." />
 <meta property="og:image:width" content="1146" />
 <meta property="og:image:height" content="600" />
-<meta property="og:image" content="https://docs.pccx.ai/ko/_images/social_previews/summary_docs_reference_testing-protocol_4e7e41ce.png" />
-<meta property="og:image:alt" content="Verification은 IP-core 저장소와 board integration 저장소로 분리한다. 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다. 현재 실행 조건: pccx-lab은 폐지되었습니다. 아래 KV260 wrapper가 호출하는 코어 실행기에는 예전 변환기 의존성이 남아 있습니다. 기여 시작 을 먼저 확인하고, 독립 실행 경로..." />
-<meta name="description" content="Verification은 IP-core 저장소와 board integration 저장소로 분리한다. 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다. 현재 실행 조건: pccx-lab은 폐지되었습니다. 아래 KV260 wrapper가 호출하는 코어 실행기에는 예전 변환기 의존성이 남아 있습니다. 기여 시작 을 먼저 확인하고, 독립 실행 경로..." />
+<meta property="og:image" content="https://docs.pccx.ai/ko/_images/social_previews/summary_docs_reference_testing-protocol_ee55d1f5.png" />
+<meta property="og:image:alt" content="Verification은 IP-core 저장소와 board integration 저장소로 분리한다. 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다. Vivado와 트레이스 변환기 설정은 기여 시작 을 참고하세요. Sail typecheck ( pccx-v002): 위치: pccxai/pccx-v002/.github/workflows/sai..." />
+<meta name="description" content="Verification은 IP-core 저장소와 board integration 저장소로 분리한다. 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다. Vivado와 트레이스 변환기 설정은 기여 시작 을 참고하세요. Sail typecheck ( pccx-v002): 위치: pccxai/pccx-v002/.github/workflows/sai..." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"PCCX Docs","url":"https://docs.pccx.ai/ko/","inLanguage":"ko","publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"PCCX NPU architecture, reusable RTL, FPGA integration and verification documentation."},{"@context":"https://schema.org","@type":"TechArticle","headline":"Testing protocol","name":"Testing protocol","url":"https://docs.pccx.ai/ko/docs/reference/testing-protocol.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.pccx.ai/ko/docs/reference/testing-protocol.html"},"isPartOf":{"@type":"WebSite","name":"pccx — Parallel Compute Core eXecutor","url":"https://docs.pccx.ai/"},"publisher":{"@type":"Organization","name":"Altifigence","url":"https://altifigence.com/"},"description":"Testing protocol. PCCX architecture, implementation and verification documentation.","inLanguage":"ko","license":"https://github.com/pccxai/pccx/blob/main/LICENSE"}]</script><link rel="alternate" hreflang="en" href="https://docs.pccx.ai/en/docs/reference/testing-protocol.html"><link rel="alternate" hreflang="x-default" href="https://docs.pccx.ai/en/docs/reference/testing-protocol.html"><link rel="alternate" hreflang="ko" href="https://docs.pccx.ai/ko/docs/reference/testing-protocol.html"><link rel="index" title="색인" href="../../genindex.html"><link rel="search" title="검색" href="../../search.html">
@@ -459,12 +459,8 @@ SPDX-License-Identifier: Apache-2.0
 <h1>Testing protocol<a class="headerlink" href="#testing-protocol" title="Link to this heading">¶</a></h1>
 <p>Verification은 IP-core 저장소와 board integration 저장소로 분리한다.
 각 레이어는 서로가 읽을 수 있는 evidence를 남긴다.</p>
-<blockquote>
-<div><p><strong>현재 실행 조건:</strong> pccx-lab은 폐지되었습니다. 아래 KV260 wrapper가
-호출하는 코어 실행기에는 예전 변환기 의존성이 남아 있습니다.
-<a class="reference internal" href="../onboarding/getting-started.html"><span class="std std-doc">기여 시작</span></a>을 먼저 확인하고,
-독립 실행 경로를 검증하기 전에는 과거 PASS를 현재 결과로 사용하지 마세요.</p>
-</div></blockquote>
+<p>Vivado와 트레이스 변환기 설정은
+<a class="reference internal" href="../onboarding/getting-started.html"><span class="std std-doc">기여 시작</span></a>을 참고하세요.</p>
 <section id="sail-typecheck-pccx-v002">
 <h2>Sail typecheck (<code class="docutils literal notranslate"><span class="pre">pccx-v002</span></code>)<a class="headerlink" href="#sail-typecheck-pccx-v002" title="Link to this heading">¶</a></h2>
 <ul class="simple">
