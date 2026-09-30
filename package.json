@@ -1,0 +1,15 @@
+{
+  "name": "pccx-cloudflare",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cf:build": "node scripts/cf.mjs build",
+    "cf:dry-run": "node scripts/cf.mjs deploy --dry-run",
+    "cf:deploy": "node scripts/cf.mjs deploy",
+    "build": "python tools/build_cloudflare.py"
+  },
+  "devDependencies": {
+    "cf": "1.0.0-beta.5",
+    "wrangler": "4.144.0"
+  }
+}

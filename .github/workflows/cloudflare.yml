@@ -1,0 +1,27 @@
+name: Cloudflare Worker
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends graphviz
+      - run: npm ci
+      - run: python -m pip install -r requirements.txt
+      - name: Fetch current public RTL references
+        run: git clone --depth 1 https://github.com/pccxai/pccx-v002 codes/v002
+      - run: npm run build
+      - run: npm run cf:dry-run -- --mode preview
