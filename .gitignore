@@ -130,3 +130,11 @@ htmlcov/
 *.egg-info/
 dist/
 pip-wheel-metadata/
+
+node_modules/
+
+.cloudflare/
+
+.wrangler/
+
+.dev.vars
